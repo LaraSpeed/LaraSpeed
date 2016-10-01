@@ -1,0 +1,13 @@
+{
+    "name": "berthe/codegenerator",
+    "description": "\"Laravel MCD Code Generator\"",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Seydou Berthe",
+            "email": "seydouberthe100@gmaill.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -19,7 +19,7 @@ class EnumType extends TypeBaseClass
     public function __construct($attrName = "", $elements = array ())
     {
         $this->attrName = $attrName;
-        $this->elements = $elements;
+        $this->elements = Helper::createStringArray($elements);
     }
 
     function getDBFunction()

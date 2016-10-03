@@ -1,7 +1,8 @@
+<?php 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class <?php echo $__env->yieldContent('schemaClassName'); ?> extends Migration
+class CreateFilm_categoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -10,9 +11,11 @@ class <?php echo $__env->yieldContent('schemaClassName'); ?> extends Migration
      */
     public function up()
     {
-        Schema::create('<?php echo $__env->yieldContent('createTable'); ?>', function (Blueprint $table) {
+        Schema::create('film_category', function (Blueprint $table) {
             //$table->increments('id');
-            <?php echo $__env->yieldContent('fields'); ?>
+            $table->smallInteger('film_id');
+$table->tinyInteger('category_id');
+$table->timestamp('last_update');
         });
     }
     /**
@@ -22,7 +25,7 @@ class <?php echo $__env->yieldContent('schemaClassName'); ?> extends Migration
      */
     public function down()
     {
-        Schema::drop('<?php echo $__env->yieldContent('dropTable'); ?>');
+        Schema::drop('film_category');
     }
 }
 

@@ -20,11 +20,11 @@ class SetType extends TypeBaseClass
     public function __construct($attrName = "", $allowed = array())
     {
         $this->attrName = $attrName;
-        $this->allowed = implode(",", $allowed);
+        $this->allowed = Helper::createStringArray($allowed);
     }
 
     function getDBFunction()
     {
-        return "$this->functionName('set', ".$this->attrName."', $this->allowed)";
+        return "$this->functionName('set', '".$this->attrName."', $this->allowed)";
     }
 }

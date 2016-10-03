@@ -87,6 +87,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\SetType');
 
         $this->app->make('Berthe\Codegenerator\FormTemplateProvider');
+        $this->app->make('Berthe\Codegenerator\Helper');
 
     }
 }

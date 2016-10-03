@@ -13,7 +13,7 @@ class SmallIntegerType extends TypeBaseClass
 {
     public $attrName;
     public $autoIncrement;
-    public $functionName = "enum";
+    public $functionName = "smallInteger";
     public $displayable = false;
 
     public function __construct($attrName = "", $autoIncrement = false)

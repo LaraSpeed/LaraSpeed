@@ -14,9 +14,19 @@ interface ILaravelCodeGenerator
     function generateLaravelSchema();
     function generateLaravelController();
     function generateLaravelForm();
-
+    public function generateLaravelShowForm();
     function generateLaravel($template = "form", $outdir = "form");
     public function generate($type = "Form");
+    public function generateLaravelSchemaConstraint($template = "constraints", $outdir="");
+}
+
+interface IAdvancedLaravelGenerator {
+    function generateLaravelModel();
+    function generateLaravelSchema();
+    function generateLaravelController();
+    function generateLaravelForm();
     public function generateLaravelShowForm();
+    function generateLaravel(Templater $templater);
+    public function generate($type = "Form");
     public function generateLaravelSchemaConstraint($template = "constraints", $outdir="");
 }

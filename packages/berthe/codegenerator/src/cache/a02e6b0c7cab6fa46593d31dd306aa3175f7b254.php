@@ -1,8 +1,7 @@
-<?php 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActeurTable extends Migration
+class <?php echo $__env->yieldContent('schemaClassName'); ?> extends Migration
 {
     /**
      * Run the migrations.
@@ -11,10 +10,9 @@ class CreateActeurTable extends Migration
      */
     public function up()
     {
-        Schema::create('acteur', function (Blueprint $table) {
+        Schema::create('<?php echo $__env->yieldContent('createTable'); ?>', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->string('age');
+            <?php echo $__env->yieldContent('fields'); ?>
         });
     }
     /**
@@ -24,7 +22,7 @@ class CreateActeurTable extends Migration
      */
     public function down()
     {
-        Schema::drop('acteur');
+        Schema::drop('<?php echo $__env->yieldContent('dropTable'); ?>');
     }
 }
 

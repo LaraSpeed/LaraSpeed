@@ -16,15 +16,20 @@ class GeneratorCode  extends CallGenerator {
 
         $mcd = new MCD();
         $mcd->table("film")
-                ->string("titre")
-                ->integer("annee")
-                ->hasMany('acteur')
-                ->end()
-            ->table("acteur")
-                ->string("nom")
-                ->integer("age")
-                ->belongsTo("film")
-                ->end();
+            ->increments("film_id")
+            ->string("title", 255)
+            ->text("description")
+            ->char("release_year", 4)
+            ->tinyInteger("original_language_id")
+            ->tinyInteger("rental_duration")
+            ->decimal("rental_rate", 4, 2)
+            ->smallInteger("length")
+            ->decimal("replacement_cost", 5, 2)
+            ->enum("rating", array('G', 'PG', 'PG-1', 'R', 'NC-17'))
+            ->set("special_features", array('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind The Scenes'))
+            ->timeStamp("last_update")
+            ->belongsTo("language")
+            ->end();
         
         return $mcd->getSite();
     }

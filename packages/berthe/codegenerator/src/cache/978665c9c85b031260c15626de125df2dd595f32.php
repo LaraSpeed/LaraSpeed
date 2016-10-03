@@ -1,9 +1,9 @@
-<?php 
+
 namespace App\Http\Controllers;
 
-use App\Film;
+use App\<?php echo $__env->yieldContent('modelNamespace'); ?>;
 
-class FilmController extends Controller {
+class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
 
     /**
     * Display a listing of the resource.
@@ -12,7 +12,7 @@ class FilmController extends Controller {
     */
     public function index()
     {
-        return view('film_show', ['films' => Film::all()]);
+        return view('<?php echo $__env->yieldContent('viewName'); ?>_show', ['<?php echo $__env->yieldContent('varID'); ?>' => <?php echo $__env->yieldContent('modelCall'); ?>]);
     }
 
     /**
@@ -22,7 +22,7 @@ class FilmController extends Controller {
     */
     public function create()
     {
-        return view('film');
+        return view('<?php echo $__env->yieldContent('createView'); ?>');
     }
 
     /**
@@ -32,11 +32,11 @@ class FilmController extends Controller {
     */
     public function store()
     {
-        $film = request()->all();
+        $<?php echo $__env->yieldContent('storeVar'); ?> = request()->all();
         //To Do Validate data
 
         //Store it
-        Film::create($film);
+        <?php echo $__env->yieldContent('ModelName1'); ?>::create($<?php echo $__env->yieldContent('storeVar1'); ?>);
 
         return back();
     }
@@ -49,7 +49,7 @@ class FilmController extends Controller {
     */
     public function show($id)
     {
-        return view('film_display', ['film' => Film::find($id)]);
+        return view('<?php echo $__env->yieldContent('singleView'); ?>_display', ['<?php echo $__env->yieldContent('varID1'); ?>' => <?php echo $__env->yieldContent('modelCall1'); ?>]);
     }
 
     /**
@@ -82,7 +82,7 @@ class FilmController extends Controller {
     */
     public function destroy($id)
     {
-        Film::delete($id);
+        <?php echo $__env->yieldContent('deleteCall'); ?>;
         return back();
     }
 

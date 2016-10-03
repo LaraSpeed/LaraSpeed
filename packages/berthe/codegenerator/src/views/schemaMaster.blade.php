@@ -11,7 +11,7 @@ class @yield('schemaClassName') extends Migration
     public function up()
     {
         Schema::create('@yield('createTable')', function (Blueprint $table) {
-            $table->increments('id');
+            //$table->increments('id');
             @yield('fields')
         });
     }

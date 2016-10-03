@@ -17,7 +17,7 @@ class LaravelCodeGenerator implements ILaravelCodeGenerator
     {
         $this->mda = $table;
 
-        //Creating Master File. (====Not Optimale But working Fine===).
+        //Creating Master File. (=== Not Optimale But working Fine ===).
         $p = base_path('resources/views/')."master.blade.php";
         $content = file_get_contents(__DIR__.'/views/formMaster.blade.php');
         file_put_contents($p, $content);

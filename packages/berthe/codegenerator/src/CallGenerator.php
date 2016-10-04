@@ -21,6 +21,7 @@ class CallGenerator
             //new LaravelCodeGenerator($this->getSite());
         $laravelGenerator->generate();
         $laravelGenerator->generate('ShowForm');
+        $laravelGenerator->generate('DisplaySingleElement');
         $laravelGenerator->generate('Schema');
         $laravelGenerator->generate('Model');
         $laravelGenerator->generate('Controller');

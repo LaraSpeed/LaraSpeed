@@ -1,7 +1,12 @@
 @extends('master')
 @section('content')
 <h1>Formulaire d'ajout Language</h1>
-<form action="language" method="post">       
+<form action="language" method="post">   
+		<div class="form-group-lg">
+			<label id="name">Name : </label>
+			
+		</div>
+		    
 			<div class="form-group-lg">
 				<label id="film">Film</label>
 				<select name="filmselect" class="form-control"></select>

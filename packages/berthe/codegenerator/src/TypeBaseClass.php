@@ -21,4 +21,8 @@ class TypeBaseClass
     {
         return $this->displayable;
     }
+
+    function isAutoIncrement(){
+        return false;
+    }
 }

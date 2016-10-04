@@ -21,6 +21,8 @@ class MCD
 
     private $isEnded;
 
+    private $hasId = false; //Track whether current table has an ID setUp
+
     public function __construct()
     {
         $this->tables = array();
@@ -32,6 +34,15 @@ class MCD
         $this->currentAttributes = array();
         $this->currentRelations = array();
         $this->isEnded = false;
+        $this->hasId = false;
+    }
+
+    private function setTableID($id)
+    {
+        if (!$this->hasId) {
+            $this->tables[$this->currentTableName]['id'] = $id;
+            $this->hasId = true;
+        }
     }
 
     /**
@@ -72,6 +83,10 @@ class MCD
      */
     public function bigIncrements($attrName="biginc"){
         $this->currentAttributes[$attrName] = new BigIncrementsType($attrName);
+
+        //Create an ID for the current Table if not exist
+        $this->setTableID($attrName);
+
         return $this;
     }
 
@@ -152,6 +167,10 @@ class MCD
      */
     public function increments($attrName = "inc"){
         $this->currentAttributes[$attrName] = new IncrementsType($attrName);
+
+        //Create an ID for the current Table if not exist
+        $this->setTableID($attrName);
+
         return $this;
     }
 
@@ -171,6 +190,10 @@ class MCD
      */
     public function smallInteger($attrName = "smallint", $autoIncrements = false){
         $this->currentAttributes[$attrName] = new SmallIntegerType($attrName, $autoIncrements);
+
+        //Create an ID for the current Table if not exist
+        $this->setTableID($attrName);
+
         return $this;
     }
 
@@ -198,6 +221,10 @@ class MCD
      */
     public function tinyInteger($attrName = "tinyInteger"){
         $this->currentAttributes[$attrName] = new TinyIntegerType($attrName);
+
+        //Create an ID for the current Table if not exist
+        $this->setTableID($attrName);
+
         return $this;
     }
 

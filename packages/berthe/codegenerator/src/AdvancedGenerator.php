@@ -76,6 +76,11 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         FileUtils::normalizeFile("", $this->generateLaravel(new DisplayTemplate), new InheritMaster(new BasicNormalization));
     }
 
+    public function generateLaravelDisplaySingleElement()
+    {
+        FileUtils::normalizeFile("", $this->generateLaravel(new SingleDisplayTemplate), new InheritMaster(new BasicNormalization));
+    }
+
     public function generate($type = "Form")
     {
         echo "Generate ".$type." started !\n";

@@ -18,6 +18,8 @@ class BasicNormalization implements NormalizeInterface
 
         //Normalize Code
         $content = str_replace('S3B', '@', $content);
+        $content = str_replace('S2BOBRACKET', '{{', $content);
+        $content = str_replace('S2BCBRACKET', '}}', $content);
         file_put_contents($path, "$stringToPrepends".$content);
         chmod($path, 0777);
     }

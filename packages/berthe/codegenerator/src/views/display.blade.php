@@ -4,3 +4,7 @@
 <label class="text-danger">{{ucfirst($attrName)}} : </label>
 <p>S2BOBRACKET${!! $table['title'].'->'.$attrName!!}S2BCBRACKET</p>
 @endif @endforeach
+
+@foreach($table['relations'] as $relation)
+
+@endforeach

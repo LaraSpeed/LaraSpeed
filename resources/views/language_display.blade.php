@@ -4,4 +4,6 @@
 
    <label class="text-danger">Name : </label>
 <p>{{$language->name}}</p>
-   @endsection
+   
+
+@endsection

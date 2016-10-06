@@ -5,6 +5,10 @@ namespace Berthe\Codegenerator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
+use Berthe\Codegenerator\Normalizer\BasicNormalization;
+use Berthe\Codegenerator\Normalizer\InheritMaster;
+use Berthe\Codegenerator\Contrats\NormalizeInterface;
+
 class CodeGeneratorServiceProvider extends ServiceProvider
 {
     /**
@@ -37,27 +41,27 @@ class CodeGeneratorServiceProvider extends ServiceProvider
     public function register()
     {
         //include __DIR__.'/routes.php';
-        $this->app->make('Berthe\Codegenerator\CallGenerator');
-        $this->app->make('Berthe\Codegenerator\MCD');
-	    $this->app->make('Berthe\Codegenerator\FileGenerator');
-        //$this->app->make('Berthe\Codegenerator\ILaravelCodeGenerator');
-        $this->app->make('Berthe\Codegenerator\LaravelCodeGenerator');
-        $this->app->make('Berthe\Codegenerator\TemplateProvider');
-        $this->app->bind('Berthe\Codegenerator\ILaravelCodeGenerator', 'Berthe\Codegenerator\LaravelCodeGenerator');
+        $this->app->make('Berthe\Codegenerator\Core\CallGenerator');
+        $this->app->make('Berthe\Codegenerator\Core\MCD');
+	    $this->app->make('Berthe\Codegenerator\Core\FileGenerator');
+        //$this->app->bind('Berthe\Codegenerator\ILaravelCodeGenerator');
+        $this->app->make('Berthe\Codegenerator\Core\LaravelCodeGenerator');
+        $this->app->make('Berthe\Codegenerator\Utils\TemplateProvider');
+        $this->app->bind('Berthe\Codegenerator\Contrats\ILaravelCodeGenerator', 'Berthe\Codegenerator\Core\LaravelCodeGenerator');
 
 
         //Advanced Binded components.
-        $this->app->make('Berthe\Codegenerator\SchemaTemplate');
-        $this->app->make('Berthe\Codegenerator\ModelTemplate');
-        $this->app->make('Berthe\Codegenerator\FormTemplate');
-        $this->app->make('Berthe\Codegenerator\ControllerTemplate');
-        $this->app->make('Berthe\Codegenerator\DisplayTemplate');
-        $this->app->make('Berthe\Codegenerator\SingleDisplayTemplate');
-        $this->app->make('Berthe\Codegenerator\Laravel53Route');
+        $this->app->make('Berthe\Codegenerator\Templates\SchemaTemplate');
+        $this->app->make('Berthe\Codegenerator\Templates\ModelTemplate');
+        $this->app->make('Berthe\Codegenerator\Templates\FormTemplate');
+        $this->app->make('Berthe\Codegenerator\Templates\ControllerTemplate');
+        $this->app->make('Berthe\Codegenerator\Templates\DisplayTemplate');
+        $this->app->make('Berthe\Codegenerator\Templates\SingleDisplayTemplate');
+        $this->app->make('Berthe\Codegenerator\Routess\Laravel53Route');
 
-        $this->app->make('Berthe\Codegenerator\FileUtils');
+        $this->app->make('Berthe\Codegenerator\Utils\FileUtils');
 
-        $this->app->make('Berthe\Codegenerator\BasicNormalization');
+        $this->app->make('Berthe\Codegenerator\Normalizer\BasicNormalization');
 
         $this->app->when(InheritMaster::class)
             ->needs(NormalizeInterface::class)
@@ -65,30 +69,31 @@ class CodeGeneratorServiceProvider extends ServiceProvider
                 return new BasicNormalization();
             });
 
-        $this->app->make('Berthe\Codegenerator\InheritMaster');
+        $this->app->make('Berthe\Codegenerator\Normalizer\InheritMaster');
 
-        $this->app->make('Berthe\Codegenerator\AdvancedGenerator');
+        $this->app->make('Berthe\Codegenerator\Core\AdvancedGenerator');
+        $this->app->make('Berthe\Codegenerator\Core\LaravelCodeGenerator');
 
-        $this->app->make('Berthe\Codegenerator\StringType');
-        $this->app->make('Berthe\Codegenerator\IntegerType');
-        $this->app->make('Berthe\Codegenerator\BigIncrementsType');
-        $this->app->make('Berthe\Codegenerator\BigIntegerType');
-        $this->app->make('Berthe\Codegenerator\BooleanType');
-        $this->app->make('Berthe\Codegenerator\CharType');
-        $this->app->make('Berthe\Codegenerator\DecimalType');
-        $this->app->make('Berthe\Codegenerator\DoubleType');
-        $this->app->make('Berthe\Codegenerator\FloatType');
-        $this->app->make('Berthe\Codegenerator\IncrementsType');
-        $this->app->make('Berthe\Codegenerator\LongTextType');
-        $this->app->make('Berthe\Codegenerator\TinyIntegerType');
-        $this->app->make('Berthe\Codegenerator\TextType');
-        $this->app->make('Berthe\Codegenerator\TimeStampType');
-        $this->app->make('Berthe\Codegenerator\EnumType');
-        $this->app->make('Berthe\Codegenerator\SmallIntegerType');
-        $this->app->make('Berthe\Codegenerator\SetType');
+        $this->app->make('Berthe\Codegenerator\MCDType\StringType');
+        $this->app->make('Berthe\Codegenerator\MCDType\IntegerType');
+        $this->app->make('Berthe\Codegenerator\MCDType\BigIncrementsType');
+        $this->app->make('Berthe\Codegenerator\MCDType\BigIntegerType');
+        $this->app->make('Berthe\Codegenerator\MCDType\BooleanType');
+        $this->app->make('Berthe\Codegenerator\MCDType\CharType');
+        $this->app->make('Berthe\Codegenerator\MCDType\DecimalType');
+        $this->app->make('Berthe\Codegenerator\MCDType\DoubleType');
+        $this->app->make('Berthe\Codegenerator\MCDType\FloatType');
+        $this->app->make('Berthe\Codegenerator\MCDType\IncrementsType');
+        $this->app->make('Berthe\Codegenerator\MCDType\LongTextType');
+        $this->app->make('Berthe\Codegenerator\MCDType\TinyIntegerType');
+        $this->app->make('Berthe\Codegenerator\MCDType\TextType');
+        $this->app->make('Berthe\Codegenerator\MCDType\TimeStampType');
+        $this->app->make('Berthe\Codegenerator\MCDType\EnumType');
+        $this->app->make('Berthe\Codegenerator\MCDType\SmallIntegerType');
+        $this->app->make('Berthe\Codegenerator\MCDType\SetType');
 
-        $this->app->make('Berthe\Codegenerator\FormTemplateProvider');
-        $this->app->make('Berthe\Codegenerator\Helper');
+        $this->app->make('Berthe\Codegenerator\Utils\FormTemplateProvider');
+        $this->app->make('Berthe\Codegenerator\Utils\Helper');
 
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace App\in;
-use Berthe\Codegenerator\CallGenerator;
-use Berthe\Codegenerator\MCD;
+use Berthe\Codegenerator\Core\CallGenerator;
+use Berthe\Codegenerator\Core\MCD;
 
 /**
  * Created by PhpStorm.

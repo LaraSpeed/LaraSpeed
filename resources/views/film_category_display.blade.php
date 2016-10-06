@@ -4,4 +4,5 @@
 
    <label class="text-danger">Category_id : </label>
 <p>{{$film_category->category_id}}</p>
-   @endsection
+   
+@endsection

@@ -16,4 +16,6 @@
 <p>{{$film->rental_rate}}</p>
     <label class="text-danger">Replacement_cost : </label>
 <p>{{$film->replacement_cost}}</p>
-       @endsection
+       
+
+@endsection

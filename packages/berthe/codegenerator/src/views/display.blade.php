@@ -1,4 +1,4 @@
-<h1>Affichage {{$table['title']}}</h1>
+<h1 class="text-danger">Display {{ucfirst($table['title'])}}</h1>
 
 @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 <label class="text-danger">{{ucfirst($attrName)}} : </label>
@@ -6,5 +6,5 @@
 @endif @endforeach
 
 @foreach($table['relations'] as $relation)
-
+    @include($relation->getDisplayView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs])
 @endforeach

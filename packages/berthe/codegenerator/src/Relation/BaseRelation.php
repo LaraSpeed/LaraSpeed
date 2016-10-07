@@ -8,7 +8,7 @@
 
 namespace Berthe\Codegenerator\Relation;
 
-use Berthe\CodeGenerator\Contrats\RelationSpecificationInterface;
+use Berthe\Codegenerator\Contrats\RelationSpecificationInterface;
 
 class BaseRelation implements RelationSpecificationInterface
 {

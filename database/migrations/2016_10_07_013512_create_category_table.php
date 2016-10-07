@@ -2,7 +2,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFilm_categoryTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,10 +11,10 @@ class CreateFilm_categoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('film_category', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             //$table->increments('id');
-            $table->smallInteger('film_id');
-$table->tinyInteger('category_id');
+            $table->tinyInteger('category_id');
+$table->string('name', 25);
 $table->timestamp('last_update');
         });
     }
@@ -25,7 +25,7 @@ $table->timestamp('last_update');
      */
     public function down()
     {
-        Schema::drop('film_category');
+        Schema::drop('category');
     }
 }
 

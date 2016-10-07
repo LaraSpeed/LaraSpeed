@@ -1,9 +1,10 @@
 @extends('master')
 @section('content')
-<h1>Liste des Film</h1>
+<h1 class="text-danger">List of Film</h1>
 <table class="table table-striped">
     <thead>
-        <tr>               <th>
+        <tr><th>See</th>
+                             <th>
                 <a href="http://localhost/film">Title</a>
             </th>              <th>
                 <a href="http://localhost/film">Description</a>
@@ -24,13 +25,14 @@
     <tbody>
         @forelse($films as $film)
             <tr>
-               <td><a href="film/{{$film->film_id}}">{{$film->title}}</a></td>
-              <td><a href="film/{{$film->film_id}}">{{$film->description}}</a></td>
-              <td><a href="film/{{$film->film_id}}">{{$film->release_year}}</a></td>
-              <td><a href="film/{{$film->film_id}}">{{$film->original_language_id}}</a></td>
-              <td><a href="film/{{$film->film_id}}">{{$film->rental_duration}}</a></td>
-              <td><a href="film/{{$film->film_id}}">{{$film->rental_rate}}</a></td>
-                <td><a href="film/{{$film->film_id}}">{{$film->replacement_cost}}</a></td>
+                <td><a href="film/{{$film->film_id}}">See</a></td>
+                 <td>{{$film->title}}</td>
+              <td>{{$film->description}}</td>
+              <td>{{$film->release_year}}</td>
+              <td>{{$film->original_language_id}}</td>
+              <td>{{$film->rental_duration}}</td>
+              <td>{{$film->rental_rate}}</td>
+                <td>{{$film->replacement_cost}}</td>
            </tr>
         @empty
             <tr>

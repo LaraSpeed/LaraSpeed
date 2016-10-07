@@ -47,10 +47,9 @@ class LanguageController extends Controller {
     * @param    int  $id
     * @return  Response
     */
-    public function show($id)
+    public function show(Language $language )
     {
-        return view('language_display', ['language' => Language::find($id)]);
-    }
+           $language->load(array("film",));return view('language_display', compact('language'));        }
 
     /**
     * Show the form for editing the specified resource.

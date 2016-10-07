@@ -12,13 +12,9 @@
 <?php $__env->startSection('attributs'); ?><?php if(array_key_exists('attributs', $table)): ?><?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrVal): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php echo "\"$attrName\", "; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('relations'); ?><?php if(array_key_exists('relations', $table)): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relationType => $tab1): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $__currentLoopData = $tab1; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tab): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php echo e("function $tab(){ "); ?>
-
-       <?php echo 'return $this->'.$relationType.'(\'App\\'.ucfirst($tab).'\');'; ?>
-
-    <?php echo e("}"); ?>
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+<?php $__env->startSection('relations'); ?><?php if(array_key_exists('relations', $table)): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relationType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+<?php echo $__env->make($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('modelMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

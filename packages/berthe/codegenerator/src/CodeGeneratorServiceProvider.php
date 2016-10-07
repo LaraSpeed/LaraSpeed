@@ -92,8 +92,16 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\MCDType\SmallIntegerType');
         $this->app->make('Berthe\Codegenerator\MCDType\SetType');
 
+        //Utils Classes
         $this->app->make('Berthe\Codegenerator\Utils\FormTemplateProvider');
         $this->app->make('Berthe\Codegenerator\Utils\Helper');
+
+        //Relations Classes
+        $this->app->make('Berthe\Codegenerator\Relation\BaseRelation');
+        $this->app->make('Berthe\Codegenerator\Relation\BelongsToRelation');
+        $this->app->make('Berthe\Codegenerator\Relation\BelongsToManyRelation');
+        $this->app->make('Berthe\Codegenerator\Relation\HasManyRelation');
+        $this->app->make('Berthe\Codegenerator\Relation\HasOneRelation');
 
     }
 }

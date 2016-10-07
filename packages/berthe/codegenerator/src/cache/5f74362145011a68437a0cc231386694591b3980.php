@@ -47,9 +47,9 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     * @param    int  $id
     * @return  Response
     */
-    public function show($id)
+    public function show(<?php echo $__env->yieldContent('object'); ?>)
     {
-        return view('<?php echo $__env->yieldContent('singleView'); ?>_display', ['<?php echo $__env->yieldContent('varID1'); ?>' => <?php echo $__env->yieldContent('modelCall1'); ?>]);
+        <?php echo $__env->yieldContent('show'); ?>
     }
 
     /**

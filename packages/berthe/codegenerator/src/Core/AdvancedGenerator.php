@@ -40,9 +40,9 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
     {
         foreach($this->mda as $tableName => $table){
             
-            $table['title'] = $tableName;
+            $table['title'] = $tableName; //var_dump($table['relations']);
             
-            $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table]);
+            $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, 'tbs' => $this->mda]);
 
             $path = $templater->getPath($tableName);
 

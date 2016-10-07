@@ -1,22 +1,20 @@
 @extends('constraintMaster')
-@section('constraints') @foreach($tbs as $tabName => $table)@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType => $tables)@if($relationType == "belongsTo")
-{!! 'Schema::table(\''.$tabName.'\', function(Blueprint $table) {'!!}
-            @foreach($tables as $tab){!!'$table->integer(\''.$tab.'_id\')->unsigned()->index();'!!}
-            {!!'$table->foreign(\''.$tab.'_id\')->references(\'id\')->on(\''.$tab.'\')->onDelete(\'cascade\')->onUpdate(\'cascade\');'!!}
-@endforeach
-         {!! '});' !!}
+@section('constraints')@foreach($tbs as $tabName => $table)@if(array_key_exists('relations', $table)){!! 'Schema::table(\''.$tabName.'\', function(Blueprint $table) {'!!}
+@foreach($table['relations'] as $relationType)@if($relationType->hasConstraint())
+            @include($relationType->getForeignConstraintView(), ['tab' => $relationType->getOtherTable(), 'tbs' => $tbs])
 @endif
 @endforeach
+{!! '});' !!}
 @endif
 @endforeach
 @endsection
 
-@section('dropTables') @foreach($tbs as $tabName => $table)@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType => $tables)@if($relationType == "belongsTo"){!! 'Schema::table(\''.$tabName.'\', function(Blueprint $table) {'!!}
-    @foreach($tables as $tab)       {!!'$table->dropForeign(\''.$tabName.'_'.$tab.'_id_foreign\');'!!}
-    @endforeach
-    {!! '});' !!}
+@section('dropTables')@foreach($tbs as $tabName => $table)@if(array_key_exists('relations', $table)){!! 'Schema::table(\''.$tabName.'\', function(Blueprint $table) {'!!}
+    @foreach($table['relations'] as $relationType)@if($relationType->hasConstraint())
+            @include($relationType->getDropTableConstraintView(), ['tabName' => $tabName, 'tab' => $relationType->getOtherTable()])
 @endif
 @endforeach
+{!! '});' !!}
 @endif
 @endforeach
 

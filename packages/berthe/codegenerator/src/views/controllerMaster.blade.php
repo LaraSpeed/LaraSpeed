@@ -47,9 +47,9 @@ class @yield('controllerName') extends Controller {
     * @param  int  $id
     * @return Response
     */
-    public function show($id)
+    public function show(@yield('object'))
     {
-        return view('@yield('singleView')_display', ['@yield('varID1')' => @yield('modelCall1')]);
+        @yield('show')
     }
 
     /**

@@ -18,10 +18,11 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
     public $formView = "hasManyForm";
     public $displayView = "hasManyDisplay";
     public $modelView = "singleArgModelRelation";
+    public $actionView = "hasManyController";
 
-    public function __construct($type, $table, $other)
+    public function __construct($table = "table", $other = "otherTable")
     {
-        parent::__construct($type, $table, $other);
+        parent::__construct("hasMany", $table, $other);
     }
 
 
@@ -42,6 +43,6 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
 
     function getActionView()
     {
-        // TODO: Implement getActionView() method.
+        return $this->actionView;
     }
 }

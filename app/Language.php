@@ -12,9 +12,8 @@ class Language extends Model
     protected $fillable = ["language_id", "name", "last_update",  ];
 
     function film(){ 
-       return $this->hasMany('App\Film');
-    }
-  
+    return $this->hasMany('App\Film');
+} 
 }
 
 ?>

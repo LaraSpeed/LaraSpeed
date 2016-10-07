@@ -1,0 +1,1 @@
+<?php echo "return view('".$tab."_display', compact('".$tab."'));"; ?>

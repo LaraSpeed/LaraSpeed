@@ -12,9 +12,8 @@
 @section('attributs')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrVal){!! "\"$attrName\", "!!}@endforeach @endif
 @endsection
 
-@section('relations')@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType => $tab1)@foreach($tab1 as $tab){{"function $tab(){ "}}
-       {!!'return $this->'.$relationType.'(\'App\\'.ucfirst($tab).'\');'!!}
-    {{"}"}}
-@endforeach @endforeach @endif
+@section('relations')@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType)
+@include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable()])
+@endforeach @endif
 
 @endsection

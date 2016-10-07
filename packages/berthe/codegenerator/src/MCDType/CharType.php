@@ -18,14 +18,17 @@ class CharType extends TypeBaseClass implements FormableType
     public $nb_character;
     public $formType = "text";
     public $functionName = "char";
-    public $displayable = false;
+    public $displayable;
 
     public function __construct($attrName = "", $nb_character=0)
     {
         $this->attrName = $attrName;
         $this->nb_character = $nb_character;
+        
         if($nb_character > 1){
             $this->displayable = true;
+        }else{
+            $this->displayable = false;
         }
     }
 

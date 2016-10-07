@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
-<h1>Formulaire d'ajout Film</h1>
-<form action="film" method="post">   
+<h1 class="text-danger">Film add form</h1>
+<form action="http://localhost/films" method="post">     
 		<div class="form-group-lg">
 			<label id="title">Title : </label>
 			<input type ="text" class="form-control" name="title" placeholder="Title" />
@@ -37,14 +37,9 @@
 			<input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement_cost" />
 		</div>
 		        
-			<div class="form-group-lg">
-			<label id="language">Language</label>
-			<select name="languageselect" class="form-control"></select>
-		</div>
-	  
 		<br/><div class="form-group-lg">
-			<button type="submit" class="btn btn-primary">Soumettre</button>
-			<button type="reset" class="btn btn-primary">Annuler</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="reset" class="btn btn-primary">Cancel</button>
 		</div>
 </form>
 @endsection

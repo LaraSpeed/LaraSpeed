@@ -19,3 +19,4 @@ Route::resource('film', 'FilmController');
 Route::resource('acteur', 'ActeurController');
 Route::resource('language', 'LanguageController');
 Route::resource('film_category', 'Film_categoryController');
+Route::resource('category', 'CategoryController');

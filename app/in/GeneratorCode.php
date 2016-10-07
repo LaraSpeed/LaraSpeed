@@ -17,6 +17,7 @@ class GeneratorCode  extends CallGenerator {
         $mcd = new MCD();
         $mcd->table("film")
                 ->increments("film_id")
+                ->smallInteger("language_id")
                 ->string("title", 255)
                 ->text("description")
                 ->char("release_year", 4)
@@ -30,7 +31,7 @@ class GeneratorCode  extends CallGenerator {
                 ->set("special_features", array('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind The Scenes'))
                 ->timeStamp("last_update")
                 ->belongsTo("language")
-                ->belongsTo("film_category")
+                ->belongsToMany("category")
                 ->end()
 
             ->table("language")
@@ -40,10 +41,11 @@ class GeneratorCode  extends CallGenerator {
                 ->hasMany("film")
                 ->end()
 
-            ->table("film_category")
-                ->smallInteger("film_id")
+            ->table("category")
                 ->tinyInteger("category_id")
+                ->string("name", 25)
                 ->timeStamp("last_update")
+                ->belongsToMany("film")
                 ->end();
         
         return $mcd->getSite();

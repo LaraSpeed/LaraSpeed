@@ -1,42 +1,42 @@
-<?php 
+
 namespace App\Http\Controllers;
 
-use App\Film_category;
+use App\@yield('modelNamespace');
 
-class Film_categoryController extends Controller {
+class @yield('controllerName') extends Controller {
 
     /**
     * Display a listing of the resource.
     *
-    * @return  Response
+    * @return Response
     */
     public function index()
     {
-        return view('film_category_show', ['film_categorys' => Film_category::all()]);
+        return view('@yield('viewName')_show', ['@yield('varID')' => @yield('modelCall')]);
     }
 
     /**
     * Show the form for creating a new resource.
     *
-    * @return  Response
+    * @return Response
     */
     public function create()
     {
-        return view('film_category');
+        return view('@yield('createView')');
     }
 
     /**
     * Store a newly created resource in storage.
     *
-    * @return  Response
+    * @return Response
     */
     public function store()
     {
-        $film_category = request()->all();
+        $@yield('storeVar') = request()->all();
         //To Do Validate data
 
         //Store it
-        Film_category::create($film_category);
+        @yield('ModelName1')::create($@yield('storeVar1'));
 
         return back();
     }
@@ -44,19 +44,19 @@ class Film_categoryController extends Controller {
     /**
     * Display the specified resource.
     *
-    * @param    int  $id
-    * @return  Response
+    * @param  int  $id
+    * @return Response
     */
     public function show($id)
     {
-        return view('film_category_display', ['film_category' => Film_category::find($id)]);
+        return view('@yield('singleView')_display', ['@yield('varID1')' => @yield('modelCall1')]);
     }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param    int  $id
-    * @return  Response
+    * @param  int  $id
+    * @return Response
     */
     public function edit($id)
     {
@@ -66,8 +66,8 @@ class Film_categoryController extends Controller {
     /**
     * Update the specified resource in storage.
     *
-    * @param    int  $id
-    * @return  Response
+    * @param  int  $id
+    * @return Response
     */
     public function update($id)
     {
@@ -77,12 +77,12 @@ class Film_categoryController extends Controller {
     /**
     * Remove the specified resource from storage.
     *
-    * @param    int  $id
-    * @return  Response
+    * @param  int  $id
+    * @return Response
     */
     public function destroy($id)
     {
-        Film_category::delete($id);
+        @yield('deleteCall');
         return back();
     }
 

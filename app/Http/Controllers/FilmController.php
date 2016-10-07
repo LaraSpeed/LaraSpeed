@@ -47,10 +47,9 @@ class FilmController extends Controller {
     * @param    int  $id
     * @return  Response
     */
-    public function show($id)
+    public function show(Film $film )
     {
-        return view('film_display', ['film' => Film::find($id)]);
-    }
+             $film->load(array("language","category",));return view('film_display', compact('film'));        }
 
     /**
     * Show the form for editing the specified resource.

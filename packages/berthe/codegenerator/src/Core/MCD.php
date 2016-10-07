@@ -25,6 +25,10 @@ use Berthe\CodeGenerator\MCDType\StringType;
 use Berthe\CodeGenerator\MCDType\TextType;
 use Berthe\CodeGenerator\MCDType\TinyIntegerType;
 use Berthe\CodeGenerator\MCDType\TimeStampType;
+use Berthe\Codegenerator\Relation\BelongsToManyRelation;
+use Berthe\CodeGenerator\Relation\BelongsToRelation;
+use Berthe\CodeGenerator\Relation\HasManyRelation;
+use Berthe\CodeGenerator\Relation\HasOneRelation;
 
 
 class MCD
@@ -71,6 +75,7 @@ class MCD
     public function table($tableName = "table"){
         $this->tables[$tableName] = array();
         $this->currentTableName = $tableName;
+        $this->tables[$this->currentTableName]['relations'] = array();
         return $this;
     }
 
@@ -257,12 +262,22 @@ class MCD
     }
 
     /**
+     * Function adding new relation hasOne Type of relation to the list of the current table relations
+     * @param string $tableName
+     * @return $this
+     */
+    public function hasOne($tableName="table"){
+        $this->tables[$this->currentTableName]['relations'][] = new HasOneRelation($this->currentTableName, $tableName);
+        return $this;
+    }
+
+    /**
      * Function adding new relation hasMany Type of relation to the list of the current table relations
      * @param string $tableName
      * @return $this
      */
     public function hasMany($tableName="table"){
-        $this->currentRelations['hasMany'][] = $tableName;
+        $this->tables[$this->currentTableName]['relations'][] = new HasManyRelation($this->currentTableName, $tableName);
         return $this;
     }
 
@@ -272,7 +287,17 @@ class MCD
      * @return $this
      */
     public function belongsTo($tableName ="table"){
-        $this->currentRelations["belongsTo"][] = $tableName;
+        $this->tables[$this->currentTableName]['relations'][] = new BelongsToRelation($this->currentTableName, $tableName);
+        return $this;
+    }
+
+    /**
+     * Function adding new relation belongsToMany Type of relation to the list of the current table relations
+     * @param string $tableName
+     * @return $this
+     */
+    public function belongsToMany($tableName ="table"){
+        $this->tables[$this->currentTableName]['relations'][] = new BelongsToManyRelation($this->currentTableName, $tableName);
         return $this;
     }
 
@@ -282,7 +307,7 @@ class MCD
      */
     public function end(){
         $this->tables[$this->currentTableName]['attributs'] = $this->currentAttributes;
-        $this->tables[$this->currentTableName]['relations'] = $this->currentRelations;
+        //$this->tables[$this->currentTableName]['relations'] = $this->currentRelations;
         $this->init();
         return $this;
     }

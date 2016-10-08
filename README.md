@@ -17,8 +17,9 @@ With relations such as :
     Language has many Film.
 
 So to specifiy such Data Model using the <b>LaraSpeed</b> and let it generate the corresponding code, we proceed like that :
-    $mcd = new MCD();
-    $mcd->table("film")                         //Table film
+        
+        $mcd = new MCD();
+        $mcd->table("film")                         //Table film
                 ->increments("film_id")           
                 ->smallInteger("language_id")
                 ->string("title", 255)            
@@ -64,7 +65,7 @@ This will generate :
   Those views can be accessed each from others depending on the relation type.
   For example from film_show.blade.php (Display list of film) it's possible to show a single film (film_display.blade.php).
   
-  <h1>How to use the <u><b>LaraSpeed</b></u> ?</h1>
+  <h3>How to use the <u><b>LaraSpeed</b></u> ?</h3>
   
  <ul>
  <li>Download the project above (LaraSpeed).</li>
@@ -72,13 +73,13 @@ This will generate :
  <li>Finally run command : php artisan code:generate and get your application up and running.</li>
  </ul>
   
-<h1><u><b>LaraSpeed</b></u> supported type in Conceptual Data Model</h1>
+<h3><u><b>LaraSpeed</b></u> supported type in Conceptual Data Model</h3>
   <b>LaraSpeed</b> support all mysql data Type.
 
-<h1><u><b>LaraSpeed</b></u> supported Relation in Conceptual Data Model</h1>
+<h3><u><b>LaraSpeed</b></u> supported Relation in Conceptual Data Model</h3>
   <b>For the moment LaraSpeed support 3 relations type (1:1, 1:n and n:n).</b>
   
-<h1><u><b>LaraSpeed</b></u> limits</h1>
+<h3><u><b>LaraSpeed</b></u> limits</h3>
    <ul>
    <li>You have to specify first of all the primary key field for every table when deifining Conceptual Data Model.</li>
    <li> For n:n (ManyToMany) relation, you have to create the intermediate table between the concerned table and specify        the intermediate table name as second argument in concerned tables Model belongsToMany(...) methods.   

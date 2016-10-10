@@ -26,9 +26,12 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 {
     public $mda;
 
-    public function __construct($table = array())
+    public $config;
+
+    public function __construct($table = array(), $config = array())
     {
         $this->mda = $table;
+        $this->config = new BasicConfig($config);
 
         //Creating Master File. (=== Not Optimale But working Fine ===).
         $p = base_path('resources/views/')."master.blade.php";
@@ -41,7 +44,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         foreach($this->mda as $tableName => $table){
             
             $table['title'] = $tableName; //var_dump($table['relations']);
-            
+
             $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, 'tbs' => $this->mda]);
 
             $path = $templater->getPath($tableName);
@@ -72,7 +75,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 
     function generateLaravelForm()
     {
-        FileUtils::normalizeFile("", $this->generateLaravel(new FormTemplate), new InheritMaster(new BasicNormalization));
+        FileUtils::normalizeFile("", $this->generateLaravel(new FormTemplate($this->config->version())), new InheritMaster(new BasicNormalization));
     }
 
     public function generateLaravelShowForm()

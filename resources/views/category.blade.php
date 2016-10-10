@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <h1 class="text-danger">Category add form</h1>
-<form action="http://localhost/categorys" method="post"> 
+<form action="categorys" method="post"> 
 		<div class="form-group-lg">
 			<label id="category_id">Category_id : </label>
 			<input type ="number" class="form-control" name="category_id" placeholder="Category_id" />

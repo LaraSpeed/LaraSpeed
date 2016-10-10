@@ -18,7 +18,7 @@ class CallGenerator
 
     public function index()
     {
-        $laravelGenerator = new AdvancedGenerator($this->getSite());
+        $laravelGenerator = new AdvancedGenerator($this->getSite(), $this->configs);
             //new LaravelCodeGenerator($this->getSite());
         $laravelGenerator->generate();
         $laravelGenerator->generate('ShowForm');

@@ -12,9 +12,14 @@ use Berthe\Codegenerator\Core\MCD;
 
 class GeneratorCode  extends CallGenerator {
 
+    public $configs = array(
+        "version" => "5.1",
+    );
+
     public function getSite(){
 
         $mcd = new MCD();
+
         $mcd->table("film")
                 ->increments("film_id")
                 ->smallInteger("language_id")

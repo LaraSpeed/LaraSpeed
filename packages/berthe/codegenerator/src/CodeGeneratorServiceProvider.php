@@ -50,6 +50,10 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->bind('Berthe\Codegenerator\Contrats\ILaravelCodeGenerator', 'Berthe\Codegenerator\Core\LaravelCodeGenerator');
 
 
+        //Config
+        $this->app->bind('Berthe\Codegenerator\Contrats\ConfigInterface');
+        $this->app->make('Berthe\Codegenerator\Core\BasicConfig');
+
         //Advanced Binded components.
         $this->app->make('Berthe\Codegenerator\Templates\SchemaTemplate');
         $this->app->make('Berthe\Codegenerator\Templates\ModelTemplate');
@@ -58,6 +62,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\Templates\DisplayTemplate');
         $this->app->make('Berthe\Codegenerator\Templates\SingleDisplayTemplate');
         $this->app->make('Berthe\Codegenerator\Routess\Laravel53Route');
+        $this->app->make('Berthe\Codegenerator\Routess\Laravel512Route');
 
         $this->app->make('Berthe\Codegenerator\Utils\FileUtils');
 
@@ -95,6 +100,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         //Utils Classes
         $this->app->make('Berthe\Codegenerator\Utils\FormTemplateProvider');
         $this->app->make('Berthe\Codegenerator\Utils\Helper');
+        $this->app->make('Berthe\Codegenerator\Utils\Variable');
 
         //Relations Classes
         $this->app->make('Berthe\Codegenerator\Relation\BaseRelation');
@@ -102,6 +108,8 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\Relation\BelongsToManyRelation');
         $this->app->make('Berthe\Codegenerator\Relation\HasManyRelation');
         $this->app->make('Berthe\Codegenerator\Relation\HasOneRelation');
+
+
 
     }
 }

@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <h1 class="text-danger">Film add form</h1>
-<form action="http://localhost/films" method="post">     
+<form action="films" method="post">     
 		<div class="form-group-lg">
 			<label id="title">Title : </label>
 			<input type ="text" class="form-control" name="title" placeholder="Title" />

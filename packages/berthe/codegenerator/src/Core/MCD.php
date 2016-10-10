@@ -45,9 +45,11 @@ class MCD
 
     private $hasId = false; //Track whether current table has an ID setUp
 
+
     public function __construct()
     {
         $this->tables = array();
+
         $this->init();
     }
 
@@ -66,6 +68,7 @@ class MCD
             $this->hasId = true;
         }
     }
+    
 
     /**
      * Function initializing adding table.

@@ -46,24 +46,36 @@ So to specifiy such Data Model using the <b>LaraSpeed</b> and let it generate th
   
 As you can see, the Data Model is specified using Laravel Schema specification Model.
 
-This will generate :
-  Models :
-  (Film.php, Category.php and Language.php) in app directory.
+This will generate :<br/>
+  Models :<br/>
+  (Film.php, Category.php and Language.php) in app directory.<br/>
+     ![Alt text](model.png?raw=true "Models")
   
-  Controller :
-  (FilmController.php, CategoryController.php and LanguageController.php) in app/Http/Controller directory with      necessary code to handle Rest Controller Requests.
+  Controller :<br/>
+  (FilmController.php, CategoryController.php and LanguageController.php) in app/Http/Controller directory with necessary code  to handle Rest Controller Requests.<br/>
+   ![Alt text](controller.png?raw=true "Controllers")
  
- Migration :
- (date_create_film_table.php, date_create_category_table.php, date_create_language_table.php and date_create_foreign_keys.php) in database/migrations directory.
+ Migration :<br/><br/>
+ (date_create_film_table.php, date_create_category_table.php, date_create_language_table.php and date_create_foreign_keys.php) in database/migrations directory.<br/>
+    ![Alt text](migrations.png?raw=true "Migrations")
   
-  Views :
-    [film, language, category].blade.php : Contains form to insert new [film, language, category] element.
-    [film, language, category]_show.blade.php : Contains necessary code to display different table data.
-    [film, language, category]_display.blade.php : Will display single [film, language category] with it relationnal table data.
-      For example film_display.blade.php will display single Film with Language and Category related to the displaying film.
+  Views :<br/>
+    [film, language, category].blade.php : Contains form to insert new [film, language, category] element.<br/>
+    [film, language, category]_show.blade.php : Contains necessary code to display different table data.<br/>
+    [film, language, category]_display.blade.php : Will display single [film, language category] with it relationnal table data.<br/>
+      For example film_display.blade.php will display single Film with Language and Category related to the displaying film.<br/>
+    ![Alt text](view.png?raw=true "Views")   
   
   Those views can be accessed each from others depending on the relation type.
   For example from film_show.blade.php (Display list of film) it's possible to show a single film (film_display.blade.php).
+  
+  Using MySQl Sakila database with above table schema, below is differents pages related to Language table :<br/>
+  
+  <h4>List of Language (language_show.blade.php)<h4>
+  ![Alt text](language.png?raw=true "Show Languages")  
+  
+  <h4>Information about single Language and it related table "Film" (language_display.blade.php)</h4>
+  ![Alt text](language_display.png?raw=true "Display Language") 
   
   <h3>How to use the <u><b>LaraSpeed</b></u> ?</h3>
   

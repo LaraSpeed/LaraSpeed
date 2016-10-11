@@ -2,7 +2,7 @@
 
 <b>LaraSpeed</b> is Laravel Code generator package based on application Conceptual Data Model.
 
-Indeed, <b>LaraSpeed</b> package generate your Laravel 5.3 application Models, Controllers, Views, Migrations after having specified the Conceptuel Data Model. As an example is always welcome, let's start by an example.
+Indeed, <b>LaraSpeed</b> package generate your Laravel 5.[1, 2, 3] application Models, Controllers, Views, Migrations after having specified the Conceptuel Data Model. As an example is always welcome, let's start by an example.
 
 Let's consider the following Conceptual Data Model  :
 
@@ -83,6 +83,7 @@ This will generate :<br/>
  <li>Download the project above (LaraSpeed).</li>
  <li>In project file <b>app\in\GeneratorCode.php</b> define your Conceptual Data Model as above in getSite() method.</li>
  <li>Finally run command : php artisan code:generate and get your application up and running.</li>
+ <li>NB : You can specify Laravel Version within app\in\GeneratorCode.php class.</li>
  </ul>
   
 <h3><u><b>LaraSpeed</b></u> supported type in Conceptual Data Model</h3>

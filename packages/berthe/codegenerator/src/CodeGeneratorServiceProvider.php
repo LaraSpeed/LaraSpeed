@@ -61,6 +61,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\Templates\ControllerTemplate');
         $this->app->make('Berthe\Codegenerator\Templates\DisplayTemplate');
         $this->app->make('Berthe\Codegenerator\Templates\SingleDisplayTemplate');
+        $this->app->make('Berthe\Codegenerator\Templates\EditTemplate');
         $this->app->make('Berthe\Codegenerator\Routess\Laravel53Route');
         $this->app->make('Berthe\Codegenerator\Routess\Laravel512Route');
 

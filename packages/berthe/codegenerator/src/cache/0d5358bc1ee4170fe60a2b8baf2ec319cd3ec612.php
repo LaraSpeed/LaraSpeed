@@ -18,10 +18,20 @@
 
 <?php $__env->startSection('object'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>
-<?php $__env->startSection('show'); ?><?php if(key_exists("relations", $table)): ?> <?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php $tb[] = $relation->getOtherTable() ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+<?php $__env->startSection('show'); ?><?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 <?php echo $__env->make($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php echo $__env->make("showReturnValController", ['tab' => $relation->getTable()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <?php echo $__env->make("showReturnValController", ['tab' => $relation->getTable(), "type" => "display"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('editParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $tb = array(); ?>
+<?php $__env->startSection('edit'); ?><?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+<?php echo $__env->make($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+        <?php echo $__env->make("showReturnValController", ['tab' => $relation->getTable(), "type" => "edit"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php endif; ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('deleteCall'); ?><?php echo e(ucfirst($table['title']).'::delete($id)'); ?><?php $__env->stopSection(); ?>

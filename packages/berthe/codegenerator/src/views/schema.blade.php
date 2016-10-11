@@ -4,7 +4,8 @@
 
 @section('createTable'){{$table['title']}}@endsection
 
-@section('fields')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType){!! '$table->'.$attrType->getDBFunction().';' !!}
+@section('fields')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)
+            {!! '$table->'.$attrType->getDBFunction().';' !!}
 @endforeach
 @endif
 @endsection

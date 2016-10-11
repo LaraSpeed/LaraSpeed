@@ -14,6 +14,7 @@
 
 @section('relations')@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType)
 @include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable()])
+
 @endforeach @endif
 
 @endsection

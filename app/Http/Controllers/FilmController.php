@@ -44,22 +44,24 @@ class FilmController extends Controller {
     /**
     * Display the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function show(Film $film )
     {
-             $film->load(array("language","category",));return view('film_display', compact('film'));        }
+        $film->load(array("language","category",));
+        return view('film_display', compact('film'));        }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function edit($id)
+    public function edit(Film $film )
     {
-
+        $film->load(array("language","category",));
+        return view('film_edit', compact('film'));
     }
 
     /**

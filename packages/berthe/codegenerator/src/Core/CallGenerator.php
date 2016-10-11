@@ -7,7 +7,6 @@
  */
 
 namespace Berthe\Codegenerator\Core;
-//use Berthe\Codegenerator\Core\LaravelCodeGenerator;
 use Berthe\Codegenerator\Core\AdvancedGenerator;
 
 class CallGenerator
@@ -23,6 +22,7 @@ class CallGenerator
         $laravelGenerator->generate();
         $laravelGenerator->generate('ShowForm');
         $laravelGenerator->generate('DisplaySingleElement');
+        $laravelGenerator->generate('EditForm');
         $laravelGenerator->generate('Schema');
         $laravelGenerator->generate('Model');
         $laravelGenerator->generate('Controller');

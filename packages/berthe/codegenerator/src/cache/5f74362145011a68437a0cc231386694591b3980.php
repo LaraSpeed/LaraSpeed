@@ -44,7 +44,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     /**
     * Display the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function show(<?php echo $__env->yieldContent('object'); ?>)
@@ -55,11 +55,12 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     /**
     * Show the form for editing the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function edit($id)
+    public function edit(<?php echo $__env->yieldContent('editParam'); ?>)
     {
+        <?php echo $__env->yieldContent('edit'); ?>
 
     }
 

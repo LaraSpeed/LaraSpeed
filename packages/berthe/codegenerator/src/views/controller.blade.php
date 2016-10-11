@@ -20,10 +20,20 @@
 
 @section('object'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>
-@section('show')@if(key_exists("relations", $table)) @foreach($table["relations"] as $relation) <?php $tb[] = $relation->getOtherTable() ?> @endforeach
+@section('show')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
 @include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
-@include("showReturnValController", ['tab' => $relation->getTable()])
+
+        @include("showReturnValController", ['tab' => $relation->getTable(), "type" => "display"])
     @endif
+@endsection
+
+@section('editParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
+<?php $tb = array(); ?>
+@section('edit')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
+@include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
+
+        @include("showReturnValController", ['tab' => $relation->getTable(), "type" => "edit"])
+@endif
 @endsection
 
 @section('deleteCall'){{ucfirst($table['title']).'::delete($id)'}}@endsection

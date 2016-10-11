@@ -2,6 +2,8 @@
 @section('content')
 <h1 class="text-danger">Display Film</h1>
 
+<a href="{{url("/film/$film->film_id")}}/edit">Edit</a></br>
+
      <label class="text-danger">Title : </label>
 <p>{{$film->title}}</p>
   <label class="text-danger">Description : </label>

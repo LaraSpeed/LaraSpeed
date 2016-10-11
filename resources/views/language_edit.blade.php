@@ -1,12 +1,21 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Display Language</h1>
+<h1 class="text-danger">Edit Language</h1>
+<form method="post" action="language/{{$language->language_id}}">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="_token" value="">
+    <div class="form-group">
+        <label class="text-danger">Name : </label>
+        
+        Current Value : {{$language->name}}
+    </div>
 
-<a href="{{url("/language/$language->language_id")}}/edit">Edit</a></br>
-
-   <label class="text-danger">Name : </label>
-<p>{{$language->name}}</p>
    
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Update" />
+    </div>
+</form>
+
     <h1 class="text-danger">List of Film</h1>
 <table class="table">
     <thead>

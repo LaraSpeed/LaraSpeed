@@ -1,7 +1,8 @@
 @extends('master')
 @section('content')
 <h1 class="text-danger">Language add form</h1>
-<form action="languages" method="post">   
+<form action="{{url("/language")}}" method="post">   
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="form-group-lg">
 			<label id="name">Name : </label>
 			

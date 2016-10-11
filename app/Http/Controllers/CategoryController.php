@@ -44,22 +44,24 @@ class CategoryController extends Controller {
     /**
     * Display the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function show(Category $category )
     {
-           $category->load(array("film",));return view('category_display', compact('category'));        }
+        $category->load(array("film",));
+        return view('category_display', compact('category'));        }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function edit($id)
+    public function edit(Category $category )
     {
-
+        $category->load(array("film",));
+        return view('category_edit', compact('category'));
     }
 
     /**

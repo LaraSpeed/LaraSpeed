@@ -44,22 +44,24 @@ class LanguageController extends Controller {
     /**
     * Display the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function show(Language $language )
     {
-           $language->load(array("film",));return view('language_display', compact('language'));        }
+        $language->load(array("film",));
+        return view('language_display', compact('language'));        }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function edit($id)
+    public function edit(Language $language )
     {
-
+        $language->load(array("film",));
+        return view('language_edit', compact('language'));
     }
 
     /**

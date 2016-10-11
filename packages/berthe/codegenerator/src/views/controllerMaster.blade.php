@@ -44,7 +44,7 @@ class @yield('controllerName') extends Controller {
     /**
     * Display the specified resource.
     *
-    * @param  int  $id
+    * @param  Mixed
     * @return Response
     */
     public function show(@yield('object'))
@@ -55,11 +55,12 @@ class @yield('controllerName') extends Controller {
     /**
     * Show the form for editing the specified resource.
     *
-    * @param  int  $id
+    * @param  Mixed
     * @return Response
     */
-    public function edit($id)
+    public function edit(@yield('editParam'))
     {
+        @yield('edit')
 
     }
 

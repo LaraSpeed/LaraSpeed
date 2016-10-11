@@ -2,7 +2,8 @@
 
 <?php $__env->startSection('createTable'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('fields'); ?><?php if(array_key_exists('attributs', $table)): ?><?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php echo '$table->'.$attrType->getDBFunction().';'; ?>
+<?php $__env->startSection('fields'); ?><?php if(array_key_exists('attributs', $table)): ?><?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+            <?php echo '$table->'.$attrType->getDBFunction().';'; ?>
 
 <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 <?php endif; ?>

@@ -1,1 +1,1 @@
-{!! "return view('".$tab."_display', compact('".$tab."'));" !!}
+{!! "return view('".$tab."_".$type."', compact('".$tab."'));" !!}

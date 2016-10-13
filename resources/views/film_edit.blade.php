@@ -16,7 +16,13 @@
         Current Value : {{$film->description}}
     </div>
 
-       <div class="form-group">
+   <div class="form-group">
+        <label class="text-danger">Release_year : </label>
+        <input type ="number" class="form-control" name="release_year" placeholder="Release_year" />
+        Current Value : {{$film->release_year}}
+    </div>
+
+     <div class="form-group">
         <label class="text-danger">Rental_duration : </label>
         <input type ="number" class="form-control" name="rental_duration" placeholder="Rental_duration" />
         Current Value : {{$film->rental_duration}}
@@ -28,7 +34,13 @@
         Current Value : {{$film->rental_rate}}
     </div>
 
-     <div class="form-group">
+   <div class="form-group">
+        <label class="text-danger">Length : </label>
+        <input type ="number" class="form-control" name="length" placeholder="Length" />
+        Current Value : {{$film->length}}
+    </div>
+
+   <div class="form-group">
         <label class="text-danger">Replacement_cost : </label>
         <input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement_cost" />
         Current Value : {{$film->replacement_cost}}

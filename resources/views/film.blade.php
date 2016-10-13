@@ -13,7 +13,13 @@
 			<label id="description">Description : </label>
 			<textarea name="description" rows="4" cols="20" class="form-control"></textarea>
 		</div>
-		      
+		  
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<div class="form-group-lg">
+			<label id="release_year">Release_year : </label>
+			<input type ="number" class="form-control" name="release_year" placeholder="Release_year" />
+		</div>
+		    
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="form-group-lg">
 			<label id="rental_duration">Rental_duration : </label>
@@ -25,7 +31,13 @@
 			<label id="rental_rate">Rental_rate : </label>
 			<input type ="number" class="form-control" name="rental_rate" placeholder="Rental_rate" />
 		</div>
-		    
+		  
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
+		<div class="form-group-lg">
+			<label id="length">Length : </label>
+			<input type ="number" class="form-control" name="length" placeholder="Length" />
+		</div>
+		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="form-group-lg">
 			<label id="replacement_cost">Replacement_cost : </label>

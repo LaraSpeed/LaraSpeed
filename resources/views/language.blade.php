@@ -5,7 +5,7 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="form-group-lg">
 			<label id="name">Name : </label>
-			
+			<input type ="text" class="form-control" name="name" placeholder="Name" />
 		</div>
 		    
 		<br/><div class="form-group-lg">

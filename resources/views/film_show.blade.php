@@ -20,11 +20,15 @@
                 <a href="http://localhost/film">Title</a>
             </th>              <th>
                 <a href="http://localhost/film">Description</a>
-            </th>                  <th>
+            </th>              <th>
+                <a href="http://localhost/film">Release_year</a>
+            </th>                <th>
                 <a href="http://localhost/film">Rental_duration</a>
             </th>              <th>
                 <a href="http://localhost/film">Rental_rate</a>
-            </th>                <th>
+            </th>              <th>
+                <a href="http://localhost/film">Length</a>
+            </th>              <th>
                 <a href="http://localhost/film">Replacement_cost</a>
             </th>       
         </tr>
@@ -35,9 +39,11 @@
             <tr>
                  <td>{{$film->title}}</td>
               <td>{{$film->description}}</td>
-                  <td>{{$film->rental_duration}}</td>
+              <td>{{$film->release_year}}</td>
+                <td>{{$film->rental_duration}}</td>
               <td>{{$film->rental_rate}}</td>
-                <td>{{$film->replacement_cost}}</td>
+              <td>{{$film->length}}</td>
+              <td>{{$film->replacement_cost}}</td>
                    <td><a href="film/{{$film->film_id}}">View</a></td>
         <td><a href="{{url("/film/$film->film_id")}}/edit">Edit</a></td>
                     <td><a href="#">Language</a></td>

@@ -25,11 +25,11 @@ class GeneratorCode  extends CallGenerator {
                 ->smallInteger("language_id")
                 ->string("title", 255)
                 ->text("description")
-                ->smallInteger("release_year")
+                ->tinyInteger("release_year")
                 ->smallInteger("original_language_id")
                 ->tinyInteger("rental_duration")
                 ->decimal("rental_rate", 4, 2)
-                ->smallInteger("length")
+                ->tinyInteger("length")
                 ->decimal("replacement_cost", 5, 2)
                 ->enum("rating", array('G', 'PG', 'PG-1', 'R', 'NC-17'))
                 //This May be Set
@@ -41,7 +41,7 @@ class GeneratorCode  extends CallGenerator {
 
             ->table("language")
                 ->increments("language_id")
-                ->char("name", 20)
+                ->string("name", 20)
                 ->timeStamp("last_update")
                 ->hasMany("film")
                 ->end()

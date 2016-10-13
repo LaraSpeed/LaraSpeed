@@ -14,17 +14,21 @@
     <thead>
               <th>Title</th>
              <th>Description</th>
-               <th>Rental_duration</th>
+             <th>Release_year</th>
+              <th>Rental_duration</th>
              <th>Rental_rate</th>
-              <th>Replacement_cost</th>
+             <th>Length</th>
+             <th>Replacement_cost</th>
             </thead>
 @forelse($category->film as  $film)
     <tbody>
               <td>{{$film->title}}</td>
              <td>{{$film->description}}</td>
-               <td>{{$film->rental_duration}}</td>
+             <td>{{$film->release_year}}</td>
+              <td>{{$film->rental_duration}}</td>
              <td>{{$film->rental_rate}}</td>
-              <td>{{$film->replacement_cost}}</td>
+             <td>{{$film->length}}</td>
+             <td>{{$film->replacement_cost}}</td>
             </tbody>
 @empty
     <td>No film for category</td>

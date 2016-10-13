@@ -70,9 +70,11 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     * @param    int  $id
     * @return  Response
     */
-    public function update($id)
+    public function update(<?php echo $__env->yieldContent('updateParam'); ?>)
     {
+        <?php echo $__env->yieldContent('update'); ?>
 
+        return back();
     }
 
     /**

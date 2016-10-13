@@ -19,9 +19,14 @@
   <label class="text-danger">Replacement_cost : </label>
 <p>{{$film->replacement_cost}}</p>
        
+    @if(isset($film->language))
     <h3 class="text-danger">Language : </h3>
      {{$film->language->name}}
-      <h1 class="text-danger">List of Categorys</h1>
+      @else
+        <label class="text-danger">No film.</label>
+    @endif
+    @if(isset($film->category))
+    <h1 class="text-danger">List of Categorys</h1>
 <table class="table">
     <thead>
             <th>Category_id</th>
@@ -35,4 +40,7 @@
 @empty
     <td>No category for film</td>
 @endforelse
-</table>@endsection
+</table>    @else
+        <label class="text-danger">No film.</label>
+    @endif
+@endsection

@@ -70,9 +70,11 @@ class LanguageController extends Controller {
     * @param    int  $id
     * @return  Response
     */
-    public function update($id)
+    public function update(Language $language )
     {
+            $language->update(request()->all());
 
+        return back();
     }
 
     /**

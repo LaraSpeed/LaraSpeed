@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
 <h1 class="text-danger">Edit Category</h1>
-<form method="post" action="category/{{$category->category_id}}">
+<form method="post" action="{{url("category/$category->category_id")}}">
     <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" name="_token" value="">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="form-group">
         <label class="text-danger">Category_id : </label>
         <input type ="number" class="form-control" name="category_id" placeholder="Category_id" />
@@ -22,6 +22,7 @@
     </div>
 </form>
 
+    @if(isset($category->film))
     <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>
@@ -46,4 +47,7 @@
 @empty
     <td>No film for category</td>
 @endforelse
-</table>@endsection
+</table>    @else
+    <label class="text-danger">No category.</label>
+    @endif
+@endsection

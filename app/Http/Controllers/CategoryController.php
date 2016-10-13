@@ -70,9 +70,11 @@ class CategoryController extends Controller {
     * @param    int  $id
     * @return  Response
     */
-    public function update($id)
+    public function update(Category $category )
     {
+            $category->update(request()->all());
 
+        return back();
     }
 
     /**

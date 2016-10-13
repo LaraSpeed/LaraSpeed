@@ -9,6 +9,7 @@
   <label class="text-danger">Name : </label>
 <p>{{$category->name}}</p>
    
+    @if(isset($category->film))
     <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>
@@ -33,4 +34,7 @@
 @empty
     <td>No film for category</td>
 @endforelse
-</table>@endsection
+</table>    @else
+        <label class="text-danger">No category.</label>
+    @endif
+@endsection

@@ -14,6 +14,8 @@ class Language extends Model
     function film(){ 
         return $this->hasMany('App\Film');
     }
+
+ 
 }
 
 ?>

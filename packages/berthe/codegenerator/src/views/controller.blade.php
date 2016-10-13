@@ -36,4 +36,9 @@
 @endif
 @endsection
 
+@section('updateParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
+@section('update')
+    ${!! $table['title']."->update(request()->all());" !!}
+@endsection
+
 @section('deleteCall'){{ucfirst($table['title']).'::delete($id)'}}@endsection

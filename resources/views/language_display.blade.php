@@ -7,6 +7,7 @@
    <label class="text-danger">Name : </label>
 <p>{{$language->name}}</p>
    
+    @if(isset($language->film))
     <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>
@@ -31,4 +32,7 @@
 @empty
     <td>No film for language</td>
 @endforelse
-</table>@endsection
+</table>    @else
+        <label class="text-danger">No language.</label>
+    @endif
+@endsection

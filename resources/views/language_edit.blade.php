@@ -1,9 +1,9 @@
 @extends('master')
 @section('content')
 <h1 class="text-danger">Edit Language</h1>
-<form method="post" action="language/{{$language->language_id}}">
+<form method="post" action="{{url("language/$language->language_id")}}">
     <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" name="_token" value="">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <label class="text-danger">Name : </label>
         <input type ="text" class="form-control" name="name" placeholder="Name" />
@@ -16,6 +16,7 @@
     </div>
 </form>
 
+    @if(isset($language->film))
     <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>
@@ -40,4 +41,7 @@
 @empty
     <td>No film for language</td>
 @endforelse
-</table>@endsection
+</table>    @else
+    <label class="text-danger">No language.</label>
+    @endif
+@endsection

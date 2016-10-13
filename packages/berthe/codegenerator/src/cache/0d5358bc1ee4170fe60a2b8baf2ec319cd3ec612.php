@@ -34,5 +34,11 @@
 <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('updateParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('update'); ?>
+    $<?php echo $table['title']."->update(request()->all());"; ?>
+
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('deleteCall'); ?><?php echo e(ucfirst($table['title']).'::delete($id)'); ?><?php $__env->stopSection(); ?>
 <?php echo $__env->make('controllerMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

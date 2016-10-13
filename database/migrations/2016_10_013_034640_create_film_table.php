@@ -17,8 +17,8 @@ class CreateFilmTable extends Migration
             $table->smallInteger('language_id');
             $table->string('title', 255);
             $table->text('description');
-            $table->char('release_year', 4);
-            $table->tinyInteger('original_language_id');
+            $table->smallInteger('release_year');
+            $table->smallInteger('original_language_id');
             $table->tinyInteger('rental_duration');
             $table->decimal('rental_rate', 4, 2);
             $table->smallInteger('length');

@@ -22,14 +22,12 @@
     </div>
 </form>
 
-    <h1 class="text-danger">List of Film</h1>
+    <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>
               <th>Title</th>
              <th>Description</th>
-             <th>Release_year</th>
-             <th>Original_language_id</th>
-             <th>Rental_duration</th>
+               <th>Rental_duration</th>
              <th>Rental_rate</th>
               <th>Replacement_cost</th>
             </thead>
@@ -37,9 +35,7 @@
     <tbody>
               <td>{{$film->title}}</td>
              <td>{{$film->description}}</td>
-             <td>{{$film->release_year}}</td>
-             <td>{{$film->original_language_id}}</td>
-             <td>{{$film->rental_duration}}</td>
+               <td>{{$film->rental_duration}}</td>
              <td>{{$film->rental_rate}}</td>
               <td>{{$film->replacement_cost}}</td>
             </tbody>

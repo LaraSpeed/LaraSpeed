@@ -1,4 +1,4 @@
-<h1 class="text-danger">List of <?php echo e(ucfirst($otherTable)); ?></h1>
+<h1 class="text-danger">List of <?php echo e(ucfirst($otherTable).'s'); ?></h1>
 <table class="table">
     <thead>
     <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>

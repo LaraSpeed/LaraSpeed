@@ -16,19 +16,7 @@
         Current Value : {{$film->description}}
     </div>
 
-   <div class="form-group">
-        <label class="text-danger">Release_year : </label>
-        
-        Current Value : {{$film->release_year}}
-    </div>
-
-   <div class="form-group">
-        <label class="text-danger">Original_language_id : </label>
-        <input type ="number" class="form-control" name="original_language_id" placeholder="Original_language_id" />
-        Current Value : {{$film->original_language_id}}
-    </div>
-
-   <div class="form-group">
+       <div class="form-group">
         <label class="text-danger">Rental_duration : </label>
         <input type ="number" class="form-control" name="rental_duration" placeholder="Rental_duration" />
         Current Value : {{$film->rental_duration}}
@@ -54,7 +42,7 @@
 
     <h3 class="text-danger">Language : </h3>
      {{$film->language->name}}
-      <h1 class="text-danger">List of Category</h1>
+      <h1 class="text-danger">List of Categorys</h1>
 <table class="table">
     <thead>
             <th>Category_id</th>

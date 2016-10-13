@@ -1,4 +1,4 @@
-<h1 class="text-danger">List of {{ucfirst($otherTable)}}</h1>
+<h1 class="text-danger">List of {{ucfirst($otherTable).'s'}}</h1>
 <table class="table">
     <thead>
     @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType)@if($attrType->isDisplayable())

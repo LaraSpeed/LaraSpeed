@@ -22,6 +22,8 @@ class BasicNormalization implements NormalizeInterface
         $content = str_replace('S3B', '@', $content);
         $content = str_replace('S2BOBRACKET', '{{', $content);
         $content = str_replace('S2BCBRACKET', '}}', $content);
+        //$content = str_replace('S2CBOBRACKET', '{!!', $content);
+        //$content = str_replace('S2CBCBRACKET', '!!}', $content);
         file_put_contents($path, "$stringToPrepends".$content);
         chmod($path, 0777);
     }

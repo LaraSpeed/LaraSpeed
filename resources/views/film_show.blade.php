@@ -1,18 +1,26 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">List of Film</h1>
+<h1 class="text-danger">List of Films</h1>
+
+<form action="" method="get">
+    <div class="form-group">
+        <label>Search : </label>
+        <input  type="text" class="form-control" name="filter" placeholder="Search"/>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Search"/>
+    </div>
+</form>
+
 <table class="table table-striped">
     <thead>
-        <tr><th>See</th>
+        <tr>
                              <th>
                 <a href="http://localhost/film">Title</a>
             </th>              <th>
                 <a href="http://localhost/film">Description</a>
-            </th>              <th>
-                <a href="http://localhost/film">Release_year</a>
-            </th>              <th>
-                <a href="http://localhost/film">Original_language_id</a>
-            </th>              <th>
+            </th>                  <th>
                 <a href="http://localhost/film">Rental_duration</a>
             </th>              <th>
                 <a href="http://localhost/film">Rental_rate</a>
@@ -25,15 +33,16 @@
     <tbody>
         @forelse($films as $film)
             <tr>
-                <td><a href="film/{{$film->film_id}}">See</a></td>
                  <td>{{$film->title}}</td>
               <td>{{$film->description}}</td>
-              <td>{{$film->release_year}}</td>
-              <td>{{$film->original_language_id}}</td>
-              <td>{{$film->rental_duration}}</td>
+                  <td>{{$film->rental_duration}}</td>
               <td>{{$film->rental_rate}}</td>
                 <td>{{$film->replacement_cost}}</td>
-           </tr>
+                   <td><a href="film/{{$film->film_id}}">View</a></td>
+        <td><a href="{{url("/film/$film->film_id")}}/edit">Edit</a></td>
+                    <td><a href="#">Language</a></td>
+                    <td><a href="#">Category</a></td>
+                    </tr>
         @empty
             <tr>
                 <td>No film.</td>

@@ -1,9 +1,21 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">List of Language</h1>
+<h1 class="text-danger">List of Languages</h1>
+
+<form action="" method="get">
+    <div class="form-group">
+        <label>Search : </label>
+        <input  type="text" class="form-control" name="filter" placeholder="Search"/>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Search"/>
+    </div>
+</form>
+
 <table class="table table-striped">
     <thead>
-        <tr><th>See</th>
+        <tr>
                            <th>
                 <a href="http://localhost/language">Name</a>
             </th>   
@@ -13,9 +25,11 @@
     <tbody>
         @forelse($languages as $language)
             <tr>
-                <td><a href="language/{{$language->language_id}}">See</a></td>
                <td>{{$language->name}}</td>
-       </tr>
+               <td><a href="language/{{$language->language_id}}">View</a></td>
+        <td><a href="{{url("/language/$language->language_id")}}/edit">Edit</a></td>
+                    <td><a href="#">Film</a></td>
+                    </tr>
         @empty
             <tr>
                 <td>No language.</td>

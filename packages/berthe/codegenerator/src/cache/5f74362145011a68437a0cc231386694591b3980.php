@@ -67,7 +67,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     /**
     * Update the specified resource in storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function update(<?php echo $__env->yieldContent('updateParam'); ?>)
@@ -80,13 +80,22 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     /**
     * Remove the specified resource from storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function destroy($id)
+    public function destroy(<?php echo $__env->yieldContent('deleteParam'); ?>)
     {
-        <?php echo $__env->yieldContent('deleteCall'); ?>;
+        <?php echo $__env->yieldContent('delete'); ?>
         return back();
+    }
+
+    /**
+    * Remove the specified resource from storage.
+    * @param    Mixed
+    * @return  Response
+    */
+    public function related(<?php echo $__env->yieldContent('relatedParam'); ?>){
+        <?php echo $__env->yieldContent('related'); ?>
     }
 
 }

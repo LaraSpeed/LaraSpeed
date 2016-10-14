@@ -3,7 +3,7 @@
 <h1 class="text-danger">Edit Film</h1>
 <form method="post" action="{{url("film/$film->film_id")}}">
     <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
       <div class="form-group">
         <label class="text-danger">Title : </label>
         <input type ="text" class="form-control" name="title" placeholder="Title" />

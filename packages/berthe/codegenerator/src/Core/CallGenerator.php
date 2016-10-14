@@ -23,6 +23,7 @@ class CallGenerator
         $laravelGenerator->generate('ShowForm');
         $laravelGenerator->generate('DisplaySingleElement');
         $laravelGenerator->generate('EditForm');
+        $laravelGenerator->generate('RelatedForm');
         $laravelGenerator->generate('Schema');
         $laravelGenerator->generate('Model');
         $laravelGenerator->generate('Controller');

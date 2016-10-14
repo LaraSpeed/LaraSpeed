@@ -67,7 +67,7 @@ class CategoryController extends Controller {
     /**
     * Update the specified resource in storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function update(Category $category )
@@ -80,14 +80,23 @@ class CategoryController extends Controller {
     /**
     * Remove the specified resource from storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function destroy($id)
+    public function destroy(Category $category )
     {
-        Category::delete($id);
+            $category->delete();
         return back();
     }
+
+    /**
+    * Remove the specified resource from storage.
+    * @param    Mixed
+    * @return  Response
+    */
+    public function related(Category $category ){
+        $category->load(array("film",));
+return view('category_related', compact('category'));    }
 
 }
 

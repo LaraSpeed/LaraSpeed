@@ -44,10 +44,28 @@
               <td>{{$film->rental_rate}}</td>
               <td>{{$film->length}}</td>
               <td>{{$film->replacement_cost}}</td>
-                   <td><a href="film/{{$film->film_id}}">View</a></td>
-        <td><a href="{{url("/film/$film->film_id")}}/edit">Edit</a></td>
-                    <td><a href="#">Language</a></td>
-                    <td><a href="#">Category</a></td>
+                   <td><form action="film/{{$film->film_id}}" method="get">
+                <button type="submit" class="btn btn-link">View</button>
+            </form>
+        </td>
+        <td><form action="{{url("/film/$film->film_id")}}/edit" method="get">
+                <button type="submit" class="btn btn-link">Edit</button>
+            </form>
+        </td>
+        <td><form action="{{url("/film/$film->film_id")}}" method="post">
+                <input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><button type="submit" class="btn btn-link">Delete</button>
+            </form>
+        </td>
+                    <td>
+                <form action="{{url("/film/related/$film->film_id")}}" method="get">
+                    <button type="submit" class="btn btn-link">Language</button>
+                </form>
+            </td>
+                    <td>
+                <form action="{{url("/film/related/$film->film_id")}}" method="get">
+                    <button type="submit" class="btn btn-link">Category</button>
+                </form>
+            </td>
                     </tr>
         @empty
             <tr>

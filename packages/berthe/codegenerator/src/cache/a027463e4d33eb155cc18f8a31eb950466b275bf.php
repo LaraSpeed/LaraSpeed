@@ -28,10 +28,24 @@
     <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
         <td>S2BOBRACKET$<?php echo $table['title'].'->'.$attrName; ?>S2BCBRACKET</td>
     <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-        <td><a href="<?php echo e($table['title'].'/'); ?>S2BOBRACKET$<?php echo $table['title'].'->'.$table['id']; ?>S2BCBRACKET">View</a></td>
-        <td><a href="S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET/edit">Edit</a></td>
+        <td><form action="<?php echo e($table['title'].'/'); ?>S2BOBRACKET$<?php echo $table['title'].'->'.$table['id']; ?>S2BCBRACKET" method="get">
+                <button type="submit" class="btn btn-link">View</button>
+            </form>
+        </td>
+        <td><form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET/edit" method="get">
+                <button type="submit" class="btn btn-link">Edit</button>
+            </form>
+        </td>
+        <td><form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="post">
+                <?php echo e(method_field('DELETE')); ?><input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" /><button type="submit" class="btn btn-link">Delete</button>
+            </form>
+        </td>
         <?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-            <td><a href="#"><?php echo ucfirst($relation->getOtherTable()); ?></a></td>
+            <td>
+                <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="get">
+                    <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
+                </form>
+            </td>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
             </tr>
         S3Bempty

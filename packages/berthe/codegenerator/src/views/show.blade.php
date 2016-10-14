@@ -28,10 +28,24 @@
     @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
         <td>S2BOBRACKET${!! $table['title'].'->'.$attrName !!}S2BCBRACKET</td>
     @endif @endforeach
-        <td><a href="{{$table['title'].'/'}}S2BOBRACKET${!! $table['title'].'->'.$table['id'] !!}S2BCBRACKET">View</a></td>
-        <td><a href="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET/edit">Edit</a></td>
+        <td><form action="{{$table['title'].'/'}}S2BOBRACKET${!! $table['title'].'->'.$table['id'] !!}S2BCBRACKET" method="get">
+                <button type="submit" class="btn btn-link">View</button>
+            </form>
+        </td>
+        <td><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET/edit" method="get">
+                <button type="submit" class="btn btn-link">Edit</button>
+            </form>
+        </td>
+        <td><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="post">
+                {{ method_field('DELETE') }}<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" /><button type="submit" class="btn btn-link">Delete</button>
+            </form>
+        </td>
         @foreach($table['relations'] as $relation)
-            <td><a href="#">{!! ucfirst($relation->getOtherTable())  !!}</a></td>
+            <td>
+                <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
+                    <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
+                </form>
+            </td>
         @endforeach
             </tr>
         S3Bempty

@@ -1,22 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Edit Language</h1>
-<form method="post" action="{{url("language/$language->language_id")}}">
-    <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    <div class="form-group">
-        <label class="text-danger">Name : </label>
-        <input type ="text" class="form-control" name="name" placeholder="Name" />
-        Current Value : {{$language->name}}
-    </div>
-
-   
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Update" />
-    </div>
-</form>
-
-    @if(isset($language->film))
+@if(isset($language->film))
     <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>

@@ -18,4 +18,8 @@ class TemplateProvider
         return "Route::resource('$route', '$controller');";
     }
 
+    public static function getNormalRouteTemplate($routeType = "get", $route = "/", $action = "", $param = ""){
+        return "Route::$routeType('$route$param', '$action');";
+    }
+
 }

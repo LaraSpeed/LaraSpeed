@@ -2,7 +2,7 @@
 <form method="post" action="S2BOBRACKET<?php echo "url(\"".$table['title']."/$".$table['title']."->".$table['id']."\")"; ?>S2BCBRACKET">
     <?php echo e(method_field('PUT')); ?>
 
-    <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
+    <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
 <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?> <div class="form-group">
         <label class="text-danger"><?php echo e(ucfirst($attrName)); ?> : </label>
         <?php echo $attrType->getForm(); ?>

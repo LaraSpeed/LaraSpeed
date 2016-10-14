@@ -26,9 +26,23 @@
         @forelse($languages as $language)
             <tr>
                <td>{{$language->name}}</td>
-               <td><a href="language/{{$language->language_id}}">View</a></td>
-        <td><a href="{{url("/language/$language->language_id")}}/edit">Edit</a></td>
-                    <td><a href="#">Film</a></td>
+               <td><form action="language/{{$language->language_id}}" method="get">
+                <button type="submit" class="btn btn-link">View</button>
+            </form>
+        </td>
+        <td><form action="{{url("/language/$language->language_id")}}/edit" method="get">
+                <button type="submit" class="btn btn-link">Edit</button>
+            </form>
+        </td>
+        <td><form action="{{url("/language/$language->language_id")}}" method="post">
+                <input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><button type="submit" class="btn btn-link">Delete</button>
+            </form>
+        </td>
+                    <td>
+                <form action="{{url("/language/related/$language->language_id")}}" method="get">
+                    <button type="submit" class="btn btn-link">Film</button>
+                </form>
+            </td>
                     </tr>
         @empty
             <tr>

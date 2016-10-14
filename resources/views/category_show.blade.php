@@ -29,9 +29,23 @@
             <tr>
              <td>{{$category->category_id}}</td>
               <td>{{$category->name}}</td>
-               <td><a href="category/{{$category->category_id}}">View</a></td>
-        <td><a href="{{url("/category/$category->category_id")}}/edit">Edit</a></td>
-                    <td><a href="#">Film</a></td>
+               <td><form action="category/{{$category->category_id}}" method="get">
+                <button type="submit" class="btn btn-link">View</button>
+            </form>
+        </td>
+        <td><form action="{{url("/category/$category->category_id")}}/edit" method="get">
+                <button type="submit" class="btn btn-link">Edit</button>
+            </form>
+        </td>
+        <td><form action="{{url("/category/$category->category_id")}}" method="post">
+                <input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><button type="submit" class="btn btn-link">Delete</button>
+            </form>
+        </td>
+                    <td>
+                <form action="{{url("/category/related/$category->category_id")}}" method="get">
+                    <button type="submit" class="btn btn-link">Film</button>
+                </form>
+            </td>
                     </tr>
         @empty
             <tr>

@@ -9,6 +9,7 @@
 namespace Berthe\Codegenerator\Core;
 use Berthe\Codegenerator\Contrats\IAdvancedLaravelGenerator;
 use Berthe\Codegenerator\Templates\EditTemplate;
+use Berthe\Codegenerator\Templates\RelatedTemplate;
 use Berthe\Codegenerator\Templates\Templater;
 use Berthe\Codegenerator\Templates\ControllerTemplate;
 use Berthe\Codegenerator\Templates\DisplayTemplate;
@@ -94,6 +95,11 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         FileUtils::normalizeFile("", $this->generateLaravel(new EditTemplate), new InheritMaster(new BasicNormalization));
     }
 
+    public function generateLaravelRelatedForm()
+    {
+        FileUtils::normalizeFile("", $this->generateLaravel(new RelatedTemplate), new InheritMaster(new BasicNormalization));
+    }
+
     public function generate($type = "Form")
     {
         echo "Generate ".$type." started !\n";
@@ -111,5 +117,4 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         chmod($path, 0777);
         FileUtils::prependString("<?php \n", $path);
     }
-
 }

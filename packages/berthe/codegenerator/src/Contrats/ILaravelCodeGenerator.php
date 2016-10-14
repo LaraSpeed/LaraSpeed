@@ -29,6 +29,7 @@ interface IAdvancedLaravelGenerator {
     public function generateLaravelShowForm();
     public function generateLaravelDisplaySingleElement();
     public function generateLaravelEditForm();
+    public function generateLaravelRelatedForm();
     function generateLaravel(Templater $templater);
     public function generate($type = "Form");
     public function generateLaravelSchemaConstraint($template = "constraints", $outdir="");

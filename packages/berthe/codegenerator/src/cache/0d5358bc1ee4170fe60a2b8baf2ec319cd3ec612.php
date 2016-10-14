@@ -40,5 +40,19 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('deleteCall'); ?><?php echo e(ucfirst($table['title']).'::delete($id)'); ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('deleteParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('delete'); ?>
+    $<?php echo $table['title']."->delete();"; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('relatedParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $tb = array(); ?>
+<?php $__env->startSection('related'); ?><?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+<?php echo $__env->make($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php echo $__env->make("showReturnValController", ['tab' => $relation->getTable(), "type" => "related"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php endif; ?>
+<?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('controllerMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

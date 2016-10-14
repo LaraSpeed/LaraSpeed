@@ -20,8 +20,16 @@ class Laravel512Route implements RouteManagerInterface
     {
         //Adding Route to routes/Web.php
         $toAppends = TemplateProvider::getResourceRouteTemplate($tableName, ucfirst($tableName).'Controller')."\n";
+        $besideRoute = TemplateProvider::getNormalRouteTemplate("get", "$tableName/related", ucfirst($tableName)."Controller@related", "/{"."$tableName}")."\n";
         $content = file_get_contents(base_path('app/Http/').'routes.php');
         //Teste if route don't already exist
+        if(!str_contains($content, $besideRoute)){
+            FileUtils::appendString(
+                $besideRoute,
+                base_path('routes/web.php')
+            );
+        }
+
         if(!str_contains($content, $toAppends)){
             FileUtils::appendString(
                 $toAppends,

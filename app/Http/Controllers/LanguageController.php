@@ -67,7 +67,7 @@ class LanguageController extends Controller {
     /**
     * Update the specified resource in storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function update(Language $language )
@@ -80,14 +80,23 @@ class LanguageController extends Controller {
     /**
     * Remove the specified resource from storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function destroy($id)
+    public function destroy(Language $language )
     {
-        Language::delete($id);
+            $language->delete();
         return back();
     }
+
+    /**
+    * Remove the specified resource from storage.
+    * @param    Mixed
+    * @return  Response
+    */
+    public function related(Language $language ){
+        $language->load(array("film",));
+return view('language_related', compact('language'));    }
 
 }
 

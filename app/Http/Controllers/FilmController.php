@@ -67,26 +67,36 @@ class FilmController extends Controller {
     /**
     * Update the specified resource in storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
     public function update(Film $film )
     {
-        $film->update(request()->all());
+            $film->update(request()->all());
+
         return back();
     }
 
     /**
     * Remove the specified resource from storage.
     *
-    * @param    int  $id
+    * @param    Mixed
     * @return  Response
     */
-    public function destroy($id)
+    public function destroy(Film $film )
     {
-        Film::delete($id);
+            $film->delete();
         return back();
     }
+
+    /**
+    * Remove the specified resource from storage.
+    * @param    Mixed
+    * @return  Response
+    */
+    public function related(Film $film ){
+        $film->load(array("language","category",));
+return view('film_related', compact('film'));    }
 
 }
 

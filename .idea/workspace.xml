@@ -2,45 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac1c198-5280-48bd-b7d5-45fda026c931" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031235_create_category_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031235_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031235_create_language_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031236_create_category_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031236_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031236_create_foreign_keys.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_10_014_031236_create_language_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_display.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_related.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_show.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_display.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_related.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_show.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_display.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_related.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_show.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/master.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/in/GeneratorCode.php" afterPath="$PROJECT_DIR$/app/in/GeneratorCode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/BasicNormalization.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/BasicNormalization.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel512Route.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel512Route.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <ignored path="LaraSpeed.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,13 +74,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Category.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
               <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="language_display.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/language_display.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -661,15 +630,15 @@
       <workItem from="1476360044238" duration="11378000" />
       <workItem from="1476450011947" duration="3515000" />
       <workItem from="1476455034206" duration="3592000" />
-      <workItem from="1476711031179" duration="12520000" />
+      <workItem from="1476711031179" duration="13291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155652000" />
+    <option name="totallyTimeSpent" value="156423000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -709,8 +678,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_011_031646_create_foreign_keys.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_10_011_031722_create_foreign_keys.php" />
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/constraint.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -1075,12 +1042,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/language.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/language_display.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>

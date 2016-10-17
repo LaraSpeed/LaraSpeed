@@ -12,7 +12,7 @@ class LanguageController extends Controller {
     */
     public function index()
     {
-        return view('language_show', ['languages' => Language::all()]);
+        return view('language_show', ['languages' => Language::paginate(20)]);
     }
 
     /**
@@ -90,13 +90,33 @@ class LanguageController extends Controller {
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Load and display related tables.
     * @param    Mixed
     * @return  Response
     */
     public function related(Language $language ){
         $language->load(array("film",));
 return view('language_related', compact('language'));    }
+
+    /**
+    * Search Table element By keyword
+    * @return  Response
+    */
+    public function search(){
+        $keyword = request()->get('keyword');
+        $keyword = '%'.$keyword.'%';
+
+        $languages = Language::where('language_id', 'like', $keyword)
+         ->orWhere('language_id', 'like', $keyword)
+
+         ->orWhere('name', 'like', $keyword)
+
+         ->orWhere('last_update', 'like', $keyword)
+
+        ->paginate(20);
+    $languages->setPath("search?keyword=$keyword");
+    return view('language_show', compact('languages'));
+    }
 
 }
 

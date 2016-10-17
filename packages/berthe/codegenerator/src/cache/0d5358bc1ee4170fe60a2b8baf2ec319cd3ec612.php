@@ -6,7 +6,7 @@
 
 <?php $__env->startSection('varID'); ?><?php echo e($table['title'].'s'); ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('modelCall'); ?><?php echo e(ucfirst($table['title']).'::all()'); ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('modelCall'); ?><?php echo ucfirst($table['title']).'::paginate(20)'; ?><?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('createView'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
 
@@ -53,6 +53,21 @@
 
 <?php echo $__env->make("showReturnValController", ['tab' => $relation->getTable(), "type" => "related"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('search'); ?>
+$<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::where('".$table['id']."', 'like', $"."keyword)"; ?>
+
+    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>     <?php echo "->orWhere('$attrName', 'like', $"."keyword)"; ?>
+
+
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+    <?php echo '->paginate(20);'; ?>
+
+    $<?php echo $table['title']."s->setPath(\"search?keyword=$"."keyword\");"; ?>
+
+    <?php echo "return view('".$table['title']."_show', compact('".$table['title']."s'));"; ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('controllerMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

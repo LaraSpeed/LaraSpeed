@@ -12,7 +12,7 @@ class FilmController extends Controller {
     */
     public function index()
     {
-        return view('film_show', ['films' => Film::all()]);
+        return view('film_show', ['films' => Film::paginate(20)]);
     }
 
     /**
@@ -90,13 +90,53 @@ class FilmController extends Controller {
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Load and display related tables.
     * @param    Mixed
     * @return  Response
     */
     public function related(Film $film ){
         $film->load(array("language","category",));
 return view('film_related', compact('film'));    }
+
+    /**
+    * Search Table element By keyword
+    * @return  Response
+    */
+    public function search(){
+        $keyword = request()->get('keyword');
+        $keyword = '%'.$keyword.'%';
+
+        $films = Film::where('film_id', 'like', $keyword)
+         ->orWhere('film_id', 'like', $keyword)
+
+         ->orWhere('language_id', 'like', $keyword)
+
+         ->orWhere('title', 'like', $keyword)
+
+         ->orWhere('description', 'like', $keyword)
+
+         ->orWhere('release_year', 'like', $keyword)
+
+         ->orWhere('original_language_id', 'like', $keyword)
+
+         ->orWhere('rental_duration', 'like', $keyword)
+
+         ->orWhere('rental_rate', 'like', $keyword)
+
+         ->orWhere('length', 'like', $keyword)
+
+         ->orWhere('replacement_cost', 'like', $keyword)
+
+         ->orWhere('rating', 'like', $keyword)
+
+         ->orWhere('special_features', 'like', $keyword)
+
+         ->orWhere('last_update', 'like', $keyword)
+
+        ->paginate(20);
+    $films->setPath("search?keyword=$keyword");
+    return view('film_show', compact('films'));
+    }
 
 }
 

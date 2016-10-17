@@ -14,19 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('film/related./film', 'FilmController@related');
-Route::get('language/related./language', 'LanguageController@related');
-Route::get('category/related./category', 'CategoryController@related');
-Route::get('film/related./film', 'FilmController@related');
-Route::get('language/related./language', 'LanguageController@related');
-Route::get('category/related./category', 'CategoryController@related');
-
+Route::get('film/related/{film}', 'FilmController@related');
+Route::get('film/search', 'FilmController@search');
 Route::resource('film', 'FilmController');
-Route::resource('acteur', 'ActeurController');
-Route::resource('language', 'LanguageController');
-Route::resource('film_category', 'Film_categoryController');
-Route::resource('category', 'CategoryController');
-Route::resource('config', 'ConfigController');Route::get('film/related/{film}', 'FilmController@related');
 Route::get('language/related/{language}', 'LanguageController@related');
+Route::get('language/search', 'LanguageController@search');
+Route::resource('language', 'LanguageController');
 Route::get('category/related/{category}', 'CategoryController@related');
+Route::get('category/search', 'CategoryController@search');
+Route::resource('category', 'CategoryController');

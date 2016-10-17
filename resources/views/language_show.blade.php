@@ -2,10 +2,10 @@
 @section('content')
 <h1 class="text-danger">List of Languages</h1>
 
-<form action="" method="get">
+<form action="{{url("/language/search")}}" method="get">
     <div class="form-group">
         <label>Search : </label>
-        <input  type="text" class="form-control" name="filter" placeholder="Search"/>
+        <input  type="text" class="form-control" name="keyword" placeholder="Keyword"/>
     </div>
 
     <div class="form-group">
@@ -26,7 +26,7 @@
         @forelse($languages as $language)
             <tr>
                <td>{{$language->name}}</td>
-               <td><form action="language/{{$language->language_id}}" method="get">
+               <td><form action="{{url("/language/$language->language_id")}}" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>
         </td>
@@ -51,4 +51,4 @@
         @endforelse
     </tbody>
 </table>
-@endsection
+{!!$languages->links()!!}@endsection

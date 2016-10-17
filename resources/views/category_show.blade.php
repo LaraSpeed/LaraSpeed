@@ -2,10 +2,10 @@
 @section('content')
 <h1 class="text-danger">List of Categorys</h1>
 
-<form action="" method="get">
+<form action="{{url("/category/search")}}" method="get">
     <div class="form-group">
         <label>Search : </label>
-        <input  type="text" class="form-control" name="filter" placeholder="Search"/>
+        <input  type="text" class="form-control" name="keyword" placeholder="Keyword"/>
     </div>
 
     <div class="form-group">
@@ -29,7 +29,7 @@
             <tr>
              <td>{{$category->category_id}}</td>
               <td>{{$category->name}}</td>
-               <td><form action="category/{{$category->category_id}}" method="get">
+               <td><form action="{{url("/category/$category->category_id")}}" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>
         </td>
@@ -54,4 +54,4 @@
         @endforelse
     </tbody>
 </table>
-@endsection
+{!!$categorys->links()!!}@endsection

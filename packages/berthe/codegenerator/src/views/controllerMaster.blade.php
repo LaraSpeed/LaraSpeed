@@ -90,12 +90,23 @@ class @yield('controllerName') extends Controller {
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Load and display related tables.
     * @param  Mixed
     * @return Response
     */
     public function related(@yield('relatedParam')){
         @yield('related')
+    }
+
+    /**
+    * Search Table element By keyword
+    * @return Response
+    */
+    public function search(){
+        $keyword = request()->get('keyword');
+        $keyword = '%'.$keyword.'%';
+
+        @yield('search')
     }
 
 }

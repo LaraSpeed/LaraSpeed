@@ -15,7 +15,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::resource('film', 'FilmController');
-Route::resource('language', 'LanguageController');
-Route::resource('category', 'CategoryController');

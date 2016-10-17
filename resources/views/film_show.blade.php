@@ -2,10 +2,10 @@
 @section('content')
 <h1 class="text-danger">List of Films</h1>
 
-<form action="" method="get">
+<form action="{{url("/film/search")}}" method="get">
     <div class="form-group">
         <label>Search : </label>
-        <input  type="text" class="form-control" name="filter" placeholder="Search"/>
+        <input  type="text" class="form-control" name="keyword" placeholder="Keyword"/>
     </div>
 
     <div class="form-group">
@@ -44,7 +44,7 @@
               <td>{{$film->rental_rate}}</td>
               <td>{{$film->length}}</td>
               <td>{{$film->replacement_cost}}</td>
-                   <td><form action="film/{{$film->film_id}}" method="get">
+                   <td><form action="{{url("/film/$film->film_id")}}" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>
         </td>
@@ -74,4 +74,4 @@
         @endforelse
     </tbody>
 </table>
-@endsection
+{!!$films->links()!!}@endsection

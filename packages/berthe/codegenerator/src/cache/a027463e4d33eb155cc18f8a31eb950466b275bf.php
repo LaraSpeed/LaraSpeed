@@ -1,9 +1,9 @@
 <h1 class="text-danger">List of <?php echo e(ucfirst($table['title']).'s'); ?></h1>
 
-<form action="" method="get">
+<form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/search\")"; ?>S2BCBRACKET" method="get">
     <div class="form-group">
         <label>Search : </label>
-        <input  type="text" class="form-control" name="filter" placeholder="Search"/>
+        <input  type="text" class="form-control" name="keyword" placeholder="Keyword"/>
     </div>
 
     <div class="form-group">
@@ -28,7 +28,7 @@
     <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
         <td>S2BOBRACKET$<?php echo $table['title'].'->'.$attrName; ?>S2BCBRACKET</td>
     <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-        <td><form action="<?php echo e($table['title'].'/'); ?>S2BOBRACKET$<?php echo $table['title'].'->'.$table['id']; ?>S2BCBRACKET" method="get">
+        <td><form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>
         </td>
@@ -55,3 +55,4 @@
         S3Bendforelse
     </tbody>
 </table>
+S2CBOBRACKET$<?php echo $table['title']."s->links()"; ?>S2CBCBRACKET

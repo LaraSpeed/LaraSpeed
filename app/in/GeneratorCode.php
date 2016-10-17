@@ -13,7 +13,7 @@ use Berthe\Codegenerator\Core\MCD;
 class GeneratorCode  extends CallGenerator {
 
     public $configs = array(
-        "version" => "5.1",
+        "version" => "5.3",
     );
 
     public function getSite(){

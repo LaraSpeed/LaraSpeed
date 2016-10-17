@@ -90,12 +90,23 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Load and display related tables.
     * @param    Mixed
     * @return  Response
     */
     public function related(<?php echo $__env->yieldContent('relatedParam'); ?>){
         <?php echo $__env->yieldContent('related'); ?>
+    }
+
+    /**
+    * Search Table element By keyword
+    * @return  Response
+    */
+    public function search(){
+        $keyword = request()->get('keyword');
+        $keyword = '%'.$keyword.'%';
+
+        <?php echo $__env->yieldContent('search'); ?>
     }
 
 }

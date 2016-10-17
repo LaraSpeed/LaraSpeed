@@ -12,7 +12,7 @@ class CategoryController extends Controller {
     */
     public function index()
     {
-        return view('category_show', ['categorys' => Category::all()]);
+        return view('category_show', ['categorys' => Category::paginate(20)]);
     }
 
     /**
@@ -90,13 +90,33 @@ class CategoryController extends Controller {
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Load and display related tables.
     * @param    Mixed
     * @return  Response
     */
     public function related(Category $category ){
         $category->load(array("film",));
 return view('category_related', compact('category'));    }
+
+    /**
+    * Search Table element By keyword
+    * @return  Response
+    */
+    public function search(){
+        $keyword = request()->get('keyword');
+        $keyword = '%'.$keyword.'%';
+
+        $categorys = Category::where('category_id', 'like', $keyword)
+         ->orWhere('category_id', 'like', $keyword)
+
+         ->orWhere('name', 'like', $keyword)
+
+         ->orWhere('last_update', 'like', $keyword)
+
+        ->paginate(20);
+    $categorys->setPath("search?keyword=$keyword");
+    return view('category_show', compact('categorys'));
+    }
 
 }
 

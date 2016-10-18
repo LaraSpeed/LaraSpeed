@@ -102,6 +102,7 @@ As LaraSpeed generate your web application forms and there are some fields that 
     <li>smallInteger(...)</li>
     <li>timestamp(...)</li>
     </ul>
+When you specify your data model with LaraSpeed, those fields will not be displayed in differents forms.
   
 <h3><u><b>LaraSpeed</b></u> limits</h3>
    <ul>

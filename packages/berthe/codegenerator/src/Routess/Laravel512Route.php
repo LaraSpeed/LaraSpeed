@@ -19,30 +19,26 @@ class Laravel512Route implements RouteManagerInterface
     static function addResourceRoute($tableName)
     {
         //Adding Route to routes/Web.php
-        $toAppends = TemplateProvider::getResourceRouteTemplate($tableName, ucfirst($tableName).'Controller')."\n";
-        $besideRoute = TemplateProvider::getNormalRouteTemplate("get", "$tableName/related", ucfirst($tableName)."Controller@related", "/{"."$tableName}")."\n";
-        $besideRouteSearch = TemplateProvider::getNormalRouteTemplate("get", "$tableName/search", ucfirst($tableName)."Controller@search")."\n";
+        $routes = array(
+            //Add new Route here at the top
+            //....
+            TemplateProvider::getNormalRouteTemplate("get", "$tableName/related", ucfirst($tableName)."Controller@related", "/{"."$tableName}")."\n",
+            TemplateProvider::getNormalRouteTemplate("get", "$tableName/search", ucfirst($tableName)."Controller@search")."\n",
+            TemplateProvider::getNormalRouteTemplate("get", "$tableName/sort", ucfirst($tableName)."Controller@sort")."\n",
+            TemplateProvider::getResourceRouteTemplate($tableName, ucfirst($tableName).'Controller')."\n"
+        );
+
         $content = file_get_contents(base_path('app/Http/').'routes.php');
-        //Teste if route don't already exist
-        if(!str_contains($content, $besideRoute)){
-            FileUtils::appendString(
-                $besideRoute,
-                base_path('app/Http/routes.php')
-            );
+
+        foreach ($routes as $route){
+            //Teste if route don't already exist
+            if(!str_contains($content, $route)){
+                FileUtils::appendString(
+                    $route,
+                    base_path('app/Http/routes.php')
+                );
+            }
         }
 
-        if(!str_contains($content, $besideRouteSearch)){
-            FileUtils::appendString(
-                $besideRouteSearch,
-                base_path('app/Http/routes.php')
-            );
-        }
-
-        if(!str_contains($content, $toAppends)){
-            FileUtils::appendString(
-                $toAppends,
-                base_path('app/Http/routes.php')
-            );
-        }
     }
 }

@@ -64,3 +64,16 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::where('".$table['
     ${!! $table['title']."s->setPath(\"search?keyword=$"."keyword\");"!!}
     {!! "return view('".$table['title']."_show', compact('".$table['title']."s'));" !!}
 @endsection
+
+@section('sort')
+${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::query();" !!}
+    @foreach($table['attributs'] as $attrName => $attrType)
+    {!!"if(request()->exists('$attrName')){" !!}
+            ${!! $table['title'].'s = ' !!}${!! $table['title']."s->orderBy('$attrName', $"."this->getOrder('$attrName'));" !!}
+            ${!! 'path = ' !!}{!! "\"$attrName\";" !!}
+        {!! "}" !!}
+    @endforeach
+    ${!! $table['title'].'s = ' !!}${!! $table['title'].'s->paginate(20);' !!}
+        ${!! $table['title']."s->setPath(\"sort?$"."path\");"!!}
+        {!! "return view('".$table['title']."_show', compact('".$table['title']."s'));" !!}
+@endsection

@@ -70,4 +70,25 @@ $<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::whe
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('sort'); ?>
+$<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::query();"; ?>
+
+    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+    <?php echo "if(request()->exists('$attrName')){"; ?>
+
+            $<?php echo $table['title'].'s = '; ?>$<?php echo $table['title']."s->orderBy('$attrName', $"."this->getOrder('$attrName'));"; ?>
+
+            $<?php echo 'path = '; ?><?php echo "\"$attrName\";"; ?>
+
+        <?php echo "}"; ?>
+
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+    $<?php echo $table['title'].'s = '; ?>$<?php echo $table['title'].'s->paginate(20);'; ?>
+
+        $<?php echo $table['title']."s->setPath(\"sort?$"."path\");"; ?>
+
+        <?php echo "return view('".$table['title']."_show', compact('".$table['title']."s'));"; ?>
+
+<?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('controllerMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

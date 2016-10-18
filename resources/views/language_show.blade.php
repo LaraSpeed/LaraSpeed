@@ -17,7 +17,7 @@
     <thead>
         <tr>
                            <th>
-                <a href="http://localhost/language">Name</a>
+                <a href="{{url("/language/sort?name")}}">Name</a>
             </th>   
         </tr>
     </thead>

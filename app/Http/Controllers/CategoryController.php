@@ -118,5 +118,39 @@ return view('category_related', compact('category'));    }
     return view('category_show', compact('categorys'));
     }
 
+    /**
+    * Sort Table element
+    * @return  Response
+    */
+    public function sort(){
+        $path = "";
+
+        $categorys = Category::query();
+        if(request()->exists('category_id')){
+            $categorys = $categorys->orderBy('category_id', $this->getOrder('category_id'));
+            $path = "category_id";
+        }
+        if(request()->exists('name')){
+            $categorys = $categorys->orderBy('name', $this->getOrder('name'));
+            $path = "name";
+        }
+        if(request()->exists('last_update')){
+            $categorys = $categorys->orderBy('last_update', $this->getOrder('last_update'));
+            $path = "last_update";
+        }
+        $categorys = $categorys->paginate(20);
+        $categorys->setPath("sort?$path");
+        return view('category_show', compact('categorys'));
+    }
+
+    private function getOrder($param){
+        if(session($param, "-1") != "-1"){
+            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        }else{
+            session([$param => 'asc']);
+        }
+        return session($param);
+    }
+
 }
 

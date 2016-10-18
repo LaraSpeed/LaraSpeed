@@ -109,5 +109,24 @@ class @yield('controllerName') extends Controller {
         @yield('search')
     }
 
+    /**
+    * Sort Table element
+    * @return Response
+    */
+    public function sort(){
+        $path = "";
+
+        @yield('sort')
+    }
+
+    private function getOrder($param){
+        if(session($param, "-1") != "-1"){
+            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        }else{
+            session([$param => 'asc']);
+        }
+        return session($param);
+    }
+
 }
 

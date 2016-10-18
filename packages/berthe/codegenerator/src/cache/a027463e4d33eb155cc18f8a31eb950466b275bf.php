@@ -16,7 +16,7 @@
         <tr>
             <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
             <th>
-                <a href="<?php echo e(url($table['title'])); ?>"><?php echo e(ucfirst($attrName)); ?></a>
+                <a href="S2BOBRACKET<?php echo "url(\"/".$table['title']."/sort?$attrName\")"; ?>S2BCBRACKET"><?php echo e(ucfirst($attrName)); ?></a>
             </th><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
         </tr>

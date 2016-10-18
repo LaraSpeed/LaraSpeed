@@ -17,9 +17,9 @@
     <thead>
         <tr>
                          <th>
-                <a href="http://localhost/category">Category_id</a>
+                <a href="{{url("/category/sort?category_id")}}">Category_id</a>
             </th>              <th>
-                <a href="http://localhost/category">Name</a>
+                <a href="{{url("/category/sort?name")}}">Name</a>
             </th>   
         </tr>
     </thead>

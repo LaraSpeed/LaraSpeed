@@ -118,5 +118,39 @@ return view('language_related', compact('language'));    }
     return view('language_show', compact('languages'));
     }
 
+    /**
+    * Sort Table element
+    * @return  Response
+    */
+    public function sort(){
+        $path = "";
+
+        $languages = Language::query();
+        if(request()->exists('language_id')){
+            $languages = $languages->orderBy('language_id', $this->getOrder('language_id'));
+            $path = "language_id";
+        }
+        if(request()->exists('name')){
+            $languages = $languages->orderBy('name', $this->getOrder('name'));
+            $path = "name";
+        }
+        if(request()->exists('last_update')){
+            $languages = $languages->orderBy('last_update', $this->getOrder('last_update'));
+            $path = "last_update";
+        }
+        $languages = $languages->paginate(20);
+        $languages->setPath("sort?$path");
+        return view('language_show', compact('languages'));
+    }
+
+    private function getOrder($param){
+        if(session($param, "-1") != "-1"){
+            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        }else{
+            session([$param => 'asc']);
+        }
+        return session($param);
+    }
+
 }
 

@@ -14,12 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('film/related/{film}', 'FilmController@related');
 Route::get('film/search', 'FilmController@search');
+Route::get('film/sort', 'FilmController@sort');
 Route::resource('film', 'FilmController');
 Route::get('language/related/{language}', 'LanguageController@related');
 Route::get('language/search', 'LanguageController@search');
+Route::get('language/sort', 'LanguageController@sort');
 Route::resource('language', 'LanguageController');
 Route::get('category/related/{category}', 'CategoryController@related');
 Route::get('category/search', 'CategoryController@search');
+Route::get('category/sort', 'CategoryController@sort');
 Route::resource('category', 'CategoryController');

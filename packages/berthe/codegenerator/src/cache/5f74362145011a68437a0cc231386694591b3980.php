@@ -109,5 +109,24 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         <?php echo $__env->yieldContent('search'); ?>
     }
 
+    /**
+    * Sort Table element
+    * @return  Response
+    */
+    public function sort(){
+        $path = "";
+
+        <?php echo $__env->yieldContent('sort'); ?>
+    }
+
+    private function getOrder($param){
+        if(session($param, "-1") != "-1"){
+            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        }else{
+            session([$param => 'asc']);
+        }
+        return session($param);
+    }
+
 }
 

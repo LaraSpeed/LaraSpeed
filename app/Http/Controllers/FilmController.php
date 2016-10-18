@@ -138,5 +138,79 @@ return view('film_related', compact('film'));    }
     return view('film_show', compact('films'));
     }
 
+    /**
+    * Sort Table element
+    * @return  Response
+    */
+    public function sort(){
+        $path = "";
+
+        $films = Film::query();
+        if(request()->exists('film_id')){
+            $films = $films->orderBy('film_id', $this->getOrder('film_id'));
+            $path = "film_id";
+        }
+        if(request()->exists('language_id')){
+            $films = $films->orderBy('language_id', $this->getOrder('language_id'));
+            $path = "language_id";
+        }
+        if(request()->exists('title')){
+            $films = $films->orderBy('title', $this->getOrder('title'));
+            $path = "title";
+        }
+        if(request()->exists('description')){
+            $films = $films->orderBy('description', $this->getOrder('description'));
+            $path = "description";
+        }
+        if(request()->exists('release_year')){
+            $films = $films->orderBy('release_year', $this->getOrder('release_year'));
+            $path = "release_year";
+        }
+        if(request()->exists('original_language_id')){
+            $films = $films->orderBy('original_language_id', $this->getOrder('original_language_id'));
+            $path = "original_language_id";
+        }
+        if(request()->exists('rental_duration')){
+            $films = $films->orderBy('rental_duration', $this->getOrder('rental_duration'));
+            $path = "rental_duration";
+        }
+        if(request()->exists('rental_rate')){
+            $films = $films->orderBy('rental_rate', $this->getOrder('rental_rate'));
+            $path = "rental_rate";
+        }
+        if(request()->exists('length')){
+            $films = $films->orderBy('length', $this->getOrder('length'));
+            $path = "length";
+        }
+        if(request()->exists('replacement_cost')){
+            $films = $films->orderBy('replacement_cost', $this->getOrder('replacement_cost'));
+            $path = "replacement_cost";
+        }
+        if(request()->exists('rating')){
+            $films = $films->orderBy('rating', $this->getOrder('rating'));
+            $path = "rating";
+        }
+        if(request()->exists('special_features')){
+            $films = $films->orderBy('special_features', $this->getOrder('special_features'));
+            $path = "special_features";
+        }
+        if(request()->exists('last_update')){
+            $films = $films->orderBy('last_update', $this->getOrder('last_update'));
+            $path = "last_update";
+        }
+        $films = $films->paginate(20);
+        $films->setPath("sort?$path");
+        return view('film_show', compact('films'));
+    }
+
+    private function getOrder($param){
+        if(session($param, "-1") != "-1"){
+            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        }else{
+            session([$param => 'asc']);
+        }
+        return session($param);
+    }
+
 }
 

@@ -17,19 +17,19 @@
     <thead>
         <tr>
                              <th>
-                <a href="http://localhost/film">Title</a>
+                <a href="{{url("/film/sort?title")}}">Title</a>
             </th>              <th>
-                <a href="http://localhost/film">Description</a>
+                <a href="{{url("/film/sort?description")}}">Description</a>
             </th>              <th>
-                <a href="http://localhost/film">Release_year</a>
+                <a href="{{url("/film/sort?release_year")}}">Release_year</a>
             </th>                <th>
-                <a href="http://localhost/film">Rental_duration</a>
+                <a href="{{url("/film/sort?rental_duration")}}">Rental_duration</a>
             </th>              <th>
-                <a href="http://localhost/film">Rental_rate</a>
+                <a href="{{url("/film/sort?rental_rate")}}">Rental_rate</a>
             </th>              <th>
-                <a href="http://localhost/film">Length</a>
+                <a href="{{url("/film/sort?length")}}">Length</a>
             </th>              <th>
-                <a href="http://localhost/film">Replacement_cost</a>
+                <a href="{{url("/film/sort?replacement_cost")}}">Replacement_cost</a>
             </th>       
         </tr>
     </thead>

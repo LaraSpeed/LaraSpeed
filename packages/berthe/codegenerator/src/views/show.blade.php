@@ -16,7 +16,7 @@
         <tr>
             @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
             <th>
-                <a href="{{url($table['title'])}}">{{ucfirst($attrName)}}</a>
+                <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/sort?$attrName\")"!!}S2BCBRACKET">{{ucfirst($attrName)}}</a>
             </th>@endif @endforeach
 
         </tr>

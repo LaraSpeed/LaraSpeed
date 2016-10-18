@@ -91,6 +91,17 @@ This will generate :<br/>
 
 <h3><u><b>LaraSpeed</b></u> supported Relation in Conceptual Data Model</h3>
   <b>For the moment LaraSpeed support 3 relations type (1:1, 1:n and n:n).</b>
+
+<h3><u><b>Things you should know</b></u></h3>
+As LaraSpeed generate your web application forms and there are some fields that are not needed in the form such as "primaryKeys", "foreignKeys" and so on. Here are the list of no displayable fields methods when you specify your Data Model.
+    <ul>
+    <li>bigIncrements(...)</li>
+    <li>char(...)</li>
+    <li>enum(...)</li>
+    <li>increments(...)</li>
+    <li>smallInteger(...)</li>
+    <li>timestamp(...)</li>
+    </ul>
   
 <h3><u><b>LaraSpeed</b></u> limits</h3>
    <ul>

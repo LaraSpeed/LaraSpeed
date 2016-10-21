@@ -13,4 +13,5 @@ interface FormRelationInterface
 {
     function getFormView();
     function getDisplayView();
+    function getEditView();
 }

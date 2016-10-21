@@ -119,6 +119,8 @@ class @yield('controllerName') extends Controller {
         @yield('sort')
     }
 
+    @yield('relations')
+
     private function getOrder($param){
         if(session($param, "-1") != "-1"){
             session([$param => session($param) == 'asc' ? 'desc':'asc']);
@@ -127,6 +129,8 @@ class @yield('controllerName') extends Controller {
         }
         return session($param);
     }
+
+
 
 }
 

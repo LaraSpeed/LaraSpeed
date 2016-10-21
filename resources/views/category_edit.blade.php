@@ -23,31 +23,27 @@
 </form>
 
     @if(isset($category->film))
-    <h1 class="text-danger">List of Films</h1>
-<table class="table">
-    <thead>
-              <th>Title</th>
-             <th>Description</th>
-             <th>Release_year</th>
-              <th>Rental_duration</th>
-             <th>Rental_rate</th>
-             <th>Length</th>
-             <th>Replacement_cost</th>
-            </thead>
-@forelse($category->film as  $film)
-    <tbody>
-              <td>{{$film->title}}</td>
-             <td>{{$film->description}}</td>
-             <td>{{$film->release_year}}</td>
-              <td>{{$film->rental_duration}}</td>
-             <td>{{$film->rental_rate}}</td>
-             <td>{{$film->length}}</td>
-             <td>{{$film->replacement_cost}}</td>
-            </tbody>
-@empty
-    <td>No film for category</td>
-@endforelse
-</table>    @else
+    <h3>Associate Film</h3>
+<form action="" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <select class="form-control" name="film">
+        @forelse(\App\Film::all() as  $film)
+        <option value="{{$film->film_id}}">
+                              {{$film->title}}
+                             {{$film->description}}
+                             {{$film->release_year}}
+                              {{$film->rental_duration}}
+                             {{$film->rental_rate}}
+                             {{$film->length}}
+                             {{$film->replacement_cost}}
+                        </option>
+        @empty
+        <option value="-1">No film</option>
+        @endforelse
+    </select>
+
+    <input type="submit"  class="btn btn-primary" value="Associate"/>
+</form>    @else
     <label class="text-danger">No category.</label>
     @endif
 @endsection

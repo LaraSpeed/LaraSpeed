@@ -25,6 +25,8 @@ class BelongsToRelation extends BaseRelation implements FormRelationInterface,
     public $actionView = "belongsToController";
     public $foreignConstraintView = "foreignConstraintView";
     public $dropTableConstraintView = "dropTableConstraintView";
+    public $editView = "belongsToEdit";
+    public $action = "belongsToAction";
 
     public function __construct($table="table", $other="otherTable")
     {
@@ -64,5 +66,15 @@ class BelongsToRelation extends BaseRelation implements FormRelationInterface,
     function hasConstraint()
     {
         return true;
+    }
+
+    function getEditView()
+    {
+        return $this->editView;
+    }
+
+    function getAction()
+    {
+        return $this->action;
     }
 }

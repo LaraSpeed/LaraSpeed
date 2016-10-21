@@ -77,3 +77,9 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::query();" !!}
         ${!! $table['title']."s->setPath(\"sort?$"."path\");"!!}
         {!! "return view('".$table['title']."_show', compact('".$table['title']."s'));" !!}
 @endsection
+
+@section('relations')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)
+@include($relation->getAction(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'tbs' => $tbs])
+
+@endforeach @endif
+@endsection

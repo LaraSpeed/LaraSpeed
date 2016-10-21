@@ -143,6 +143,11 @@ return view('category_related', compact('category'));    }
         return view('category_show', compact('categorys'));
     }
 
+    function addFilm(Category $category ){
+    $category->film()->save(\App\Film::find(request()->get('film')));
+    return back();
+}
+ 
     private function getOrder($param){
         if(session($param, "-1") != "-1"){
             session([$param => session($param) == 'asc' ? 'desc':'asc']);
@@ -151,6 +156,8 @@ return view('category_related', compact('category'));    }
         }
         return session($param);
     }
+
+
 
 }
 

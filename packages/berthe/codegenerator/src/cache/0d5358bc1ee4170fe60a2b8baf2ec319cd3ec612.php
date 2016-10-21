@@ -91,4 +91,10 @@ $<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::que
 
 <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('relations'); ?><?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+<?php echo $__env->make($relation->getAction(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'tbs' => $tbs], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('controllerMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('film/related/{film}', 'FilmController@related');
 Route::get('film/search', 'FilmController@search');
 Route::get('film/sort', 'FilmController@sort');
+Route::post('film/addCategory/{film}', 'FilmController@addCategory');
 Route::resource('film', 'FilmController');
 Route::get('language/related/{language}', 'LanguageController@related');
 Route::get('language/search', 'LanguageController@search');

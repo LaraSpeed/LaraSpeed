@@ -143,6 +143,11 @@ return view('language_related', compact('language'));    }
         return view('language_show', compact('languages'));
     }
 
+    function addFilm(Language $language ){
+    $language->film()->save(\App\Film::find(request()->get('film')));
+    return back();
+}
+ 
     private function getOrder($param){
         if(session($param, "-1") != "-1"){
             session([$param => session($param) == 'asc' ? 'desc':'asc']);
@@ -151,6 +156,8 @@ return view('language_related', compact('language'));    }
         }
         return session($param);
     }
+
+
 
 }
 

@@ -21,6 +21,8 @@ class HasOneRelation extends BaseRelation implements FormRelationInterface, Mode
     public $displayView = "hasOneDisplay";
     public $modelView = "singleArgModelRelation";
     public $actionView = "hasOneController";
+    public $editView = "hasOneEdit";
+    public $action = "hasOneAction";
 
     public function __construct($table = "table", $other = "otherTable")
     {
@@ -45,5 +47,15 @@ class HasOneRelation extends BaseRelation implements FormRelationInterface, Mode
     function getModelView()
     {
         return $this->modelView;
+    }
+
+    function getEditView()
+    {
+        return $this->editView;
+    }
+
+    function getAction()
+    {
+        return $this->action;
     }
 }

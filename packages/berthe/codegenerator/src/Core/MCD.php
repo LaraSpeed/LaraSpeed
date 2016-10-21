@@ -8,27 +8,27 @@
 
 namespace Berthe\Codegenerator\Core;
 
-use Berthe\CodeGenerator\MCDType\BigIncrementsType;
-use Berthe\CodeGenerator\MCDType\BigIntegerType;
-use Berthe\CodeGenerator\MCDType\BooleanType;
-use Berthe\CodeGenerator\MCDType\CharType;
-use Berthe\CodeGenerator\MCDType\DecimalType;
-use Berthe\CodeGenerator\MCDType\DoubleType;
-use Berthe\CodeGenerator\MCDType\EnumType;
-use Berthe\CodeGenerator\MCDType\FloatType;
-use Berthe\CodeGenerator\MCDType\IncrementsType;
-use Berthe\CodeGenerator\MCDType\IntegerType;
-use Berthe\CodeGenerator\MCDType\LongTextType;
-use Berthe\CodeGenerator\MCDType\SetType;
-use Berthe\CodeGenerator\MCDType\SmallIntegerType;
-use Berthe\CodeGenerator\MCDType\StringType;
-use Berthe\CodeGenerator\MCDType\TextType;
-use Berthe\CodeGenerator\MCDType\TinyIntegerType;
-use Berthe\CodeGenerator\MCDType\TimeStampType;
+use Berthe\Codegenerator\MCDType\BigIncrementsType;
+use Berthe\Codegenerator\MCDType\BigIntegerType;
+use Berthe\Codegenerator\MCDType\BooleanType;
+use Berthe\Codegenerator\MCDType\CharType;
+use Berthe\Codegenerator\MCDType\DecimalType;
+use Berthe\Codegenerator\MCDType\DoubleType;
+use Berthe\Codegenerator\MCDType\EnumType;
+use Berthe\Codegenerator\MCDType\FloatType;
+use Berthe\Codegenerator\MCDType\IncrementsType;
+use Berthe\Codegenerator\MCDType\IntegerType;
+use Berthe\Codegenerator\MCDType\LongTextType;
+use Berthe\Codegenerator\MCDType\SetType;
+use Berthe\Codegenerator\MCDType\SmallIntegerType;
+use Berthe\Codegenerator\MCDType\StringType;
+use Berthe\Codegenerator\MCDType\TextType;
+use Berthe\Codegenerator\MCDType\TinyIntegerType;
+use Berthe\Codegenerator\MCDType\TimeStampType;
 use Berthe\Codegenerator\Relation\BelongsToManyRelation;
-use Berthe\CodeGenerator\Relation\BelongsToRelation;
-use Berthe\CodeGenerator\Relation\HasManyRelation;
-use Berthe\CodeGenerator\Relation\HasOneRelation;
+use Berthe\Codegenerator\Relation\BelongsToRelation;
+use Berthe\Codegenerator\Relation\HasManyRelation;
+use Berthe\Codegenerator\Relation\HasOneRelation;
 
 
 class MCD

@@ -119,6 +119,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         <?php echo $__env->yieldContent('sort'); ?>
     }
 
+    <?php echo $__env->yieldContent('relations'); ?>
+
     private function getOrder($param){
         if(session($param, "-1") != "-1"){
             session([$param => session($param) == 'asc' ? 'desc':'asc']);
@@ -127,6 +129,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         }
         return session($param);
     }
+
+
 
 }
 

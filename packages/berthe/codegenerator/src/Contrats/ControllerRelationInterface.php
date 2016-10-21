@@ -12,4 +12,5 @@ namespace Berthe\Codegenerator\Contrats;
 interface ControllerRelationInterface
 {
     function getActionView();
+    function getAction();
 }

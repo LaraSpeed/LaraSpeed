@@ -52,28 +52,38 @@
     </div>
 </form>
 
-    @if(isset($film->language))
-    <h3 class="text-danger">Language : </h3>
-     {{$film->language->name}}
-      @else
-    <label class="text-danger">No film.</label>
-    @endif
+    <h3>Update Language</h3>
+<form action="" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <select class="form-control" name="language">
+        @forelse(\App\Language::all() as  $language)
+        <option value="{{$language->language_id}}">
+                             {{$language->name}}
+                      </option>
+        @empty
+        <option value="-1">No language</option>
+        @endforelse
+    </select>
+
+    <input type="submit"  class="btn btn-primary" value="Update"/>
+</form>
     @if(isset($film->category))
-    <h1 class="text-danger">List of Categorys</h1>
-<table class="table">
-    <thead>
-            <th>Category_id</th>
-             <th>Name</th>
-          </thead>
-@forelse($film->category as  $category)
-    <tbody>
-            <td>{{$category->category_id}}</td>
-             <td>{{$category->name}}</td>
-          </tbody>
-@empty
-    <td>No category for film</td>
-@endforelse
-</table>    @else
+    <h3>Associate Category</h3>
+<form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <select class="form-control" name="category">
+        @forelse(\App\Category::all() as  $category)
+        <option value="{{$category->category_id}}">
+                            {{$category->category_id}}
+                             {{$category->name}}
+                      </option>
+        @empty
+        <option value="-1">No category</option>
+        @endforelse
+    </select>
+
+    <input type="submit"  class="btn btn-primary" value="Associate"/>
+</form>    @else
     <label class="text-danger">No film.</label>
     @endif
 @endsection

@@ -203,6 +203,17 @@ return view('film_related', compact('film'));    }
         return view('film_show', compact('films'));
     }
 
+    function updateLanguage(Film $film ){
+        $language = \App\Language::find(request()->get('language'));
+        $film->language()->associate($language)->save();
+        return back();
+    }
+
+    function addCategory(Film $film ){
+        $film->category()->save(\App\Category::find(request()->get('category')));
+        return back();
+    }
+ 
     private function getOrder($param){
         if(session($param, "-1") != "-1"){
             session([$param => session($param) == 'asc' ? 'desc':'asc']);
@@ -211,6 +222,8 @@ return view('film_related', compact('film'));    }
         }
         return session($param);
     }
+
+
 
 }
 

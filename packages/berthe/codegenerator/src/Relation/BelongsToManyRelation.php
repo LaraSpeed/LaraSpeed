@@ -19,6 +19,8 @@ class BelongsToManyRelation extends BaseRelation implements FormRelationInterfac
     public $displayView = "hasManyDisplay";
     public $modelView = "singleArgModelRelation";
     public $actionView = "belongsToController";
+    public $editView = "belongsToManyEdit";
+    public $action = "belongsToManyAction";
 
     public function __construct($table = "", $other = "")
     {
@@ -44,5 +46,15 @@ class BelongsToManyRelation extends BaseRelation implements FormRelationInterfac
     function getActionView()
     {
         return $this->actionView;
+    }
+
+    function getEditView()
+    {
+        return $this->editView;
+    }
+
+    function getAction()
+    {
+        return $this->action;
     }
 }

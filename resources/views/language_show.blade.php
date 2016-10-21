@@ -2,16 +2,37 @@
 @section('content')
 <h1 class="text-danger">List of Languages</h1>
 
-<form action="{{url("/language/search")}}" method="get">
-    <div class="form-group">
-        <label>Search : </label>
-        <input  type="text" class="form-control" name="keyword" placeholder="Keyword"/>
+<div class="row">
+    <div class="col-md-2 col-sm-2">
+        <form action="{{url("/language")}}" method="get">
+            <button type="submit" class="btn btn-primary">Clear Search</button>
+        </form>
     </div>
 
-    <div class="form-group">
+    <div class="col-md-8 col-sm-8">
+<form action="{{url("/language/search")}}" method="get">
+
+    <div class="col-md-10 col-sm-10">
+        <input  type="text" class="form-control" name="keyword" placeholder="{{session('keyword', 'Keyword')}}"/>
+    </div>
+
+    <div class="col-md-2 col-sm-2">
         <input type="submit" class="btn btn-primary" value="Search"/>
     </div>
+
 </form>
+    </div>
+</div>
+<br/>
+
+<div class="row">
+    <div class="col-md-2 col-sm-2">
+        <form action="{{url("/language/create")}}" method="get">
+            <button type="submit" class="btn btn-primary">Add new Language</button>
+        </form>
+    </div>
+</div>
+<br/>
 
 <table class="table table-striped">
     <thead>

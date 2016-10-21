@@ -12,6 +12,8 @@ class @yield('controllerName') extends Controller {
     */
     public function index()
     {
+        request()->session()->forget("keyword");
+
         return view('@yield('viewName')_show', ['@yield('varID')' => @yield('modelCall')]);
     }
 
@@ -104,6 +106,9 @@ class @yield('controllerName') extends Controller {
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        session(["keyword" => $keyword]);
+
         $keyword = '%'.$keyword.'%';
 
         @yield('search')

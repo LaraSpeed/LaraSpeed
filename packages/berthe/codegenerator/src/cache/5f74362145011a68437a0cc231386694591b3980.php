@@ -12,6 +12,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function index()
     {
+        request()->session()->forget("keyword");
+
         return view('<?php echo $__env->yieldContent('viewName'); ?>_show', ['<?php echo $__env->yieldContent('varID'); ?>' => <?php echo $__env->yieldContent('modelCall'); ?>]);
     }
 
@@ -104,6 +106,9 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        session(["keyword" => $keyword]);
+
         $keyword = '%'.$keyword.'%';
 
         <?php echo $__env->yieldContent('search'); ?>

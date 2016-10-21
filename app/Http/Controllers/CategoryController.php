@@ -12,6 +12,8 @@ class CategoryController extends Controller {
     */
     public function index()
     {
+        request()->session()->forget("keyword");
+
         return view('category_show', ['categorys' => Category::paginate(20)]);
     }
 
@@ -104,6 +106,9 @@ return view('category_related', compact('category'));    }
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        session(["keyword" => $keyword]);
+
         $keyword = '%'.$keyword.'%';
 
         $categorys = Category::where('category_id', 'like', $keyword)

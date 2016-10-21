@@ -66,10 +66,8 @@
     </select>
 
     <input type="submit"  class="btn btn-primary" value="Update"/>
-</form>
-    @if(isset($film->category))
-    <h3>Associate Category</h3>
-<form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
+</form>    <h3>Associate Category</h3>
+<form action="" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" name="category">
         @forelse(\App\Category::all() as  $category)
@@ -83,7 +81,4 @@
     </select>
 
     <input type="submit"  class="btn btn-primary" value="Associate"/>
-</form>    @else
-    <label class="text-danger">No film.</label>
-    @endif
-@endsection
+</form>@endsection

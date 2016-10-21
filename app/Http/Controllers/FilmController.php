@@ -12,6 +12,8 @@ class FilmController extends Controller {
     */
     public function index()
     {
+        request()->session()->forget("keyword");
+
         return view('film_show', ['films' => Film::paginate(20)]);
     }
 
@@ -104,6 +106,9 @@ return view('film_related', compact('film'));    }
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        session(["keyword" => $keyword]);
+
         $keyword = '%'.$keyword.'%';
 
         $films = Film::where('film_id', 'like', $keyword)
@@ -204,15 +209,14 @@ return view('film_related', compact('film'));    }
     }
 
     function updateLanguage(Film $film ){
-        $language = \App\Language::find(request()->get('language'));
-        $film->language()->associate($language)->save();
-        return back();
-    }
-
-    function addCategory(Film $film ){
-        $film->category()->save(\App\Category::find(request()->get('category')));
-        return back();
-    }
+    $language = \App\Language::find(request()->get('language'));
+    $film->language()->associate($language)->save();
+    return back();
+}
+function addCategory(Film $film ){
+    $film->category()->save(\App\Category::find(request()->get('category')));
+    return back();
+}
  
     private function getOrder($param){
         if(session($param, "-1") != "-1"){

@@ -22,7 +22,6 @@
     </div>
 </form>
 
-    @if(isset($category->film))
     <h3>Associate Film</h3>
 <form action="" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -43,7 +42,4 @@
     </select>
 
     <input type="submit"  class="btn btn-primary" value="Associate"/>
-</form>    @else
-    <label class="text-danger">No category.</label>
-    @endif
-@endsection
+</form>@endsection

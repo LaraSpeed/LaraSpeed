@@ -12,6 +12,8 @@ class LanguageController extends Controller {
     */
     public function index()
     {
+        request()->session()->forget("keyword");
+
         return view('language_show', ['languages' => Language::paginate(20)]);
     }
 
@@ -104,6 +106,9 @@ return view('language_related', compact('language'));    }
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        session(["keyword" => $keyword]);
+
         $keyword = '%'.$keyword.'%';
 
         $languages = Language::where('language_id', 'like', $keyword)

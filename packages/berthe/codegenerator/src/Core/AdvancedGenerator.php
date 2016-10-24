@@ -27,18 +27,38 @@ use Berthe\Codegenerator\Utils\TemplateProvider;
 class AdvancedGenerator implements IAdvancedLaravelGenerator
 {
     public $mda;
-
     public $config;
+    
+    public $resources = array(
+        //Add ressources like "Input" => "Output"
+
+        //VIEWS
+        "formMaster.blade.php" => "resources/views/master.blade.php",
+        "modal.blade.php" => "resources/views/modal.blade.php",
+
+        //CSS
+        "bootstrap3.css" => "public/css/bootstrap3.css",
+
+        //JS
+        "jquery.js" => "public/js/jquery.js",
+        "angular1.js" => "public/js/angular.js",
+        "bootstrap3.js" => "public/js/bootstrap3.js",
+        "script.js" => "public/js/script.js"
+    );
+    
+    public $img = array(
+        "asc.png" => "public/asc.png",
+        "none.png" => "public/none.png"
+    );
 
     public function __construct($table = array(), $config = array())
     {
         $this->mda = $table;
         $this->config = new BasicConfig($config);
 
-        //Creating Master File. (=== Not Optimale But working Fine ===).
-        $p = base_path('resources/views/')."master.blade.php";
-        $content = file_get_contents(__DIR__ . '/../views/formMaster.blade.php');
-        file_put_contents($p, $content);
+        //Load Some Simple required Files (master.blade.php, angular1.js) and images like (Sort Arrows).
+        (new ResourcesLoader($this->resources, $this->img))->load()->loadImages();
+        
     }
 
     function generateLaravel(Templater $templater)

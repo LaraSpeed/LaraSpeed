@@ -37,7 +37,7 @@
         <tr>
             @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
             <th>
-                <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/sort?$attrName\")"!!}S2BCBRACKET">{{ucfirst(str_replace("_", " ", $attrName))}}</a> <img src="S2BOBRACKET URL::asset(session('{{$attrName.".png"}}', 'none.png')) S2BCBRACKET" />
+                <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/sort?$attrName\")"!!}S2BCBRACKET">{{ucfirst(str_replace("_", " ", $attrName))}}</a>
             </th>@endif @endforeach
 
         </tr>
@@ -57,9 +57,9 @@
                 <button type="submit" class="btn btn-link">Edit</button>
             </form>
         </td>
-        <td>
-            <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this {{$table['title']}}', 'S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET')">Delete</button>
+        <td><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="post">
+                {{ method_field('DELETE') }}<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" /><button type="submit" class="btn btn-link">Delete</button>
+            </form>
         </td>
         @foreach($table['relations'] as $relation)
             <td>

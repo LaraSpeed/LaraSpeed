@@ -38,19 +38,19 @@
     <thead>
         <tr>
                              <th>
-                <a href="{{url("/film/sort?title")}}">Title</a>
+                <a href="{{url("/film/sort?title")}}">Title</a> <img src="{{ URL::asset(session('title.png', 'none.png')) }}" />
             </th>              <th>
-                <a href="{{url("/film/sort?description")}}">Description</a>
+                <a href="{{url("/film/sort?description")}}">Description</a> <img src="{{ URL::asset(session('description.png', 'none.png')) }}" />
             </th>              <th>
-                <a href="{{url("/film/sort?release_year")}}">Release year</a>
+                <a href="{{url("/film/sort?release_year")}}">Release year</a> <img src="{{ URL::asset(session('release_year.png', 'none.png')) }}" />
             </th>                <th>
-                <a href="{{url("/film/sort?rental_duration")}}">Rental duration</a>
+                <a href="{{url("/film/sort?rental_duration")}}">Rental duration</a> <img src="{{ URL::asset(session('rental_duration.png', 'none.png')) }}" />
             </th>              <th>
-                <a href="{{url("/film/sort?rental_rate")}}">Rental rate</a>
+                <a href="{{url("/film/sort?rental_rate")}}">Rental rate</a> <img src="{{ URL::asset(session('rental_rate.png', 'none.png')) }}" />
             </th>              <th>
-                <a href="{{url("/film/sort?length")}}">Length</a>
+                <a href="{{url("/film/sort?length")}}">Length</a> <img src="{{ URL::asset(session('length.png', 'none.png')) }}" />
             </th>              <th>
-                <a href="{{url("/film/sort?replacement_cost")}}">Replacement cost</a>
+                <a href="{{url("/film/sort?replacement_cost")}}">Replacement cost</a> <img src="{{ URL::asset(session('replacement_cost.png', 'none.png')) }}" />
             </th>       
         </tr>
     </thead>
@@ -73,9 +73,9 @@
                 <button type="submit" class="btn btn-link">Edit</button>
             </form>
         </td>
-        <td><form action="{{url("/film/$film->film_id")}}" method="post">
-                <input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><button type="submit" class="btn btn-link">Delete</button>
-            </form>
+        <td>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this film', '{{url("/film/$film->film_id")}}')">Delete</button>
         </td>
                     <td>
                 <form action="{{url("/film/related/$film->film_id")}}" method="get">
@@ -90,7 +90,7 @@
                     </tr>
         @empty
             <tr>
-                <td>No film.</td>
+                <td>No film matching keyword {{session('keyword', 'Keyword')}}.</td>
             </tr>
         @endforelse
     </tbody>

@@ -37,7 +37,7 @@
         <tr>
             <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
             <th>
-                <a href="S2BOBRACKET<?php echo "url(\"/".$table['title']."/sort?$attrName\")"; ?>S2BCBRACKET"><?php echo e(ucfirst(str_replace("_", " ", $attrName))); ?></a>
+                <a href="S2BOBRACKET<?php echo "url(\"/".$table['title']."/sort?$attrName\")"; ?>S2BCBRACKET"><?php echo e(ucfirst(str_replace("_", " ", $attrName))); ?></a> <img src="S2BOBRACKET URL::asset(session('<?php echo e($attrName.".png"); ?>', 'none.png')) S2BCBRACKET" />
             </th><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
         </tr>
@@ -57,9 +57,9 @@
                 <button type="submit" class="btn btn-link">Edit</button>
             </form>
         </td>
-        <td><form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="post">
-                <?php echo e(method_field('DELETE')); ?><input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" /><button type="submit" class="btn btn-link">Delete</button>
-            </form>
+        <td>
+            <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
+            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this <?php echo e($table['title']); ?>', 'S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET')">Delete</button>
         </td>
         <?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
             <td>
@@ -71,7 +71,7 @@
             </tr>
         S3Bempty
             <tr>
-                <td>No <?php echo e($table['title']); ?>.</td>
+                <td>No <?php echo e($table['title']); ?> matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</td>
             </tr>
         S3Bendforelse
     </tbody>

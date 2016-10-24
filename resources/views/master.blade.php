@@ -6,11 +6,16 @@
 	    </title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
+        <script src="{{URL::asset("js/jquery.js")}}"></script>
+        <script src="{{URL::asset("js/bootstrap3.js")}}"></script>
+        <script src="{{URL::asset("js/angular.js")}}"></script>
+        <script src="{{URL::asset("js/script.js")}}"></script>
+
 
     </head>
-    <body>
+    <body ng-app="app" ng-controller="appCtrl">
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -26,12 +31,16 @@
             </div>
         </div><!-- /.container-fluid -->
     </nav>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-	                @yield('content')
-                </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                @yield('content')
             </div>
         </div>
+    </div>
+
+    @include("modal")
+
     </body>
 </html>

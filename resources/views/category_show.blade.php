@@ -38,9 +38,9 @@
     <thead>
         <tr>
                          <th>
-                <a href="{{url("/category/sort?category_id")}}">Category id</a>
+                <a href="{{url("/category/sort?category_id")}}">Category id</a> <img src="{{ URL::asset(session('category_id.png', 'none.png')) }}" />
             </th>              <th>
-                <a href="{{url("/category/sort?name")}}">Name</a>
+                <a href="{{url("/category/sort?name")}}">Name</a> <img src="{{ URL::asset(session('name.png', 'none.png')) }}" />
             </th>   
         </tr>
     </thead>
@@ -58,9 +58,9 @@
                 <button type="submit" class="btn btn-link">Edit</button>
             </form>
         </td>
-        <td><form action="{{url("/category/$category->category_id")}}" method="post">
-                <input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}" /><button type="submit" class="btn btn-link">Delete</button>
-            </form>
+        <td>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this category', '{{url("/category/$category->category_id")}}')">Delete</button>
         </td>
                     <td>
                 <form action="{{url("/category/related/$category->category_id")}}" method="get">
@@ -70,7 +70,7 @@
                     </tr>
         @empty
             <tr>
-                <td>No category.</td>
+                <td>No category matching keyword {{session('keyword', 'Keyword')}}.</td>
             </tr>
         @endforelse
     </tbody>

@@ -29,7 +29,7 @@
     <h1 class="text-danger">List of Categorys</h1>
 <table class="table">
     <thead>
-            <th>Category_id</th>
+            <th>Category id</th>
              <th>Name</th>
           </thead>
 @forelse($film->category as  $category)

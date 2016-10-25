@@ -42,4 +42,19 @@ class Laravel53Route implements RouteManagerInterface
         }
 
     }
+
+    static function addAdditionRoutes($routes)
+    {
+        $content = file_get_contents(base_path('routes/').'web.php');
+        foreach ($routes as $routesName => $action){
+            //Teste if route don't already exist
+            $route = TemplateProvider::getNormalRouteTemplate("post", "$routesName", $action)."\n";
+            if(!str_contains($content, $route)){
+                FileUtils::appendString(
+                    $route,
+                    base_path('routes/web.php')
+                );
+            }
+        }
+    }
 }

@@ -23,7 +23,7 @@
 </form>
 
     <h3>Associate Film</h3>
-<form action="" method="post">
+<form action="{{url("/category/addFilm/$category->category_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" name="film">
         @forelse(\App\Film::all() as  $film)

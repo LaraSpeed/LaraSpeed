@@ -18,10 +18,12 @@ class FormTemplate extends Templater
     public $template = "form";
     public $outDir = "resources/views";
     public $version;
+    public $routes;
 
-    public function __construct($version = "")
+    public function __construct($version = "", $routes = array())
     {
         $this->version = $version;
+        $this->routes = $routes;
     }
 
     /**
@@ -32,10 +34,13 @@ class FormTemplate extends Templater
     function getPath($tableName)
     {
         //Laravel53Route::addResourceRoute($tableName);
-        if($this->version == Variable::$LARAVEL_VERSION_53)
+        if ($this->version == Variable::$LARAVEL_VERSION_53) {
+            Laravel53Route::addAdditionRoutes($this->routes);
             Laravel53Route::addResourceRoute($tableName);
-        elseif (($this->version == Variable::$LARAVEL_VERSION_51) or ($this->version == Variable::$LARAVEL_VERSION_52))
+        } elseif (($this->version == Variable::$LARAVEL_VERSION_51) or ($this->version == Variable::$LARAVEL_VERSION_52)) {
+            Laravel512Route::addAdditionRoutes($this->routes);
             Laravel512Route::addResourceRoute($tableName);
+        }
 
         return base_path($this->outDir).'/'.$tableName.'.blade.php';
     }

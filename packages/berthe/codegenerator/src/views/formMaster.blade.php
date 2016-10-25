@@ -8,6 +8,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset("css/simple-sidebar.css")}}" rel="stylesheet" type="text/css">
+
         <script src="{{URL::asset("js/jquery.js")}}"></script>
         <script src="{{URL::asset("js/bootstrap3.js")}}"></script>
         <script src="{{URL::asset("js/angular.js")}}"></script>
@@ -27,20 +29,43 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">LaraSpeed</a>
+                <a href="#menu-toggle" id="menu-toggle"><h3>LaraSpeed</h3></a>
             </div>
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                @yield('content')
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            @include('sidebar')
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @yield('content')
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     @include("modal")
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $("#menu-toggle1").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
 
     </body>
 </html>

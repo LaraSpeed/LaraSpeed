@@ -15,10 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('film/updateLanguage/{film}', 'FilmController@updateLanguage');
+Route::post('film/addCategory/{film}', 'FilmController@addCategory');
+Route::post('language/addFilm/{language}', 'LanguageController@addFilm');
+Route::post('category/addFilm/{category}', 'CategoryController@addFilm');
 Route::get('film/related/{film}', 'FilmController@related');
 Route::get('film/search', 'FilmController@search');
 Route::get('film/sort', 'FilmController@sort');
-Route::post('film/addCategory/{film}', 'FilmController@addCategory');
 Route::resource('film', 'FilmController');
 Route::get('language/related/{language}', 'LanguageController@related');
 Route::get('language/search', 'LanguageController@search');

@@ -12,4 +12,5 @@ namespace Berthe\Codegenerator\Contrats;
 interface RouteManagerInterface
 {
     static function addResourceRoute($tableName);
+    static function addAdditionRoutes($routes);
 }

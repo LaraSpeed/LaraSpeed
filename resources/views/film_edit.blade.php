@@ -53,7 +53,7 @@
 </form>
 
     <h3>Update Language</h3>
-<form action="" method="post">
+<form action="{{url("/film/updateLanguage/$film->film_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" name="language">
         @forelse(\App\Language::all() as  $language)
@@ -67,7 +67,7 @@
 
     <input type="submit"  class="btn btn-primary" value="Update"/>
 </form>    <h3>Associate Category</h3>
-<form action="" method="post">
+<form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" name="category">
         @forelse(\App\Category::all() as  $category)

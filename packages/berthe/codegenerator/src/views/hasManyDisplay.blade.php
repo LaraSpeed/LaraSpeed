@@ -2,7 +2,7 @@
 <table class="table">
     <thead>
     @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType)@if($attrType->isDisplayable())
-        <th>{!! ucfirst($attrName) !!}</th>
+        <th>{!! ucfirst(str_replace("_", " ", $attrName)) !!}</th>
     @endif @endforeach
     </thead>
 S3Bforelse(${!!"$tab->$otherTable as "!!} ${!! "$otherTable" !!})

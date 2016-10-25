@@ -13,11 +13,11 @@
     <thead>
               <th>Title</th>
              <th>Description</th>
-             <th>Release_year</th>
-              <th>Rental_duration</th>
-             <th>Rental_rate</th>
+             <th>Release year</th>
+              <th>Rental duration</th>
+             <th>Rental rate</th>
              <th>Length</th>
-             <th>Replacement_cost</th>
+             <th>Replacement cost</th>
             </thead>
 @forelse($language->film as  $film)
     <tbody>

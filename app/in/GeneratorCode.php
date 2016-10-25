@@ -52,6 +52,9 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
                 ->end();
+
+        //Set Additional Route
+        parent::setRoutes($mcd->getRoutes());
         
         return $mcd->getSite();
     }

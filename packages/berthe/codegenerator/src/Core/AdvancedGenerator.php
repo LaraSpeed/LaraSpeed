@@ -38,6 +38,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 
         //CSS
         "bootstrap3.css" => "public/css/bootstrap3.css",
+        "simple-sidebar.css" => "public/css/simple-sidebar.css",
 
         //JS
         "jquery.js" => "public/js/jquery.js",
@@ -52,10 +53,13 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         "none.png" => "public/none.png"
     );
 
-    public function __construct($table = array(), $config = array())
+    public $routes;
+
+    public function __construct($table = array(), $config = array(), $routes = array())
     {
         $this->mda = $table;
         $this->config = new BasicConfig($config);
+        $this->routes = $routes;
 
         //Load Some Simple required Files (master.blade.php, angular1.js) and images like (Sort Arrows).
         (new ResourcesLoader($this->resources, $this->img))->load()->loadImages();
@@ -98,7 +102,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 
     function generateLaravelForm()
     {
-        FileUtils::normalizeFile("", $this->generateLaravel(new FormTemplate($this->config->version())), new InheritMaster(new BasicNormalization));
+        FileUtils::normalizeFile("", $this->generateLaravel(new FormTemplate($this->config->version(), $this->routes)), new InheritMaster(new BasicNormalization));
     }
 
     public function generateLaravelShowForm()
@@ -137,5 +141,14 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         $fileGenerator->put($path);
         chmod($path, 0777);
         FileUtils::prependString("<?php \n", $path);
+    }
+
+    public function generateLaravelSimpleFile(Templater $templater)
+    {
+        $tbs = $this->mda;
+        $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["tbs" => $tbs]);
+        $fileGenerator->put($templater->getPath(""));
+        chmod($templater->getPath(""), 0777);
+        //FileUtils::prependString("<?php \n", $path);
     }
 }

@@ -45,10 +45,14 @@ class MCD
 
     private $hasId = false; //Track whether current table has an ID setUp
 
+    private $routes;
+
 
     public function __construct()
     {
         $this->tables = array();
+
+        $this->routes = array();
 
         $this->init();
     }
@@ -67,6 +71,10 @@ class MCD
             $this->tables[$this->currentTableName]['id'] = $id;
             $this->hasId = true;
         }
+    }
+
+    public function getRoutes(){
+        return $this->routes;
     }
     
 
@@ -271,6 +279,10 @@ class MCD
      */
     public function hasOne($tableName="table"){
         $this->tables[$this->currentTableName]['relations'][] = new HasOneRelation($this->currentTableName, $tableName);
+
+        //Adding Additional Route
+        $this->routes[$this->currentTableName."/update".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@update".ucfirst($tableName);
+
         return $this;
     }
 
@@ -281,6 +293,10 @@ class MCD
      */
     public function hasMany($tableName="table"){
         $this->tables[$this->currentTableName]['relations'][] = new HasManyRelation($this->currentTableName, $tableName);
+
+        //Adding Additional Route
+        $this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
+
         return $this;
     }
 
@@ -291,6 +307,10 @@ class MCD
      */
     public function belongsTo($tableName ="table"){
         $this->tables[$this->currentTableName]['relations'][] = new BelongsToRelation($this->currentTableName, $tableName);
+
+        //Adding Additional Route
+        $this->routes[$this->currentTableName."/update".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@update".ucfirst($tableName);
+
         return $this;
     }
 
@@ -301,6 +321,11 @@ class MCD
      */
     public function belongsToMany($tableName ="table"){
         $this->tables[$this->currentTableName]['relations'][] = new BelongsToManyRelation($this->currentTableName, $tableName);
+
+        //Adding Additional Route
+        $this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
+
+
         return $this;
     }
 

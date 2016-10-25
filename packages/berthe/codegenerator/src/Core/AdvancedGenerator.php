@@ -48,6 +48,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
     
     public $img = array(
         "asc.png" => "public/asc.png",
+        "desc.png" => "public/desc.png",
         "none.png" => "public/none.png"
     );
 

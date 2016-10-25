@@ -127,8 +127,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     <?php echo $__env->yieldContent('relations'); ?>
 
     private function getOrder($param){
-        if(session($param, "-1") != "-1"){
-            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        if(session($param, "none") != "none"){
+            session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);
         }else{
             session([$param => 'asc']);
         }

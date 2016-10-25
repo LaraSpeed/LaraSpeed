@@ -38,9 +38,15 @@
     <thead>
         <tr>
                          <th>
-                <a href="{{url("/category/sort?category_id")}}">Category id</a> <img src="{{ URL::asset(session('category_id.png', 'none.png')) }}" />
+                <form action="{{url("/category/sort")}}" method="get">
+                    <input type="hidden" name="category_id"/>
+                <button class="btn btn-link" type="submit">Category id <img src="{{ URL::asset(session('category_id', 'none').'.png') }}" /></button>
+                </form>
             </th>              <th>
-                <a href="{{url("/category/sort?name")}}">Name</a> <img src="{{ URL::asset(session('name.png', 'none.png')) }}" />
+                <form action="{{url("/category/sort")}}" method="get">
+                    <input type="hidden" name="name"/>
+                <button class="btn btn-link" type="submit">Name <img src="{{ URL::asset(session('name', 'none').'.png') }}" /></button>
+                </form>
             </th>   
         </tr>
     </thead>

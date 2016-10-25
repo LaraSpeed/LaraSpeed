@@ -71,6 +71,8 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::query();" !!}
     {!!"if(request()->exists('$attrName')){" !!}
             ${!! $table['title'].'s = ' !!}${!! $table['title']."s->orderBy('$attrName', $"."this->getOrder('$attrName'));" !!}
             ${!! 'path = ' !!}{!! "\"$attrName\";" !!}
+        {!! "}else{" !!}
+            {!! "request()->session()->forget(\"$attrName\");" !!}
         {!! "}" !!}
     @endforeach
     ${!! $table['title'].'s = ' !!}${!! $table['title'].'s->paginate(20);' !!}

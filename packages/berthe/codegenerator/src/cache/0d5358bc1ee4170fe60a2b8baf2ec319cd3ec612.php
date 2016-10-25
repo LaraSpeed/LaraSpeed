@@ -80,6 +80,10 @@ $<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::que
 
             $<?php echo 'path = '; ?><?php echo "\"$attrName\";"; ?>
 
+        <?php echo "}else{"; ?>
+
+            <?php echo "request()->session()->forget(\"$attrName\");"; ?>
+
         <?php echo "}"; ?>
 
     <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>

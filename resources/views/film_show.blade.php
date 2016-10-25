@@ -38,19 +38,40 @@
     <thead>
         <tr>
                              <th>
-                <a href="{{url("/film/sort?title")}}">Title</a> <img src="{{ URL::asset(session('title.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="title"/>
+                <button class="btn btn-link" type="submit">Title <img src="{{ URL::asset(session('title', 'none').'.png') }}" /></button>
+                </form>
             </th>              <th>
-                <a href="{{url("/film/sort?description")}}">Description</a> <img src="{{ URL::asset(session('description.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="description"/>
+                <button class="btn btn-link" type="submit">Description <img src="{{ URL::asset(session('description', 'none').'.png') }}" /></button>
+                </form>
             </th>              <th>
-                <a href="{{url("/film/sort?release_year")}}">Release year</a> <img src="{{ URL::asset(session('release_year.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="release_year"/>
+                <button class="btn btn-link" type="submit">Release year <img src="{{ URL::asset(session('release_year', 'none').'.png') }}" /></button>
+                </form>
             </th>                <th>
-                <a href="{{url("/film/sort?rental_duration")}}">Rental duration</a> <img src="{{ URL::asset(session('rental_duration.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="rental_duration"/>
+                <button class="btn btn-link" type="submit">Rental duration <img src="{{ URL::asset(session('rental_duration', 'none').'.png') }}" /></button>
+                </form>
             </th>              <th>
-                <a href="{{url("/film/sort?rental_rate")}}">Rental rate</a> <img src="{{ URL::asset(session('rental_rate.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="rental_rate"/>
+                <button class="btn btn-link" type="submit">Rental rate <img src="{{ URL::asset(session('rental_rate', 'none').'.png') }}" /></button>
+                </form>
             </th>              <th>
-                <a href="{{url("/film/sort?length")}}">Length</a> <img src="{{ URL::asset(session('length.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="length"/>
+                <button class="btn btn-link" type="submit">Length <img src="{{ URL::asset(session('length', 'none').'.png') }}" /></button>
+                </form>
             </th>              <th>
-                <a href="{{url("/film/sort?replacement_cost")}}">Replacement cost</a> <img src="{{ URL::asset(session('replacement_cost.png', 'none.png')) }}" />
+                <form action="{{url("/film/sort")}}" method="get">
+                    <input type="hidden" name="replacement_cost"/>
+                <button class="btn btn-link" type="submit">Replacement cost <img src="{{ URL::asset(session('replacement_cost', 'none').'.png') }}" /></button>
+                </form>
             </th>       
         </tr>
     </thead>

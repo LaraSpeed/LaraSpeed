@@ -37,7 +37,10 @@
         <tr>
             @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
             <th>
-                <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/sort?$attrName\")"!!}S2BCBRACKET">{{ucfirst(str_replace("_", " ", $attrName))}}</a> <img src="S2BOBRACKET URL::asset(session('{{$attrName.".png"}}', 'none.png')) S2BCBRACKET" />
+                <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/sort\")"!!}S2BCBRACKET" method="get">
+                    <input type="hidden" name="{{$attrName}}"/>
+                <button class="btn btn-link" type="submit">{{ucfirst(str_replace("_", " ", $attrName))}} <img src="S2BOBRACKET URL::asset(session('{{$attrName}}', 'none').'.png') S2BCBRACKET" /></button>
+                </form>
             </th>@endif @endforeach
 
         </tr>

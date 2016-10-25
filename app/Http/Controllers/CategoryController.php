@@ -134,14 +134,20 @@ return view('category_related', compact('category'));    }
         if(request()->exists('category_id')){
             $categorys = $categorys->orderBy('category_id', $this->getOrder('category_id'));
             $path = "category_id";
+        }else{
+            request()->session()->forget("category_id");
         }
         if(request()->exists('name')){
             $categorys = $categorys->orderBy('name', $this->getOrder('name'));
             $path = "name";
+        }else{
+            request()->session()->forget("name");
         }
         if(request()->exists('last_update')){
             $categorys = $categorys->orderBy('last_update', $this->getOrder('last_update'));
             $path = "last_update";
+        }else{
+            request()->session()->forget("last_update");
         }
         $categorys = $categorys->paginate(20);
         $categorys->setPath("sort?$path");
@@ -154,8 +160,8 @@ return view('category_related', compact('category'));    }
 }
  
     private function getOrder($param){
-        if(session($param, "-1") != "-1"){
-            session([$param => session($param) == 'asc' ? 'desc':'asc']);
+        if(session($param, "none") != "none"){
+            session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);
         }else{
             session([$param => 'asc']);
         }

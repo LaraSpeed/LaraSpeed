@@ -37,7 +37,10 @@
         <tr>
             <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
             <th>
-                <a href="S2BOBRACKET<?php echo "url(\"/".$table['title']."/sort?$attrName\")"; ?>S2BCBRACKET"><?php echo e(ucfirst(str_replace("_", " ", $attrName))); ?></a> <img src="S2BOBRACKET URL::asset(session('<?php echo e($attrName.".png"); ?>', 'none.png')) S2BCBRACKET" />
+                <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/sort\")"; ?>S2BCBRACKET" method="get">
+                    <input type="hidden" name="<?php echo e($attrName); ?>"/>
+                <button class="btn btn-link" type="submit"><?php echo e(ucfirst(str_replace("_", " ", $attrName))); ?> <img src="S2BOBRACKET URL::asset(session('<?php echo e($attrName); ?>', 'none').'.png') S2BCBRACKET" /></button>
+                </form>
             </th><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
         </tr>

@@ -38,7 +38,10 @@
     <thead>
         <tr>
                            <th>
-                <a href="{{url("/language/sort?name")}}">Name</a> <img src="{{ URL::asset(session('name.png', 'none.png')) }}" />
+                <form action="{{url("/language/sort")}}" method="get">
+                    <input type="hidden" name="name"/>
+                <button class="btn btn-link" type="submit">Name <img src="{{ URL::asset(session('name', 'none').'.png') }}" /></button>
+                </form>
             </th>   
         </tr>
     </thead>

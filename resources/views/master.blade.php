@@ -65,6 +65,10 @@
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+
+        function goBack() {
+            window.history.back();
+        }
     </script>
 
     </body>

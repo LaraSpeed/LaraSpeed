@@ -40,7 +40,7 @@ class FilmController extends Controller {
         //Store it
         Film::create($film);
 
-        return back();
+        return redirect('/film');;
     }
 
     /**

@@ -40,7 +40,7 @@ class @yield('controllerName') extends Controller {
         //Store it
         @yield('ModelName1')::create($@yield('storeVar1'));
 
-        return back();
+        return @yield('store');
     }
 
     /**

@@ -2,14 +2,23 @@
 <form action="S2BOBRACKET{!!"url(\"/".$table['title']."\")"!!}S2BCBRACKET" method="post">@if( array_key_exists('attributs', $table) )@foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
 		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
-		<div class="form-group-lg">
-			<label id="{{$attrName}}">{{ucfirst($attrName)}} : </label>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="{{$attrName}}">{{str_replace("_", " ", ucfirst($attrName))}} : </label>
+			</div>
+			<div class="col-md-7">
 			{!! $attrType->getForm()!!}
-		</div>
+			</div>
+		</div> <br/>
 		@endif @endforeach @endif
 
-		<br/><div class="form-group-lg">
-			<button type="submit" class="btn btn-primary">Submit</button>
-			<button type="reset" class="btn btn-primary">Cancel</button>
+		<div class="row">
+			<div class="col-md-2">
+			<button type="submit" class="btn btn-primary">Create and return to list</button>
+			</div>
+
+			<div class="col-md-1 col-md-offset-4">
+			<button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
+			</div>
 		</div>
 </form>

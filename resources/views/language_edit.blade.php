@@ -6,7 +6,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <div class="form-group">
         <label class="text-danger">Name : </label>
-        <input type ="text" class="form-control" name="name" placeholder="Name" />
+        <input type ="text" class="form-control" name="name" placeholder="Name"  required />
         Current Value : {{$language->name}}
     </div>
 

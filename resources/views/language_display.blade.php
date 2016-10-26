@@ -4,7 +4,7 @@
 
 <a href="{{url("/language/$language->language_id")}}/edit">Edit</a></br>
 
-   <label class="text-danger">Name : </label>
+   <label class="text-primary">Name : </label>
 <p>{{$language->name}}</p>
    
     @if(isset($language->film))
@@ -33,6 +33,6 @@
     <td>No film for language</td>
 @endforelse
 </table>    @else
-        <label class="text-danger">No language.</label>
+        <label class="text-danger">No film related to this language.</label>
     @endif
 @endsection

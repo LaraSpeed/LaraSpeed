@@ -18,6 +18,8 @@
 
 @section('storeVar1'){{$table['title']}}@endsection
 
+@section('store'){!!"redirect('/".$table['title']."');"!!}@endsection
+
 @section('object'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>
 @section('show')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach

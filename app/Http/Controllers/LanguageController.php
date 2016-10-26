@@ -40,7 +40,7 @@ class LanguageController extends Controller {
         //Store it
         Language::create($language);
 
-        return back();
+        return redirect('/language');;
     }
 
     /**

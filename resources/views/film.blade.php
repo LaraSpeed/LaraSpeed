@@ -3,50 +3,83 @@
 <h1 class="text-danger">Film add form</h1>
 <form action="{{url("/film")}}" method="post">     
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="title">Title : </label>
-			<input type ="text" class="form-control" name="title" placeholder="Title" />
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="title">Title : </label>
+			</div>
+			<div class="col-md-7">
+			<input type ="text" class="form-control" name="title" placeholder="Title"  required />
+			</div>
+		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="description">Description : </label>
-			<textarea name="description" rows="4" cols="20" class="form-control"></textarea>
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="description">Description : </label>
+			</div>
+			<div class="col-md-7">
+			<textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
+			</div>
+		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="release_year">Release_year : </label>
-			<input type ="number" class="form-control" name="release_year" placeholder="Release_year" />
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="release_year">Release year : </label>
+			</div>
+			<div class="col-md-7">
+			<input type ="number" class="form-control" name="release_year" placeholder="Release year"  required />
+			</div>
+		</div> <br/>
 		    
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="rental_duration">Rental_duration : </label>
-			<input type ="number" class="form-control" name="rental_duration" placeholder="Rental_duration" />
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="rental_duration">Rental duration : </label>
+			</div>
+			<div class="col-md-7">
+			<input type ="number" class="form-control" name="rental_duration" placeholder="Rental duration"  required />
+			</div>
+		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="rental_rate">Rental_rate : </label>
-			<input type ="number" class="form-control" name="rental_rate" placeholder="Rental_rate" />
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="rental_rate">Rental rate : </label>
+			</div>
+			<div class="col-md-7">
+			<input type ="number" class="form-control" name="rental_rate" placeholder="Rental rate"  required />
+			</div>
+		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="length">Length : </label>
-			<input type ="number" class="form-control" name="length" placeholder="Length" />
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="length">Length : </label>
+			</div>
+			<div class="col-md-7">
+			<input type ="number" class="form-control" name="length" placeholder="Length"  required />
+			</div>
+		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<div class="form-group-lg">
-			<label id="replacement_cost">Replacement_cost : </label>
-			<input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement_cost" />
-		</div>
+		<div class="row">
+			<div class="col-md-2">
+			<label class="text-primary" id="replacement_cost">Replacement cost : </label>
+			</div>
+			<div class="col-md-7">
+			<input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement cost"  required />
+			</div>
+		</div> <br/>
 		        
-		<br/><div class="form-group-lg">
-			<button type="submit" class="btn btn-primary">Submit</button>
-			<button type="reset" class="btn btn-primary">Cancel</button>
+		<div class="row">
+			<div class="col-md-2">
+			<button type="submit" class="btn btn-primary">Create and return to list</button>
+			</div>
+
+			<div class="col-md-1 col-md-offset-4">
+			<button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
+			</div>
 		</div>
 </form>
 @endsection

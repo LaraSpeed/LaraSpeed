@@ -4,9 +4,9 @@
 
 <a href="{{url("/category/$category->category_id")}}/edit">Edit</a></br>
 
- <label class="text-danger">Category_id : </label>
+ <label class="text-primary">Category_id : </label>
 <p>{{$category->category_id}}</p>
-  <label class="text-danger">Name : </label>
+  <label class="text-primary">Name : </label>
 <p>{{$category->name}}</p>
    
     @if(isset($category->film))
@@ -35,6 +35,6 @@
     <td>No film for category</td>
 @endforelse
 </table>    @else
-        <label class="text-danger">No category.</label>
+        <label class="text-danger">No film related to this category.</label>
     @endif
 @endsection

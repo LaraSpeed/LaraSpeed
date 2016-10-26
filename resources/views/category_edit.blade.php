@@ -6,13 +6,13 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <div class="form-group">
         <label class="text-danger">Category_id : </label>
-        <input type ="number" class="form-control" name="category_id" placeholder="Category_id" />
+        <input type ="number" class="form-control" name="category_id" placeholder="Category id"  required />
         Current Value : {{$category->category_id}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Name : </label>
-        <input type ="text" class="form-control" name="name" placeholder="Name" />
+        <input type ="text" class="form-control" name="name" placeholder="Name"  required />
         Current Value : {{$category->name}}
     </div>
 

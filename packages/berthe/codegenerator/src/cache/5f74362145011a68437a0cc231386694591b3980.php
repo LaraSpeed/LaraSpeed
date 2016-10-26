@@ -40,7 +40,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         //Store it
         <?php echo $__env->yieldContent('ModelName1'); ?>::create($<?php echo $__env->yieldContent('storeVar1'); ?>);
 
-        return back();
+        return <?php echo $__env->yieldContent('store'); ?>;
     }
 
     /**

@@ -25,9 +25,9 @@ class FormTemplateProvider
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
         if($hasPlaceHolder)
-            $form .= 'placeholder="'.ucfirst($name).'" ';
+            $form .= 'placeholder="'.ucfirst(str_replace("_", " ", $name)).'" ';
 
-        return $form. '/>';
+        return $form. ' required />';
     }
 
     /**
@@ -48,6 +48,6 @@ class FormTemplateProvider
      * @return string
      */
     public static function textarea($name="", $cols = 20, $rows = 4, $class = "form-control"){
-        return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'"></textarea>';
+        return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'" required></textarea>';
     }
 }

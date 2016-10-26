@@ -16,6 +16,8 @@
 
 <?php $__env->startSection('storeVar1'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('store'); ?><?php echo "redirect('/".$table['title']."');"; ?><?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('object'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>
 <?php $__env->startSection('show'); ?><?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>

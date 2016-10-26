@@ -6,43 +6,43 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
       <div class="form-group">
         <label class="text-danger">Title : </label>
-        <input type ="text" class="form-control" name="title" placeholder="Title" />
+        <input type ="text" class="form-control" name="title" placeholder="Title"  required />
         Current Value : {{$film->title}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Description : </label>
-        <textarea name="description" rows="4" cols="20" class="form-control"></textarea>
+        <textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
         Current Value : {{$film->description}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Release_year : </label>
-        <input type ="number" class="form-control" name="release_year" placeholder="Release_year" />
+        <input type ="number" class="form-control" name="release_year" placeholder="Release year"  required />
         Current Value : {{$film->release_year}}
     </div>
 
      <div class="form-group">
         <label class="text-danger">Rental_duration : </label>
-        <input type ="number" class="form-control" name="rental_duration" placeholder="Rental_duration" />
+        <input type ="number" class="form-control" name="rental_duration" placeholder="Rental duration"  required />
         Current Value : {{$film->rental_duration}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Rental_rate : </label>
-        <input type ="number" class="form-control" name="rental_rate" placeholder="Rental_rate" />
+        <input type ="number" class="form-control" name="rental_rate" placeholder="Rental rate"  required />
         Current Value : {{$film->rental_rate}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Length : </label>
-        <input type ="number" class="form-control" name="length" placeholder="Length" />
+        <input type ="number" class="form-control" name="length" placeholder="Length"  required />
         Current Value : {{$film->length}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Replacement_cost : </label>
-        <input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement_cost" />
+        <input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement cost"  required />
         Current Value : {{$film->replacement_cost}}
     </div>
 

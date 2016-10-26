@@ -4,26 +4,26 @@
 
 <a href="{{url("/film/$film->film_id")}}/edit">Edit</a></br>
 
-     <label class="text-danger">Title : </label>
+     <label class="text-primary">Title : </label>
 <p>{{$film->title}}</p>
-  <label class="text-danger">Description : </label>
+  <label class="text-primary">Description : </label>
 <p>{{$film->description}}</p>
-  <label class="text-danger">Release_year : </label>
+  <label class="text-primary">Release_year : </label>
 <p>{{$film->release_year}}</p>
-    <label class="text-danger">Rental_duration : </label>
+    <label class="text-primary">Rental_duration : </label>
 <p>{{$film->rental_duration}}</p>
-  <label class="text-danger">Rental_rate : </label>
+  <label class="text-primary">Rental_rate : </label>
 <p>{{$film->rental_rate}}</p>
-  <label class="text-danger">Length : </label>
+  <label class="text-primary">Length : </label>
 <p>{{$film->length}}</p>
-  <label class="text-danger">Replacement_cost : </label>
+  <label class="text-primary">Replacement_cost : </label>
 <p>{{$film->replacement_cost}}</p>
        
     @if(isset($film->language))
     <h3 class="text-danger">Language : </h3>
      {{$film->language->name}}
       @else
-        <label class="text-danger">No film.</label>
+        <label class="text-danger">No language related to this film.</label>
     @endif
     @if(isset($film->category))
     <h1 class="text-danger">List of Categorys</h1>
@@ -41,6 +41,6 @@
     <td>No category for film</td>
 @endforelse
 </table>    @else
-        <label class="text-danger">No film.</label>
+        <label class="text-danger">No category related to this film.</label>
     @endif
 @endsection

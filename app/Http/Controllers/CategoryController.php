@@ -40,7 +40,7 @@ class CategoryController extends Controller {
         //Store it
         Category::create($category);
 
-        return back();
+        return redirect('/category');;
     }
 
     /**

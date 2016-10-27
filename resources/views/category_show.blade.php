@@ -68,7 +68,7 @@
         </td>
         <td>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this category ?', '{{url("/category/$category->category_id")}}')">Delete</button>
+            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')">Delete</button>
         </td>
                     <td>
                 <form action="{{url("/category/related/$category->category_id")}}" method="get">

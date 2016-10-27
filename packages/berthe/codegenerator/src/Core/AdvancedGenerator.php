@@ -72,7 +72,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
             
             $table['title'] = $tableName; //var_dump($table['relations']);
 
-            $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, 'tbs' => $this->mda]);
+            $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, "tbs" => $this->mda, "config" => $this->config]);
 
             $path = $templater->getPath($tableName);
 

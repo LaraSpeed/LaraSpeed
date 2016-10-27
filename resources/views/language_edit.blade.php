@@ -22,14 +22,8 @@
     <select class="form-control" name="film">
         @forelse(\App\Film::all() as  $film)
         <option value="{{$film->film_id}}">
-                      {{$film->title}}
-                     {{$film->description}}
-                     {{$film->release_year}}
-                      {{$film->rental_duration}}
-                     {{$film->rental_rate}}
-                     {{$film->length}}
-                     {{$film->replacement_cost}}
-                    </option>
+            {{$film->title}}
+        </option>
         @empty
         <option value="-1">No film</option>
         @endforelse

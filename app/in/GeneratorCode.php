@@ -13,8 +13,18 @@ use Berthe\Codegenerator\Core\MCD;
 class GeneratorCode  extends CallGenerator {
 
     public $configs = array(
+
+        //Laravel Version for which the code should be generated.
         "version" => "5.3",
+
+        //Attribute which should be displayed for each tables when needed one Attribute
+        "displayAttributes" => array(
+            "film" => "title",
+            "language" => "name",
+            "category" => "name"
+        ),
     );
+
 
     public function getSite(){
 

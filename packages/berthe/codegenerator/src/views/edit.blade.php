@@ -16,5 +16,5 @@
 </form>
 
 @foreach($table['relations'] as $relation)
-    @include($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs])
+    @include($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config])
 @endforeach

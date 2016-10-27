@@ -28,4 +28,12 @@ class BasicConfig implements ConfigInterface
         
         return Variable::$LARAVEL_VERSION_53;
     }
+
+    function displayedAttributes($tableName = "")
+    {
+        if (array_key_exists("displayAttributes", $this->configs) && array_key_exists($tableName, $this->configs["displayAttributes"]))
+            return $this->configs["displayAttributes"][$tableName];
+        
+        throw new \Exception("Displayed Attributes not shown for table : [".$tableName."]");
+    }
 }

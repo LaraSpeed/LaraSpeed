@@ -64,7 +64,7 @@
         </td>
         <td>
             <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this <?php echo e($table['title']); ?> ?', 'S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET')">Delete</button>
+            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET $<?php echo $table['title']. "->".$config->displayedAttributes($table['title']); ?>S2BCBRACKET ?', 'S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET')">Delete</button>
         </td>
         <?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
             <td>

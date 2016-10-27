@@ -12,4 +12,5 @@ namespace Berthe\Codegenerator\Contrats;
 interface ConfigInterface
 {
     function version();
+    function displayedAttributes($tableName="");
 }

@@ -58,8 +58,8 @@
     <select class="form-control" name="language">
         @forelse(\App\Language::all() as  $language)
         <option value="{{$language->language_id}}">
-                             {{$language->name}}
-                      </option>
+            {{$language->name}}
+        </option>
         @empty
         <option value="-1">No language</option>
         @endforelse
@@ -72,9 +72,8 @@
     <select class="form-control" name="category">
         @forelse(\App\Category::all() as  $category)
         <option value="{{$category->category_id}}">
-                            {{$category->category_id}}
-                             {{$category->name}}
-                      </option>
+                {{$category->name}}
+        </option>
         @empty
         <option value="-1">No category</option>
         @endforelse

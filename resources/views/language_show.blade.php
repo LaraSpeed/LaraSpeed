@@ -62,7 +62,7 @@
         </td>
         <td>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete this language ?', '{{url("/language/$language->language_id")}}')">Delete</button>
+            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $language->name}} ?', '{{url("/language/$language->language_id")}}')">Delete</button>
         </td>
                     <td>
                 <form action="{{url("/language/related/$language->language_id")}}" method="get">

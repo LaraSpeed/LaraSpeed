@@ -10,6 +10,7 @@ namespace Berthe\Codegenerator\MCDType;
 
 use Berthe\Codegenerator\Contrats\FormableType;
 use Berthe\Codegenerator\Utils\FormTemplateProvider;
+use Berthe\Codegenerator\Utils\Variable;
 
 class DoubleType extends TypeBaseClass implements FormableType
 {
@@ -21,11 +22,13 @@ class DoubleType extends TypeBaseClass implements FormableType
     public $functionName = "double";
     public $displayable = true;
 
-    public function __construct($attrName = "", $precision = 0, $scale = 0)
+    public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0)
     {
         $this->attrName = $attrName;
         $this->precision = $precision;
         $this->scale = $scale;
+
+        $this->required = $required;
     }
 
     function getFormType()
@@ -44,5 +47,12 @@ class DoubleType extends TypeBaseClass implements FormableType
             return parent::getDBFunction();
 
         return "$this->functionName('".$this->attrName."', $this->precision, $this->scale)";
+    }
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_NUMERIC;
+
+        return Variable::$C_NUMERIC;
     }
 }

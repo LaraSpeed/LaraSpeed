@@ -18,4 +18,9 @@
 <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('accessors'); ?><?php if(array_key_exists('attributs', $table)): ?><?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?><?php echo $__env->make('limitAccessor', ['attrName' => $attrName, 'length' => 40], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php endif; ?>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('modelMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -9,8 +9,12 @@
 namespace Berthe\Codegenerator\MCDType;
 
 
+use Berthe\Codegenerator\Utils\Variable;
+
 class TypeBaseClass
 {
+    public $required;
+
     function getDBFunction()
     {
         return "$this->functionName('".$this->attrName."')";
@@ -24,5 +28,17 @@ class TypeBaseClass
 
     function isAutoIncrement(){
         return false;
+    }
+
+    function isRequired(){
+        return $this->required;
+    }
+
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_DEFAULT;
+
+        return Variable::$C_DEFAULT;
     }
 }

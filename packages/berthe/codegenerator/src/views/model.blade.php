@@ -18,3 +18,8 @@
 @endforeach @endif
 
 @endsection
+
+@section('accessors')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@include('limitAccessor', ['attrName' => $attrName, 'length' => 40]) @endif
+@endforeach @endif
+
+@endsection

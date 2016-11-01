@@ -18,5 +18,7 @@ class IncrementsType extends TypeBaseClass
     public function __construct($attrName = "")
     {
         $this->attrName = $attrName;
+
+        $this->required = true;
     }
 }

@@ -16,6 +16,22 @@ class Category extends Model
     }
 
  
+
+    function getCategoryIdAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getNameAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    }  
 }
 
 ?>

@@ -4,11 +4,18 @@
 		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="{{$attrName}}">{{str_replace("_", " ", ucfirst($attrName))}} : </label>
+			<label class="text-primary" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
 			</div>
-			<div class="col-md-7">
+			<div class="{!! $attrType->formClass("form") !!}">
 			{!! $attrType->getForm()!!}
 			</div>
+
+			@if($attrType->isRequired())
+				<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			@endif
+
 		</div> <br/>
 		@endif @endforeach @endif
 

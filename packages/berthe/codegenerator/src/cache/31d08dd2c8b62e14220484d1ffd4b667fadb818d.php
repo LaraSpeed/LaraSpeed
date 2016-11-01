@@ -12,6 +12,8 @@ class <?php echo $__env->yieldContent('modelName'); ?> extends Model
     protected $fillable = [<?php echo $__env->yieldContent('attributs'); ?>];
 
     <?php echo $__env->yieldContent('relations'); ?>
+
+    <?php echo $__env->yieldContent('accessors'); ?>
 }
 
 ?>

@@ -2,13 +2,13 @@
 <table class="table">
     <thead>
     <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>
-        <th><?php echo ucfirst(str_replace("_", " ", $attrName)); ?></th>
+        <th class="<?php echo e($attrType->formClass("table")); ?>"><?php echo ucfirst(str_replace("_", "<br/>", $attrName)); ?></th>
     <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
     </thead>
 S3Bforelse($<?php echo "$tab->$otherTable as "; ?> $<?php echo "$otherTable"; ?>)
     <tbody>
     <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>
-        <td>S2BOBRACKET$<?php echo "$otherTable->$attrName"; ?>S2BCBRACKET</td>
+        <td class="<?php echo e($attrType->formClass("table")); ?>">S2BOBRACKET$<?php echo "$otherTable->$attrName"; ?>S2BCBRACKET</td>
     <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
     </tbody>
 S3Bempty

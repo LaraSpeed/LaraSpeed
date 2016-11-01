@@ -18,31 +18,31 @@
 
    <div class="form-group">
         <label class="text-danger">Release_year : </label>
-        <input type ="number" class="form-control" name="release_year" placeholder="Release year"  required />
+        <input type ="number" class="form-control" name="release_year"  max = "9999999999" placeholder="Release year"  required />
         Current Value : {{$film->release_year}}
     </div>
 
      <div class="form-group">
         <label class="text-danger">Rental_duration : </label>
-        <input type ="number" class="form-control" name="rental_duration" placeholder="Rental duration"  required />
+        <input type ="number" class="form-control" name="rental_duration"  max = "9999999999" placeholder="Rental duration"  required />
         Current Value : {{$film->rental_duration}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Rental_rate : </label>
-        <input type ="number" class="form-control" name="rental_rate" placeholder="Rental rate"  required />
+        <input type ="number" class="form-control" name="rental_rate"  max = "9999999999" placeholder="Rental rate"  required />
         Current Value : {{$film->rental_rate}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Length : </label>
-        <input type ="number" class="form-control" name="length" placeholder="Length"  required />
+        <input type ="number" class="form-control" name="length"  max = "9999999999" placeholder="Length"  required />
         Current Value : {{$film->length}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Replacement_cost : </label>
-        <input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement cost"  required />
+        <input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" placeholder="Replacement cost"  required />
         Current Value : {{$film->replacement_cost}}
     </div>
 

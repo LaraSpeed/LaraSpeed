@@ -10,6 +10,7 @@ namespace Berthe\Codegenerator\MCDType;
 
 use Berthe\Codegenerator\Contrats\FormableType;
 use Berthe\Codegenerator\Utils\FormTemplateProvider;
+use Berthe\Codegenerator\Utils\Variable;
 
 
 class BigIntegerType extends TypeBaseClass implements FormableType
@@ -20,9 +21,10 @@ class BigIntegerType extends TypeBaseClass implements FormableType
     public $functionName = "bigInteger";
     public $displayable = true;
 
-    public function __construct($attrName = "")
+    public function __construct($attrName = "", $required = false)
     {
         $this->attrName = $attrName;
+        $this->required = $required;
     }
 
     function getFormType()
@@ -33,5 +35,12 @@ class BigIntegerType extends TypeBaseClass implements FormableType
     function getForm()
     {
         return FormTemplateProvider::input($this->formType, $this->attrName, "form-control", true);
+    }
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_NUMERIC;
+
+        return Variable::$C_NUMERIC;
     }
 }

@@ -10,6 +10,7 @@ namespace Berthe\Codegenerator\MCDType;
 
 use Berthe\Codegenerator\Contrats\FormableType;
 use Berthe\Codegenerator\Utils\FormTemplateProvider;
+use Berthe\Codegenerator\Utils\Variable;
 
 class TextType extends TypeBaseClass implements FormableType
 {
@@ -19,9 +20,11 @@ class TextType extends TypeBaseClass implements FormableType
     public $functionName = "text";
     public $displayable = true;
 
-    public function __construct($attrName = "")
+    public function __construct($attrName = "", $required = false)
     {
         $this->attrName = $attrName;
+
+        $this->required = $required;
     }
 
     function getFormType()
@@ -32,5 +35,12 @@ class TextType extends TypeBaseClass implements FormableType
     function getForm()
     {
         return FormTemplateProvider::textarea($this->attrName);
+    }
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_TEXT;
+
+        return Variable::$C_TEXT;
     }
 }

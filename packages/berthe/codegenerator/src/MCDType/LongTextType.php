@@ -10,6 +10,7 @@ namespace Berthe\Codegenerator\MCDType;
 
 use Berthe\Codegenerator\Contrats\FormableType;
 use Berthe\Codegenerator\Utils\FormTemplateProvider;
+use Berthe\Codegenerator\Utils\Variable;
 
 class LongTextType extends TypeBaseClass implements FormableType
 {
@@ -18,9 +19,11 @@ class LongTextType extends TypeBaseClass implements FormableType
     public $functionName = "longText";
     public $displayable = true;
 
-    public function __construct($attrName = "")
+    public function __construct($attrName = "", $required = false)
     {
         $this->attrName = $attrName;
+
+        $this->required = $required;
     }
 
     function getFormType()
@@ -31,5 +34,12 @@ class LongTextType extends TypeBaseClass implements FormableType
     function getForm()
     {
         return FormTemplateProvider::textarea($this->attrName, 40, 10);
+    }
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_TEXT;
+
+        return Variable::$C_TEXT;
     }
 }

@@ -4,12 +4,19 @@
 		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="<?php echo e($attrName); ?>"><?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> : </label>
+			<label class="text-primary" id="<?php echo e($attrName); ?>"><?php if($attrType->isRequired()): ?><?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> * : <?php else: ?> <?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> : <?php endif; ?></label>
 			</div>
-			<div class="col-md-7">
+			<div class="<?php echo $attrType->formClass("form"); ?>">
 			<?php echo $attrType->getForm(); ?>
 
 			</div>
+
+			<?php if($attrType->isRequired()): ?>
+				<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			<?php endif; ?>
+
 		</div> <br/>
 		<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 

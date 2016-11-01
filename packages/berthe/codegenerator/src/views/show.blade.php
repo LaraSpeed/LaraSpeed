@@ -38,10 +38,10 @@
     <thead>
         <tr>
             @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
-            <th>
+            <th class="{{$attrType->formClass("table")}}">
                 <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/sort\")"!!}S2BCBRACKET" method="get">
                     <input type="hidden" name="{{$attrName}}"/>
-                <button class="btn btn-link" type="submit"><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold' }" S3Bendif >{{ucfirst(str_replace("_", " ", $attrName))}} <img src="S2BOBRACKET URL::asset(session('{{$attrName}}', 'none').'.png') S2BCBRACKET" /></p></button>
+                <button class="btn btn-link" type="submit"><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif >{!! ucfirst(str_replace("_", "<br/>", $attrName))!!} <img src="S2BOBRACKET URL::asset(session('{{$attrName}}', 'none').'.png') S2BCBRACKET" /></p></button>
                 </form>
             </th>@endif @endforeach
 
@@ -52,22 +52,22 @@
         S3Bforelse(${{$table['title'].'s'}} as ${{$table['title']}})
             <tr>
     @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
-        <td>S2BOBRACKET${!! $table['title'].'->'.$attrName !!}S2BCBRACKET</td>
+        <td class="{{$attrType->formClass("table")}}">S2BOBRACKET${!! $table['title'].'->'.$attrName !!}S2BCBRACKET</td>
     @endif @endforeach
-        <td><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
+        <td class="defaut"><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>
         </td>
-        <td><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET/edit" method="get">
+        <td class="defaut"><form action="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET/edit" method="get">
                 <button type="submit" class="btn btn-link">Edit</button>
             </form>
         </td>
-        <td>
+        <td class="defaut">
             <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
             <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $table['title']. "->".$config->displayedAttributes($table['title'])!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET')">Delete</button>
         </td>
         @foreach($table['relations'] as $relation)
-            <td>
+            <td class="defaut">
                 <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
                     <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
                 </form>

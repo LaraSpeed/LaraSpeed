@@ -93,21 +93,23 @@ class MCD
     /**
      * Function adding new string attribut to the current Attribute Array.
      * @param string $attrName
+     * @param bool $required
      * @param int $nb_characters
      * @return $this
      */
-    public function string($attrName = "string", $nb_characters = 0){
-        $this->currentAttributes[$attrName] = new StringType($attrName, $nb_characters);
+    public function string($attrName = "string", $required = false, $nb_characters = 0){
+        $this->currentAttributes[$attrName] = new StringType($attrName, $required, $nb_characters);
         return $this;
     }
 
     /**
      * Function adding new integer attribute
      * @param string $attrName
+     * @param bool $required
      * @return $this
      */
-    public function integer($attrName="integer"){
-        $this->currentAttributes[$attrName] = new IntegerType($attrName);
+    public function integer($attrName="integer", $required = false){
+        $this->currentAttributes[$attrName] = new IntegerType($attrName, $required);
         return $this;
     }
 
@@ -126,51 +128,56 @@ class MCD
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @return $this
      */
-    public function bigInteger($attrName = "bigint"){
-        $this->currentAttributes[$attrName] = new BigIntegerType($attrName);
+    public function bigInteger($attrName = "bigint", $required = false){
+        $this->currentAttributes[$attrName] = new BigIntegerType($attrName, $required);
         return $this;
     }
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @return $this
      */
-    public function boolean($attrName = "bool"){
-        $this->currentAttributes[$attrName] = new BooleanType($attrName);
+    public function boolean($attrName = "bool", $required = false){
+        $this->currentAttributes[$attrName] = new BooleanType($attrName, $required);
         return $this;
     }
 
     /**
      * @param string $attrName
+     * @param $required
      * @param int $nb_character
      * @return $this
      */
-    public function char($attrName= "char", $nb_character = 0){
-        $this->currentAttributes[$attrName] = new CharType($attrName, $nb_character);
+    public function char($attrName= "char", $required = false, $nb_character = 0){
+        $this->currentAttributes[$attrName] = new CharType($attrName, $required, $nb_character);
         return $this;
     }
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @param int $precision
      * @param int $scale
      * @return $this
      */
-    public function decimal($attrName = "decimal", $precision = 0, $scale = 0){
-        $this->currentAttributes[$attrName] = new DecimalType($attrName, $precision, $scale);
+    public function decimal($attrName = "decimal", $required = false, $precision = 0, $scale = 0){
+        $this->currentAttributes[$attrName] = new DecimalType($attrName, $required, $precision, $scale);
         return $this;
     }
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @param int $digit
      * @param int $after
      * @return $this
      */
-    public function double($attrName = "double", $digit = 0, $after = 0){
-        $this->currentAttributes[$attrName] = new DoubleType($attrName, $digit, $after);
+    public function double($attrName = "double", $required = false, $digit = 0, $after = 0){
+        $this->currentAttributes[$attrName] = new DoubleType($attrName, $required, $digit, $after);
         return $this;
     }
 
@@ -186,12 +193,13 @@ class MCD
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @param $precision
      * @param $scale
      * @return $this
      */
-    public function float($attrName = "float", $precision, $scale){
-        $this->currentAttributes[$attrName] = new FloatType($attrName, $precision, $scale);
+    public function float($attrName = "float", $required = false, $precision, $scale){
+        $this->currentAttributes[$attrName] = new FloatType($attrName, $required, $precision, $scale);
         return $this;
     }
 
@@ -210,10 +218,11 @@ class MCD
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @return $this
      */
-    public function longText($attrName = "longtext"){
-        $this->currentAttributes[$attrName] = new LongTextType($attrName);
+    public function longText($attrName = "longtext", $required = false){
+        $this->currentAttributes[$attrName] = new LongTextType($attrName, $required);
         return $this;
     }
 
@@ -235,8 +244,8 @@ class MCD
      * @param string $attrName
      * @return $this
      */
-    public function text($attrName = "text"){
-        $this->currentAttributes[$attrName] = new TextType($attrName);
+    public function text($attrName = "text", $required = false){
+        $this->currentAttributes[$attrName] = new TextType($attrName, $required);
         return $this;
     }
 

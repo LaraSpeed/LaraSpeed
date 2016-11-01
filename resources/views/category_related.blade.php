@@ -4,23 +4,23 @@
     <h1 class="text-danger">List of Films</h1>
 <table class="table">
     <thead>
-              <th>Title</th>
-             <th>Description</th>
-             <th>Release year</th>
-              <th>Rental duration</th>
-             <th>Rental rate</th>
-             <th>Length</th>
-             <th>Replacement cost</th>
+              <th class="c_string">Title</th>
+             <th class="c_text">Description</th>
+             <th class="c_numeric">Release<br/>year</th>
+              <th class="c_numeric">Rental<br/>duration</th>
+             <th class="c_numeric">Rental<br/>rate</th>
+             <th class="c_numeric">Length</th>
+             <th class="c_numeric">Replacement<br/>cost</th>
             </thead>
 @forelse($category->film as  $film)
     <tbody>
-              <td>{{$film->title}}</td>
-             <td>{{$film->description}}</td>
-             <td>{{$film->release_year}}</td>
-              <td>{{$film->rental_duration}}</td>
-             <td>{{$film->rental_rate}}</td>
-             <td>{{$film->length}}</td>
-             <td>{{$film->replacement_cost}}</td>
+              <td class="c_string">{{$film->title}}</td>
+             <td class="c_text">{{$film->description}}</td>
+             <td class="c_numeric">{{$film->release_year}}</td>
+              <td class="c_numeric">{{$film->rental_duration}}</td>
+             <td class="c_numeric">{{$film->rental_rate}}</td>
+             <td class="c_numeric">{{$film->length}}</td>
+             <td class="c_numeric">{{$film->replacement_cost}}</td>
             </tbody>
 @empty
     <td>No film for category</td>

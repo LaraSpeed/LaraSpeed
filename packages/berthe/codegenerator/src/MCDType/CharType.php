@@ -10,6 +10,7 @@ namespace Berthe\Codegenerator\MCDType;
 
 use Berthe\Codegenerator\Contrats\FormableType;
 use Berthe\Codegenerator\Utils\FormTemplateProvider;
+use Berthe\Codegenerator\Utils\Variable;
 
 
 class CharType extends TypeBaseClass implements FormableType
@@ -20,7 +21,7 @@ class CharType extends TypeBaseClass implements FormableType
     public $functionName = "char";
     public $displayable;
 
-    public function __construct($attrName = "", $nb_character=0)
+    public function __construct($attrName = "", $required = false, $nb_character=0)
     {
         $this->attrName = $attrName;
         $this->nb_character = $nb_character;
@@ -30,6 +31,8 @@ class CharType extends TypeBaseClass implements FormableType
         }else{
             $this->displayable = false;
         }
+
+        $this->required = $required;
     }
 
     public function getDBFunction()
@@ -48,5 +51,12 @@ class CharType extends TypeBaseClass implements FormableType
     function getForm()
     {
         FormTemplateProvider::input("text", $this->attrName, "form-control", true);
+    }
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_CHAR;
+
+        return Variable::$C_CHAR;
     }
 }

@@ -14,8 +14,9 @@ class BigIncrementsType extends TypeBaseClass
     public $functionName = "bigIncrements";
     public $displayable = false;
 
-    public function __construct($attrName = "")
+    public function __construct($attrName = "", $required = false)
     {
         $this->attrName = $attrName;
+        $this->required = $required;
     }
 }

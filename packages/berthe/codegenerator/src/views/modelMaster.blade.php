@@ -12,6 +12,8 @@ class @yield('modelName') extends Model
     protected $fillable = [@yield('attributs')];
 
     @yield('relations')
+
+    @yield('accessors')
 }
 
 ?>

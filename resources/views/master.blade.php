@@ -9,6 +9,7 @@
 
         <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
         <link href="{{URL::asset("css/simple-sidebar.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset("css/custom.css")}}" rel="stylesheet" type="text/css">
 
         <script src="{{URL::asset("js/jquery.js")}}"></script>
         <script src="{{URL::asset("js/bootstrap3.js")}}"></script>

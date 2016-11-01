@@ -39,6 +39,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         //CSS
         "bootstrap3.css" => "public/css/bootstrap3.css",
         "simple-sidebar.css" => "public/css/simple-sidebar.css",
+        "custom.css" => "public/css/custom.css",
 
         //JS
         "jquery.js" => "public/js/jquery.js",

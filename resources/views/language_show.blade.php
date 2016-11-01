@@ -39,10 +39,10 @@
 <table class="table table-striped">
     <thead>
         <tr>
-                           <th>
+                           <th class="c_string">
                 <form action="{{url("/language/sort")}}" method="get">
                     <input type="hidden" name="name"/>
-                <button class="btn btn-link" type="submit"><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold' }" @endif >Name <img src="{{ URL::asset(session('name', 'none').'.png') }}" /></p></button>
+                <button class="btn btn-link" type="submit"><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name <img src="{{ URL::asset(session('name', 'none').'.png') }}" /></p></button>
                 </form>
             </th>   
         </tr>
@@ -51,20 +51,20 @@
     <tbody>
         @forelse($languages as $language)
             <tr>
-               <td>{{$language->name}}</td>
-               <td><form action="{{url("/language/$language->language_id")}}" method="get">
+               <td class="c_string">{{$language->name}}</td>
+               <td class="defaut"><form action="{{url("/language/$language->language_id")}}" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>
         </td>
-        <td><form action="{{url("/language/$language->language_id")}}/edit" method="get">
+        <td class="defaut"><form action="{{url("/language/$language->language_id")}}/edit" method="get">
                 <button type="submit" class="btn btn-link">Edit</button>
             </form>
         </td>
-        <td>
+        <td class="defaut">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $language->name}} ?', '{{url("/language/$language->language_id")}}')">Delete</button>
         </td>
-                    <td>
+                    <td class="defaut">
                 <form action="{{url("/language/related/$language->language_id")}}" method="get">
                     <button type="submit" class="btn btn-link">Film</button>
                 </form>

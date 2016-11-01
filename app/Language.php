@@ -16,6 +16,15 @@ class Language extends Model
     }
 
  
+
+    function getNameAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    }  
 }
 
 ?>

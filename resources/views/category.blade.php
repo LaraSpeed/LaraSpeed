@@ -5,21 +5,31 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="category_id">Category id : </label>
+			<label class="text-primary" id="category_id">Category id * : </label>
 			</div>
-			<div class="col-md-7">
-			<input type ="number" class="form-control" name="category_id" placeholder="Category id"  required />
+			<div class="col-md-3">
+			<input type ="number" class="form-control" name="category_id"  max = "9999999999" placeholder="Category id"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="name">Name : </label>
+			<label class="text-primary" id="name">Name * : </label>
 			</div>
 			<div class="col-md-7">
 			<input type ="text" class="form-control" name="name" placeholder="Name"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		    
 		<div class="row">

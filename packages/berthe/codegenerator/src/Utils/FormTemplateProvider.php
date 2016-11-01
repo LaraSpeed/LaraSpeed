@@ -24,6 +24,9 @@ class FormTemplateProvider
     public static function input($type="", $name="", $class="form-control", $hasPlaceHolder = false){
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
+        if($type == "number")
+            $form .= ' max = "9999999999" ';
+
         if($hasPlaceHolder)
             $form .= 'placeholder="'.ucfirst(str_replace("_", " ", $name)).'" ';
 

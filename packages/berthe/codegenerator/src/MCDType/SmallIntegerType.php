@@ -20,6 +20,8 @@ class SmallIntegerType extends TypeBaseClass
     {
         $this->attrName = $attrName;
         $this->autoIncrement = $autoIncrement;
+
+        $this->required = true;
     }
 
     function getDBFunction()

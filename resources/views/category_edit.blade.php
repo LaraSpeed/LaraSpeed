@@ -6,7 +6,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
   <div class="form-group">
         <label class="text-danger">Category_id : </label>
-        <input type ="number" class="form-control" name="category_id" placeholder="Category id"  required />
+        <input type ="number" class="form-control" name="category_id"  max = "9999999999" placeholder="Category id"  required />
         Current Value : {{$category->category_id}}
     </div>
 

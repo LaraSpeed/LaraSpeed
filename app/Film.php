@@ -20,6 +20,57 @@ function category(){
     }
 
  
+
+    function getTitleAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getDescriptionAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getReleaseYearAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getRentalDurationAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getRentalRateAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getLengthAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    } function getReplacementCostAttribute($value){
+
+        if(strlen($value) > 40 ) {
+            return substr($value, 0, 40)."...";
+        }
+
+        return $value;
+    }  
 }
 
 ?>

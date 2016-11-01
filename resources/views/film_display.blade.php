@@ -29,13 +29,13 @@
     <h1 class="text-danger">List of Categorys</h1>
 <table class="table">
     <thead>
-            <th>Category id</th>
-             <th>Name</th>
+            <th class="c_numeric">Category<br/>id</th>
+             <th class="c_string">Name</th>
           </thead>
 @forelse($film->category as  $category)
     <tbody>
-            <td>{{$category->category_id}}</td>
-             <td>{{$category->name}}</td>
+            <td class="c_numeric">{{$category->category_id}}</td>
+             <td class="c_string">{{$category->name}}</td>
           </tbody>
 @empty
     <td>No category for film</td>

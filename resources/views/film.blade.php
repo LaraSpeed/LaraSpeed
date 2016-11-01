@@ -5,71 +5,106 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="title">Title : </label>
+			<label class="text-primary" id="title">Title * : </label>
 			</div>
 			<div class="col-md-7">
 			<input type ="text" class="form-control" name="title" placeholder="Title"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="description">Description : </label>
+			<label class="text-primary" id="description">Description * : </label>
 			</div>
 			<div class="col-md-7">
 			<textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="release_year">Release year : </label>
+			<label class="text-primary" id="release_year">Release year * : </label>
 			</div>
-			<div class="col-md-7">
-			<input type ="number" class="form-control" name="release_year" placeholder="Release year"  required />
+			<div class="col-md-3">
+			<input type ="number" class="form-control" name="release_year"  max = "9999999999" placeholder="Release year"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		    
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="rental_duration">Rental duration : </label>
+			<label class="text-primary" id="rental_duration">Rental duration * : </label>
 			</div>
-			<div class="col-md-7">
-			<input type ="number" class="form-control" name="rental_duration" placeholder="Rental duration"  required />
+			<div class="col-md-3">
+			<input type ="number" class="form-control" name="rental_duration"  max = "9999999999" placeholder="Rental duration"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="rental_rate">Rental rate : </label>
+			<label class="text-primary" id="rental_rate">Rental rate * : </label>
 			</div>
-			<div class="col-md-7">
-			<input type ="number" class="form-control" name="rental_rate" placeholder="Rental rate"  required />
+			<div class="col-md-3">
+			<input type ="number" class="form-control" name="rental_rate"  max = "9999999999" placeholder="Rental rate"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="length">Length : </label>
+			<label class="text-primary" id="length">Length * : </label>
 			</div>
-			<div class="col-md-7">
-			<input type ="number" class="form-control" name="length" placeholder="Length"  required />
+			<div class="col-md-3">
+			<input type ="number" class="form-control" name="length"  max = "9999999999" placeholder="Length"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="replacement_cost">Replacement cost : </label>
+			<label class="text-primary" id="replacement_cost">Replacement cost * : </label>
 			</div>
-			<div class="col-md-7">
-			<input type ="number" class="form-control" name="replacement_cost" placeholder="Replacement cost"  required />
+			<div class="col-md-3">
+			<input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" placeholder="Replacement cost"  required />
 			</div>
+
+							<div class="col-md-2">
+					<span class="text-danger">Mandatory fields</span>
+				</div>
+			
 		</div> <br/>
 		        
 		<div class="row">

@@ -9,6 +9,7 @@
 namespace Berthe\Codegenerator\MCDType;
 use Berthe\Codegenerator\Contrats\FormableType;
 use Berthe\Codegenerator\Utils\FormTemplateProvider;
+use Berthe\Codegenerator\Utils\Variable;
 
 
 class BooleanType extends TypeBaseClass implements FormableType
@@ -19,9 +20,10 @@ class BooleanType extends TypeBaseClass implements FormableType
     public $functionName = "boolean";
     public $displayable = true;
 
-    public function __construct($attrName = "")
+    public function __construct($attrName = "", $required = false)
     {
         $this->attrName = $attrName;
+        $this->required = $required;
     }
 
     function getFormType()
@@ -32,5 +34,12 @@ class BooleanType extends TypeBaseClass implements FormableType
     function getForm()
     {
         return FormTemplateProvider::checkBox($this->attrName);
+    }
+
+    function formClass($type = "form"){
+        if($type == "form")
+            return Variable::$F_NUMERIC;
+
+        return Variable::$C_NUMERIC;
     }
 }

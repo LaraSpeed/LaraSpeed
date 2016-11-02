@@ -12,4 +12,7 @@
         <li>
         <a href="{{url("/category")}}">Category</a>
     </li>
+        <li>
+        <a href="{{url("/delivery")}}">Delivery</a>
+    </li>
     </ul>

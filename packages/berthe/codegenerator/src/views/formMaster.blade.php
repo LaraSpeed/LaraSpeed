@@ -7,13 +7,15 @@
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
         <link href="{{URL::asset("css/simple-sidebar.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset("css/bootstrap-datepicker.css")}}" rel="stylesheet" type="text/css">
         <link href="{{URL::asset("css/custom.css")}}" rel="stylesheet" type="text/css">
 
         <script src="{{URL::asset("js/jquery.js")}}"></script>
         <script src="{{URL::asset("js/bootstrap3.js")}}"></script>
         <script src="{{URL::asset("js/angular.js")}}"></script>
+        <script src="{{URL::asset("js/bootstrap-datepicker.js")}}"></script>
         <script src="{{URL::asset("js/script.js")}}"></script>
 
 
@@ -70,6 +72,20 @@
         function goBack() {
             window.history.back();
         }
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            var date_input=$('input[id="date"]'); //our date input has the name "date"
+            //var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+            var options={
+                format: 'mm/dd/yyyy',
+                //container: container,
+                todayHighlight: true,
+                autoclose: true,
+            };
+            date_input.datepicker(options);
+        })
     </script>
 
     </body>

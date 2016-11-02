@@ -12,6 +12,7 @@ use Berthe\Codegenerator\MCDType\BigIncrementsType;
 use Berthe\Codegenerator\MCDType\BigIntegerType;
 use Berthe\Codegenerator\MCDType\BooleanType;
 use Berthe\Codegenerator\MCDType\CharType;
+use Berthe\Codegenerator\MCDType\DateType;
 use Berthe\Codegenerator\MCDType\DecimalType;
 use Berthe\Codegenerator\MCDType\DoubleType;
 use Berthe\Codegenerator\MCDType\EnumType;
@@ -278,6 +279,16 @@ class MCD
      */
     public function set($attrName = "set", $allowed = array()){
         $this->currentAttributes[$attrName] = new SetType($attrName, $allowed);
+        return $this;
+    }
+
+    /**
+     * @param string $attrName
+     * @param bool $required
+     * @return $this
+     */
+    public function date($attrName = "date", $required = false){
+        $this->currentAttributes[$attrName] = new DateType($attrName, $required);
         return $this;
     }
 

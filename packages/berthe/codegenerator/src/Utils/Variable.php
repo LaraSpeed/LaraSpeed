@@ -18,6 +18,7 @@ class Variable
     public static $C_NUMERIC = "c_numeric";
     public static $C_TEXT = "c_text";
     public static $C_STRING = "c_string";
+    public static $C_DATE = "c_date";
     public static $C_DEFAULT = "defaut";
 
     public static $F_CHAR = "col-md-1";
@@ -25,6 +26,7 @@ class Variable
     public static $F_TEXT = "col-md-7";
     public static $F_STRING = "col-md-7";
     public static $F_DEFAULT = "col-md-1";
+    public static $F_DATE = "col-md-2";
 
     //public static $C_
 

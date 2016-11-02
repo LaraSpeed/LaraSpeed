@@ -53,4 +53,13 @@ class FormTemplateProvider
     public static function textarea($name="", $cols = 20, $rows = 4, $class = "form-control"){
         return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'" required></textarea>';
     }
+
+    /**
+     * Create HTML date fields.
+     * @param $name
+     * @return string
+     */
+    public static function date($name){
+        return '<input class="form-control" id="date" name="'.$name.'" placeholder="MM/DD/YYY" type="text"/>';
+    }
 }

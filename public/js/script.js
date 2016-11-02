@@ -8,11 +8,11 @@ app.factory('DataSource', ['$http',function($http){
                             url: url
                     }).
                         success(function(data, status) {
-                            console.log("Extract : "+status, data);
+                            //console.log("Extract : "+status, data);
                             callback(data, status);
                         }).error(function(data, status) {
                             callback(data, status);
-                            console.log("code error " + status);
+                            console.log("delete code error " + status);
                         });
         }
     };
@@ -30,6 +30,7 @@ app.controller("appCtrl", function($scope, DataSource, $location){
         $scope.description = description;
         $scope.url = url;
         $('#myModal').modal('show');
+        console.log('ShowModal called');
     };
 
     $scope.delete = function(){

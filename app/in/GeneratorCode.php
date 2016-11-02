@@ -21,7 +21,8 @@ class GeneratorCode  extends CallGenerator {
         "displayAttributes" => array(
             "film" => "title",
             "language" => "name",
-            "category" => "name"
+            "category" => "name",
+            "delivery" => "identifiant"
         ),
     );
 
@@ -61,6 +62,14 @@ class GeneratorCode  extends CallGenerator {
                 ->string("name", true, 25)
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
+                ->end()
+
+            ->table("delivery")
+                ->increments("id")
+                ->string("identifiant", true)
+                ->date("date", true)
+                ->longText("articles", false)
+                ->hasOne("film")
                 ->end();
 
         //Set Additional Route

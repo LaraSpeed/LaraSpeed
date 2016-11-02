@@ -39,12 +39,14 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         //CSS
         "bootstrap3.css" => "public/css/bootstrap3.css",
         "simple-sidebar.css" => "public/css/simple-sidebar.css",
+        "bootstrap-datepicker.css" => "public/css/bootstrap-datepicker.css",
         "custom.css" => "public/css/custom.css",
 
         //JS
         "jquery.js" => "public/js/jquery.js",
         "angular1.js" => "public/js/angular.js",
         "bootstrap3.js" => "public/js/bootstrap3.js",
+        "bootstrap-datepicker.js" => "public/js/bootstrap-datepicker.js",
         "script.js" => "public/js/script.js"
     );
     

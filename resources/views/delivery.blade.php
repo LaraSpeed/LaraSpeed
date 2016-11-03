@@ -23,7 +23,7 @@
 			<label class="text-primary" id="date">Date * : </label>
 			</div>
 			<div class="col-md-2">
-			<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+			<input class="form-control" id="date" name="date" placeholder="YYY/MM/DD" type="text"/>
 			</div>
 
 							<div class="col-md-2">

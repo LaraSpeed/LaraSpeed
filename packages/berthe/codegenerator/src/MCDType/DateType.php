@@ -17,7 +17,7 @@ class DateType extends TypeBaseClass implements FormableType
 {
     public $attrName;
     public $formType = "text";
-    public $functionName = "string";
+    public $functionName = "date";
     public $displayable = true;
 
     public function __construct($attrName = "", $required = false)
@@ -43,5 +43,10 @@ class DateType extends TypeBaseClass implements FormableType
             return Variable::$F_DATE;
 
         return Variable::$C_DATE;
+    }
+
+    function isDate()
+    {
+        return true;
     }
 }

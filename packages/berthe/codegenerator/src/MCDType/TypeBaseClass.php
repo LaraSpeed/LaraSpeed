@@ -41,4 +41,8 @@ class TypeBaseClass
 
         return Variable::$C_DEFAULT;
     }
+
+    function isDate(){
+        return false;
+    }
 }

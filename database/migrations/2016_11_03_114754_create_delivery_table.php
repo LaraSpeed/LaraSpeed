@@ -13,9 +13,9 @@ class CreateDeliveryTable extends Migration
     {
         Schema::create('delivery', function (Blueprint $table) {
             //$table->increments('id');
-            $table->increments('id');
+                        $table->increments('id');
             $table->string('identifiant');
-            $table->string('date');
+            $table->date('date');
             $table->longText('articles');
         });
     }

@@ -23,3 +23,6 @@
 @endforeach @endif
 
 @endsection
+
+@section('dateFields')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDate()){!! "'$attrName', "!!}@endif @endforeach @endif
+@endsection

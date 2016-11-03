@@ -60,6 +60,6 @@ class FormTemplateProvider
      * @return string
      */
     public static function date($name){
-        return '<input class="form-control" id="date" name="'.$name.'" placeholder="MM/DD/YYY" type="text"/>';
+        return '<input class="form-control" id="date" name="'.$name.'" placeholder="YYY/MM/DD" type="text"/>';
     }
 }

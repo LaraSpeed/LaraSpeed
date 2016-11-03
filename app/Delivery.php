@@ -11,6 +11,8 @@ class Delivery extends Model
 
     protected $fillable = ["id", "identifiant", "date", "articles",  ];
 
+
+
     function film(){ 
         return $this->hasOne('App\Film');
     }
@@ -39,6 +41,21 @@ class Delivery extends Model
 
         return $value;
     }  
+
+
+    /**
+    * The storage format of the model's date columns.
+    *
+    * @var  string
+    */
+    protected $dateFormat = 'Y-m-d'; //H:i:s
+
+    /**
+    * The attributes that should be mutated to dates.
+    *
+    * @var  array
+    */
+    protected $dates = ['created_at', 'updated_at', 'deleted_at',   'date',    ];
 }
 
 ?>

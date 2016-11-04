@@ -45,4 +45,12 @@ class TypeBaseClass
     function isDate(){
         return false;
     }
+
+    function mutator(){
+        return $this->mutator;
+    }
+
+    function isText(){
+        return false;
+    }
 }

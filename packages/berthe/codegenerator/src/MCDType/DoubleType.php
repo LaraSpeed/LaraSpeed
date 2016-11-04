@@ -21,6 +21,7 @@ class DoubleType extends TypeBaseClass implements FormableType
     public $formType = "number";
     public $functionName = "double";
     public $displayable = true;
+    public $mutator = "doubleMutator";
 
     public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0)
     {

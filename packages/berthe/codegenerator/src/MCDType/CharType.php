@@ -20,6 +20,7 @@ class CharType extends TypeBaseClass implements FormableType
     public $formType = "text";
     public $functionName = "char";
     public $displayable;
+    public $mutator = "charMutator";
 
     public function __construct($attrName = "", $required = false, $nb_character=0)
     {

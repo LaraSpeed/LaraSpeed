@@ -20,6 +20,7 @@ class FloatType extends TypeBaseClass implements FormableType
     public $formType = "number";
     public $functionName = "float";
     public $displayable = true;
+    public $mutator = "floatMutator";
 
     public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0)
     {

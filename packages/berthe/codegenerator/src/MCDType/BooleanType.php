@@ -19,6 +19,7 @@ class BooleanType extends TypeBaseClass implements FormableType
     public $formType = "checkbox";
     public $functionName = "boolean";
     public $displayable = true;
+    public $mutator = "booleanMutator";
 
     public function __construct($attrName = "", $required = false)
     {

@@ -18,6 +18,7 @@ class TinyIntegerType extends TypeBaseClass implements FormableType
     public $formType = "number";
     public $functionName = "tinyInteger";
     public $displayable = true;
+    public $mutator = "tinyIntegerMutator";
 
     public function __construct($attrName = "")
     {

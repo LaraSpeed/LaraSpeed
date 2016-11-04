@@ -11,22 +11,13 @@ class Category extends Model
 
     protected $fillable = ["category_id", "name", "last_update",  ];
 
-
-
     function film(){ 
         return $this->belongsToMany('App\Film', 'film_category');
     }
 
  
 
-    function getCategoryIdAttribute($value){
-
-        if(strlen($value) > 40 ) {
-            return substr($value, 0, 40)."...";
-        }
-
-        return $value;
-    } function getNameAttribute($value){
+     function getNameAttribute($value){
 
         if(strlen($value) > 40 ) {
             return substr($value, 0, 40)."...";
@@ -41,14 +32,14 @@ class Category extends Model
     *
     * @var  string
     */
-    protected $dateFormat = 'Y-m-d'; //H:i:s
+    //protected $dateFormat = 'Y-m-d'; //H:i:s
 
     /**
     * The attributes that should be mutated to dates.
     *
     * @var  array
     */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at',     ];
+    //protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 }
 
 ?>

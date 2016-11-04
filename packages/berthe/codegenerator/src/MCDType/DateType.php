@@ -19,6 +19,7 @@ class DateType extends TypeBaseClass implements FormableType
     public $formType = "text";
     public $functionName = "date";
     public $displayable = true;
+    public $mutator = "dateMutator";
 
     public function __construct($attrName = "", $required = false)
     {

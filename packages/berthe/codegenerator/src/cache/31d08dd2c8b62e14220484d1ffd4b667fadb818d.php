@@ -11,8 +11,6 @@ class <?php echo $__env->yieldContent('modelName'); ?> extends Model
 
     protected $fillable = [<?php echo $__env->yieldContent('attributs'); ?>];
 
-
-
     <?php echo $__env->yieldContent('relations'); ?>
 
     <?php echo $__env->yieldContent('accessors'); ?>
@@ -23,14 +21,14 @@ class <?php echo $__env->yieldContent('modelName'); ?> extends Model
     *
     * @var  string
     */
-    protected $dateFormat = 'Y-m-d'; //H:i:s
+    //protected $dateFormat = 'Y-m-d'; //H:i:s
 
     /**
     * The attributes that should be mutated to dates.
     *
     * @var  array
     */
-    protected $dates = ['created_at', 'updated_at', 'deleted_at', <?php echo $__env->yieldContent('dateFields'); ?>];
+    //protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 }
 
 ?>

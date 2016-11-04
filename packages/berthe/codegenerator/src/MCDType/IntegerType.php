@@ -18,6 +18,7 @@ class IntegerType extends TypeBaseClass implements FormableType
     public $formType = "number";
     public $functionName = "integer";
     public $displayable = true;
+    public $mutator = "integerMutator";
 
     public function __construct($attrName = "", $required = false)
     {

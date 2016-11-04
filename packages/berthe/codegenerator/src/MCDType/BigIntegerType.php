@@ -20,6 +20,7 @@ class BigIntegerType extends TypeBaseClass implements FormableType
     public $formType = "number";
     public $functionName = "bigInteger";
     public $displayable = true;
+    public $mutator = "bigIntegerAccessor";
 
     public function __construct($attrName = "", $required = false)
     {

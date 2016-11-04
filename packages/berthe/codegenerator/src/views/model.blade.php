@@ -19,10 +19,7 @@
 
 @endsection
 
-@section('accessors')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@include('limitAccessor', ['attrName' => $attrName, 'length' => 40]) @endif
+@section('accessors')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@include($attrType->mutator(), ['attrName' => $attrName, 'length' => 40]) @endif
 @endforeach @endif
 
-@endsection
-
-@section('dateFields')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDate()){!! "'$attrName', "!!}@endif @endforeach @endif
 @endsection

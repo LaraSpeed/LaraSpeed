@@ -10,11 +10,6 @@
 			<div class="col-md-7">
 			<input type ="text" class="form-control" name="title" placeholder="Title"  required />
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -25,11 +20,6 @@
 			<div class="col-md-7">
 			<textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -40,11 +30,6 @@
 			<div class="col-md-3">
 			<input type ="number" class="form-control" name="release_year"  max = "9999999999" placeholder="Release year"  required />
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		    
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -55,11 +40,6 @@
 			<div class="col-md-3">
 			<input type ="number" class="form-control" name="rental_duration"  max = "9999999999" placeholder="Rental duration"  required />
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -70,11 +50,6 @@
 			<div class="col-md-3">
 			<input type ="number" class="form-control" name="rental_rate"  max = "9999999999" placeholder="Rental rate"  required />
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -85,11 +60,6 @@
 			<div class="col-md-3">
 			<input type ="number" class="form-control" name="length"  max = "9999999999" placeholder="Length"  required />
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		  
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -100,13 +70,14 @@
 			<div class="col-md-3">
 			<input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" placeholder="Replacement cost"  required />
 			</div>
-
-							<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			
 		</div> <br/>
 		        
+		<div class="row">
+			<div class="col-md-2">
+				<label class="text-danger"> * = Mandatory fields</label>
+			</div>
+		</div> <br/>
+
 		<div class="row">
 			<div class="col-md-2">
 			<button type="submit" class="btn btn-primary">Create and return to list</button>

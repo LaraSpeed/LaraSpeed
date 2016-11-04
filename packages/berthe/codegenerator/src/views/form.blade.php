@@ -9,15 +9,14 @@
 			<div class="{!! $attrType->formClass("form") !!}">
 			{!! $attrType->getForm()!!}
 			</div>
-
-			@if($attrType->isRequired())
-				<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			@endif
-
 		</div> <br/>
 		@endif @endforeach @endif
+
+		<div class="row">
+			<div class="col-md-2">
+				<label class="text-danger"> * = Mandatory fields</label>
+			</div>
+		</div> <br/>
 
 		<div class="row">
 			<div class="col-md-2">

@@ -12,7 +12,7 @@
 
    <div class="form-group">
         <label class="text-danger">Date : </label>
-        <input class="form-control" id="date" name="date" placeholder="YYY/MM/DD" type="text"/>
+        <input class="form-control" id="date" name="date" placeholder="MM-DD-YYYY" type="text"/>
         Current Value : {{$delivery->date}}
     </div>
 

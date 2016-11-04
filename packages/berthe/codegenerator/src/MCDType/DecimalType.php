@@ -20,6 +20,7 @@ class DecimalType extends TypeBaseClass implements FormableType
     public $formType = "number";
     public $functionName = "decimal";
     public $displayable = true;
+    public $mutator = "decimalMutator";
 
     public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0)
     {

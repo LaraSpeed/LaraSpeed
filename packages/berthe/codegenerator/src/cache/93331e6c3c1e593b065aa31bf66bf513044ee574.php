@@ -10,15 +10,14 @@
 			<?php echo $attrType->getForm(); ?>
 
 			</div>
-
-			<?php if($attrType->isRequired()): ?>
-				<div class="col-md-2">
-					<span class="text-danger">Mandatory fields</span>
-				</div>
-			<?php endif; ?>
-
 		</div> <br/>
 		<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+
+		<div class="row">
+			<div class="col-md-2">
+				<label class="text-danger"> * = Mandatory fields</label>
+			</div>
+		</div> <br/>
 
 		<div class="row">
 			<div class="col-md-2">

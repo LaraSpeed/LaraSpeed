@@ -19,6 +19,7 @@ class TextType extends TypeBaseClass implements FormableType
     public $formType = "text";
     public $functionName = "text";
     public $displayable = true;
+    public $mutator = "textMutator";
 
     public function __construct($attrName = "", $required = false)
     {
@@ -42,5 +43,9 @@ class TextType extends TypeBaseClass implements FormableType
             return Variable::$F_TEXT;
 
         return Variable::$C_TEXT;
+    }
+
+    function isText(){
+        return true;
     }
 }

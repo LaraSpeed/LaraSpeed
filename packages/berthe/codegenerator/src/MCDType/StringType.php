@@ -19,6 +19,7 @@ class StringType extends TypeBaseClass implements FormableType
     public $formType = "text";
     public $functionName = "string";
     public $displayable = true;
+    public $mutator = "textMutator";
 
     public function __construct($attrName = "", $required = false, $nb_character = 0)
     {
@@ -51,5 +52,9 @@ class StringType extends TypeBaseClass implements FormableType
             return Variable::$F_STRING;
 
         return Variable::$C_STRING;
+    }
+
+    function isText(){
+        return true;
     }
 }

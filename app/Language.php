@@ -25,7 +25,14 @@ class Language extends Model
 
         return $value;
     }  
+    function getFilmPaginatedAttribute(){
+        if(session("sortKey", "none") == "none")
+            return $this->film()->paginate(20)->appends(array("tab" => "film"));
 
+        return $this->film()->orderBy(session("sortKey", "title"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "film"));
+
+    }
+ 
 
     /**
     * The storage format of the model's date columns.

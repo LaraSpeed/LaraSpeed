@@ -97,8 +97,10 @@ class CategoryController extends Controller {
     * @return  Response
     */
     public function related(Category $category ){
+        $table = request()->get('tab');
         $category->load(array("film",));
-return view('category_related', compact('category'));    }
+return view('category_related', compact(['category', 'table']));
+    }
 
     /**
     * Search Table element By keyword
@@ -130,29 +132,71 @@ return view('category_related', compact('category'));    }
     public function sort(){
         $path = "";
 
-        $categorys = Category::query();
+            request()->session()->forget("sortKey");
+    request()->session()->forget("sortOrder");
+    if(!request()->exists('tab')){
+$categorys = Category::query();
         if(request()->exists('category_id')){
             $categorys = $categorys->orderBy('category_id', $this->getOrder('category_id'));
             $path = "category_id";
         }else{
             request()->session()->forget("category_id");
         }
-        if(request()->exists('name')){
+         if(request()->exists('name')){
             $categorys = $categorys->orderBy('name', $this->getOrder('name'));
             $path = "name";
         }else{
             request()->session()->forget("name");
         }
-        if(request()->exists('last_update')){
-            $categorys = $categorys->orderBy('last_update', $this->getOrder('last_update'));
-            $path = "last_update";
-        }else{
-            request()->session()->forget("last_update");
-        }
-        $categorys = $categorys->paginate(20);
+          $categorys = $categorys->paginate(20);
         $categorys->setPath("sort?$path");
         return view('category_show', compact('categorys'));
+
+    }else{
+
+    if(request()->exists('tab') == 'film'){
+
+                  if(request()->exists('title')){
+             session(['sortOrder' => $this->getOrder('title')]);
+             session(['sortKey' => 'title']);
+        }
+
+                 if(request()->exists('description')){
+             session(['sortOrder' => $this->getOrder('description')]);
+             session(['sortKey' => 'description']);
+        }
+
+                 if(request()->exists('release_year')){
+             session(['sortOrder' => $this->getOrder('release_year')]);
+             session(['sortKey' => 'release_year']);
+        }
+
+                  if(request()->exists('rental_duration')){
+             session(['sortOrder' => $this->getOrder('rental_duration')]);
+             session(['sortKey' => 'rental_duration']);
+        }
+
+                 if(request()->exists('rental_rate')){
+             session(['sortOrder' => $this->getOrder('rental_rate')]);
+             session(['sortKey' => 'rental_rate']);
+        }
+
+                 if(request()->exists('length')){
+             session(['sortOrder' => $this->getOrder('length')]);
+             session(['sortKey' => 'length']);
+        }
+
+                 if(request()->exists('replacement_cost')){
+             session(['sortOrder' => $this->getOrder('replacement_cost')]);
+             session(['sortKey' => 'replacement_cost']);
+        }
+
+                    }
+             return back();
     }
+    }
+
+
 
     function addFilm(Category $category ){
     $category->film()->save(\App\Film::find(request()->get('film')));

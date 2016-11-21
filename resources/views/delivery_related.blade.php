@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
-@if(isset($delivery->film))
+@if(isset($delivery->film) && "film" == $table)
         @else
-    <label class="text-danger">No delivery.</label>
+
     @endif
 @endsection

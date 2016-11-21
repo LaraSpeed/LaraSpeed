@@ -69,6 +69,7 @@
         @foreach($table['relations'] as $relation)
             <td class="defaut">
                 <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
+                    <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                     <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
                 </form>
             </td>

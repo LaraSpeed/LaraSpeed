@@ -44,7 +44,8 @@ class Delivery extends Model
 
         return $value;
     }  
-
+    
+ 
 
     /**
     * The storage format of the model's date columns.

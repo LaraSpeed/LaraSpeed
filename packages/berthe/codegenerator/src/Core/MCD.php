@@ -316,7 +316,7 @@ class MCD
 
         //Adding Additional Route
         $this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
-
+        
         return $this;
     }
 

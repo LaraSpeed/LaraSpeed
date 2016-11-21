@@ -102,11 +102,13 @@
         </td>
                     <td class="defaut">
                 <form action="{{url("/film/related/$film->film_id")}}" method="get">
+                    <input type="hidden" name="tab" value="language" />
                     <button type="submit" class="btn btn-link">Language</button>
                 </form>
             </td>
                     <td class="defaut">
                 <form action="{{url("/film/related/$film->film_id")}}" method="get">
+                    <input type="hidden" name="tab" value="category" />
                     <button type="submit" class="btn btn-link">Category</button>
                 </form>
             </td>

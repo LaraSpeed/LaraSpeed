@@ -40,3 +40,4 @@ Route::get('delivery/search', 'DeliveryController@search');
 Route::get('delivery/sort', 'DeliveryController@sort');
 Route::resource('delivery', 'DeliveryController');
 Route::post('delivery/updateFilm/{delivery}', 'DeliveryController@updateFilm');
+

@@ -97,8 +97,10 @@ class DeliveryController extends Controller {
     * @return  Response
     */
     public function related(Delivery $delivery ){
+        $table = request()->get('tab');
         $delivery->load(array("film",));
-return view('delivery_related', compact('delivery'));    }
+return view('delivery_related', compact(['delivery', 'table']));
+    }
 
     /**
     * Search Table element By keyword
@@ -132,35 +134,77 @@ return view('delivery_related', compact('delivery'));    }
     public function sort(){
         $path = "";
 
-        $deliverys = Delivery::query();
-        if(request()->exists('id')){
-            $deliverys = $deliverys->orderBy('id', $this->getOrder('id'));
-            $path = "id";
-        }else{
-            request()->session()->forget("id");
-        }
-        if(request()->exists('identifiant')){
+            request()->session()->forget("sortKey");
+    request()->session()->forget("sortOrder");
+    if(!request()->exists('tab')){
+$deliverys = Delivery::query();
+         if(request()->exists('identifiant')){
             $deliverys = $deliverys->orderBy('identifiant', $this->getOrder('identifiant'));
             $path = "identifiant";
         }else{
             request()->session()->forget("identifiant");
         }
-        if(request()->exists('date')){
+         if(request()->exists('date')){
             $deliverys = $deliverys->orderBy('date', $this->getOrder('date'));
             $path = "date";
         }else{
             request()->session()->forget("date");
         }
-        if(request()->exists('articles')){
+         if(request()->exists('articles')){
             $deliverys = $deliverys->orderBy('articles', $this->getOrder('articles'));
             $path = "articles";
         }else{
             request()->session()->forget("articles");
         }
-        $deliverys = $deliverys->paginate(20);
+         $deliverys = $deliverys->paginate(20);
         $deliverys->setPath("sort?$path");
         return view('delivery_show', compact('deliverys'));
+
+    }else{
+
+    if(request()->exists('tab') == 'film'){
+
+                  if(request()->exists('title')){
+             session(['sortOrder' => $this->getOrder('title')]);
+             session(['sortKey' => 'title']);
+        }
+
+                 if(request()->exists('description')){
+             session(['sortOrder' => $this->getOrder('description')]);
+             session(['sortKey' => 'description']);
+        }
+
+                 if(request()->exists('release_year')){
+             session(['sortOrder' => $this->getOrder('release_year')]);
+             session(['sortKey' => 'release_year']);
+        }
+
+                  if(request()->exists('rental_duration')){
+             session(['sortOrder' => $this->getOrder('rental_duration')]);
+             session(['sortKey' => 'rental_duration']);
+        }
+
+                 if(request()->exists('rental_rate')){
+             session(['sortOrder' => $this->getOrder('rental_rate')]);
+             session(['sortKey' => 'rental_rate']);
+        }
+
+                 if(request()->exists('length')){
+             session(['sortOrder' => $this->getOrder('length')]);
+             session(['sortKey' => 'length']);
+        }
+
+                 if(request()->exists('replacement_cost')){
+             session(['sortOrder' => $this->getOrder('replacement_cost')]);
+             session(['sortKey' => 'replacement_cost']);
+        }
+
+                    }
+             return back();
     }
+    }
+
+
 
     
  

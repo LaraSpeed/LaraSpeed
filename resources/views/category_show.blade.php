@@ -72,6 +72,7 @@
         </td>
                     <td class="defaut">
                 <form action="{{url("/category/related/$category->category_id")}}" method="get">
+                    <input type="hidden" name="tab" value="film" />
                     <button type="submit" class="btn btn-link">Film</button>
                 </form>
             </td>

@@ -97,6 +97,7 @@ class @yield('controllerName') extends Controller {
     * @return Response
     */
     public function related(@yield('relatedParam')){
+        $table = request()->get('tab');
         @yield('related')
     }
 
@@ -123,6 +124,8 @@ class @yield('controllerName') extends Controller {
 
         @yield('sort')
     }
+
+
 
     @yield('relations')
 

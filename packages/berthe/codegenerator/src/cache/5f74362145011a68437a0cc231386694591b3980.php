@@ -97,6 +97,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     * @return  Response
     */
     public function related(<?php echo $__env->yieldContent('relatedParam'); ?>){
+        $table = request()->get('tab');
         <?php echo $__env->yieldContent('related'); ?>
     }
 
@@ -123,6 +124,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
 
         <?php echo $__env->yieldContent('sort'); ?>
     }
+
+
 
     <?php echo $__env->yieldContent('relations'); ?>
 

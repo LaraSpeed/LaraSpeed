@@ -21,6 +21,7 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
     public $actionView = "hasManyController";
     public $editView = "hasManyEdit";
     public $action = "hasManyAction";
+    public $relationAccessor = "hasManyRelationAccessor";
 
     public function __construct($table = "table", $other = "otherTable")
     {
@@ -56,5 +57,10 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
     function getAction()
     {
         return $this->action;
+    }
+
+    function getRelationAccessor()
+    {
+        return $this->relationAccessor;
     }
 }

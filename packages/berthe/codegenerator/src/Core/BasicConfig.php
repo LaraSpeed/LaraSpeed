@@ -36,4 +36,9 @@ class BasicConfig implements ConfigInterface
         
         throw new \Exception("Displayed Attributes not shown for table : [".$tableName."]");
     }
+
+    function getAllDisplayedAttribute()
+    {
+        return $this->configs["displayAttributes"];
+    }
 }

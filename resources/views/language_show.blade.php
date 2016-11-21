@@ -66,6 +66,7 @@
         </td>
                     <td class="defaut">
                 <form action="{{url("/language/related/$language->language_id")}}" method="get">
+                    <input type="hidden" name="tab" value="film" />
                     <button type="submit" class="btn btn-link">Film</button>
                 </form>
             </td>

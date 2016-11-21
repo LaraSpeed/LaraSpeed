@@ -13,4 +13,5 @@ interface RelationSpecificationInterface
 {
     function hasConstraints();
     function isFormDisplayable();
+    function getRelationAccessor();
 }

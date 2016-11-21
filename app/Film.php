@@ -36,7 +36,15 @@ function category(){
 
         return $value;
     }       
+    
+    function getCategoryPaginatedAttribute(){
+        if(session("sortKey", "none") == "none")
+            return $this->category()->paginate(20)->appends(array("tab" => "category"));
 
+        return $this->category()->orderBy(session("sortKey", "name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "category"));
+
+    }
+ 
 
     /**
     * The storage format of the model's date columns.

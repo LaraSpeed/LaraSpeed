@@ -13,4 +13,5 @@ interface ConfigInterface
 {
     function version();
     function displayedAttributes($tableName="");
+    function getAllDisplayedAttribute();
 }

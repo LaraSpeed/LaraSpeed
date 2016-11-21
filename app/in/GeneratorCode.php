@@ -22,7 +22,8 @@ class GeneratorCode  extends CallGenerator {
             "film" => "title",
             "language" => "name",
             "category" => "name",
-            "delivery" => "identifiant"
+            "delivery" => "identifiant",
+            "users" => "name"
         ),
     );
 

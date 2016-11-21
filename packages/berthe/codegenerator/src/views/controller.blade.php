@@ -51,9 +51,9 @@
 @section('relatedParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>
 @section('related')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
-@include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
+@include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb), 'config' => $config])
 
-@include("showReturnValController", ['tab' => $relation->getTable(), "type" => "related"])
+{!! "return view('".$relation->getTable()."_related', compact(['".$relation->getTable()."', 'table']));" !!}
 @endif
 @endsection
 
@@ -68,19 +68,39 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::where('".$table['
 @endsection
 
 @section('sort')
+    {!! "request()->session()->forget(\"sortKey\");" !!}
+    {!! "request()->session()->forget(\"sortOrder\");" !!}
+    {!!"if(!request()->exists('tab')){" !!}
 ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::query();" !!}
-    @foreach($table['attributs'] as $attrName => $attrType)
+    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
     {!!"if(request()->exists('$attrName')){" !!}
             ${!! $table['title'].'s = ' !!}${!! $table['title']."s->orderBy('$attrName', $"."this->getOrder('$attrName'));" !!}
             ${!! 'path = ' !!}{!! "\"$attrName\";" !!}
         {!! "}else{" !!}
             {!! "request()->session()->forget(\"$attrName\");" !!}
         {!! "}" !!}
-    @endforeach
+    @endif @endforeach
     ${!! $table['title'].'s = ' !!}${!! $table['title'].'s->paginate(20);' !!}
         ${!! $table['title']."s->setPath(\"sort?$"."path\");"!!}
         {!! "return view('".$table['title']."_show', compact('".$table['title']."s'));" !!}
+
+    {!! "}else{" !!}
+
+    @if(key_exists("relations", $table))@foreach($table["relations"] as $relation){!!"if(request()->exists('tab') == '".$relation->getOtherTable()."'){" !!}
+
+        @foreach($tbs[$relation->getOtherTable()]['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
+        {!!"if(request()->exists('$attrName')){" !!}
+             {!! "session(['sortOrder' => $"."this->getOrder('$attrName')]);" !!}
+             {!! "session(['sortKey' => '$attrName']);" !!}
+        {!! "}" !!}
+
+        @endif @endforeach
+        {!! "}" !!}
+    @endforeach @endif
+        {!! "return back();" !!}
+    {!! "}" !!}
 @endsection
+
 
 @section('relations')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)
 @include($relation->getAction(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'tbs' => $tbs])

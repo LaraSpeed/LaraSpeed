@@ -97,8 +97,10 @@ class FilmController extends Controller {
     * @return  Response
     */
     public function related(Film $film ){
+        $table = request()->get('tab');
         $film->load(array("language","category",));
-return view('film_related', compact('film'));    }
+return view('film_related', compact(['film', 'table']));
+    }
 
     /**
     * Search Table element By keyword
@@ -150,89 +152,85 @@ return view('film_related', compact('film'));    }
     public function sort(){
         $path = "";
 
+        request()->session()->forget("sortKey");
+        request()->session()->forget("sortOrder");
+
+        if(!request()->exists('tab')){
         $films = Film::query();
-        if(request()->exists('film_id')){
-            $films = $films->orderBy('film_id', $this->getOrder('film_id'));
-            $path = "film_id";
-        }else{
-            request()->session()->forget("film_id");
-        }
-        if(request()->exists('language_id')){
-            $films = $films->orderBy('language_id', $this->getOrder('language_id'));
-            $path = "language_id";
-        }else{
-            request()->session()->forget("language_id");
-        }
-        if(request()->exists('title')){
+          if(request()->exists('title')){
             $films = $films->orderBy('title', $this->getOrder('title'));
             $path = "title";
         }else{
             request()->session()->forget("title");
         }
-        if(request()->exists('description')){
+         if(request()->exists('description')){
             $films = $films->orderBy('description', $this->getOrder('description'));
             $path = "description";
         }else{
             request()->session()->forget("description");
         }
-        if(request()->exists('release_year')){
+         if(request()->exists('release_year')){
             $films = $films->orderBy('release_year', $this->getOrder('release_year'));
             $path = "release_year";
         }else{
             request()->session()->forget("release_year");
         }
-        if(request()->exists('original_language_id')){
-            $films = $films->orderBy('original_language_id', $this->getOrder('original_language_id'));
-            $path = "original_language_id";
-        }else{
-            request()->session()->forget("original_language_id");
-        }
-        if(request()->exists('rental_duration')){
+          if(request()->exists('rental_duration')){
             $films = $films->orderBy('rental_duration', $this->getOrder('rental_duration'));
             $path = "rental_duration";
         }else{
             request()->session()->forget("rental_duration");
         }
-        if(request()->exists('rental_rate')){
+         if(request()->exists('rental_rate')){
             $films = $films->orderBy('rental_rate', $this->getOrder('rental_rate'));
             $path = "rental_rate";
         }else{
             request()->session()->forget("rental_rate");
         }
-        if(request()->exists('length')){
+         if(request()->exists('length')){
             $films = $films->orderBy('length', $this->getOrder('length'));
             $path = "length";
         }else{
             request()->session()->forget("length");
         }
-        if(request()->exists('replacement_cost')){
+         if(request()->exists('replacement_cost')){
             $films = $films->orderBy('replacement_cost', $this->getOrder('replacement_cost'));
             $path = "replacement_cost";
         }else{
             request()->session()->forget("replacement_cost");
         }
-        if(request()->exists('rating')){
-            $films = $films->orderBy('rating', $this->getOrder('rating'));
-            $path = "rating";
-        }else{
-            request()->session()->forget("rating");
-        }
-        if(request()->exists('special_features')){
-            $films = $films->orderBy('special_features', $this->getOrder('special_features'));
-            $path = "special_features";
-        }else{
-            request()->session()->forget("special_features");
-        }
-        if(request()->exists('last_update')){
-            $films = $films->orderBy('last_update', $this->getOrder('last_update'));
-            $path = "last_update";
-        }else{
-            request()->session()->forget("last_update");
-        }
-        $films = $films->paginate(20);
+            $films = $films->paginate(20);
         $films->setPath("sort?$path");
         return view('film_show', compact('films'));
+
+    }else{
+
+    if(request()->exists('tab') == 'language'){
+
+                 if(request()->exists('name')){
+             session(['sortOrder' => $this->getOrder('name')]);
+             session(['sortKey' => 'name']);
+        }
+
+                  }
+    if(request()->exists('tab') == 'category'){
+
+        if(request()->exists('category_id')){
+             session(['sortOrder' => $this->getOrder('category_id')]);
+             session(['sortKey' => 'category_id']);
+        }
+
+        if(request()->exists('name')){
+             session(['sortOrder' => $this->getOrder('name')]);
+             session(['sortKey' => 'name']);
+        }
+
     }
+            return back();
+    }
+    }
+
+
 
     function updateLanguage(Film $film ){
     $language = \App\Language::find(request()->get('language'));

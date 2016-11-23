@@ -88,6 +88,9 @@ class MCD
         $this->tables[$tableName] = array();
         $this->currentTableName = $tableName;
         $this->tables[$this->currentTableName]['relations'] = array();
+
+        //$this->routes[$this->currentTableName."/clearSearch"] = ucfirst($this->currentTableName)."Controller@clearSearch";
+
         return $this;
     }
 

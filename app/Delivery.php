@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class Delivery extends Model
 {
@@ -46,6 +47,12 @@ class Delivery extends Model
     }  
     
  
+
+
+    public function hasAttribute($attr)
+    {
+        return array_key_exists($attr, $this->attributes);
+    }
 
     /**
     * The storage format of the model's date columns.

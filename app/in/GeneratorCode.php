@@ -59,7 +59,7 @@ class GeneratorCode  extends CallGenerator {
                 ->end()
 
             ->table("category")
-                ->tinyInteger("category_id")
+                ->smallInteger("category_id")
                 ->string("name", true, 25)
                 ->timeStamp("last_update")
                 ->belongsToMany("film")

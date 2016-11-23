@@ -2,6 +2,7 @@
 namespace <?php echo $__env->yieldContent('namespace'); ?>;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class <?php echo $__env->yieldContent('modelName'); ?> extends Model
 {
@@ -15,6 +16,12 @@ class <?php echo $__env->yieldContent('modelName'); ?> extends Model
 
     <?php echo $__env->yieldContent('accessors'); ?>
 
+
+
+    public function hasAttribute($attr)
+    {
+        return array_key_exists($attr, $this->attributes);
+    }
 
     /**
     * The storage format of the model's date columns.

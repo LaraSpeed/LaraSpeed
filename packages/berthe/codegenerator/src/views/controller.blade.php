@@ -92,6 +92,8 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::query();" !!}
         {!!"if(request()->exists('$attrName')){" !!}
              {!! "session(['sortOrder' => $"."this->getOrder('$attrName')]);" !!}
              {!! "session(['sortKey' => '$attrName']);" !!}
+        {!! "}else{" !!}
+            {!! "request()->session()->forget(\"$attrName\");" !!}
         {!! "}" !!}
 
         @endif @endforeach

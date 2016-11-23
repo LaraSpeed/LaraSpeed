@@ -116,6 +116,10 @@ $<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::que
 
              <?php echo "session(['sortKey' => '$attrName']);"; ?>
 
+        <?php echo "}else{"; ?>
+
+            <?php echo "request()->session()->forget(\"$attrName\");"; ?>
+
         <?php echo "}"; ?>
 
 

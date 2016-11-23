@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac1c198-5280-48bd-b7d5-45fda026c931" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_04_011711_create_category_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_04_011711_create_delivery_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_04_011711_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_04_011711_create_language_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_04_011712_create_foreign_keys.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/mockup.blade.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110244_create_category_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110244_create_delivery_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110244_create_film_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110244_create_language_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110245_create_category_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110245_create_delivery_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110245_create_film_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110245_create_foreign_keys.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_11_021_110245_create_language_table.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Category.php" afterPath="$PROJECT_DIR$/app/Category.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Delivery.php" afterPath="$PROJECT_DIR$/app/Delivery.php" />
@@ -17,36 +23,30 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Language.php" afterPath="$PROJECT_DIR$/app/Language.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/in/GeneratorCode.php" afterPath="$PROJECT_DIR$/app/in/GeneratorCode.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RelationSpecificationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RelationSpecificationInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/BasicConfig.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/BasicConfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BaseRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BaseRelation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToManyRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToManyRelation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/480080b655694a6be88a32db87d80be6ae2d2e97.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/480080b655694a6be88a32db87d80be6ae2d2e97.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/31d08dd2c8b62e14220484d1ffd4b667fadb818d.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/31d08dd2c8b62e14220484d1ffd4b667fadb818d.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/736a1160a128bfb59820c3e8e51a16b66aab2c8f.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/736a1160a128bfb59820c3e8e51a16b66aab2c8f.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a0ef2704fc0f6a75fb7579482a328e5b5e333088.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a0ef2704fc0f6a75fb7579482a328e5b5e333088.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b27390c92c93a34c68872ae6cd6a55250a6a2607.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b27390c92c93a34c68872ae6cd6a55250a6a2607.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/caf8d92e0ab871a2ac032dd31f362f9e1e1bb00b.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/caf8d92e0ab871a2ac032dd31f362f9e1e1bb00b.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/related.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/related.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modelMaster.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modelMaster.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/category.blade.php" afterPath="$PROJECT_DIR$/resources/views/category.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/category_display.blade.php" afterPath="$PROJECT_DIR$/resources/views/category_display.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/category_edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/category_edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/category_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/category_related.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/category_show.blade.php" afterPath="$PROJECT_DIR$/resources/views/category_show.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/delivery_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/delivery_related.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/delivery_show.blade.php" afterPath="$PROJECT_DIR$/resources/views/delivery_show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/film_display.blade.php" afterPath="$PROJECT_DIR$/resources/views/film_display.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/film_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/film_related.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/film_show.blade.php" afterPath="$PROJECT_DIR$/resources/views/film_show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/language_display.blade.php" afterPath="$PROJECT_DIR$/resources/views/language_display.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/language_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/language_related.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/language_show.blade.php" afterPath="$PROJECT_DIR$/resources/views/language_show.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <ignored path="LaraSpeed.iws" />
@@ -76,50 +76,10 @@
       <file leaf-file-name="Film.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Film.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-175">
-              <caret line="18" column="67" selection-start-line="18" selection-start-column="67" selection-end-line="18" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="related.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/related.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="132" selection-start-line="2" selection-start-column="132" selection-end-line="2" selection-end-column="132" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hasManyDisplay.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="83" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="88" column="156" selection-start-line="88" selection-start-column="156" selection-end-line="88" selection-end-column="156" />
+            <state relative-caret-position="324">
+              <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
               <folding>
-                <marker date="1479769021426" expanded="true" signature="2381:2575" ph="..." />
+                <element signature="e#23#62#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,8 +88,18 @@
       <file leaf-file-name="model.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="157" selection-start-line="25" selection-start-column="157" selection-end-line="25" selection-end-column="157" />
+            <state relative-caret-position="432">
+              <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modelMaster.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modelMaster.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -138,37 +108,41 @@
       <file leaf-file-name="hasManyRelationAccessor.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="145" selection-start-line="4" selection-start-column="145" selection-end-line="4" selection-end-column="145" />
+            <state relative-caret-position="90">
+              <caret line="5" column="213" selection-start-line="5" selection-start-column="213" selection-end-line="5" selection-end-column="213" />
               <folding>
-                <marker date="1479768853994" expanded="true" signature="303:515" ph="..." />
+                <marker date="1479892145911" expanded="true" signature="989:1190" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LanguageController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LanguageController.php">
+      <file leaf-file-name="hasManyDisplay.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="143" column="9" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
+            <state relative-caret-position="367">
+              <caret line="82" column="98" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Language.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Language.php">
+      <file leaf-file-name="controllerMaster.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="31" column="32" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="95" />
-              <folding>
-                <marker date="1479769364946" expanded="true" signature="92:1117" ph="{...}" />
-                <marker date="1479769364946" expanded="true" signature="265:314" ph="..." />
-                <marker date="1479769364946" expanded="true" signature="358:481" ph="..." />
-                <marker date="1479769364946" expanded="true" signature="394:451" ph="..." />
-                <marker date="1479769364946" expanded="true" signature="526:807" ph="..." />
-              </folding>
+            <state relative-caret-position="411">
+              <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MCD.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="91" column="10" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -176,8 +150,20 @@
       <file leaf-file-name="Category.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+            <state relative-caret-position="61">
+              <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+              <folding>
+                <element signature="e#23#62#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilmController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="253" column="15" selection-start-line="253" selection-start-column="15" selection-end-line="253" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -199,9 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/charMutator.blade.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DecimalType.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/decimalMutator.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DoubleType.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/doubleMutator.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/FloatType.php" />
@@ -212,7 +195,6 @@
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/LongTextType.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/StringType.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TextType.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modelMaster.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TinyIntegerType.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/tinyIntegerMutator.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DateType.php" />
@@ -224,8 +206,6 @@
         <option value="$PROJECT_DIR$/app/Delivery.php" />
         <option value="/media/seydou/data/PROJETS/CODE_SKULPTOR/skulpterTemplate.html" />
         <option value="/media/seydou/data/PROJETS/CODE_SKULPTOR/game.html" />
-        <option value="$PROJECT_DIR$/app/in/GeneratorCode.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/showReturnValController.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" />
@@ -239,17 +219,23 @@
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" />
         <option value="$PROJECT_DIR$/resources/views/language_related.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/related.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/mockup.blade.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" />
+        <option value="$PROJECT_DIR$/app/in/GeneratorCode.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modelMaster.blade.php" />
+        <option value="$PROJECT_DIR$/app/Language.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/FormTemplate.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php" />
-        <option value="$PROJECT_DIR$/app/Language.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" />
         <option value="$PROJECT_DIR$/app/Film.php" />
         <option value="$PROJECT_DIR$/app/Category.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" />
       </list>
     </option>
   </component>
@@ -469,6 +455,36 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="packages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="berthe" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="codegenerator" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Relation" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -622,17 +638,17 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/views" />
+      <recent name="$PROJECT_DIR$/public/js" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Route" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/views" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -732,19 +748,21 @@
       <workItem from="1479498877587" duration="642000" />
       <workItem from="1479656995821" duration="11423000" />
       <workItem from="1479751166621" duration="16083000" />
-      <workItem from="1479767659795" duration="1995000" />
+      <workItem from="1479767659795" duration="2588000" />
+      <workItem from="1479834674298" duration="9401000" />
+      <workItem from="1479888600670" duration="4579000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305319000" />
+    <option name="totallyTimeSpent" value="319892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1829362" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20368947" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2533532" sideWeight="0.24047619" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -780,55 +798,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/formMaster.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="85" column="14" selection-start-line="85" selection-start-column="14" selection-end-line="85" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FormTemplateProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="62" column="87" selection-start-line="62" selection-start-column="87" selection-end-line="62" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/dateMutator.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///media/seydou/data/PROJETS/CODE_SKULPTOR/game.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="422" column="13" selection-start-line="422" selection-start-column="13" selection-end-line="422" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///media/seydou/data/PROJETS/CODE_SKULPTOR/skulpterTemplate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Delivery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Users.php" />
     <entry file="file://$PROJECT_DIR$/../../1804mag/includes/connect_database.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -855,13 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -914,13 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/in/GeneratorCode.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RelationSpecificationInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -963,20 +918,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php.backup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php.backup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php.backup" />
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php.backup" />
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/AdvancedGenerator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
@@ -1020,38 +963,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/language_related.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/film_display.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="318" column="8" selection-start-line="318" selection-start-column="8" selection-end-line="318" selection-end-column="8" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/mockup.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/constraintMaster.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LanguageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2340">
+          <caret line="130" column="44" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1278">
+          <caret line="71" column="58" selection-start-line="71" selection-start-column="58" selection-end-line="71" selection-end-column="58" />
+          <folding>
+            <marker date="1479839815351" expanded="true" signature="2381:2575" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/in/GeneratorCode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modelMaster.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        <state relative-caret-position="72">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Language.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="95" />
+        <state relative-caret-position="75">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
-            <marker date="1479769364946" expanded="true" signature="92:1117" ph="{...}" />
-            <marker date="1479769364946" expanded="true" signature="265:314" ph="..." />
-            <marker date="1479769364946" expanded="true" signature="358:481" ph="..." />
-            <marker date="1479769364946" expanded="true" signature="394:451" ph="..." />
-            <marker date="1479769364946" expanded="true" signature="526:807" ph="..." />
+            <element signature="e#23#62#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1064,54 +1057,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php">
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php">
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/FormTemplate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="145" selection-start-line="4" selection-start-column="145" selection-end-line="4" selection-end-column="145" />
-          <folding>
-            <marker date="1479768853994" expanded="true" signature="303:515" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="88" column="156" selection-start-line="88" selection-start-column="156" selection-end-line="88" selection-end-column="156" />
-          <folding>
-            <marker date="1479769021426" expanded="true" signature="2381:2575" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LanguageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="143" column="9" selection-start-line="143" selection-start-column="9" selection-end-line="143" selection-end-column="9" />
+        <state relative-caret-position="132">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="157" selection-start-line="25" selection-start-column="157" selection-end-line="25" selection-end-column="157" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/language_related.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1124,35 +1089,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php">
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="83" selection-start-line="14" selection-start-column="83" selection-end-line="14" selection-end-column="83" />
+        <state relative-caret-position="90">
+          <caret line="5" column="213" selection-start-line="5" selection-start-column="213" selection-end-line="5" selection-end-column="213" />
+          <folding>
+            <marker date="1479892145911" expanded="true" signature="989:1190" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilmController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="253" column="15" selection-start-line="253" selection-start-column="15" selection-end-line="253" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="91" column="10" selection-start-line="91" selection-start-column="10" selection-end-line="91" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="108" column="53" selection-start-line="108" selection-start-column="53" selection-end-line="108" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="82" column="98" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="98" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Film.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="18" column="67" selection-start-line="18" selection-start-column="67" selection-end-line="18" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="324">
+          <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="61">
+          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

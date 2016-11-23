@@ -13,6 +13,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     public function index()
     {
         request()->session()->forget("keyword");
+        request()->session()->forget("clear");
 
         return view('<?php echo $__env->yieldContent('viewName'); ?>_show', ['<?php echo $__env->yieldContent('varID'); ?>' => <?php echo $__env->yieldContent('modelCall'); ?>]);
     }
@@ -97,6 +98,17 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     * @return  Response
     */
     public function related(<?php echo $__env->yieldContent('relatedParam'); ?>){
+
+        if(request()->exists('cs')){
+            request()->session()->forget("keyword");
+            return back();
+        }
+
+        if(request()->exists('tab') && session("clear", "none") != request()->get('tab')){
+            request()->session()->forget("keyword");
+            session(["clear" => request()->get('tab')]);
+        }
+
         $table = request()->get('tab');
         <?php echo $__env->yieldContent('related'); ?>
     }
@@ -107,6 +119,11 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        if(request()->exists('tab')){
+            session(['keyword' => $keyword]);
+            return back();
+        }
 
         session(["keyword" => $keyword]);
 
@@ -123,6 +140,15 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         $path = "";
 
         <?php echo $__env->yieldContent('sort'); ?>
+    }
+
+    /**
+    * Clear Search Pattern
+    *
+    */
+    public function clearSearch(){
+        request()->session()->forget("keyword");
+        return back();
     }
 
 

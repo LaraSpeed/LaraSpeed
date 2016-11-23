@@ -13,6 +13,7 @@ class @yield('controllerName') extends Controller {
     public function index()
     {
         request()->session()->forget("keyword");
+        request()->session()->forget("clear");
 
         return view('@yield('viewName')_show', ['@yield('varID')' => @yield('modelCall')]);
     }
@@ -97,6 +98,17 @@ class @yield('controllerName') extends Controller {
     * @return Response
     */
     public function related(@yield('relatedParam')){
+
+        if(request()->exists('cs')){
+            request()->session()->forget("keyword");
+            return back();
+        }
+
+        if(request()->exists('tab') && session("clear", "none") != request()->get('tab')){
+            request()->session()->forget("keyword");
+            session(["clear" => request()->get('tab')]);
+        }
+
         $table = request()->get('tab');
         @yield('related')
     }
@@ -107,6 +119,11 @@ class @yield('controllerName') extends Controller {
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        if(request()->exists('tab')){
+            session(['keyword' => $keyword]);
+            return back();
+        }
 
         session(["keyword" => $keyword]);
 
@@ -123,6 +140,15 @@ class @yield('controllerName') extends Controller {
         $path = "";
 
         @yield('sort')
+    }
+
+    /**
+    * Clear Search Pattern
+    *
+    */
+    public function clearSearch(){
+        request()->session()->forget("keyword");
+        return back();
     }
 
 

@@ -14,7 +14,7 @@
 <div class="row">
 
     <div class="col-md-8 col-sm-8">
-        <form action="{{url("/category/searchFilm")}}" method="get">
+        <form action="{{url("/category/search")}}" method="get">
             <input type="hidden" name="tab" value="{{$table}}" />
             <div class="col-md-2 col-sm-2">
                 <input type="submit" class="btn btn-primary" value="Search"/>
@@ -30,8 +30,7 @@
 
     <div class="col-md-1 col-sm-1">
         <form action="{{url(Request::url())}}" method="get">
-            <input type="hidden" name="tab" value="{{$table}}" />
-            <input type="hidden" name="page" value="{{$category->film_paginated->currentPage()}}" />
+            <input type="hidden" name="cs" />
             <button type="submit" class="btn btn-primary">Clear Search</button>
         </form>
     </div>

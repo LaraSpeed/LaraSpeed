@@ -20,7 +20,7 @@
 <div class="row">
 
     <div class="col-md-8 col-sm-8">
-        <form action="{{url("/film/searchCategory")}}" method="get">
+        <form action="{{url("/film/search")}}" method="get">
             <input type="hidden" name="tab" value="{{$table}}" />
             <div class="col-md-2 col-sm-2">
                 <input type="submit" class="btn btn-primary" value="Search"/>
@@ -36,8 +36,7 @@
 
     <div class="col-md-1 col-sm-1">
         <form action="{{url(Request::url())}}" method="get">
-            <input type="hidden" name="tab" value="{{$table}}" />
-            <input type="hidden" name="page" value="{{$film->category_paginated->currentPage()}}" />
+            <input type="hidden" name="cs" />
             <button type="submit" class="btn btn-primary">Clear Search</button>
         </form>
     </div>
@@ -57,13 +56,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
-                     <th class="c_numeric">
-                <form action="{{url("/film/sort")}}" method="get">
-                    <input type="hidden" name="category_id"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('category_id', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Category<br/>id <img src="{{ URL::asset(session('category_id', 'none').'.png') }}" /></p></button>
-                </form>
-            </th>              <th class="c_string">
+                       <th class="c_string">
                 <form action="{{url("/film/sort")}}" method="get">
                     <input type="hidden" name="name"/>
                     <input type="hidden" name="tab" value="{{$table}}" />
@@ -76,8 +69,7 @@
     <tbody>
     @forelse($film->category_paginated as  $category)
     <tr>
-                     <td class="c_numeric">{{$category->category_id}}</td>
-                      <td class="c_string">{{$category->name}}</td>
+                       <td class="c_string">{{$category->name}}</td>
                    <td class="defaut"><form action="{{url("/category/$category->category_id")}}" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>

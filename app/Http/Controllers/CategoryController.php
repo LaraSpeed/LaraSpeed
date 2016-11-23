@@ -13,6 +13,7 @@ class CategoryController extends Controller {
     public function index()
     {
         request()->session()->forget("keyword");
+        request()->session()->forget("clear");
 
         return view('category_show', ['categorys' => Category::paginate(20)]);
     }
@@ -97,6 +98,17 @@ class CategoryController extends Controller {
     * @return  Response
     */
     public function related(Category $category ){
+
+        if(request()->exists('cs')){
+            request()->session()->forget("keyword");
+            return back();
+        }
+
+        if(request()->exists('tab') && session("clear", "none") != request()->get('tab')){
+            request()->session()->forget("keyword");
+            session(["clear" => request()->get('tab')]);
+        }
+
         $table = request()->get('tab');
         $category->load(array("film",));
 return view('category_related', compact(['category', 'table']));
@@ -108,6 +120,11 @@ return view('category_related', compact(['category', 'table']));
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        if(request()->exists('tab')){
+            session(['keyword' => $keyword]);
+            return back();
+        }
 
         session(["keyword" => $keyword]);
 
@@ -136,12 +153,6 @@ return view('category_related', compact(['category', 'table']));
     request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
 $categorys = Category::query();
-        if(request()->exists('category_id')){
-            $categorys = $categorys->orderBy('category_id', $this->getOrder('category_id'));
-            $path = "category_id";
-        }else{
-            request()->session()->forget("category_id");
-        }
          if(request()->exists('name')){
             $categorys = $categorys->orderBy('name', $this->getOrder('name'));
             $path = "name";
@@ -159,41 +170,64 @@ $categorys = Category::query();
                   if(request()->exists('title')){
              session(['sortOrder' => $this->getOrder('title')]);
              session(['sortKey' => 'title']);
+        }else{
+            request()->session()->forget("title");
         }
 
                  if(request()->exists('description')){
              session(['sortOrder' => $this->getOrder('description')]);
              session(['sortKey' => 'description']);
+        }else{
+            request()->session()->forget("description");
         }
 
                  if(request()->exists('release_year')){
              session(['sortOrder' => $this->getOrder('release_year')]);
              session(['sortKey' => 'release_year']);
+        }else{
+            request()->session()->forget("release_year");
         }
 
                   if(request()->exists('rental_duration')){
              session(['sortOrder' => $this->getOrder('rental_duration')]);
              session(['sortKey' => 'rental_duration']);
+        }else{
+            request()->session()->forget("rental_duration");
         }
 
                  if(request()->exists('rental_rate')){
              session(['sortOrder' => $this->getOrder('rental_rate')]);
              session(['sortKey' => 'rental_rate']);
+        }else{
+            request()->session()->forget("rental_rate");
         }
 
                  if(request()->exists('length')){
              session(['sortOrder' => $this->getOrder('length')]);
              session(['sortKey' => 'length']);
+        }else{
+            request()->session()->forget("length");
         }
 
                  if(request()->exists('replacement_cost')){
              session(['sortOrder' => $this->getOrder('replacement_cost')]);
              session(['sortKey' => 'replacement_cost']);
+        }else{
+            request()->session()->forget("replacement_cost");
         }
 
                     }
              return back();
     }
+    }
+
+    /**
+    * Clear Search Pattern
+    *
+    */
+    public function clearSearch(){
+        request()->session()->forget("keyword");
+        return back();
     }
 
 

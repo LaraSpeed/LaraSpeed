@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class Category extends Model
 {
@@ -17,7 +18,7 @@ class Category extends Model
 
  
 
-     function getNameAttribute($value){
+    function getNameAttribute($value){
 
         if(strlen($value) > 40 ) {
             return substr($value, 0, 40)."...";
@@ -26,13 +27,32 @@ class Category extends Model
         return $value;
     }  
     function getFilmPaginatedAttribute(){
-        if(session("sortKey", "none") == "none")
-            return $this->film()->paginate(20)->appends(array("tab" => "film"));
+        $film = $this->film();
+    if(session("keyword", "none") != "none"){
+        $key = "%".session('keyword','')."%";
+        $film->where('title', 'like', $key)
+               ->orWhere('description', 'like', $key)
+             ->orWhere('release_year', 'like', $key)
+              ->orWhere('rental_duration', 'like', $key)
+             ->orWhere('rental_rate', 'like', $key)
+             ->orWhere('length', 'like', $key)
+             ->orWhere('replacement_cost', 'like', $key)
+              ;
+}
 
-        return $this->film()->orderBy(session("sortKey", "title"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "film"));
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("film", session("sortKey", "none")))
+            return $film->paginate(20)->appends(array("tab" => "film"));
+
+        return $film->orderBy(session("sortKey", "title"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "film"));
 
     }
  
+
+
+    public function hasAttribute($attr)
+    {
+        return array_key_exists($attr, $this->attributes);
+    }
 
     /**
     * The storage format of the model's date columns.

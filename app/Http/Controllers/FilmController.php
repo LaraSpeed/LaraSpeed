@@ -13,6 +13,7 @@ class FilmController extends Controller {
     public function index()
     {
         request()->session()->forget("keyword");
+        request()->session()->forget("clear");
 
         return view('film_show', ['films' => Film::paginate(20)]);
     }
@@ -97,6 +98,17 @@ class FilmController extends Controller {
     * @return  Response
     */
     public function related(Film $film ){
+
+        if(request()->exists('cs')){
+            request()->session()->forget("keyword");
+            return back();
+        }
+
+        if(request()->exists('tab') && session("clear", "none") != request()->get('tab')){
+            request()->session()->forget("keyword");
+            session(["clear" => request()->get('tab')]);
+        }
+
         $table = request()->get('tab');
         $film->load(array("language","category",));
 return view('film_related', compact(['film', 'table']));
@@ -108,6 +120,11 @@ return view('film_related', compact(['film', 'table']));
     */
     public function search(){
         $keyword = request()->get('keyword');
+
+        if(request()->exists('tab')){
+            session(['keyword' => $keyword]);
+            return back();
+        }
 
         session(["keyword" => $keyword]);
 
@@ -152,11 +169,10 @@ return view('film_related', compact(['film', 'table']));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-
-        if(!request()->exists('tab')){
-        $films = Film::query();
+            request()->session()->forget("sortKey");
+    request()->session()->forget("sortOrder");
+    if(!request()->exists('tab')){
+$films = Film::query();
           if(request()->exists('title')){
             $films = $films->orderBy('title', $this->getOrder('title'));
             $path = "title";
@@ -210,24 +226,32 @@ return view('film_related', compact(['film', 'table']));
                  if(request()->exists('name')){
              session(['sortOrder' => $this->getOrder('name')]);
              session(['sortKey' => 'name']);
+        }else{
+            request()->session()->forget("name");
         }
 
                   }
     if(request()->exists('tab') == 'category'){
 
-        if(request()->exists('category_id')){
-             session(['sortOrder' => $this->getOrder('category_id')]);
-             session(['sortKey' => 'category_id']);
-        }
-
-        if(request()->exists('name')){
+                 if(request()->exists('name')){
              session(['sortOrder' => $this->getOrder('name')]);
              session(['sortKey' => 'name']);
+        }else{
+            request()->session()->forget("name");
         }
 
+                  }
+             return back();
     }
-            return back();
     }
+
+    /**
+    * Clear Search Pattern
+    *
+    */
+    public function clearSearch(){
+        request()->session()->forget("keyword");
+        return back();
     }
 
 

@@ -11,7 +11,7 @@
 <div class="row">
 
     <div class="col-md-8 col-sm-8">
-        <form action="S2BOBRACKET<?php echo "url(\"/".$tab."/search".ucfirst($otherTable)."\")"; ?>S2BCBRACKET" method="get">
+        <form action="S2BOBRACKET<?php echo "url(\"/".$tab."/search\")"; ?>S2BCBRACKET" method="get">
             <input type="hidden" name="tab" value="S2BOBRACKET$tableS2BCBRACKET" />
             <div class="col-md-2 col-sm-2">
                 <input type="submit" class="btn btn-primary" value="Search"/>
@@ -27,8 +27,7 @@
 
     <div class="col-md-1 col-sm-1">
         <form action="S2BOBRACKET<?php echo "url(Request::url())"; ?>S2BCBRACKET" method="get">
-            <input type="hidden" name="tab" value="S2BOBRACKET$tableS2BCBRACKET" />
-            <input type="hidden" name="page" value="S2BOBRACKET$<?php echo "$tab->$otherTable"."_paginated->currentPage()"; ?>S2BCBRACKET" />
+            <input type="hidden" name="cs" />
             <button type="submit" class="btn btn-primary">Clear Search</button>
         </form>
     </div>

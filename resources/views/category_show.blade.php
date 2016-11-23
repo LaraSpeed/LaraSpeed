@@ -39,12 +39,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-                         <th class="c_numeric">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="category_id"/>
-                <button class="btn btn-link" type="submit"><p @if(session('category_id', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Category<br/>id <img src="{{ URL::asset(session('category_id', 'none').'.png') }}" /></p></button>
-                </form>
-            </th>              <th class="c_string">
+                           <th class="c_string">
                 <form action="{{url("/category/sort")}}" method="get">
                     <input type="hidden" name="name"/>
                 <button class="btn btn-link" type="submit"><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name <img src="{{ URL::asset(session('name', 'none').'.png') }}" /></p></button>
@@ -56,8 +51,7 @@
     <tbody>
         @forelse($categorys as $category)
             <tr>
-             <td class="c_numeric">{{$category->category_id}}</td>
-              <td class="c_string">{{$category->name}}</td>
+               <td class="c_string">{{$category->name}}</td>
                <td class="defaut"><form action="{{url("/category/$category->category_id")}}" method="get">
                 <button type="submit" class="btn btn-link">View</button>
             </form>

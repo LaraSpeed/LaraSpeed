@@ -23,7 +23,7 @@
 @endforeach @endif
 
 @if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType)
-    @include($relationType->getRelationAccessor(), ["table" => $relationType->getTable(), "otherTable" => $relationType->getOtherTable(), "config" => $config])
+    @include($relationType->getRelationAccessor(), ["table" => $relationType->getTable(), "otherTable" => $relationType->getOtherTable(), "config" => $config, "tbs" => $tbs])
 
 @endforeach @endif
 @endsection

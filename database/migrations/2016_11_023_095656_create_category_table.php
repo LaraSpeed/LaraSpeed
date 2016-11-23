@@ -2,7 +2,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDeliveryTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,12 +11,11 @@ class CreateDeliveryTable extends Migration
      */
     public function up()
     {
-        Schema::create('delivery', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             //$table->increments('id');
-                        $table->increments('id');
-            $table->string('identifiant');
-            $table->date('date');
-            $table->longText('articles');
+                        $table->smallInteger('category_id');
+            $table->string('name', 25);
+            $table->timestamp('last_update');
         });
     }
     /**
@@ -26,7 +25,7 @@ class CreateDeliveryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('delivery');
+        Schema::drop('category');
     }
 }
 

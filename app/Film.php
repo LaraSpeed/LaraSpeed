@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class Film extends Model
 {
@@ -38,13 +39,26 @@ function category(){
     }       
     
     function getCategoryPaginatedAttribute(){
-        if(session("sortKey", "none") == "none")
-            return $this->category()->paginate(20)->appends(array("tab" => "category"));
+        $category = $this->category();
+    if(session("keyword", "none") != "none"){
+        $key = "%".session('keyword','')."%";
+        $category->where('name', 'like', $key)
+             ;
+}
 
-        return $this->category()->orderBy(session("sortKey", "name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "category"));
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("category", session("sortKey", "none")))
+            return $category->paginate(20)->appends(array("tab" => "category"));
+
+        return $category->orderBy(session("sortKey", "name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "category"));
 
     }
  
+
+
+    public function hasAttribute($attr)
+    {
+        return array_key_exists($attr, $this->attributes);
+    }
 
     /**
     * The storage format of the model's date columns.

@@ -7,6 +7,7 @@
     </div>
 
     <div class="col-md-5">
+        {{ session(['defaultSelect' => $language->language_id]) }}
         <h4 class="text-danger"><b>Language : {{$language->name}}</b></h4>
     </div>
 </div>

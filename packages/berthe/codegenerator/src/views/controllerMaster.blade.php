@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\@yield('modelNamespace');
+@yield('namespaces')
 
 class @yield('controllerName') extends Controller {
 
@@ -14,6 +15,7 @@ class @yield('controllerName') extends Controller {
     {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
+        request()->session()->forget("defaultSelect");
 
         return view('@yield('viewName')_show', ['@yield('varID')' => @yield('modelCall')]);
     }
@@ -35,11 +37,7 @@ class @yield('controllerName') extends Controller {
     */
     public function store()
     {
-        $@yield('storeVar') = request()->all();
-        //To Do Validate data
-
-        //Store it
-        @yield('ModelName1')::create($@yield('storeVar1'));
+        @yield('storeContent')
 
         return @yield('store');
     }

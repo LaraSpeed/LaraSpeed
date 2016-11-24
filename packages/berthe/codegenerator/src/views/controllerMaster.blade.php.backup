@@ -1,79 +1,81 @@
 
 namespace App\Http\Controllers;
 
-use App\<?php echo $__env->yieldContent('modelNamespace'); ?>;
-<?php echo $__env->yieldContent('namespaces'); ?>
+use App\@yield('modelNamespace');
 
-class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
+class @yield('controllerName') extends Controller {
 
     /**
     * Display a listing of the resource.
     *
-    * @return  Response
+    * @return Response
     */
     public function index()
     {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
-        request()->session()->forget("defaultSelect");
 
-        return view('<?php echo $__env->yieldContent('viewName'); ?>_show', ['<?php echo $__env->yieldContent('varID'); ?>' => <?php echo $__env->yieldContent('modelCall'); ?>]);
+        return view('@yield('viewName')_show', ['@yield('varID')' => @yield('modelCall')]);
     }
 
     /**
     * Show the form for creating a new resource.
     *
-    * @return  Response
+    * @return Response
     */
     public function create()
     {
-        return view('<?php echo $__env->yieldContent('createView'); ?>');
+        return view('@yield('createView')');
     }
 
     /**
     * Store a newly created resource in storage.
     *
-    * @return  Response
+    * @return Response
     */
     public function store()
     {
-        <?php echo $__env->yieldContent('storeContent'); ?>
+        $@yield('storeVar') = request()->all();
+        //To Do Validate data
 
-        return <?php echo $__env->yieldContent('store'); ?>;
+        //Store it
+        @yield('ModelName1')::create($@yield('storeVar1'));
+
+        return @yield('store');
     }
 
     /**
     * Display the specified resource.
     *
-    * @param    Mixed
-    * @return  Response
+    * @param  Mixed
+    * @return Response
     */
-    public function show(<?php echo $__env->yieldContent('object'); ?>)
+    public function show(@yield('object'))
     {
-        <?php echo $__env->yieldContent('show'); ?>
+        @yield('show')
     }
 
     /**
     * Show the form for editing the specified resource.
     *
-    * @param    Mixed
-    * @return  Response
+    * @param  Mixed
+    * @return Response
     */
-    public function edit(<?php echo $__env->yieldContent('editParam'); ?>)
+    public function edit(@yield('editParam'))
     {
-        <?php echo $__env->yieldContent('edit'); ?>
+        @yield('edit')
 
     }
 
     /**
     * Update the specified resource in storage.
     *
-    * @param    Mixed
-    * @return  Response
+    * @param  Mixed
+    * @return Response
     */
-    public function update(<?php echo $__env->yieldContent('updateParam'); ?>)
+    public function update(@yield('updateParam'))
     {
-        <?php echo $__env->yieldContent('update'); ?>
+        @yield('update')
 
         return back();
     }
@@ -81,21 +83,21 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     /**
     * Remove the specified resource from storage.
     *
-    * @param    Mixed
-    * @return  Response
+    * @param  Mixed
+    * @return Response
     */
-    public function destroy(<?php echo $__env->yieldContent('deleteParam'); ?>)
+    public function destroy(@yield('deleteParam'))
     {
-        <?php echo $__env->yieldContent('delete'); ?>
+        @yield('delete')
         return back();
     }
 
     /**
     * Load and display related tables.
-    * @param    Mixed
-    * @return  Response
+    * @param  Mixed
+    * @return Response
     */
-    public function related(<?php echo $__env->yieldContent('relatedParam'); ?>){
+    public function related(@yield('relatedParam')){
 
         if(request()->exists('cs')){
             request()->session()->forget("keyword");
@@ -108,12 +110,12 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         }
 
         $table = request()->get('tab');
-        <?php echo $__env->yieldContent('related'); ?>
+        @yield('related')
     }
 
     /**
     * Search Table element By keyword
-    * @return  Response
+    * @return Response
     */
     public function search(){
         $keyword = request()->get('keyword');
@@ -127,17 +129,17 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
 
         $keyword = '%'.$keyword.'%';
 
-        <?php echo $__env->yieldContent('search'); ?>
+        @yield('search')
     }
 
     /**
     * Sort Table element
-    * @return  Response
+    * @return Response
     */
     public function sort(){
         $path = "";
 
-        <?php echo $__env->yieldContent('sort'); ?>
+        @yield('sort')
     }
 
     /**
@@ -151,7 +153,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
 
 
 
-    <?php echo $__env->yieldContent('relations'); ?>
+    @yield('relations')
 
     private function getOrder($param){
         if(session($param, "none") != "none"){

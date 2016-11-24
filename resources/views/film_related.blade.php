@@ -13,6 +13,7 @@
     </div>
 
     <div class="col-md-5">
+        {{ session(['defaultSelect' => $film->film_id]) }}
         <h4 class="text-danger"><b>Film : {{$film->title}}</b></h4>
     </div>
 </div>

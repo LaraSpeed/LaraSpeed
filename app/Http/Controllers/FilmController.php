@@ -2,7 +2,11 @@
 namespace App\Http\Controllers;
 
 use App\Film;
+    use App\Language;
 
+    use App\Category;
+
+     
 class FilmController extends Controller {
 
     /**
@@ -14,6 +18,7 @@ class FilmController extends Controller {
     {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
+        request()->session()->forget("defaultSelect");
 
         return view('film_show', ['films' => Film::paginate(20)]);
     }
@@ -35,12 +40,24 @@ class FilmController extends Controller {
     */
     public function store()
     {
-        $film = request()->all();
-        //To Do Validate data
+            $data = request()->all();
 
-        //Store it
-        Film::create($film);
+    $film = Film::create([
+              "title" => $data["title"],
+             "description" => $data["description"],
+             "release_year" => $data["release_year"],
+              "rental_duration" => $data["rental_duration"],
+             "rental_rate" => $data["rental_rate"],
+             "length" => $data["length"],
+             "replacement_cost" => $data["replacement_cost"],
+            ]);
 
+            if(request()->exists('language')){
+            $language = Language::find(request()->get('language'));
+            $film->language()->associate($language)->save();
+        }
+
+       
         return redirect('/film');;
     }
 

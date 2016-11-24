@@ -77,4 +77,9 @@ class BelongsToRelation extends BaseRelation implements FormRelationInterface,
     {
         return $this->action;
     }
+
+    function isBelongsTo()
+    {
+        return true;
+    }
 }

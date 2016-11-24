@@ -2,7 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Language;
+    use App\Film;
 
+     
 class LanguageController extends Controller {
 
     /**
@@ -14,6 +16,7 @@ class LanguageController extends Controller {
     {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
+        request()->session()->forget("defaultSelect");
 
         return view('language_show', ['languages' => Language::paginate(20)]);
     }
@@ -35,12 +38,13 @@ class LanguageController extends Controller {
     */
     public function store()
     {
-        $language = request()->all();
-        //To Do Validate data
+            $data = request()->all();
 
-        //Store it
-        Language::create($language);
+    $language = Language::create([
+             "name" => $data["name"],
+          ]);
 
+      
         return redirect('/language');;
     }
 

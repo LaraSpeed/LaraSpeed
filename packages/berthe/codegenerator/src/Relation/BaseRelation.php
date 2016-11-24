@@ -55,6 +55,10 @@ class BaseRelation implements RelationSpecificationInterface
     {
         return true;
     }
+
+    function isBelongsTo(){
+        return false;
+    }
     
     function getRelationAccessor(){
         return "defaultRelationAccessor";

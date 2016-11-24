@@ -1,5 +1,12 @@
 <?php $__env->startSection('modelNamespace'); ?><?php echo e(ucfirst($table['title'])); ?><?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('namespaces'); ?>
+    <?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php echo "use App\\".ucfirst($relation->getOtherTable()).";"; ?>
+
+
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('controllerName'); ?><?php echo e(ucfirst($table['title'])."Controller"); ?><?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('viewName'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
@@ -10,11 +17,31 @@
 
 <?php $__env->startSection('createView'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('storeVar'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('storeContent'); ?>
+    $<?php echo "data = request()->all();"; ?>
 
-<?php $__env->startSection('ModelName1'); ?><?php echo e(ucfirst($table['title'])); ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('storeVar1'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
+    $<?php echo $table['title']." = "; ?><?php echo ucfirst($table['title'])."::create(["; ?>
+
+    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>
+        <?php echo "\"$attrName\" => $"."data[\"$attrName\"],"; ?>
+
+    <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+    <?php echo "]);"; ?>
+
+
+    <?php if(key_exists("relations", $table)): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($relation->isBelongsTo()): ?>
+        <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
+
+            $<?php echo $relation->getOtherTable()." = "; ?><?php echo ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));"; ?>
+
+            $<?php echo $table['title']."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();"; ?>
+
+        <?php echo "}"; ?>
+
+
+    <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('store'); ?><?php echo "redirect('/".$table['title']."');"; ?><?php $__env->stopSection(); ?>
 

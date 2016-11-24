@@ -7,6 +7,7 @@
     </div>
 
     <div class="col-md-5">
+        {{ session(['defaultSelect' => $category->category_id]) }}
         <h4 class="text-danger"><b>Category : {{$category->name}}</b></h4>
     </div>
 </div>

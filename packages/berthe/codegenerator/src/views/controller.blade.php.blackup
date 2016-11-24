@@ -2,12 +2,6 @@
 
 @section('modelNamespace'){{ucfirst($table['title'])}}@endsection
 
-@section('namespaces')
-    @if(key_exists("relations", $table))@foreach($table["relations"] as $relation){!! "use App\\".ucfirst($relation->getOtherTable()).";" !!}
-
-    @endforeach @endif
-@endsection
-
 @section('controllerName'){{ucfirst($table['title'])."Controller"}}@endsection
 
 @section('viewName'){{$table['title']}}@endsection
@@ -18,23 +12,11 @@
 
 @section('createView'){{$table['title']}}@endsection
 
-@section('storeContent')
-    ${!! "data = request()->all();" !!}
+@section('storeVar'){{$table['title']}}@endsection
 
-    ${!! $table['title']." = " !!}{!! ucfirst($table['title'])."::create([" !!}
-    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
-        {!! "\"$attrName\" => $"."data[\"$attrName\"]," !!}
-    @endif @endforeach
-    {!! "]);" !!}
+@section('ModelName1'){{ucfirst($table['title'])}}@endsection
 
-    @if(key_exists("relations", $table))@foreach($table["relations"] as $relation)@if($relation->isBelongsTo())
-        {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
-            ${!! $relation->getOtherTable()." = " !!}{!! ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));" !!}
-            ${!! $table['title']."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();" !!}
-        {!! "}" !!}
-
-    @endif @endforeach @endif
-@endsection
+@section('storeVar1'){{$table['title']}}@endsection
 
 @section('store'){!!"redirect('/".$table['title']."');"!!}@endsection
 

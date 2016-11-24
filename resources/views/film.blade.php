@@ -72,6 +72,24 @@
 			</div>
 		</div> <br/>
 		        
+			<div class="row">
+			<div class="col-md-2">
+				<label class="text-primary">Language : </label>
+			</div>
+
+			<div class="col-md-5">
+				<select class="form-control" name="language">
+					@forelse(\App\Language::all() as  $language)
+					<option value="{{$language->language_id}}" @if(session('defaultSelect', 'none') == $language->language_id) {{"selected=\"\"selected\""}} @endif>
+						{{$language->name}}
+					</option>
+					@empty
+					<option value="-1">No language</option>
+					@endforelse
+				</select>
+			</div>
+		</div>
+	   
 		<div class="row">
 			<div class="col-md-2">
 				<label class="text-danger"> * = Mandatory fields</label>

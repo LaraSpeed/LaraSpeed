@@ -2,7 +2,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+    use App\Film;
 
+     
 class CategoryController extends Controller {
 
     /**
@@ -14,6 +16,7 @@ class CategoryController extends Controller {
     {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
+        request()->session()->forget("defaultSelect");
 
         return view('category_show', ['categorys' => Category::paginate(20)]);
     }
@@ -35,12 +38,13 @@ class CategoryController extends Controller {
     */
     public function store()
     {
-        $category = request()->all();
-        //To Do Validate data
+            $data = request()->all();
 
-        //Store it
-        Category::create($category);
+    $category = Category::create([
+             "name" => $data["name"],
+          ]);
 
+      
         return redirect('/category');;
     }
 

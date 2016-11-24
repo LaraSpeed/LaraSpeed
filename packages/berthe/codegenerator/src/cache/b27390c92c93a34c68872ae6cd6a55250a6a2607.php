@@ -4,6 +4,7 @@
     </div>
 
     <div class="col-md-5">
+        S2BOBRACKET session(['defaultSelect' => $<?php echo "$tab->".$tbs[$tab]['id']; ?>]) S2BCBRACKET
         <h4 class="text-danger"><b><?php echo e(ucfirst($tab)." : "); ?>S2BOBRACKET$<?php echo "$tab->".$config->displayedAttributes($tab); ?>S2BCBRACKET</b></h4>
     </div>
 </div>

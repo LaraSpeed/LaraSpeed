@@ -32,7 +32,10 @@
             ${!! $relation->getOtherTable()." = " !!}{!! ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));" !!}
             ${!! $table['title']."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();" !!}
         {!! "}" !!}
-
+    @elseif($relation->isBelongsToMany())
+        {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
+        ${!! $table['title']."->".$relation->getOtherTable()."()->attach($"."data[\"".$relation->getOtherTable()."\"]);" !!}
+        {!! "}" !!}
     @endif @endforeach @endif
 @endsection
 

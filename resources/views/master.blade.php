@@ -18,6 +18,11 @@
         <script src="{{URL::asset("js/bootstrap-datepicker.js")}}"></script>
         <script src="{{URL::asset("js/script.js")}}"></script>
 
+        <script src="{{URL::asset("js/jquery.bootstrap-duallistbox.js")}}"></script>
+        <link href="{{URL::asset("css/bootstrap-duallistbox.css")}}" rel="stylesheet" type="text/css">
+        <script src="{{URL::asset("js/prettyfy.min.js")}}"></script>
+        <link href="{{URL::asset("css/prettify.min.css")}}" rel="stylesheet" type="text/css">
+
 
     </head>
     <body ng-app="app" ng-controller="appCtrl">

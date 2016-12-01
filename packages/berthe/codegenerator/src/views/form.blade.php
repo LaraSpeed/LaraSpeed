@@ -29,7 +29,35 @@
 					S3Bendforelse
 				</select>
 			</div>
-		</div>
+		</div><br/>
+		@elseif($relationType->isBelongsToMany())
+		<div class="row">
+			<div class="col-md-2">
+				<label class="text-primary">{{ucfirst($relationType->getOtherTable())}}s : </label>
+			</div>
+
+			<div class="col-md-5">
+				<select class="form-control" multiple="multiple" size="10"  name="{!! $relationType->getOtherTable() !!}[]">
+					S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})
+					<option value="S2BOBRACKET${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == ${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}) S2BOBRACKET{!! "\"selected=\\\"\\\"selected\\\"\"" !!}S2BCBRACKET S3Bendif>
+					S2BOBRACKET${!! $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()) !!}S2BCBRACKET
+					</option>
+					S3Bempty
+					<option value="-1">No {{$relationType->getOtherTable()}}</option>
+					S3Bendforelse
+				</select>
+			</div>
+
+			<script>
+				var demo1 = $('select[name="{{$relationType->getOtherTable()}}[]"]').bootstrapDualListbox(
+						{
+							nonSelectedListLabel: 'List of {{ucfirst($relationType->getOtherTable())}}',
+							selectedListLabel: 'Selected {{ucfirst($relationType->getOtherTable())}}'
+						}
+				);
+			</script>
+
+		</div><br/>
 	@endif @endforeach @endif
 
 		<div class="row">

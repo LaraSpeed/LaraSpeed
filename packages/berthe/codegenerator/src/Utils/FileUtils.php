@@ -46,3 +46,30 @@ class FileUtils
         chmod($path, 0777);
     }
 }
+
+/**
+ * <div class="row">
+<div class="col-md-2">
+<label class="text-primary">Categories : </label>
+</div>
+
+<div class="col-md-5">
+<select class="form-control" multiple="multiple" size="10" name="duallistbox_demo1[]">
+@forelse(\App\Category::all() as  $category)
+<option value="{{$category->category_id}}">
+{{$category->name}}
+</option>
+@empty
+<option value="-1">No Category</option>
+@endforelse
+</select>
+</div>
+</div>
+<script>
+var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+$("#demoform").submit(function() {
+alert($('[name="duallistbox_demo1[]"]').val());
+return false;
+});
+</script>
+ */

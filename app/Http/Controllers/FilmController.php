@@ -56,8 +56,10 @@ class FilmController extends Controller {
             $language = Language::find(request()->get('language'));
             $film->language()->associate($language)->save();
         }
-
-       
+             if(request()->exists('category')){
+        $film->category()->attach($data["category"]);
+        }
+      
         return redirect('/film');;
     }
 

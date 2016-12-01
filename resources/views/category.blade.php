@@ -12,6 +12,33 @@
 			</div>
 		</div> <br/>
 		    
+			<div class="row">
+			<div class="col-md-2">
+				<label class="text-primary">Films : </label>
+			</div>
+
+			<div class="col-md-5">
+				<select class="form-control" multiple="multiple" size="10"  name="film[]">
+					@forelse(\App\Film::all() as  $film)
+					<option value="{{$film->film_id}}" @if(session('defaultSelect', 'none') == $film->film_id) {{"selected=\"\"selected\""}} @endif>
+					{{$film->title}}
+					</option>
+					@empty
+					<option value="-1">No film</option>
+					@endforelse
+				</select>
+			</div>
+
+			<script>
+				var demo1 = $('select[name="film[]"]').bootstrapDualListbox(
+						{
+							nonSelectedListLabel: 'List of Film',
+							selectedListLabel: 'Selected Film'
+						}
+				);
+			</script>
+
+		</div><br/>
 	  
 		<div class="row">
 			<div class="col-md-2">

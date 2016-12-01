@@ -44,6 +44,9 @@ class CategoryController extends Controller {
              "name" => $data["name"],
           ]);
 
+            if(request()->exists('film')){
+        $category->film()->attach($data["film"]);
+        }
       
         return redirect('/category');;
     }

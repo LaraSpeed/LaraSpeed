@@ -30,7 +30,35 @@
 					S3Bendforelse
 				</select>
 			</div>
-		</div>
+		</div><br/>
+		<?php elseif($relationType->isBelongsToMany()): ?>
+		<div class="row">
+			<div class="col-md-2">
+				<label class="text-primary"><?php echo e(ucfirst($relationType->getOtherTable())); ?>s : </label>
+			</div>
+
+			<div class="col-md-5">
+				<select class="form-control" multiple="multiple" size="10"  name="<?php echo $relationType->getOtherTable(); ?>[]">
+					S3Bforelse(<?php echo "\\App\\".ucfirst($relationType->getOtherTable())."::all() as "; ?> $<?php echo $relationType->getOtherTable(); ?>)
+					<option value="S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == $<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>) S2BOBRACKET<?php echo "\"selected=\\\"\\\"selected\\\"\""; ?>S2BCBRACKET S3Bendif>
+					S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()); ?>S2BCBRACKET
+					</option>
+					S3Bempty
+					<option value="-1">No <?php echo e($relationType->getOtherTable()); ?></option>
+					S3Bendforelse
+				</select>
+			</div>
+
+			<script>
+				var demo1 = $('select[name="<?php echo e($relationType->getOtherTable()); ?>[]"]').bootstrapDualListbox(
+						{
+							nonSelectedListLabel: 'List of <?php echo e(ucfirst($relationType->getOtherTable())); ?>',
+							selectedListLabel: 'Selected <?php echo e(ucfirst($relationType->getOtherTable())); ?>'
+						}
+				);
+			</script>
+
+		</div><br/>
 	<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
 		<div class="row">

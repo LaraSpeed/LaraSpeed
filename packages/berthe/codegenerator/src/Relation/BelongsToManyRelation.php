@@ -63,4 +63,9 @@ class BelongsToManyRelation extends BaseRelation implements FormRelationInterfac
     {
         return $this->relationAccessor;
     }
+
+    function isBelongsToMany()
+    {
+        return true;
+    }
 }

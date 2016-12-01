@@ -39,6 +39,12 @@
 
         <?php echo "}"; ?>
 
+    <?php elseif($relation->isBelongsToMany()): ?>
+        <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
+
+        $<?php echo $table['title']."->".$relation->getOtherTable()."()->attach($"."data[\"".$relation->getOtherTable()."\"]);"; ?>
+
+        <?php echo "}"; ?>
 
     <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 <?php $__env->stopSection(); ?>

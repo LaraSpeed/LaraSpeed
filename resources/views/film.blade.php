@@ -88,8 +88,35 @@
 					@endforelse
 				</select>
 			</div>
-		</div>
-	   
+		</div><br/>
+		 		<div class="row">
+			<div class="col-md-2">
+				<label class="text-primary">Categorys : </label>
+			</div>
+
+			<div class="col-md-5">
+				<select class="form-control" multiple="multiple" size="10"  name="category[]">
+					@forelse(\App\Category::all() as  $category)
+					<option value="{{$category->category_id}}" @if(session('defaultSelect', 'none') == $category->category_id) {{"selected=\"\"selected\""}} @endif>
+					{{$category->name}}
+					</option>
+					@empty
+					<option value="-1">No category</option>
+					@endforelse
+				</select>
+			</div>
+
+			<script>
+				var demo1 = $('select[name="category[]"]').bootstrapDualListbox(
+						{
+							nonSelectedListLabel: 'List of Category',
+							selectedListLabel: 'Selected Category'
+						}
+				);
+			</script>
+
+		</div><br/>
+	  
 		<div class="row">
 			<div class="col-md-2">
 				<label class="text-danger"> * = Mandatory fields</label>

@@ -41,13 +41,17 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         "simple-sidebar.css" => "public/css/simple-sidebar.css",
         "bootstrap-datepicker.css" => "public/css/bootstrap-datepicker.css",
         "custom.css" => "public/css/custom.css",
+        "bootstrap-duallistbox.css" => "public/css/bootstrap-duallistbox.css",
+        "prettify.min.css" => "public/css/prettify.min.css",
 
         //JS
         "jquery.js" => "public/js/jquery.js",
         "angular1.js" => "public/js/angular.js",
         "bootstrap3.js" => "public/js/bootstrap3.js",
         "bootstrap-datepicker.js" => "public/js/bootstrap-datepicker.js",
-        "script.js" => "public/js/script.js"
+        "script.js" => "public/js/script.js",
+        "jquery.bootstrap-duallistbox.js" => "public/js/jquery.bootstrap-duallistbox.js",
+        "prettyfy.min.js" => "public/js/prettyfy.min.js"
     );
     
     public $img = array(

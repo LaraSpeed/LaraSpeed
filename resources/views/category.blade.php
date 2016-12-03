@@ -17,7 +17,7 @@
 				<label class="text-primary">Films : </label>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-7">
 				<select class="form-control" multiple="multiple" size="10"  name="film[]">
 					@forelse(\App\Film::all() as  $film)
 					<option value="{{$film->film_id}}" @if(session('defaultSelect', 'none') == $film->film_id) {{"selected=\"\"selected\""}} @endif>

@@ -16,6 +16,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
+        session(["mutate" => '1']);
+
 
         return view('<?php echo $__env->yieldContent('viewName'); ?>_show', ['<?php echo $__env->yieldContent('varID'); ?>' => <?php echo $__env->yieldContent('modelCall'); ?>]);
     }
@@ -50,6 +52,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function show(<?php echo $__env->yieldContent('object'); ?>)
     {
+        request()->session()->forget("mutate");
         <?php echo $__env->yieldContent('show'); ?>
     }
 
@@ -61,6 +64,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function edit(<?php echo $__env->yieldContent('editParam'); ?>)
     {
+        request()->session()->forget("mutate");
         <?php echo $__env->yieldContent('edit'); ?>
 
     }
@@ -97,6 +101,7 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function related(<?php echo $__env->yieldContent('relatedParam'); ?>){
 
+        session(["mutate" => '1']);
         if(request()->exists('cs')){
             request()->session()->forget("keyword");
             return back();

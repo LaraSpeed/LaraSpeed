@@ -33,9 +33,9 @@ class TextType extends TypeBaseClass implements FormableType
         return $this->formType;
     }
 
-    function getForm()
+    function getForm($value = "")
     {
-        return FormTemplateProvider::textarea($this->attrName);
+        return FormTemplateProvider::textarea($this->attrName, 20, 4, "form-control", $value);
     }
 
     function formClass($type = "form"){

@@ -94,7 +94,7 @@
 				<label class="text-primary">Categorys : </label>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-7">
 				<select class="form-control" multiple="multiple" size="10"  name="category[]">
 					@forelse(\App\Category::all() as  $category)
 					<option value="{{$category->category_id}}" @if(session('defaultSelect', 'none') == $category->category_id) {{"selected=\"\"selected\""}} @endif>

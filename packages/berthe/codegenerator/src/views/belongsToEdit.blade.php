@@ -3,13 +3,13 @@
     <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
     <select class="form-control" name="{{$otherTable}}">
         S3Bforelse({!!"\\App\\".ucfirst($otherTable)."::all() as "!!} ${!! "$otherTable" !!})
-        <option value="S2BOBRACKET${!! "$otherTable->".$tbs[$otherTable]["id"] !!}S2BCBRACKET">
+        <option value="S2BOBRACKET${!! "$otherTable->".$tbs[$otherTable]["id"] !!}S2BCBRACKET" S3Bif(${!! "$otherTable->".$tbs[$otherTable]["id"]." == $"."$tab->$otherTable->".$tbs[$otherTable]["id"] !!}) selected = "selected" S3Bendif>
             S2BOBRACKET${!! "$otherTable->".$config->displayedAttributes($otherTable) !!}S2BCBRACKET
         </option>
         S3Bempty
         <option value="-1">No {{$otherTable}}</option>
         S3Bendforelse
-    </select>
+    </select><br/>
 
     <input type="submit"  class="btn btn-primary" value="Update"/>
 </form>

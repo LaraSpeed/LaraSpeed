@@ -6,20 +6,17 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <div class="form-group">
         <label class="text-danger">Identifiant : </label>
-        <input type ="text" class="form-control" name="identifiant" placeholder="Identifiant"  required />
-        Current Value : {{$delivery->identifiant}}
+        <input type ="text" class="form-control" name="identifiant" value = "{{$delivery->identifiant}}"placeholder="Identifiant"  required />
     </div>
 
    <div class="form-group">
         <label class="text-danger">Date : </label>
         <input class="form-control" id="date" name="date" placeholder="MM-DD-YYYY" type="text"/>
-        Current Value : {{$delivery->date}}
     </div>
 
    <div class="form-group">
         <label class="text-danger">Articles : </label>
-        <textarea name="articles" rows="10" cols="40" class="form-control" required></textarea>
-        Current Value : {{$delivery->articles}}
+        <textarea name="articles" rows="10" cols="40" class="form-control" required>{{$delivery->articles}}</textarea>
     </div>
 
  

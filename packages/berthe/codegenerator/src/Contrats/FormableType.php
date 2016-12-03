@@ -12,5 +12,5 @@ namespace Berthe\Codegenerator\Contrats;
 interface FormableType
 {
     function getFormType();
-    function getForm();
+    function getForm($value = "");
 }

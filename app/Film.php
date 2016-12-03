@@ -24,14 +24,14 @@ function category(){
 
     function getTitleAttribute($value){
 
-        if(strlen($value) > 40 ) {
+        if(strlen($value) > 40 && session('mutate', 'none') == '1') {
             return substr($value, 0, 40)."...";
         }
 
         return $value;
     } function getDescriptionAttribute($value){
 
-        if(strlen($value) > 40 ) {
+        if(strlen($value) > 40 && session('mutate', 'none') == '1') {
             return substr($value, 0, 40)."...";
         }
 

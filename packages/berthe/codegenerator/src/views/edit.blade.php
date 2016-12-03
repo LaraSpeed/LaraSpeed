@@ -3,9 +3,8 @@
     {{ method_field('PUT') }}
     <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
 @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable()) <div class="form-group">
-        <label class="text-danger">{{ucfirst($attrName)}} : </label>
-        {!! $attrType->getForm()!!}
-        Current Value : S2BOBRACKET${!! $table['title'].'->'.$attrName!!}S2BCBRACKET
+        <label class="text-danger">{{ucfirst(str_replace("_", " ", $attrName))}} : </label>
+        {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET")!!}
     </div>
 
 @endif @endforeach

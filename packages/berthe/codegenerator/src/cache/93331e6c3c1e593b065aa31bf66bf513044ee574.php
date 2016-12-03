@@ -37,7 +37,7 @@
 				<label class="text-primary"><?php echo e(ucfirst($relationType->getOtherTable())); ?>s : </label>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-7">
 				<select class="form-control" multiple="multiple" size="10"  name="<?php echo $relationType->getOtherTable(); ?>[]">
 					S3Bforelse(<?php echo "\\App\\".ucfirst($relationType->getOtherTable())."::all() as "; ?> $<?php echo $relationType->getOtherTable(); ?>)
 					<option value="S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == $<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>) S2BOBRACKET<?php echo "\"selected=\\\"\\\"selected\\\"\""; ?>S2BCBRACKET S3Bendif>

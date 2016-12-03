@@ -5,12 +5,17 @@
 		    @yield('title')
 	    </title>
 
+        <meta charset="utf-8">
+
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <link href="{{URL::asset("css/simple-sidebar.css")}}" rel="stylesheet" type="text/css">
-        <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
         <link href="{{URL::asset("css/bootstrap-datepicker.css")}}" rel="stylesheet" type="text/css">
         <link href="{{URL::asset("css/custom.css")}}" rel="stylesheet" type="text/css">
+
+        <link href="{{URL::asset("css/bootstrap-duallistbox.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset("css/prettify.min.css")}}" rel="stylesheet" type="text/css">
+        <link href="{{URL::asset("css/bootstrap3.css")}}" rel="stylesheet" type="text/css">
 
         <script src="{{URL::asset("js/jquery.js")}}"></script>
         <script src="{{URL::asset("js/bootstrap3.js")}}"></script>
@@ -19,9 +24,7 @@
         <script src="{{URL::asset("js/script.js")}}"></script>
 
         <script src="{{URL::asset("js/jquery.bootstrap-duallistbox.js")}}"></script>
-        <link href="{{URL::asset("css/bootstrap-duallistbox.css")}}" rel="stylesheet" type="text/css">
         <script src="{{URL::asset("js/prettyfy.min.js")}}"></script>
-        <link href="{{URL::asset("css/prettify.min.css")}}" rel="stylesheet" type="text/css">
 
 
     </head>

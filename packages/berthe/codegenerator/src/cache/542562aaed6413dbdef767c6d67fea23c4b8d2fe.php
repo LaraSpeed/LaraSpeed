@@ -4,10 +4,9 @@
 
     <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
 <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?> <div class="form-group">
-        <label class="text-danger"><?php echo e(ucfirst($attrName)); ?> : </label>
-        <?php echo $attrType->getForm(); ?>
+        <label class="text-danger"><?php echo e(ucfirst(str_replace("_", " ", $attrName))); ?> : </label>
+        <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET"); ?>
 
-        Current Value : S2BOBRACKET$<?php echo $table['title'].'->'.$attrName; ?>S2BCBRACKET
     </div>
 
 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>

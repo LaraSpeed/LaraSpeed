@@ -17,6 +17,8 @@ class CategoryController extends Controller {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
+        session(["mutate" => '1']);
+
 
         return view('category_show', ['categorys' => Category::paginate(20)]);
     }
@@ -59,6 +61,7 @@ class CategoryController extends Controller {
     */
     public function show(Category $category )
     {
+        request()->session()->forget("mutate");
         $category->load(array("film",));
         return view('category_display', compact('category'));        }
 
@@ -70,6 +73,7 @@ class CategoryController extends Controller {
     */
     public function edit(Category $category )
     {
+        request()->session()->forget("mutate");
         $category->load(array("film",));
         return view('category_edit', compact('category'));
     }
@@ -106,6 +110,7 @@ class CategoryController extends Controller {
     */
     public function related(Category $category ){
 
+        session(["mutate" => '1']);
         if(request()->exists('cs')){
             request()->session()->forget("keyword");
             return back();
@@ -240,7 +245,7 @@ $categorys = Category::query();
 
 
     function addFilm(Category $category ){
-    $category->film()->save(\App\Film::find(request()->get('film')));
+    $category->film()->sync(request()->get('film'));
     return back();
 }
  

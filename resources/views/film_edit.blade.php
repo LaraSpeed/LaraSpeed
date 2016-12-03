@@ -6,44 +6,37 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
       <div class="form-group">
         <label class="text-danger">Title : </label>
-        <input type ="text" class="form-control" name="title" placeholder="Title"  required />
-        Current Value : {{$film->title}}
+        <input type ="text" class="form-control" name="title" value = "{{$film->title}}"placeholder="Title"  required />
     </div>
 
    <div class="form-group">
         <label class="text-danger">Description : </label>
-        <textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
-        Current Value : {{$film->description}}
+        <textarea name="description" rows="4" cols="20" class="form-control" required>{{$film->description}}</textarea>
     </div>
 
    <div class="form-group">
-        <label class="text-danger">Release_year : </label>
-        <input type ="number" class="form-control" name="release_year"  max = "9999999999" placeholder="Release year"  required />
-        Current Value : {{$film->release_year}}
+        <label class="text-danger">Release year : </label>
+        <input type ="number" class="form-control" name="release_year"  max = "9999999999" value = "{{$film->release_year}}"placeholder="Release year"  required />
     </div>
 
      <div class="form-group">
-        <label class="text-danger">Rental_duration : </label>
-        <input type ="number" class="form-control" name="rental_duration"  max = "9999999999" placeholder="Rental duration"  required />
-        Current Value : {{$film->rental_duration}}
+        <label class="text-danger">Rental duration : </label>
+        <input type ="number" class="form-control" name="rental_duration"  max = "9999999999" value = "{{$film->rental_duration}}"placeholder="Rental duration"  required />
     </div>
 
    <div class="form-group">
-        <label class="text-danger">Rental_rate : </label>
-        <input type ="number" class="form-control" name="rental_rate"  max = "9999999999" placeholder="Rental rate"  required />
-        Current Value : {{$film->rental_rate}}
+        <label class="text-danger">Rental rate : </label>
+        <input type ="number" class="form-control" name="rental_rate"  max = "9999999999" value = "{{$film->rental_rate}}"placeholder="Rental rate"  required />
     </div>
 
    <div class="form-group">
         <label class="text-danger">Length : </label>
-        <input type ="number" class="form-control" name="length"  max = "9999999999" placeholder="Length"  required />
-        Current Value : {{$film->length}}
+        <input type ="number" class="form-control" name="length"  max = "9999999999" value = "{{$film->length}}"placeholder="Length"  required />
     </div>
 
    <div class="form-group">
-        <label class="text-danger">Replacement_cost : </label>
-        <input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" placeholder="Replacement cost"  required />
-        Current Value : {{$film->replacement_cost}}
+        <label class="text-danger">Replacement cost : </label>
+        <input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
     </div>
 
        
@@ -57,27 +50,36 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" name="language">
         @forelse(\App\Language::all() as  $language)
-        <option value="{{$language->language_id}}">
+        <option value="{{$language->language_id}}" @if($language->language_id == $film->language->language_id) selected = "selected" @endif>
             {{$language->name}}
         </option>
         @empty
         <option value="-1">No language</option>
         @endforelse
-    </select>
+    </select><br/>
 
     <input type="submit"  class="btn btn-primary" value="Update"/>
-</form>    <h3>Associate Category</h3>
+</form>    <h3 class="text-danger">Associate Category</h3>
 <form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    <select class="form-control" name="category">
+    <select class="form-control" multiple="multiple" size="10"  name="category[]">
         @forelse(\App\Category::all() as  $category)
-        <option value="{{$category->category_id}}">
+        <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
                 {{$category->name}}
         </option>
         @empty
         <option value="-1">No category</option>
         @endforelse
-    </select>
+    </select><br/>
+
+    <script>
+        var demo1 = $('select[name="category[]"]').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'List of Category',
+                    selectedListLabel: 'Selected Category'
+                }
+        );
+    </script>
 
     <input type="submit"  class="btn btn-primary" value="Associate"/>
 </form>@endsection

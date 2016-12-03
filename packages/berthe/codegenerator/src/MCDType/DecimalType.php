@@ -36,9 +36,9 @@ class DecimalType extends TypeBaseClass implements FormableType
         return $this->formType;
     }
 
-    function getForm()
+    function getForm($value = "")
     {
-        return FormTemplateProvider::input($this->formType, $this->attrName, "form-control", true);
+        return FormTemplateProvider::input($this->formType, $this->attrName, "form-control", $value, true);
     }
 
     function getDBFunction()

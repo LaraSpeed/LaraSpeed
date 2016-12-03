@@ -16,6 +16,8 @@ class @yield('controllerName') extends Controller {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
+        session(["mutate" => '1']);
+
 
         return view('@yield('viewName')_show', ['@yield('varID')' => @yield('modelCall')]);
     }
@@ -50,6 +52,7 @@ class @yield('controllerName') extends Controller {
     */
     public function show(@yield('object'))
     {
+        request()->session()->forget("mutate");
         @yield('show')
     }
 
@@ -61,6 +64,7 @@ class @yield('controllerName') extends Controller {
     */
     public function edit(@yield('editParam'))
     {
+        request()->session()->forget("mutate");
         @yield('edit')
 
     }
@@ -97,6 +101,7 @@ class @yield('controllerName') extends Controller {
     */
     public function related(@yield('relatedParam')){
 
+        session(["mutate" => '1']);
         if(request()->exists('cs')){
             request()->session()->forget("keyword");
             return back();

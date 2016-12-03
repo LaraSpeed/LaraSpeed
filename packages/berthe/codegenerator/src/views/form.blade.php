@@ -36,7 +36,7 @@
 				<label class="text-primary">{{ucfirst($relationType->getOtherTable())}}s : </label>
 			</div>
 
-			<div class="col-md-5">
+			<div class="col-md-7">
 				<select class="form-control" multiple="multiple" size="10"  name="{!! $relationType->getOtherTable() !!}[]">
 					S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})
 					<option value="S2BOBRACKET${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == ${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}) S2BOBRACKET{!! "\"selected=\\\"\\\"selected\\\"\"" !!}S2BCBRACKET S3Bendif>

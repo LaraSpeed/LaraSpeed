@@ -17,15 +17,23 @@ class FormTemplateProvider
      * <input type="$type" class="$class" name="$name" [placeHolder="$name"] />
      * @param string $type
      * @param string $class
+     * @param string $value
      * @param string $name
      * @param bool $hasPlaceHolder
      * @return string
      */
-    public static function input($type="", $name="", $class="form-control", $hasPlaceHolder = false){
+    public static function input($type="", $name="", $class="form-control", $value = "", $hasPlaceHolder = false){
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
         if($type == "number")
             $form .= ' max = "9999999999" ';
+
+        if($value != "") {
+            if ($type == "checkbox")
+                $form .=' checked ';
+            else
+            $form .= 'value = "' . $value . '"';
+        }
 
         if($hasPlaceHolder)
             $form .= 'placeholder="'.ucfirst(str_replace("_", " ", $name)).'" ';
@@ -36,10 +44,11 @@ class FormTemplateProvider
     /**
      * Create HTML Checkbox
      * @param $name
+     * @param $isChecked
      * @return string
      */
-    public static function checkBox($name){
-        return self::input("checkbox", $name);
+    public static function checkBox($name, $isChecked = ""){
+        return self::input("checkbox", $name, "form-control", $isChecked);
     }
 
     /**
@@ -48,9 +57,12 @@ class FormTemplateProvider
      * @param int $cols
      * @param int $rows
      * @param string $class
+     * @param string $value
      * @return string
      */
-    public static function textarea($name="", $cols = 20, $rows = 4, $class = "form-control"){
+    public static function textarea($name="", $cols = 20, $rows = 4, $class = "form-control", $value = ""){
+        if($value != "")
+            return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'" required>'.$value.'</textarea>';
         return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'" required></textarea>';
     }
 

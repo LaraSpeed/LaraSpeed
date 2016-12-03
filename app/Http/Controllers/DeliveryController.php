@@ -17,6 +17,8 @@ class DeliveryController extends Controller {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
+        session(["mutate" => '1']);
+
 
         return view('delivery_show', ['deliverys' => Delivery::paginate(20)]);
     }
@@ -58,6 +60,7 @@ class DeliveryController extends Controller {
     */
     public function show(Delivery $delivery )
     {
+        request()->session()->forget("mutate");
         $delivery->load(array("film",));
         return view('delivery_display', compact('delivery'));        }
 
@@ -69,6 +72,7 @@ class DeliveryController extends Controller {
     */
     public function edit(Delivery $delivery )
     {
+        request()->session()->forget("mutate");
         $delivery->load(array("film",));
         return view('delivery_edit', compact('delivery'));
     }
@@ -105,6 +109,7 @@ class DeliveryController extends Controller {
     */
     public function related(Delivery $delivery ){
 
+        session(["mutate" => '1']);
         if(request()->exists('cs')){
             request()->session()->forget("keyword");
             return back();

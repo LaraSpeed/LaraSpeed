@@ -17,6 +17,8 @@ class LanguageController extends Controller {
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
+        session(["mutate" => '1']);
+
 
         return view('language_show', ['languages' => Language::paginate(20)]);
     }
@@ -56,6 +58,7 @@ class LanguageController extends Controller {
     */
     public function show(Language $language )
     {
+        request()->session()->forget("mutate");
         $language->load(array("film",));
         return view('language_display', compact('language'));        }
 
@@ -67,6 +70,7 @@ class LanguageController extends Controller {
     */
     public function edit(Language $language )
     {
+        request()->session()->forget("mutate");
         $language->load(array("film",));
         return view('language_edit', compact('language'));
     }
@@ -103,6 +107,7 @@ class LanguageController extends Controller {
     */
     public function related(Language $language ){
 
+        session(["mutate" => '1']);
         if(request()->exists('cs')){
             request()->session()->forget("keyword");
             return back();
@@ -237,7 +242,7 @@ $languages = Language::query();
 
 
     function addFilm(Language $language ){
-    $language->film()->save(\App\Film::find(request()->get('film')));
+    $language->film()->sync(request()->get('film'));
     return back();
 }
  

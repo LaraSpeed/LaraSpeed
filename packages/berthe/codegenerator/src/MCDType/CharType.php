@@ -49,9 +49,9 @@ class CharType extends TypeBaseClass implements FormableType
         return $this->formType;
     }
 
-    function getForm()
+    function getForm($value = "")
     {
-        FormTemplateProvider::input("text", $this->attrName, "form-control", true);
+        FormTemplateProvider::input("text", $this->attrName, "form-control", $value, true);
     }
 
     function formClass($type = "form"){

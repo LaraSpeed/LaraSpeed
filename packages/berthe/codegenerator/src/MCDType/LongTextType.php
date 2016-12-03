@@ -32,9 +32,9 @@ class LongTextType extends TypeBaseClass implements FormableType
         return $this->formType;
     }
 
-    function getForm()
+    function getForm($value = "")
     {
-        return FormTemplateProvider::textarea($this->attrName, 40, 10);
+        return FormTemplateProvider::textarea($this->attrName, 40, 10, "form-control", $value);
     }
 
     function formClass($type = "form"){

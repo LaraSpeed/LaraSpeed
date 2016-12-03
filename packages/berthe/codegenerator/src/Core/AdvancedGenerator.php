@@ -51,7 +51,14 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         "bootstrap-datepicker.js" => "public/js/bootstrap-datepicker.js",
         "script.js" => "public/js/script.js",
         "jquery.bootstrap-duallistbox.js" => "public/js/jquery.bootstrap-duallistbox.js",
-        "prettyfy.min.js" => "public/js/prettyfy.min.js"
+        "prettyfy.min.js" => "public/js/prettyfy.min.js",
+
+        //Fonts
+        "glyphicons-halflings-regular.eot" => "public/fonts/glyphicons-halflings-regular.eot",
+        "glyphicons-halflings-regular.svg" => "public/fonts/glyphicons-halflings-regular.svg",
+        "glyphicons-halflings-regular.ttf" => "public/fonts/glyphicons-halflings-regular.ttf",
+        "glyphicons-halflings-regular.woff" => "public/fonts/glyphicons-halflings-regular.woff",
+        "glyphicons-halflings-regular.woff2" => "public/fonts/glyphicons-halflings-regular.woff2"
     );
     
     public $img = array(

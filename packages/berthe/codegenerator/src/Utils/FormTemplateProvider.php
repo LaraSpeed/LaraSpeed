@@ -26,7 +26,7 @@ class FormTemplateProvider
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
         if($type == "number")
-            $form .= ' max = "9999999999" ';
+            $form .= ' data-plugin-maxlength="" maxlength="10';
 
         if($value != "") {
             if ($type == "checkbox")
@@ -72,6 +72,6 @@ class FormTemplateProvider
      * @return string
      */
     public static function date($name){
-        return '<input class="form-control" id="date" name="'.$name.'" placeholder="MM-DD-YYYY" type="text"/>';
+        return '<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="'.$name.'" placeholder="MM/DD/-YYYY" type="text"/></div>';
     }
 }

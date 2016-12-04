@@ -1,0 +1,1 @@
+<?php echo '$table->dropForeign(\''.$tabName.'_'.$tab.'_id_foreign\');'; ?>

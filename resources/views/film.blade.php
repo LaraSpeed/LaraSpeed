@@ -28,7 +28,7 @@
 			<label class="text-primary" id="release_year">Release year * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="release_year"  max = "9999999999" placeholder="Release year"  required />
+			<input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10placeholder="Release year"  required />
 			</div>
 		</div> <br/>
 		    
@@ -38,7 +38,7 @@
 			<label class="text-primary" id="rental_duration">Rental duration * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="rental_duration"  max = "9999999999" placeholder="Rental duration"  required />
+			<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10placeholder="Rental duration"  required />
 			</div>
 		</div> <br/>
 		  
@@ -48,7 +48,7 @@
 			<label class="text-primary" id="rental_rate">Rental rate * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="rental_rate"  max = "9999999999" placeholder="Rental rate"  required />
+			<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10placeholder="Rental rate"  required />
 			</div>
 		</div> <br/>
 		  
@@ -58,7 +58,7 @@
 			<label class="text-primary" id="length">Length * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="length"  max = "9999999999" placeholder="Length"  required />
+			<input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10placeholder="Length"  required />
 			</div>
 		</div> <br/>
 		  
@@ -68,7 +68,7 @@
 			<label class="text-primary" id="replacement_cost">Replacement cost * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" placeholder="Replacement cost"  required />
+			<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10placeholder="Replacement cost"  required />
 			</div>
 		</div> <br/>
 		        
@@ -95,7 +95,7 @@
 			</div>
 
 			<div class="col-md-7">
-				<select class="form-control" multiple="multiple" size="10"  name="category[]">
+				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
 					@forelse(\App\Category::all() as  $category)
 					<option value="{{$category->category_id}}" @if(session('defaultSelect', 'none') == $category->category_id) {{"selected=\"\"selected\""}} @endif>
 					{{$category->name}}
@@ -105,15 +105,6 @@
 					@endforelse
 				</select>
 			</div>
-
-			<script>
-				var demo1 = $('select[name="category[]"]').bootstrapDualListbox(
-						{
-							nonSelectedListLabel: 'List of Category',
-							selectedListLabel: 'Selected Category'
-						}
-				);
-			</script>
 
 		</div><br/>
 	  
@@ -128,9 +119,16 @@
 			<button type="submit" class="btn btn-primary">Create and return to list</button>
 			</div>
 
-			<div class="col-md-1 col-md-offset-4">
+			<div class="col-md-2 col-md-offset-4">
 			<button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
 			</div>
 		</div>
 </form>
+
+
+<!-- Specific Page Vendor -->
+<script src="http://localhost/assets/vendor/select2/js/select2.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 @endsection

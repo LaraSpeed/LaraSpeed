@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="col-md-7">
-				<select class="form-control" multiple="multiple" size="10"  name="{!! $relationType->getOtherTable() !!}[]">
+				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $relationType->getOtherTable() !!}"  name="{!! $relationType->getOtherTable() !!}[]">
 					S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})
 					<option value="S2BOBRACKET${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == ${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}) S2BOBRACKET{!! "\"selected=\\\"\\\"selected\\\"\"" !!}S2BCBRACKET S3Bendif>
 					S2BOBRACKET${!! $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()) !!}S2BCBRACKET
@@ -47,15 +47,6 @@
 					S3Bendforelse
 				</select>
 			</div>
-
-			<script>
-				var demo1 = $('select[name="{{$relationType->getOtherTable()}}[]"]').bootstrapDualListbox(
-						{
-							nonSelectedListLabel: 'List of {{ucfirst($relationType->getOtherTable())}}',
-							selectedListLabel: 'Selected {{ucfirst($relationType->getOtherTable())}}'
-						}
-				);
-			</script>
 
 		</div><br/>
 	@endif @endforeach @endif
@@ -71,8 +62,15 @@
 			<button type="submit" class="btn btn-primary">Create and return to list</button>
 			</div>
 
-			<div class="col-md-1 col-md-offset-4">
+			<div class="col-md-2 col-md-offset-4">
 			<button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
 			</div>
 		</div>
 </form>
+
+
+<!-- Specific Page Vendor -->
+<script src="{{URL::asset("assets/vendor/select2/js/select2.js")}}"></script>
+<script src="{{URL::asset("assets/vendor/jquery-datatables/media/js/jquery.dataTables.js")}}"></script>
+<script src="{{URL::asset("assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js")}}"></script>
+<script src="{{URL::asset("assets/vendor/jquery-datatables-bs3/assets/js/datatables.js")}}"></script>

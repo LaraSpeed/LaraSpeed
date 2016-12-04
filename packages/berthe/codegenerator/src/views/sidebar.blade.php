@@ -1,11 +1,17 @@
-<ul class="sidebar-nav">
-    <li class="sidebar-brand">
-        <a href="#menu-toggle" id="menu-toggle1"><h3>LaraSpeed</h3></a>
+<ul class="nav nav-main">
+    <li>
+        <a href="">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span>Dashboard</span>
+        </a>
     </li>
 
     @foreach($tbs as $tab => $table)
-    <li>
-        <a href="{!!"{"."{url(\"/".$tab."\")}"."}"!!}">{{ucfirst($tab)}}</a>
-    </li>
+        <li>
+            <a href="{!!"{"."{url(\"/".$tab."\")}"."}"!!}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span>{{ucfirst($tab)}}</span>
+            </a>
+        </li>
     @endforeach
 </ul>

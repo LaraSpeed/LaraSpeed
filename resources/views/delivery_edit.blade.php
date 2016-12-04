@@ -11,7 +11,7 @@
 
    <div class="form-group">
         <label class="text-danger">Date : </label>
-        <input class="form-control" id="date" name="date" placeholder="MM-DD-YYYY" type="text"/>
+        <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" placeholder="MM/DD/-YYYY" type="text"/></div>
     </div>
 
    <div class="form-group">

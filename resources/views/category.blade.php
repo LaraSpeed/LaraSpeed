@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="col-md-7">
-				<select class="form-control" multiple="multiple" size="10"  name="film[]">
+				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
 					@forelse(\App\Film::all() as  $film)
 					<option value="{{$film->film_id}}" @if(session('defaultSelect', 'none') == $film->film_id) {{"selected=\"\"selected\""}} @endif>
 					{{$film->title}}
@@ -28,15 +28,6 @@
 					@endforelse
 				</select>
 			</div>
-
-			<script>
-				var demo1 = $('select[name="film[]"]').bootstrapDualListbox(
-						{
-							nonSelectedListLabel: 'List of Film',
-							selectedListLabel: 'Selected Film'
-						}
-				);
-			</script>
 
 		</div><br/>
 	  
@@ -51,9 +42,16 @@
 			<button type="submit" class="btn btn-primary">Create and return to list</button>
 			</div>
 
-			<div class="col-md-1 col-md-offset-4">
+			<div class="col-md-2 col-md-offset-4">
 			<button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
 			</div>
 		</div>
 </form>
+
+
+<!-- Specific Page Vendor -->
+<script src="http://localhost/assets/vendor/select2/js/select2.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 @endsection

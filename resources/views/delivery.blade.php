@@ -18,7 +18,7 @@
 			<label class="text-primary" id="date">Date * : </label>
 			</div>
 			<div class="col-md-2">
-			<input class="form-control" id="date" name="date" placeholder="MM-DD-YYYY" type="text"/>
+			<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" placeholder="MM/DD/-YYYY" type="text"/></div>
 			</div>
 		</div> <br/>
 		  
@@ -44,9 +44,16 @@
 			<button type="submit" class="btn btn-primary">Create and return to list</button>
 			</div>
 
-			<div class="col-md-1 col-md-offset-4">
+			<div class="col-md-2 col-md-offset-4">
 			<button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
 			</div>
 		</div>
 </form>
+
+
+<!-- Specific Page Vendor -->
+<script src="http://localhost/assets/vendor/select2/js/select2.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+<script src="http://localhost/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 @endsection

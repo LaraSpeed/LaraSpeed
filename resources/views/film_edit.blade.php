@@ -16,27 +16,27 @@
 
    <div class="form-group">
         <label class="text-danger">Release year : </label>
-        <input type ="number" class="form-control" name="release_year"  max = "9999999999" value = "{{$film->release_year}}"placeholder="Release year"  required />
+        <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10value = "{{$film->release_year}}"placeholder="Release year"  required />
     </div>
 
      <div class="form-group">
         <label class="text-danger">Rental duration : </label>
-        <input type ="number" class="form-control" name="rental_duration"  max = "9999999999" value = "{{$film->rental_duration}}"placeholder="Rental duration"  required />
+        <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10value = "{{$film->rental_duration}}"placeholder="Rental duration"  required />
     </div>
 
    <div class="form-group">
         <label class="text-danger">Rental rate : </label>
-        <input type ="number" class="form-control" name="rental_rate"  max = "9999999999" value = "{{$film->rental_rate}}"placeholder="Rental rate"  required />
+        <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10value = "{{$film->rental_rate}}"placeholder="Rental rate"  required />
     </div>
 
    <div class="form-group">
         <label class="text-danger">Length : </label>
-        <input type ="number" class="form-control" name="length"  max = "9999999999" value = "{{$film->length}}"placeholder="Length"  required />
+        <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10value = "{{$film->length}}"placeholder="Length"  required />
     </div>
 
    <div class="form-group">
         <label class="text-danger">Replacement cost : </label>
-        <input type ="number" class="form-control" name="replacement_cost"  max = "9999999999" value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
+        <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
     </div>
 
        
@@ -62,7 +62,7 @@
 </form>    <h3 class="text-danger">Associate Category</h3>
 <form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    <select class="form-control" multiple="multiple" size="10"  name="category[]">
+    <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
         @forelse(\App\Category::all() as  $category)
         <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
                 {{$category->name}}
@@ -71,15 +71,6 @@
         <option value="-1">No category</option>
         @endforelse
     </select><br/>
-
-    <script>
-        var demo1 = $('select[name="category[]"]').bootstrapDualListbox(
-                {
-                    nonSelectedListLabel: 'List of Category',
-                    selectedListLabel: 'Selected Category'
-                }
-        );
-    </script>
 
     <input type="submit"  class="btn btn-primary" value="Associate"/>
 </form>@endsection

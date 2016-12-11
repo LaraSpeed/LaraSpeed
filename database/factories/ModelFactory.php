@@ -21,3 +21,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Film::class, function (Faker\Generator $faker) {
+    return [
+        "tile" => "aaa".$faker->title,
+        "description" => $faker->paragraph,
+        "release_year" => $faker->year,
+        "rental_duration" => $faker->numberBetween(1, 30),
+        "rental_rate" => $faker->numberBetween(1, 10),
+        "length" => $faker->numberBetween(1, 400),
+        "replacement_cost" => $faker->numberBetween(10, 100),
+        "language" => $faker->numberBetween(1, 5),
+        "category" => $faker->numberBetween(1, 10),
+    ];
+});

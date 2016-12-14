@@ -4,6 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Film;
+use Illuminate\Support\Facades\DB;
 
 
 class FilmTest extends TestCase
@@ -70,7 +71,7 @@ class FilmTest extends TestCase
 
         echo "7- Add new $this->table\n";
         $faker = Faker\Factory::create();
-        $newT = "aaa".$faker->text;
+        $newT = "aaa".$faker->text(10);
         $page->visit("/film")
             ->press("Add new Film")
             ->type($newT, "title")
@@ -94,13 +95,17 @@ class FilmTest extends TestCase
              ->see("$newT");
 
         echo "8- Delete Last Added Film\n";
+        $id = Film::where("title", "=", $newT)->get()->get(0)->film_id;
+
+        $page->call("DELETE", "/film/$id");
+
+        //$page->assertResponseOk();
+
+        echo "8-1 Check if last $this->table was Deleted.\n";
         $page->visit("/film")
             ->type($newT, "keyword")
             ->press("Search")
-            ->see("$newT")
-            //->press("Delete")
-            /*->press("YES")
-            ->dontSee("$newT")*/;
+            ->see("No film matching keyword $newT.");
 
     }
 }

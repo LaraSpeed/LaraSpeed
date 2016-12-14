@@ -87,13 +87,18 @@ class LanguageTest extends TestCase
             ->see($newN);
 
         echo "8- Delete Last Added $this->table\n";
+
+        $id = \App\Language::where("name", "=", $newN)->get()->get(0)->language_id;
+
+        $page->call("DELETE", "$this->myURI/$id");
+
+        //$page->assertResponseOk();
+
+        echo "8-1 Check if last $this->table was Deleted.\n";
+
         $page->visit($this->myURI)
             ->type($newN, "keyword")
             ->press("Search")
-            ->see("$newN")
-            //->press("Delete")
-            /*->press("YES")
-            ->dontSee("$newT")*/
-        ;
+            ->see("No language matching keyword $newN.");
     }
 }

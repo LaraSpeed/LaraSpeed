@@ -81,7 +81,7 @@ class FilmTest extends TestCase
             ->type($faker->numberBetween(1, 10)."", "rental_rate")
             ->type($faker->numberBetween(100, 120)."", "length")
             ->type($faker->numberBetween(20, 100)."", "replacement_cost")
-            ->select($faker->numberBetween(1, 5)."", "language")
+            ->select($faker->numberBetween(2, 5)."", "language")
             //->select($faker->numberBetween(1, 5)."", "category")
             ->press("Create and return to list");
 

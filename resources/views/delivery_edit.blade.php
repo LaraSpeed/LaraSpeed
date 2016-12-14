@@ -25,6 +25,7 @@
     </div>
 </form>
 
+    @if(isset($delivery->film))
     <h3>Update Film</h3>
 <form action="{{url("/delivery/updateFilm/$delivery->id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -39,4 +40,7 @@
     </select>
 
     <input type="submit"  class="btn btn-primary" value="Update"/>
-</form>@endsection
+</form>
+    @else
+            @endif
+@endsection

@@ -45,6 +45,7 @@
     </div>
 </form>
 
+    @if(isset($film->language))
     <h3>Update Language</h3>
 <form action="{{url("/film/updateLanguage/$film->film_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -59,7 +60,25 @@
     </select><br/>
 
     <input type="submit"  class="btn btn-primary" value="Update"/>
-</form>    <h3 class="text-danger">Associate Category</h3>
+</form>
+    @else
+                    <h3>Update Language</h3>
+<form action="{{url("/film/updateLanguage/$film->film_id")}}" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <select class="form-control" name="language">
+        @forelse(\App\Language::all() as  $language)
+        <option value="{{$language->language_id}}">
+            {{$language->name}}
+        </option>
+        @empty
+        <option value="-1">No language</option>
+        @endforelse
+    </select><br/>
+
+    <input type="submit"  class="btn btn-primary" value="Update"/>
+</form>            @endif
+    @if(isset($film->category))
+    <h3 class="text-danger">Associate Category</h3>
 <form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" multiple="multiple" size="10"  name="category[]">
@@ -82,4 +101,30 @@
     </script>
 
     <input type="submit"  class="btn btn-primary" value="Associate"/>
-</form>@endsection
+</form>
+    @else
+                    <h3 class="text-danger">Associate Category</h3>
+<form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <select class="form-control" multiple="multiple" size="10"  name="category[]">
+        @forelse(\App\Category::all() as  $category)
+        <option value="{{$category->category_id}}">
+            {{$category->name}}
+        </option>
+        @empty
+        <option value="-1">No category</option>
+        @endforelse
+    </select><br/>
+
+    <script>
+        var demo1 = $('select[name="category[]"]').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'List of Category',
+                    selectedListLabel: 'Selected Category'
+                }
+        );
+    </script>
+
+    <input type="submit"  class="btn btn-primary" value="Associate"/>
+</form>            @endif
+@endsection

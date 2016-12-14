@@ -15,6 +15,7 @@
     </div>
 </form>
 
+    @if(isset($language->film))
     <h3>Add Film</h3>
 <form action="{{url("/language/addFilm/$language->language_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -29,4 +30,7 @@
     </select>
 
     <input type="submit"  class="btn btn-primary" value="Add"/>
-</form>@endsection
+</form>
+    @else
+            @endif
+@endsection

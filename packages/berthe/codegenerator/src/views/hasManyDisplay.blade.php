@@ -94,14 +94,14 @@
             <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
             <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')"><i class="fa fa-trash-o"></i></button>
         </td>
-        @foreach($tbs[$otherTable]['relations'] as $relation)
+        @foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab)
             <td class="defaut">
                 <form action="S2BOBRACKET{!!"url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" method="get">
                     <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                     <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
                 </form>
             </td>
-        @endforeach
+        @endif @endforeach
     </tr>
     S3Bempty
     <tr>

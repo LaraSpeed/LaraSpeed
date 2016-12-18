@@ -25,10 +25,10 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="row">
 			<div class="col-md-2">
-			<label class="text-primary" id="release_year">Release year * : </label>
+			<label class="text-primary" id="release_year"> Release year : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10placeholder="Release year"  required />
+			<input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required />
 			</div>
 		</div> <br/>
 		    
@@ -38,7 +38,7 @@
 			<label class="text-primary" id="rental_duration">Rental duration * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10placeholder="Rental duration"  required />
+			<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"placeholder="Rental duration"  required />
 			</div>
 		</div> <br/>
 		  
@@ -48,7 +48,7 @@
 			<label class="text-primary" id="rental_rate">Rental rate * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10placeholder="Rental rate"  required />
+			<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"placeholder="Rental rate"  required />
 			</div>
 		</div> <br/>
 		  
@@ -58,7 +58,7 @@
 			<label class="text-primary" id="length">Length * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10placeholder="Length"  required />
+			<input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"placeholder="Length"  required />
 			</div>
 		</div> <br/>
 		  
@@ -68,7 +68,7 @@
 			<label class="text-primary" id="replacement_cost">Replacement cost * : </label>
 			</div>
 			<div class="col-md-3">
-			<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10placeholder="Replacement cost"  required />
+			<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />
 			</div>
 		</div> <br/>
 		        

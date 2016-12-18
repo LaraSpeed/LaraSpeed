@@ -15,6 +15,7 @@
     </div>
 </form>
 
+    @if(isset($category->film))
     <h3 class="text-danger">Associate Film</h3>
 <form action="{{url("/category/addFilm/$category->category_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -29,4 +30,21 @@
     </select><br/>
 
     <input type="submit"  class="btn btn-primary" value="Associate"/>
-</form>@endsection
+</form>
+    @else
+            <h3 class="text-danger">Associate Film</h3>
+<form action="{{url("/category/addFilm/$category->category_id")}}" method="post">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+    <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
+        @forelse(\App\Film::all() as  $film)
+        <option value="{{$film->film_id}}">
+            {{$film->title}}
+        </option>
+        @empty
+        <option value="-1">No film</option>
+        @endforelse
+    </select><br/>
+
+    <input type="submit"  class="btn btn-primary" value="Associate"/>
+</form>        @endif
+@endsection

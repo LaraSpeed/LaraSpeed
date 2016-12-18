@@ -242,7 +242,12 @@ $languages = Language::query();
 
 
     function addFilm(Language $language ){
-    $language->film()->sync(request()->get('film'));
+    $newOnes = Film::find(request()->get('film'));
+
+    foreach ($newOnes as $newOne){
+        $language->film()->save($newOne);
+    }
+
     return back();
 }
  

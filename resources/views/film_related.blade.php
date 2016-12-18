@@ -99,13 +99,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')"><i class="fa fa-trash-o"></i></button>
         </td>
-                    <td class="defaut">
-                <form action="{{url("/category/related/$category->category_id")}}" method="get">
-                    <input type="hidden" name="tab" value="film" />
-                    <button type="submit" class="btn btn-link">Film</button>
-                </form>
-            </td>
-            </tr>
+              </tr>
     @empty
     <tr>
         <td colspan="3"><label class="text-danger">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>

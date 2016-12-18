@@ -94,14 +94,14 @@
             <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
             <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET $<?php echo $otherTable. "->".$config->displayedAttributes($otherTable); ?>S2BCBRACKET ?', 'S2BOBRACKET<?php echo "url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET')"><i class="fa fa-trash-o"></i></button>
         </td>
-        <?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+        <?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab): ?>
             <td class="defaut">
                 <form action="S2BOBRACKET<?php echo "url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET" method="get">
                     <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />
                     <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
                 </form>
             </td>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+        <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
     </tr>
     S3Bempty
     <tr>

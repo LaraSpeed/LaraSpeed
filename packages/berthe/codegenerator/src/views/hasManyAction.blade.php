@@ -1,4 +1,9 @@
 {!! "function add".ucfirst($otherTable)."(".ucfirst($tab)." $"."$tab ){" !!}
-    ${!! "$tab->$otherTable()->sync(request()->get('$otherTable'));" !!}
+    ${!! "newOnes = ".ucfirst($otherTable)."::find(request()->get('film'));" !!}
+
+    {!! "foreach ($"."newOnes as $"."newOne){" !!}
+        ${!! "$tab->$otherTable()->save($"."newOne);"!!}
+    {!! "}" !!}
+
     {!! "return back();" !!}
 {!! "}" !!}

@@ -26,13 +26,13 @@ class FormTemplateProvider
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
         if($type == "number")
-            $form .= ' data-plugin-maxlength="" maxlength="10';
+            $form .= ' data-plugin-maxlength="" maxlength="10"';
 
         if($value != "") {
             if ($type == "checkbox")
                 $form .=' checked ';
             else
-            $form .= 'value = "' . $value . '"';
+                $form .= 'value = "' . $value . '"';
         }
 
         if($hasPlaceHolder)

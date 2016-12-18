@@ -37,7 +37,7 @@ class GeneratorCode  extends CallGenerator {
                 ->smallInteger("language_id")
                 ->string("title", true, 255)
                 ->text("description", true)
-                ->tinyInteger("release_year")
+                ->integer("release_year")
                 ->smallInteger("original_language_id")
                 ->tinyInteger("rental_duration")
                 ->decimal("rental_rate", true, 4, 2)

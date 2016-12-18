@@ -135,19 +135,13 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')"><i class="fa fa-trash-o"></i></button>
         </td>
-                    <td class="defaut">
-                <form action="{{url("/film/related/$film->film_id")}}" method="get">
-                    <input type="hidden" name="tab" value="language" />
-                    <button type="submit" class="btn btn-link">Language</button>
-                </form>
-            </td>
-                    <td class="defaut">
+                       <td class="defaut">
                 <form action="{{url("/film/related/$film->film_id")}}" method="get">
                     <input type="hidden" name="tab" value="category" />
                     <button type="submit" class="btn btn-link">Category</button>
                 </form>
             </td>
-            </tr>
+             </tr>
     @empty
     <tr>
         <td colspan="13"><label class="text-danger">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>

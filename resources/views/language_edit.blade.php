@@ -15,18 +15,22 @@
     </div>
 </form>
 
-    <h3>Add Film</h3>
+    @if(isset($language->film))
+    <h4 class="text-danger">Add Film</h4>
 <form action="{{url("/language/addFilm/$language->language_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    <select class="form-control" name="film">
+    <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
         @forelse(\App\Film::all() as  $film)
-        <option value="{{$film->film_id}}">
+        <option value="{{$film->film_id}}" @foreach($language->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
             {{$film->title}}
         </option>
         @empty
         <option value="-1">No film</option>
         @endforelse
-    </select>
+    </select><br/>
 
-    <input type="submit"  class="btn btn-primary" value="Add"/>
-</form>@endsection
+    <input type="submit"  class="btn btn-primary" value="Associate"/>
+</form>
+    @else
+        @endif
+@endsection

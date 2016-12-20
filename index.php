@@ -1,6 +1,6 @@
 <?php 
 
-header('Location: /LaraSpeed/public/index.php');    
+header('Location: /LaraSpeed/public');    
 
 ?>
 

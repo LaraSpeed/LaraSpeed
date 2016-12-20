@@ -2,18 +2,229 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac1c198-5280-48bd-b7d5-45fda026c931" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_014_114808_create_category_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_014_114808_create_delivery_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_014_114808_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_014_114808_create_foreign_keys.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_014_114808_create_language_table.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_018_072314_create_category_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_018_072314_create_delivery_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_018_072314_create_film_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_018_072314_create_foreign_keys.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_018_072314_create_language_table.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller.png" afterPath="$PROJECT_DIR$/controller.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/language.png" afterPath="$PROJECT_DIR$/language.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/language_display.png" afterPath="$PROJECT_DIR$/language_display.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/migrations.png" afterPath="$PROJECT_DIR$/migrations.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model.png" afterPath="$PROJECT_DIR$/model.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/asc.png" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/asc.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/desc.png" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/desc.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.woff2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/none.png" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/none.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/asc.png" afterPath="$PROJECT_DIR$/public/asc.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/desc.png" afterPath="$PROJECT_DIR$/public/desc.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/none.png" afterPath="$PROJECT_DIR$/public/none.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view.png" afterPath="$PROJECT_DIR$/view.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/LaraSpeed.iml" afterPath="$PROJECT_DIR$/.idea/LaraSpeed.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/blade.xml" afterPath="$PROJECT_DIR$/.idea/blade.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConstraintRelationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConstraintRelationInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ControllerRelationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ControllerRelationInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/FormRelationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/FormRelationInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/FormableType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/FormableType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ModelRelationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ModelRelationInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/NormalizeInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/NormalizeInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RelationSpecificationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RelationSpecificationInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RouteManagerInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/RouteManagerInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/AdvancedGenerator.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/AdvancedGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/BasicConfig.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/BasicConfig.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/ResourcesLoader.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/ResourcesLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIncrementsType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIncrementsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIntegerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BooleanType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BooleanType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/CharType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/CharType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DateType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DateType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DecimalType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DecimalType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DoubleType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DoubleType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/EnumType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/EnumType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/FloatType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/FloatType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IncrementsType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IncrementsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IntegerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/LongTextType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/LongTextType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SetType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SetType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SmallIntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SmallIntegerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/StringType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/StringType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TextType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TextType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TimeStampType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TimeStampType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TinyIntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TinyIntegerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TypeBaseClass.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TypeBaseClass.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/BasicNormalization.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/BasicNormalization.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/InheritMaster.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/InheritMaster.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BaseRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BaseRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToManyRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToManyRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasOneRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasOneRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel512Route.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel512Route.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ControllerTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ControllerTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/DisplayTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/DisplayTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/EditTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/EditTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/FormTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/FormTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ModelTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ModelTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/RelatedTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/RelatedTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SchemaTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SchemaTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SideBarTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SideBarTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SingleDisplayTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SingleDisplayTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/Templater.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/Templater.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FileUtils.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FileUtils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FormTemplateProvider.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FormTemplateProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Helper.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Variable.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Variable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/013571d6b43b5bf00105f56de39dcd803258964d.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/013571d6b43b5bf00105f56de39dcd803258964d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0227417fc4249878f935e2c4f9a90ffe978e12ec.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0227417fc4249878f935e2c4f9a90ffe978e12ec.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0aa20f2cb2815d63295df2b9892cac8ffff1c550.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0aa20f2cb2815d63295df2b9892cac8ffff1c550.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/10bd8bd81373043d9084eee8e5565a434c3221fa.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/10bd8bd81373043d9084eee8e5565a434c3221fa.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/17566ce76e1d3484ac360e6d61bc84196dcefa75.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/17566ce76e1d3484ac360e6d61bc84196dcefa75.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/222b62d9abbc02599faa82eff1a73884d4177c4f.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/222b62d9abbc02599faa82eff1a73884d4177c4f.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/24621383a7ef41eb65b38c6b0a248eb0b7b684c9.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/24621383a7ef41eb65b38c6b0a248eb0b7b684c9.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/269d9250a3734efd9c5a41d5263a24ff2a71a857.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/269d9250a3734efd9c5a41d5263a24ff2a71a857.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2ade542f8732c21588eb16e0bb2631d62bb274b3.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2ade542f8732c21588eb16e0bb2631d62bb274b3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/3047ce87f6e9aa04f7f8206725a3c772893e57b5.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/3047ce87f6e9aa04f7f8206725a3c772893e57b5.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/31d08dd2c8b62e14220484d1ffd4b667fadb818d.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/31d08dd2c8b62e14220484d1ffd4b667fadb818d.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/410b92d7f5ae2b881096307d808f792db3c41b8b.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/410b92d7f5ae2b881096307d808f792db3c41b8b.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/449cf8ca312a85803e12362b250461f159821aa7.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/449cf8ca312a85803e12362b250461f159821aa7.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4558205b3e3d1cb7d9b5dfee8dcd75b8c9819d67.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4558205b3e3d1cb7d9b5dfee8dcd75b8c9819d67.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/480080b655694a6be88a32db87d80be6ae2d2e97.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/480080b655694a6be88a32db87d80be6ae2d2e97.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/48a6c9ac413f200c56a977ffa33fab98132344a7.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/48a6c9ac413f200c56a977ffa33fab98132344a7.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4df6093f4f18efa91ef0714cbde7954cbfcd5651.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4df6093f4f18efa91ef0714cbde7954cbfcd5651.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/542562aaed6413dbdef767c6d67fea23c4b8d2fe.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/542562aaed6413dbdef767c6d67fea23c4b8d2fe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5460e7f19d3f881b85411eedc8988217af1656d8.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5460e7f19d3f881b85411eedc8988217af1656d8.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/55981c956a4e3844f44dc938bc60af3f1b9fcd74.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/55981c956a4e3844f44dc938bc60af3f1b9fcd74.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/56eb47ca7ec055bbc8a80845da0d04e8d6c38e53.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/56eb47ca7ec055bbc8a80845da0d04e8d6c38e53.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/637207760641686db5f8ded27c062cf4864e4aef.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/637207760641686db5f8ded27c062cf4864e4aef.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6900807c277ace0d8933e53662e353e20c4321b2.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6900807c277ace0d8933e53662e353e20c4321b2.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6b3052486ac873720157e86acb25654f5746354a.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6b3052486ac873720157e86acb25654f5746354a.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6c6b403d2759101ae770463212f7ae1415d93c67.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6c6b403d2759101ae770463212f7ae1415d93c67.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6f1b27eb7f73447cf1169815893c95863b16c697.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6f1b27eb7f73447cf1169815893c95863b16c697.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/736a1160a128bfb59820c3e8e51a16b66aab2c8f.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/736a1160a128bfb59820c3e8e51a16b66aab2c8f.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/78a040aa4e669a6d80656e996eadf58980c1de89.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/78a040aa4e669a6d80656e996eadf58980c1de89.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/88860fae67046234de0c2d0b9f6909b7e2a70173.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/88860fae67046234de0c2d0b9f6909b7e2a70173.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/91a4d2d51e3c5e94605309745ea0df128a18b0ae.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/91a4d2d51e3c5e94605309745ea0df128a18b0ae.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/93331e6c3c1e593b065aa31bf66bf513044ee574.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/93331e6c3c1e593b065aa31bf66bf513044ee574.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/936e42023b8bdf90f5af2833af5ca88281cfa5da.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/936e42023b8bdf90f5af2833af5ca88281cfa5da.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/978665c9c85b031260c15626de125df2dd595f32.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/978665c9c85b031260c15626de125df2dd595f32.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a02e6b0c7cab6fa46593d31dd306aa3175f7b254.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a02e6b0c7cab6fa46593d31dd306aa3175f7b254.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a0ef2704fc0f6a75fb7579482a328e5b5e333088.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a0ef2704fc0f6a75fb7579482a328e5b5e333088.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a313330db283fd66e4ea812c719f5e46b81df2dc.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a313330db283fd66e4ea812c719f5e46b81df2dc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b27390c92c93a34c68872ae6cd6a55250a6a2607.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b27390c92c93a34c68872ae6cd6a55250a6a2607.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b56fa0e342bb51b157b3ccb4d0ae9540ee993ae9.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b56fa0e342bb51b157b3ccb4d0ae9540ee993ae9.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b7fea0962a82778cfebb8c37c3e7edd2bb487f8b.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b7fea0962a82778cfebb8c37c3e7edd2bb487f8b.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/bc374a32242b44292cf848d53fd65783fef1d442.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/bc374a32242b44292cf848d53fd65783fef1d442.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c3a357db45b86e93a4c93d392a093353ba4e5f10.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c3a357db45b86e93a4c93d392a093353ba4e5f10.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c5f6bd9427d45d42d172baf663e4c22481765138.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c5f6bd9427d45d42d172baf663e4c22481765138.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c6af5330cfaadd28a0474d42250e47a089b97f6c.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c6af5330cfaadd28a0474d42250e47a089b97f6c.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/ca783d390e1c103dec86d4a51a6503d85a913841.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/ca783d390e1c103dec86d4a51a6503d85a913841.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/caf8d92e0ab871a2ac032dd31f362f9e1e1bb00b.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/caf8d92e0ab871a2ac032dd31f362f9e1e1bb00b.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/cc3bfd6b916220a630df68e5d351755060f6dbc0.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/cc3bfd6b916220a630df68e5d351755060f6dbc0.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/dd5829beabb816e18c740f7fe9a56e421cc69f21.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/dd5829beabb816e18c740f7fe9a56e421cc69f21.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/e0c08d3ce5670eb3bb3840dd056e88b2f9fa1ccc.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/e0c08d3ce5670eb3bb3840dd056e88b2f9fa1ccc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/fe79e3cec2622f844dcb65219237f32dd5d21e9c.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/fe79e3cec2622f844dcb65219237f32dd5d21e9c.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/fff516b0b6b903d90ce188a2d82681d66d3ca4ac.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/fff516b0b6b903d90ce188a2d82681d66d3ca4ac.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/angular1.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/angular1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToAction.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToAction.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToController.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToController.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToDisplay.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToForm.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToForm.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyAction.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyAction.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bigIntegerMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bigIntegerMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/booleanMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/booleanMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap-datepicker.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap-datepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap-datepicker.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap-datepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap-duallistbox.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap-duallistbox.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap3.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap3.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/bootstrap3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/charMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/charMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/constraint.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/constraint.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/constraintMaster.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/constraintMaster.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/custom.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/custom.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/dateMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/dateMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/decimalMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/decimalMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/defaultRelationAccessor.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/defaultRelationAccessor.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/doubleMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/doubleMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/dropTableConstraintView.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/dropTableConstraintView.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/floatMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/floatMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/foreignConstraintView.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/foreignConstraintView.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/glyphicons-halflings-regular.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyAction.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyAction.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyController.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyController.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyForm.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyForm.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/category_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/category_related.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/film_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/film_related.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/language_related.blade.php" afterPath="$PROJECT_DIR$/resources/views/language_related.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelationAccessor.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOne.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOne.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneAction.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneAction.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneController.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneController.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneDisplay.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneForm.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneForm.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/integerMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/integerMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/jquery.bootstrap-duallistbox.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/jquery.bootstrap-duallistbox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/jquery.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/limitAccessor.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/limitAccessor.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/mockup.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/mockup.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modal.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modal.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/multipleArgsModelRelation.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/multipleArgsModelRelation.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/prettify.min.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/prettify.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/prettyfy.min.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/prettyfy.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/related.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/related.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/script.js" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/showReturnValController.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/showReturnValController.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/sidebar.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/sidebar.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simple-sidebar.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simple-sidebar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongTo.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongTo.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongToMany.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongToMany.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/singleArgModelRelation.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/singleArgModelRelation.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/textMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/textMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/tinyIntegerMutator.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/tinyIntegerMutator.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap-datepicker.css" afterPath="$PROJECT_DIR$/public/css/bootstrap-datepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap-duallistbox.css" afterPath="$PROJECT_DIR$/public/css/bootstrap-duallistbox.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap3.css" afterPath="$PROJECT_DIR$/public/css/bootstrap3.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/custom.css" afterPath="$PROJECT_DIR$/public/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/prettify.min.css" afterPath="$PROJECT_DIR$/public/css/prettify.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/simple-sidebar.css" afterPath="$PROJECT_DIR$/public/css/simple-sidebar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/public/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/angular.js" afterPath="$PROJECT_DIR$/public/js/angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/angular1.js" afterPath="$PROJECT_DIR$/public/js/angular1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/bootstrap-datepicker.js" afterPath="$PROJECT_DIR$/public/js/bootstrap-datepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/bootstrap3.js" afterPath="$PROJECT_DIR$/public/js/bootstrap3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery.bootstrap-duallistbox.js" afterPath="$PROJECT_DIR$/public/js/jquery.bootstrap-duallistbox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/jquery.js" afterPath="$PROJECT_DIR$/public/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/prettyfy.min.js" afterPath="$PROJECT_DIR$/public/js/prettyfy.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/script.js" afterPath="$PROJECT_DIR$/public/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/CategoryTest.php" afterPath="$PROJECT_DIR$/tests/CategoryTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/FilmTest.php" afterPath="$PROJECT_DIR$/tests/FilmTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/LanguageTest.php" afterPath="$PROJECT_DIR$/tests/LanguageTest.php" />
     </list>
     <ignored path="LaraSpeed.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,21 +280,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Category.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Category.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+            <state relative-caret-position="234">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
               <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -153,9 +374,9 @@
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php" />
         <option value="$PROJECT_DIR$/tests/FilmTest.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" />
+        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" />
         <option value="$PROJECT_DIR$/app/Film.php" />
         <option value="$PROJECT_DIR$/app/Category.php" />
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" />
       </list>
     </option>
   </component>
@@ -256,6 +477,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -502,19 +737,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/views" />
-      <recent name="$PROJECT_DIR$/public/fonts" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/public/css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Route" />
       <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+      <recent name="$PROJECT_DIR$/packages/berthe/codegenerator/src/views" />
+      <recent name="$PROJECT_DIR$/public/fonts" />
+      <recent name="$PROJECT_DIR$/public/js" />
     </key>
   </component>
   <component name="RunManager">
@@ -637,15 +872,15 @@
       <workItem from="1481714051512" duration="4686000" />
       <workItem from="1481840346150" duration="3000" />
       <workItem from="1482088194113" duration="1896000" />
-      <workItem from="1482091561791" duration="657000" />
+      <workItem from="1482091561791" duration="935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390110000" />
+    <option name="totallyTimeSpent" value="390388000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="0" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -778,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Film.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="383">
@@ -800,18 +1027,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="15" column="63" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Film.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
           <folding />
         </state>
       </provider>

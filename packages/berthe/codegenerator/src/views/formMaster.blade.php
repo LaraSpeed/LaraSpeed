@@ -152,6 +152,12 @@
         <script src="{{URL::asset("js/angular.js")}}"></script>
         <script src="{{URL::asset("js/script.js")}}"></script>
 
+        <!-- Examples -->
+        <script src="{!!URL::asset("assets/javascripts/tables/examples.datatables.default.js")!!}"></script>
+        <script src="{!!URL::asset("assets/javascripts/tables/examples.datatables.row.with.details.js")!!}"></script>
+        <script src="{!!URL::asset("assets/javascripts/tables/examples.datatables.tabletools.js")!!}"></script>
+
+
         <script>
             function goBack() {
                 window.history.back();

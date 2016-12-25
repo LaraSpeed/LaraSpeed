@@ -13,7 +13,7 @@ class Category extends Model
     protected $fillable = ["category_id", "name", "last_update",  ];
 
     function film(){ 
-        return $this->belongsToMany('App\Film', 'film_category');
+        return $this->belongsToMany('App\Film' , 'film_category');
     }
 
  

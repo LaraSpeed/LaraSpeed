@@ -52,48 +52,40 @@
         <h2 class="panel-title">Deliverys</h2>
     </header>
     <div class="panel-body">
-
-<table class="table table-bordered table-striped mb-none" id="datatable-default">
+        <div class="table-responsive">
+<table class="table mb-none">
     <thead>
         <tr>
-                           <th class="c_string">
-                <form action="{{url("/delivery/sort")}}" method="get">
-                    <input type="hidden" name="identifiant"/>
-                <button class="btn btn-link" type="submit"><p @if(session('identifiant', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Identifiant @if(session('identifiant', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('identifiant', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_date">
-                <form action="{{url("/delivery/sort")}}" method="get">
-                    <input type="hidden" name="date"/>
-                <button class="btn btn-link" type="submit"><p @if(session('date', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Date @if(session('date', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('date', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_text">
-                <form action="{{url("/delivery/sort")}}" method="get">
-                    <input type="hidden" name="articles"/>
-                <button class="btn btn-link" type="submit"><p @if(session('articles', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Articles @if(session('articles', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('articles', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th> 
+                              <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap> <!-- -->
+                <a @if(session('identifiant', 'none') == 'asc') href="{{url("/delivery/sort?identifiant=1&asc")}}" @else href="{{url("/delivery/sort?identifiant=1&desc")}}" @endif><p @if(session('identifiant', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Identifiant @if(session('identifiant', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('identifiant', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>                 <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap> <!-- -->
+                <a @if(session('date', 'none') == 'asc') href="{{url("/delivery/sort?date=1&asc")}}" @else href="{{url("/delivery/sort?date=1&desc")}}" @endif><p @if(session('date', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Date @if(session('date', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('date', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>                 <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap> <!-- -->
+                <a @if(session('articles', 'none') == 'asc') href="{{url("/delivery/sort?articles=1&asc")}}" @else href="{{url("/delivery/sort?articles=1&desc")}}" @endif><p @if(session('articles', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Articles @if(session('articles', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('articles', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>             <th><a href=""><p>Actions</p></a></th>
+            <th><a href=""><p>Relations</p></a></th>
         </tr>
     </thead>
 
     <tbody>
         @forelse($deliverys as $delivery)
             <tr>
-               <td class="c_string">{{$delivery->identifiant}}</td>
-              <td class="c_date">{{$delivery->date}}</td>
-              <td class="c_text">{{$delivery->articles}}</td>
-             <td class="defaut"><form action="{{url("/delivery/$delivery->id")}}" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-arrows-alt"></i></button>
-            </form>
+                           <!--class="{$attrType->formClass("table")}}"-->
+                    <td class="center">{{$delivery->identifiant}}</td>
+                          <!--class="{$attrType->formClass("table")}}"-->
+                    <td class="center">{{$delivery->date}}</td>
+                          <!--class="{$attrType->formClass("table")}}"-->
+                    <td class="center">{{$delivery->articles}}</td>
+             <td>
+            <a href="{{url("/delivery/$delivery->id")}}"><i class="fa fa-arrows-alt"></i></a>
+            <a href="{{url("/delivery/$delivery->id")}}/edit"><i class="fa fa-edit"></i></a>
+            <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $delivery->identifiant}} ?', '{{url("/delivery/$delivery->id")}}')"><i class="fa fa-trash-o"></i></a>
         </td>
-        <td class="defaut"><form action="{{url("/delivery/$delivery->id")}}/edit" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-edit"></i></button>
-            </form>
-        </td>
-        <td class="defaut">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $delivery->identifiant}} ?', '{{url("/delivery/$delivery->id")}}')"><i class="fa fa-trash-o"></i></button>
-        </td>
-                    <td class="defaut">
+
+                    <td>
                 <form action="{{url("/delivery/related/$delivery->id")}}" method="get">
                     <input type="hidden" name="tab" value="film" />
                     <button type="submit" class="btn btn-link">Film</button>
@@ -107,7 +99,7 @@
         @endforelse
     </tbody>
 </table><!--End Table-->
-
+</div>
         <div class="row datatables-footer">
             <div class="col-md-6"></div>
             <div class="col-md-6">

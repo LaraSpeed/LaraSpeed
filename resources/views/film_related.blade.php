@@ -70,35 +70,30 @@
         <h2 class="panel-title">Categorys</h2>
     </header>
     <div class="panel-body">
-<table class="table table-bordered table-striped mb-none" id="datatable-default">
+        <div class="table-responsive">
+<table class="table mb-none">
     <thead>
     <tr>
-                       <th class="c_string">
-                <form action="{{url("/film/sort")}}" method="get">
-                    <input type="hidden" name="name"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
+                       <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('name', 'none') == 'asc') href="{{url("/film/sort?name=1&tab=$table&asc")}}" @else href="{{url("/film/sort?name=1&tab=$table&desc")}}" @endif><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
             </th>   
+            <th><a href=""><p>Actions</p></a></th>
+            <th><a href=""><p>Relations</p></a></th>
+
     </tr>
     </thead>
 
     <tbody>
     @forelse($film->category_paginated as  $category)
     <tr>
-                       <td class="c_string">{{$category->name}}</td>
-                   <td class="defaut"><form action="{{url("/category/$category->category_id")}}" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-arrows-alt"></i></button>
-            </form>
-        </td>
-        <td class="defaut"><form action="{{url("/category/$category->category_id")}}/edit" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-edit"></i></button>
-            </form>
-        </td>
-        <td class="defaut">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')"><i class="fa fa-trash-o"></i></button>
-        </td>
+                         <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$category->name}}</td>
+                       <td>
+                <a href="{{url("/category/$category->category_id")}}"><i class="fa fa-arrows-alt"></i></a>
+                <a href="{{url("/category/$category->category_id")}}/edit"><i class="fa fa-edit"></i></a>
+                <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')"><i class="fa fa-trash-o"></i></a>
+            </td>
               </tr>
     @empty
     <tr>
@@ -107,6 +102,7 @@
     @endforelse
     </tbody>
 </table>
+        </div>
         <div class="row datatables-footer">
             <div class="col-md-4"></div>
             <div class="col-md-6">

@@ -1,4 +1,4 @@
-<h4 class="text-danger">Add <?php echo e(ucfirst($otherTable)); ?></h4>
+<h3 class="text-danger">Add <?php echo e(ucfirst($otherTable)); ?></h3>
 <form action="S2BOBRACKET<?php echo "url(\"/".$tab."/add".ucfirst($otherTable)."/$".$tab."->".$tbs[$tab]['id']."\")"; ?>S2BCBRACKET" method="post">
     <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
     <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one <?php echo $otherTable; ?>"  name="<?php echo $otherTable; ?>[]">

@@ -64,78 +64,61 @@
         <h2 class="panel-title">Films</h2>
     </header>
     <div class="panel-body">
-<table class="table table-bordered table-striped mb-none" id="datatable-default">
+        <div class="table-responsive">
+<table class="table mb-none">
     <thead>
     <tr>
-                         <th class="c_string">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="title"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('title', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Title @if(session('title', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('title', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_text">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="description"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('description', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Description @if(session('description', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('description', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_numeric">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="release_year"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('release_year', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Release year @if(session('release_year', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('release_year', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>                <th class="c_numeric">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="rental_duration"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('rental_duration', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Rental duration @if(session('rental_duration', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('rental_duration', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_numeric">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="rental_rate"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('rental_rate', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Rental rate @if(session('rental_rate', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('rental_rate', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_numeric">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="length"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('length', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Length @if(session('length', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('length', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
-            </th>              <th class="c_numeric">
-                <form action="{{url("/category/sort")}}" method="get">
-                    <input type="hidden" name="replacement_cost"/>
-                    <input type="hidden" name="tab" value="{{$table}}" />
-                    <button class="btn btn-link" type="submit"><p @if(session('replacement_cost', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Replacement cost @if(session('replacement_cost', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('replacement_cost', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></button>
-                </form>
+                         <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('title', 'none') == 'asc') href="{{url("/category/sort?title=1&tab=$table&asc")}}" @else href="{{url("/category/sort?title=1&tab=$table&desc")}}" @endif><p @if(session('title', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Title @if(session('title', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('title', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>              <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('description', 'none') == 'asc') href="{{url("/category/sort?description=1&tab=$table&asc")}}" @else href="{{url("/category/sort?description=1&tab=$table&desc")}}" @endif><p @if(session('description', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Description @if(session('description', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('description', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>              <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('release_year', 'none') == 'asc') href="{{url("/category/sort?release_year=1&tab=$table&asc")}}" @else href="{{url("/category/sort?release_year=1&tab=$table&desc")}}" @endif><p @if(session('release_year', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Release year @if(session('release_year', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('release_year', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>                <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('rental_duration', 'none') == 'asc') href="{{url("/category/sort?rental_duration=1&tab=$table&asc")}}" @else href="{{url("/category/sort?rental_duration=1&tab=$table&desc")}}" @endif><p @if(session('rental_duration', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Rental duration @if(session('rental_duration', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('rental_duration', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>              <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('rental_rate', 'none') == 'asc') href="{{url("/category/sort?rental_rate=1&tab=$table&asc")}}" @else href="{{url("/category/sort?rental_rate=1&tab=$table&desc")}}" @endif><p @if(session('rental_rate', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Rental rate @if(session('rental_rate', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('rental_rate', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>              <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('length', 'none') == 'asc') href="{{url("/category/sort?length=1&tab=$table&asc")}}" @else href="{{url("/category/sort?length=1&tab=$table&desc")}}" @endif><p @if(session('length', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Length @if(session('length', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('length', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+            </th>              <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a @if(session('replacement_cost', 'none') == 'asc') href="{{url("/category/sort?replacement_cost=1&tab=$table&asc")}}" @else href="{{url("/category/sort?replacement_cost=1&tab=$table&desc")}}" @endif><p @if(session('replacement_cost', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Replacement cost @if(session('replacement_cost', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('replacement_cost', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
             </th>       
+            <th><a href=""><p>Actions</p></a></th>
+            <th><a href=""><p>Relations</p></a></th>
+
     </tr>
     </thead>
 
     <tbody>
     @forelse($category->film_paginated as  $film)
     <tr>
-                         <td class="c_string">{{$film->title}}</td>
-                      <td class="c_text">{{$film->description}}</td>
-                      <td class="c_numeric">{{$film->release_year}}</td>
-                        <td class="c_numeric">{{$film->rental_duration}}</td>
-                      <td class="c_numeric">{{$film->rental_rate}}</td>
-                      <td class="c_numeric">{{$film->length}}</td>
-                      <td class="c_numeric">{{$film->replacement_cost}}</td>
-                       <td class="defaut"><form action="{{url("/film/$film->film_id")}}" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-arrows-alt"></i></button>
-            </form>
-        </td>
-        <td class="defaut"><form action="{{url("/film/$film->film_id")}}/edit" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-edit"></i></button>
-            </form>
-        </td>
-        <td class="defaut">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')"><i class="fa fa-trash-o"></i></button>
-        </td>
-                     <td class="defaut">
+                           <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->title}}</td>
+                        <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->description}}</td>
+                        <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->release_year}}</td>
+                          <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->rental_duration}}</td>
+                        <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->rental_rate}}</td>
+                        <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->length}}</td>
+                        <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">{{$film->replacement_cost}}</td>
+                           <td>
+                <a href="{{url("/film/$film->film_id")}}"><i class="fa fa-arrows-alt"></i></a>
+                <a href="{{url("/film/$film->film_id")}}/edit"><i class="fa fa-edit"></i></a>
+                <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')"><i class="fa fa-trash-o"></i></a>
+            </td>
+                     <td>
                 <form action="{{url("/film/related/$film->film_id")}}" method="get">
                     <input type="hidden" name="tab" value="language" />
                     <button type="submit" class="btn btn-link">Language</button>
@@ -149,6 +132,7 @@
     @endforelse
     </tbody>
 </table>
+        </div>
         <div class="row datatables-footer">
             <div class="col-md-4"></div>
             <div class="col-md-6">

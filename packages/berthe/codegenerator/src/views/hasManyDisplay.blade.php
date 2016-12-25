@@ -61,17 +61,18 @@
         <h2 class="panel-title">{{ucfirst($otherTable."s")}}</h2>
     </header>
     <div class="panel-body">
-<table class="table table-bordered table-striped mb-none" id="datatable-default">
+        <div class="table-responsive">
+<table class="table mb-none">
     <thead>
     <tr>
         @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable())
-            <th class="{{$attrType->formClass("table")}}">
-                <form action="S2BOBRACKET{!!"url(\"/".$tab."/sort\")"!!}S2BCBRACKET" method="get">
-                    <input type="hidden" name="{{$attrName}}"/>
-                    <input type="hidden" name="tab" value="S2BOBRACKET$tableS2BCBRACKET" />
-                    <button class="btn btn-link" type="submit"><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif >{!! ucfirst(str_replace("_", " ", $attrName))!!} S3Bif(session('{{$attrName}}', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> S3Belseif(session('{{$attrName}}', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> S3Belse <span class="text-dark"><i class="fa fa-arrows-v"></i></span> S3Bendif</p></button>
-                </form>
+            <!--class="{$attrType->formClass("table")}}"-->
+            <th nowrap>
+                <a S3Bif(session('{{$attrName}}', 'none') == 'asc') href="S2BOBRACKET{!!"url(\"/".$tab."/sort?$attrName=1&tab=$"."table&asc\")"!!}S2BCBRACKET" S3Belse href="S2BOBRACKET{!!"url(\"/".$tab."/sort?$attrName=1&tab=$"."table&desc\")"!!}S2BCBRACKET" S3Bendif><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif >{!! ucfirst(str_replace("_", " ", $attrName))!!} S3Bif(session('{{$attrName}}', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> S3Belseif(session('{{$attrName}}', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> S3Belse <span class="text-dark"><i class="fa fa-arrows-v"></i></span> S3Bendif</p></a>
             </th>@endif @endforeach
+
+            <th><a href=""><p>Actions</p></a></th>
+            <th><a href=""><p>Relations</p></a></th>
 
     </tr>
     </thead>
@@ -80,22 +81,16 @@
     S3Bforelse(${!!"$tab->$otherTable"."_paginated as "!!} ${!! "$otherTable" !!})
     <tr>
         @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable())
-            <td class="{{$attrType->formClass("table")}}">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
+              <!-- class="{$attrType->formClass("table")}}" -->
+            <td class="center">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
         @endif @endforeach
-        <td class="defaut"><form action="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-arrows-alt"></i></button>
-            </form>
-        </td>
-        <td class="defaut"><form action="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET/edit" method="get">
-                <button type="submit" class="btn btn-link"><i class="fa fa-edit"></i></button>
-            </form>
-        </td>
-        <td class="defaut">
-            <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
-            <button type="submit" class="btn btn-link" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')"><i class="fa fa-trash-o"></i></button>
-        </td>
+            <td>
+                <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET"><i class="fa fa-arrows-alt"></i></a>
+                <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET/edit"><i class="fa fa-edit"></i></a>
+                <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')"><i class="fa fa-trash-o"></i></a>
+            </td>
         @foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab)
-            <td class="defaut">
+            <td>
                 <form action="S2BOBRACKET{!!"url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" method="get">
                     <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                     <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
@@ -110,6 +105,7 @@
     S3Bendforelse
     </tbody>
 </table>
+        </div>
         <div class="row datatables-footer">
             <div class="col-md-4"></div>
             <div class="col-md-6">

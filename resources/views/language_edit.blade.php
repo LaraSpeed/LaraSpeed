@@ -16,7 +16,7 @@
 </form>
 
     @if(isset($language->film))
-    <h4 class="text-danger">Add Film</h4>
+    <h3 class="text-danger">Add Film</h3>
 <form action="{{url("/language/addFilm/$language->language_id")}}" method="post">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">

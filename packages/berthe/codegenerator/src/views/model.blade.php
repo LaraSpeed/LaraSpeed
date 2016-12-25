@@ -13,7 +13,7 @@
 @endsection
 
 @section('relations')@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType)
-@include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable()])
+@include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable(), "table" => $relationType->getTable()])
 
 @endforeach @endif
 

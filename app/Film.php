@@ -17,8 +17,8 @@ class Film extends Model
     }
 
 function category(){ 
-        return $this->belongsToMany('App\Category' , 'film_category');
-    }
+    return $this->belongsToMany('App\Category', 'film_category');
+}
 
  
 

@@ -17,7 +17,7 @@ class BelongsToManyRelation extends BaseRelation implements FormRelationInterfac
 {
     public $formView = "belongsToForm";
     public $displayView = "hasManyDisplay";
-    public $modelView = "singleArgModelRelation";
+    public $modelView = "BelongToManyModelMethod";
     public $actionView = "belongsToController";
     public $editView = "belongsToManyEdit";
     public $action = "belongsToManyAction";

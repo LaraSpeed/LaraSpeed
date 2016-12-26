@@ -1,3 +1,3 @@
-{{"function $tab(){ "}}
-    {!!'return $this->'.$type.'(\'App\\'.ucfirst($tab).'\');'!!}
-{{"}"}}
+    {{"function $tab(){ "}}
+        {!!'return $this->'.$type.'(\'App\\'.ucfirst($tab).'\');'!!}
+    {{"}"}}

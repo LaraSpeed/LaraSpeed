@@ -13,10 +13,9 @@
 @endsection
 
 @section('relations')@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType)
-@include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable(), "table" => $relationType->getTable()])
+    @include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable(), "table" => $relationType->getTable()])
 
 @endforeach @endif
-
 @endsection
 
 @section('accessors')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@include($attrType->mutator(), ['attrName' => $attrName, 'length' => 40]) @endif

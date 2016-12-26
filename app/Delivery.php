@@ -12,12 +12,11 @@ class Delivery extends Model
 
     protected $fillable = ["id", "identifiant", "date", "articles",  ];
 
-    function film(){ 
+        function film(){ 
         return $this->hasOne('App\Film');
     }
 
  
-
     function getIdentifiantAttribute($value){
 
         if(strlen($value) > 40 && session('mutate', 'none') == '1') {
@@ -47,26 +46,11 @@ class Delivery extends Model
     }  
     
  
-
-
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);
     }
 
-    /**
-    * The storage format of the model's date columns.
-    *
-    * @var  string
-    */
-    //protected $dateFormat = 'Y-m-d'; //H:i:s
-
-    /**
-    * The attributes that should be mutated to dates.
-    *
-    * @var  array
-    */
-    //protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 }
 
 ?>

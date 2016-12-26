@@ -18,8 +18,6 @@ class DeliveryController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-
-
         return view('delivery_show', ['deliverys' => Delivery::paginate(20)]);
     }
 
@@ -40,17 +38,16 @@ class DeliveryController extends Controller {
     */
     public function store()
     {
-            $data = request()->all();
+        $data = request()->all();
 
-    $delivery = Delivery::create([
+        $delivery = Delivery::create([
              "identifiant" => $data["identifiant"],
-             "date" => $data["date"],
-             "articles" => $data["articles"],
-         ]);
+         "date" => $data["date"],
+         "articles" => $data["articles"],
+     ]);
 
       
-        return redirect('/delivery');;
-    }
+        return redirect('/delivery');    }
 
     /**
     * Display the specified resource.
@@ -62,7 +59,8 @@ class DeliveryController extends Controller {
     {
         request()->session()->forget("mutate");
         $delivery->load(array("film",));
-        return view('delivery_display', compact('delivery'));        }
+        return view('delivery_display', compact('delivery'));    
+    }
 
     /**
     * Show the form for editing the specified resource.
@@ -85,8 +83,7 @@ class DeliveryController extends Controller {
     */
     public function update(Delivery $delivery )
     {
-            $delivery->update(request()->all());
-
+        $delivery->update(request()->all()); 
         return back();
     }
 
@@ -98,8 +95,7 @@ class DeliveryController extends Controller {
     */
     public function destroy(Delivery $delivery )
     {
-            $delivery->delete();
-        return back();
+        $delivery->delete();         return back();
     }
 
     /**
@@ -122,7 +118,7 @@ class DeliveryController extends Controller {
 
         $table = request()->get('tab');
         $delivery->load(array("film",));
-return view('delivery_related', compact(['delivery', 'table']));
+        return view('delivery_related', compact(['delivery', 'table']));
     }
 
     /**
@@ -151,8 +147,9 @@ return view('delivery_related', compact(['delivery', 'table']));
          ->orWhere('articles', 'like', $keyword)
 
         ->paginate(20);
-    $deliverys->setPath("search?keyword=$keyword");
-    return view('delivery_show', compact('deliverys'));
+
+        $deliverys->setPath("search?keyword=$keyword");
+        return view('delivery_show', compact('deliverys'));
     }
 
     /**
@@ -162,23 +159,23 @@ return view('delivery_related', compact(['delivery', 'table']));
     public function sort(){
         $path = "";
 
-            request()->session()->forget("sortKey");
-    request()->session()->forget("sortOrder");
+        request()->session()->forget("sortKey");
+        request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
-$deliverys = Delivery::query();
-         if(request()->exists('identifiant')){
+        $deliverys = Delivery::query();
+        if(request()->exists('identifiant')){
             $deliverys = $deliverys->orderBy('identifiant', $this->getOrder('identifiant'));
             $path = "identifiant";
         }else{
             request()->session()->forget("identifiant");
         }
-         if(request()->exists('date')){
+        if(request()->exists('date')){
             $deliverys = $deliverys->orderBy('date', $this->getOrder('date'));
             $path = "date";
         }else{
             request()->session()->forget("date");
         }
-         if(request()->exists('articles')){
+        if(request()->exists('articles')){
             $deliverys = $deliverys->orderBy('articles', $this->getOrder('articles'));
             $path = "articles";
         }else{
@@ -190,59 +187,60 @@ $deliverys = Delivery::query();
 
     }else{
 
-    if(request()->exists('tab') == 'film'){
+      if(request()->exists('tab') == 'film'){
 
-                  if(request()->exists('title')){
+          if(request()->exists('title')){
              session(['sortOrder' => $this->getOrder('title')]);
              session(['sortKey' => 'title']);
         }else{
             request()->session()->forget("title");
         }
 
-                 if(request()->exists('description')){
+         if(request()->exists('description')){
              session(['sortOrder' => $this->getOrder('description')]);
              session(['sortKey' => 'description']);
         }else{
             request()->session()->forget("description");
         }
 
-                 if(request()->exists('release_year')){
+         if(request()->exists('release_year')){
              session(['sortOrder' => $this->getOrder('release_year')]);
              session(['sortKey' => 'release_year']);
         }else{
             request()->session()->forget("release_year");
         }
 
-                  if(request()->exists('rental_duration')){
+          if(request()->exists('rental_duration')){
              session(['sortOrder' => $this->getOrder('rental_duration')]);
              session(['sortKey' => 'rental_duration']);
         }else{
             request()->session()->forget("rental_duration");
         }
 
-                 if(request()->exists('rental_rate')){
+         if(request()->exists('rental_rate')){
              session(['sortOrder' => $this->getOrder('rental_rate')]);
              session(['sortKey' => 'rental_rate']);
         }else{
             request()->session()->forget("rental_rate");
         }
 
-                 if(request()->exists('length')){
+         if(request()->exists('length')){
              session(['sortOrder' => $this->getOrder('length')]);
              session(['sortKey' => 'length']);
         }else{
             request()->session()->forget("length");
         }
 
-                 if(request()->exists('replacement_cost')){
+         if(request()->exists('replacement_cost')){
              session(['sortOrder' => $this->getOrder('replacement_cost')]);
              session(['sortKey' => 'replacement_cost']);
         }else{
             request()->session()->forget("replacement_cost");
         }
 
-                    }
-             return back();
+            
+      }
+         return back();
     }
     }
 
@@ -254,8 +252,6 @@ $deliverys = Delivery::query();
         request()->session()->forget("keyword");
         return back();
     }
-
-
 
     
  

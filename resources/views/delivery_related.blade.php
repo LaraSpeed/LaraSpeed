@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 @if(isset($delivery->film) && "film" == $table)
-        @else
+                    @else
 
-    @endif
+        @endif
 @endsection

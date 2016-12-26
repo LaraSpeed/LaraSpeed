@@ -18,8 +18,6 @@ class LanguageController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-
-
         return view('language_show', ['languages' => Language::paginate(20)]);
     }
 
@@ -40,15 +38,14 @@ class LanguageController extends Controller {
     */
     public function store()
     {
-            $data = request()->all();
+        $data = request()->all();
 
-    $language = Language::create([
+        $language = Language::create([
              "name" => $data["name"],
-          ]);
+      ]);
 
       
-        return redirect('/language');;
-    }
+        return redirect('/language');    }
 
     /**
     * Display the specified resource.
@@ -60,7 +57,8 @@ class LanguageController extends Controller {
     {
         request()->session()->forget("mutate");
         $language->load(array("film",));
-        return view('language_display', compact('language'));        }
+        return view('language_display', compact('language'));    
+    }
 
     /**
     * Show the form for editing the specified resource.
@@ -83,8 +81,7 @@ class LanguageController extends Controller {
     */
     public function update(Language $language )
     {
-            $language->update(request()->all());
-
+        $language->update(request()->all()); 
         return back();
     }
 
@@ -96,8 +93,7 @@ class LanguageController extends Controller {
     */
     public function destroy(Language $language )
     {
-            $language->delete();
-        return back();
+        $language->delete();         return back();
     }
 
     /**
@@ -120,7 +116,7 @@ class LanguageController extends Controller {
 
         $table = request()->get('tab');
         $language->load(array("film",));
-return view('language_related', compact(['language', 'table']));
+        return view('language_related', compact(['language', 'table']));
     }
 
     /**
@@ -147,8 +143,9 @@ return view('language_related', compact(['language', 'table']));
          ->orWhere('last_update', 'like', $keyword)
 
         ->paginate(20);
-    $languages->setPath("search?keyword=$keyword");
-    return view('language_show', compact('languages'));
+
+        $languages->setPath("search?keyword=$keyword");
+        return view('language_show', compact('languages'));
     }
 
     /**
@@ -158,11 +155,11 @@ return view('language_related', compact(['language', 'table']));
     public function sort(){
         $path = "";
 
-            request()->session()->forget("sortKey");
-    request()->session()->forget("sortOrder");
+        request()->session()->forget("sortKey");
+        request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
-$languages = Language::query();
-         if(request()->exists('name')){
+        $languages = Language::query();
+        if(request()->exists('name')){
             $languages = $languages->orderBy('name', $this->getOrder('name'));
             $path = "name";
         }else{
@@ -174,59 +171,60 @@ $languages = Language::query();
 
     }else{
 
-    if(request()->exists('tab') == 'film'){
+      if(request()->exists('tab') == 'film'){
 
-                  if(request()->exists('title')){
+          if(request()->exists('title')){
              session(['sortOrder' => $this->getOrder('title')]);
              session(['sortKey' => 'title']);
         }else{
             request()->session()->forget("title");
         }
 
-                 if(request()->exists('description')){
+         if(request()->exists('description')){
              session(['sortOrder' => $this->getOrder('description')]);
              session(['sortKey' => 'description']);
         }else{
             request()->session()->forget("description");
         }
 
-                 if(request()->exists('release_year')){
+         if(request()->exists('release_year')){
              session(['sortOrder' => $this->getOrder('release_year')]);
              session(['sortKey' => 'release_year']);
         }else{
             request()->session()->forget("release_year");
         }
 
-                  if(request()->exists('rental_duration')){
+          if(request()->exists('rental_duration')){
              session(['sortOrder' => $this->getOrder('rental_duration')]);
              session(['sortKey' => 'rental_duration']);
         }else{
             request()->session()->forget("rental_duration");
         }
 
-                 if(request()->exists('rental_rate')){
+         if(request()->exists('rental_rate')){
              session(['sortOrder' => $this->getOrder('rental_rate')]);
              session(['sortKey' => 'rental_rate']);
         }else{
             request()->session()->forget("rental_rate");
         }
 
-                 if(request()->exists('length')){
+         if(request()->exists('length')){
              session(['sortOrder' => $this->getOrder('length')]);
              session(['sortKey' => 'length']);
         }else{
             request()->session()->forget("length");
         }
 
-                 if(request()->exists('replacement_cost')){
+         if(request()->exists('replacement_cost')){
              session(['sortOrder' => $this->getOrder('replacement_cost')]);
              session(['sortKey' => 'replacement_cost']);
         }else{
             request()->session()->forget("replacement_cost");
         }
 
-                    }
-             return back();
+            
+      }
+         return back();
     }
     }
 
@@ -239,17 +237,15 @@ $languages = Language::query();
         return back();
     }
 
-
-
     function addFilm(Language $language ){
-    $newOnes = Film::find(request()->get('film'));
+        $newOnes = Film::find(request()->get('film'));
 
-    foreach ($newOnes as $newOne){
-        $language->film()->save($newOne);
+        foreach ($newOnes as $newOne){
+            $language->film()->save($newOne);
+        }
+
+        return back();
     }
-
-    return back();
-}
  
     private function getOrder($param){
         if(session($param, "none") != "none"){

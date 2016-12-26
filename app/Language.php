@@ -12,12 +12,11 @@ class Language extends Model
 
     protected $fillable = ["language_id", "name", "last_update",  ];
 
-    function film(){ 
+        function film(){ 
         return $this->hasMany('App\Film');
     }
 
  
-
     function getNameAttribute($value){
 
         if(strlen($value) > 40 && session('mutate', 'none') == '1') {
@@ -28,17 +27,18 @@ class Language extends Model
     }  
     function getFilmPaginatedAttribute(){
         $film = $this->film();
-    if(session("keyword", "none") != "none"){
-        $key = "%".session('keyword','')."%";
-        $film->where('title', 'like', $key)
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $film->where('title', 'like', $key)
                ->orWhere('description', 'like', $key)
-             ->orWhere('release_year', 'like', $key)
-              ->orWhere('rental_duration', 'like', $key)
-             ->orWhere('rental_rate', 'like', $key)
-             ->orWhere('length', 'like', $key)
-             ->orWhere('replacement_cost', 'like', $key)
-              ;
-}
+          ->orWhere('release_year', 'like', $key)
+           ->orWhere('rental_duration', 'like', $key)
+          ->orWhere('rental_rate', 'like', $key)
+          ->orWhere('length', 'like', $key)
+          ->orWhere('replacement_cost', 'like', $key)
+           ;
+
+        }
 
         if(session("sortKey", "none") == "none" or !Schema::hasColumn("film", session("sortKey", "none")))
             return $film->paginate(20)->appends(array("tab" => "film"));
@@ -46,27 +46,13 @@ class Language extends Model
         return $film->orderBy(session("sortKey", "title"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "film"));
 
     }
+
  
-
-
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);
     }
 
-    /**
-    * The storage format of the model's date columns.
-    *
-    * @var  string
-    */
-    //protected $dateFormat = 'Y-m-d'; //H:i:s
-
-    /**
-    * The attributes that should be mutated to dates.
-    *
-    * @var  array
-    */
-    //protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 }
 
 ?>

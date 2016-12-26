@@ -1,6 +1,6 @@
-<?php echo e("function $tab(){ "); ?>
+    <?php echo e("function $tab(){ "); ?>
 
-    <?php echo 'return $this->'.$type.'(\'App\\'.ucfirst($tab).'\');'; ?>
+        <?php echo 'return $this->'.$type.'(\'App\\'.ucfirst($tab).'\');'; ?>
 
-<?php echo e("}"); ?>
+    <?php echo e("}"); ?>
 

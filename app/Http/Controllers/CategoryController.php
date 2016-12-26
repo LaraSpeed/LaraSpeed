@@ -18,8 +18,6 @@ class CategoryController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-
-
         return view('category_show', ['categorys' => Category::paginate(20)]);
     }
 
@@ -40,18 +38,17 @@ class CategoryController extends Controller {
     */
     public function store()
     {
-            $data = request()->all();
+        $data = request()->all();
 
-    $category = Category::create([
+        $category = Category::create([
              "name" => $data["name"],
-          ]);
+      ]);
 
-            if(request()->exists('film')){
-        $category->film()->attach($data["film"]);
+        if(request()->exists('film')){
+            $category->film()->attach($data["film"]);
         }
       
-        return redirect('/category');;
-    }
+        return redirect('/category');    }
 
     /**
     * Display the specified resource.
@@ -63,7 +60,8 @@ class CategoryController extends Controller {
     {
         request()->session()->forget("mutate");
         $category->load(array("film",));
-        return view('category_display', compact('category'));        }
+        return view('category_display', compact('category'));    
+    }
 
     /**
     * Show the form for editing the specified resource.
@@ -86,8 +84,7 @@ class CategoryController extends Controller {
     */
     public function update(Category $category )
     {
-            $category->update(request()->all());
-
+        $category->update(request()->all()); 
         return back();
     }
 
@@ -99,8 +96,7 @@ class CategoryController extends Controller {
     */
     public function destroy(Category $category )
     {
-            $category->delete();
-        return back();
+        $category->delete();         return back();
     }
 
     /**
@@ -123,7 +119,7 @@ class CategoryController extends Controller {
 
         $table = request()->get('tab');
         $category->load(array("film",));
-return view('category_related', compact(['category', 'table']));
+        return view('category_related', compact(['category', 'table']));
     }
 
     /**
@@ -150,8 +146,9 @@ return view('category_related', compact(['category', 'table']));
          ->orWhere('last_update', 'like', $keyword)
 
         ->paginate(20);
-    $categorys->setPath("search?keyword=$keyword");
-    return view('category_show', compact('categorys'));
+
+        $categorys->setPath("search?keyword=$keyword");
+        return view('category_show', compact('categorys'));
     }
 
     /**
@@ -161,11 +158,11 @@ return view('category_related', compact(['category', 'table']));
     public function sort(){
         $path = "";
 
-            request()->session()->forget("sortKey");
-    request()->session()->forget("sortOrder");
+        request()->session()->forget("sortKey");
+        request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
-$categorys = Category::query();
-         if(request()->exists('name')){
+        $categorys = Category::query();
+        if(request()->exists('name')){
             $categorys = $categorys->orderBy('name', $this->getOrder('name'));
             $path = "name";
         }else{
@@ -177,59 +174,60 @@ $categorys = Category::query();
 
     }else{
 
-    if(request()->exists('tab') == 'film'){
+      if(request()->exists('tab') == 'film'){
 
-                  if(request()->exists('title')){
+          if(request()->exists('title')){
              session(['sortOrder' => $this->getOrder('title')]);
              session(['sortKey' => 'title']);
         }else{
             request()->session()->forget("title");
         }
 
-                 if(request()->exists('description')){
+         if(request()->exists('description')){
              session(['sortOrder' => $this->getOrder('description')]);
              session(['sortKey' => 'description']);
         }else{
             request()->session()->forget("description");
         }
 
-                 if(request()->exists('release_year')){
+         if(request()->exists('release_year')){
              session(['sortOrder' => $this->getOrder('release_year')]);
              session(['sortKey' => 'release_year']);
         }else{
             request()->session()->forget("release_year");
         }
 
-                  if(request()->exists('rental_duration')){
+          if(request()->exists('rental_duration')){
              session(['sortOrder' => $this->getOrder('rental_duration')]);
              session(['sortKey' => 'rental_duration']);
         }else{
             request()->session()->forget("rental_duration");
         }
 
-                 if(request()->exists('rental_rate')){
+         if(request()->exists('rental_rate')){
              session(['sortOrder' => $this->getOrder('rental_rate')]);
              session(['sortKey' => 'rental_rate']);
         }else{
             request()->session()->forget("rental_rate");
         }
 
-                 if(request()->exists('length')){
+         if(request()->exists('length')){
              session(['sortOrder' => $this->getOrder('length')]);
              session(['sortKey' => 'length']);
         }else{
             request()->session()->forget("length");
         }
 
-                 if(request()->exists('replacement_cost')){
+         if(request()->exists('replacement_cost')){
              session(['sortOrder' => $this->getOrder('replacement_cost')]);
              session(['sortKey' => 'replacement_cost']);
         }else{
             request()->session()->forget("replacement_cost");
         }
 
-                    }
-             return back();
+            
+      }
+         return back();
     }
     }
 
@@ -242,12 +240,10 @@ $categorys = Category::query();
         return back();
     }
 
-
-
     function addFilm(Category $category ){
-    $category->film()->sync(request()->get('film'));
-    return back();
-}
+        $category->film()->sync(request()->get('film'));
+        return back();
+    }
  
     private function getOrder($param){
         if(session($param, "none") != "none"){

@@ -72,12 +72,11 @@
                     <thead>
                         <tr>
                                                    <!--class="{$attrType->formClass("table")}}"-->
-                            <th nowrap>
+                            <th class="center" nowrap>
                                 <a @if(session('name', 'none') == 'asc') href="{{url("/film/sort?name=1&tab=$table&asc")}}" @else href="{{url("/film/sort?name=1&tab=$table&desc")}}" @endif><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
-                            </th>   
-                            <th><a href=""><p>Actions</p></a></th>
-                            <th><a href=""><p>Relations</p></a></th>
-
+                            </th>                              
+                            <th class="center"><a href=""><p>Actions</p></a></th>
+                               
                         </tr>
                     </thead>
 
@@ -87,13 +86,14 @@
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="center">{{$category->name}}</td>
                                    
-                                <td>
+                                   
+                                <td class="center">
                                     <a href="{{url("/category/$category->category_id")}}"><i class="fa fa-arrows-alt"></i></a>
                                     <a href="{{url("/category/$category->category_id")}}/edit"><i class="fa fa-edit"></i></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')"><i class="fa fa-trash-o"></i></a>
                                 </td>
 
-                                                          </tr>
+                                                               </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>
@@ -113,4 +113,4 @@
     </section>        @else
 
         @endif
-@endsection
+ @endsection

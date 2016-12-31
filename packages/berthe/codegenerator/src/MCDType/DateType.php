@@ -36,7 +36,7 @@ class DateType extends TypeBaseClass implements FormableType
 
     function getForm($value = "")
     {
-        return FormTemplateProvider::date($this->attrName);
+        return FormTemplateProvider::date($this->attrName, $value);
     }
 
     function formClass($type = "form"){

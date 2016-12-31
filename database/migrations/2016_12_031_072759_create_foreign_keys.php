@@ -19,10 +19,6 @@ $table->integer('language_id')->unsigned()->index();
 
         });
 
-        Schema::table('delivery', function(Blueprint $table) {
-
-        });
-
     }
     public function down()
     {
@@ -35,10 +31,6 @@ $table->integer('language_id')->unsigned()->index();
         });
 
         Schema::table('category', function(Blueprint $table) {
-    
-        });
-
-        Schema::table('delivery', function(Blueprint $table) {
     
         });
 

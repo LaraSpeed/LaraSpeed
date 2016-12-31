@@ -70,7 +70,6 @@ class GeneratorCode  extends CallGenerator {
                 ->string("identifiant", true)
                 ->date("date", true)
                 ->longText("articles", false)
-                ->hasOne("film")
                 ->end();
 
         //Set Additional Route

@@ -57,7 +57,7 @@ class LanguageController extends Controller {
     {
         request()->session()->forget("mutate");
         $language->load(array("film",));
-        return view('language_display', compact('language'));    
+return view('language_display', compact('language'));
     }
 
     /**
@@ -70,7 +70,7 @@ class LanguageController extends Controller {
     {
         request()->session()->forget("mutate");
         $language->load(array("film",));
-        return view('language_edit', compact('language'));
+return view('language_edit', compact('language'));
     }
 
     /**
@@ -81,7 +81,26 @@ class LanguageController extends Controller {
     */
     public function update(Language $language )
     {
-        $language->update(request()->all()); 
+            $data = request()->all();
+
+    $updateFields = array();
+             $updateFields["name"] = $data["name"];
+      
+    $language->update($updateFields);
+
+            if(request()->exists('film')){
+
+            $newOnes = \App\Film::find(request()->get('film'));
+
+            foreach ($newOnes as $newOne){
+                $language->film()->save($newOne);
+            }
+
+        }
+      
+
+
+
         return back();
     }
 

@@ -11,11 +11,11 @@
 
     @endif @endforeach
 
-    @foreach($table['relations'] as $relation)
+    @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)
 
     S3Bif(isset(${!!$table['title'].'->'.$relation->getOtherTable()!!}))
         @include(/*$relation->getDisplayView()*/"mockup", ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs])
     S3Belse
         <label class="text-danger">No {{$relation->getOtherTable()}} related to this {{$relation->getTable()}}.</label>
     S3Bendif
-    @endforeach
+    @endforeach @endif

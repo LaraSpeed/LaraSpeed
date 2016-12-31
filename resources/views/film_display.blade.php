@@ -45,4 +45,4 @@
             @else
         <label class="text-danger">No category related to this film.</label>
     @endif
-    @endsection
+     @endsection

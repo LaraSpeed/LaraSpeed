@@ -71,7 +71,10 @@ class FormTemplateProvider
      * @param $name
      * @return string
      */
-    public static function date($name){
+    public static function date($name, $value=""){
+        if($value !== "")
+            return '<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="'.$name.'" value="'.$value.'" placeholder="MM/DD/-YYYY" type="text"/></div>';
+
         return '<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="'.$name.'" placeholder="MM/DD/-YYYY" type="text"/></div>';
     }
 }

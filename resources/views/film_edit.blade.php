@@ -40,16 +40,8 @@
             <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
         </div>
                
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Update" />
-        </div>
-
-    </form>
-
-        @if(isset($film->language))
+            @if(isset($film->language))
         <h3>Update Language</h3>
-<form action="{{url("/film/updateLanguage/$film->film_id")}}" method="post">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <select class="form-control" name="language">
         @forelse(\App\Language::all() as  $language)
         <option value="{{$language->language_id}}" @if($language->language_id == $film->language->language_id) selected = "selected" @endif>
@@ -59,15 +51,8 @@
         <option value="-1">No language</option>
         @endforelse
     </select><br/>
-
-    <input type="submit"  class="btn btn-primary" value="Update"/>
-</form>
     @else
                     <h3>Update Language</h3>
-    <form action="{{url("/film/updateLanguage/$film->film_id")}}" method="post">
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
         <select class="form-control" name="language">
             @forelse(\App\Language::all() as  $language)
                 <option value="{{$language->language_id}}">
@@ -76,15 +61,9 @@
             @empty
                 <option value="-1">No language</option>
             @endforelse
-        </select><br/>
-
-        <input type="submit"  class="btn btn-primary" value="Update"/>
-    </form>            @endif
+        </select><br/>            @endif
         @if(isset($film->category))
         <h3 class="text-danger">Associate Category</h3>
-    <form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
             @forelse(\App\Category::all() as  $category)
@@ -96,16 +75,8 @@
             @endforelse
 
         </select><br/>
-
-        <input type="submit"  class="btn btn-primary" value="Associate"/>
-
-    </form>
     @else
                     <h3 class="text-danger">Associate Category</h3>
-    <form action="{{url("/film/addCategory/$film->film_id")}}" method="post">
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
             @forelse(\App\Category::all() as  $category)
                 <option value="{{$category->category_id}}">
@@ -114,8 +85,10 @@
             @empty
                 <option value="-1">No category</option>
             @endforelse
-        </select><br/>
+        </select><br/>            @endif
+     
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
 
-        <input type="submit"  class="btn btn-primary" value="Associate"/>
-    s</form>            @endif
-    @endsection
+    </form>@endsection

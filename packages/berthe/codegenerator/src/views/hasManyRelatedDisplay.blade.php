@@ -59,12 +59,18 @@
                         <tr>
                         @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable())
                         <!--class="{$attrType->formClass("table")}}"-->
-                            <th nowrap>
+                            <th class="center" nowrap>
                                 <a S3Bif(session('{{$attrName}}', 'none') == 'asc') href="S2BOBRACKET{!!"url(\"/".$tab."/sort?$attrName=1&tab=$"."table&asc\")"!!}S2BCBRACKET" S3Belse href="S2BOBRACKET{!!"url(\"/".$tab."/sort?$attrName=1&tab=$"."table&desc\")"!!}S2BCBRACKET" S3Bendif><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif >{!! ucfirst(str_replace("_", " ", $attrName))!!} S3Bif(session('{{$attrName}}', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> S3Belseif(session('{{$attrName}}', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> S3Belse <span class="text-dark"><i class="fa fa-arrows-v"></i></span> S3Bendif</p></a>
                             </th>@endif @endforeach
 
-                            <th><a href=""><p>Actions</p></a></th>
-                            <th><a href=""><p>Relations</p></a></th>
+                            @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())
+                                <th class="center">
+                                    <a href=""><p>{{ucfirst($relation->getOtherTable())}}</p></a>
+                                </th>
+                            @endif @endforeach @endif
+
+                            <th class="center"><a href=""><p>Actions</p></a></th>
+                            <th class="center"><a href=""><p>Relations</p></a></th>
                         </tr>
                     </thead>
 
@@ -76,14 +82,20 @@
                                 <td class="center">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
                             @endif @endforeach
 
-                                <td>
+                                @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())
+                                 <td class="center">
+                                     S2BOBRACKET{!! "$".$otherTable.'->'.$relation->getOtherTable().'->'.$config->displayedAttributes($relation->getOtherTable())!!}S2BCBRACKET
+                                 </td>
+                            @endif @endforeach @endif
+
+                                <td class="center">
                                     <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET"><i class="fa fa-arrows-alt"></i></a>
                                     <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET/edit"><i class="fa fa-edit"></i></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')"><i class="fa fa-trash-o"></i></a>
                                 </td>
 
                             @foreach($tbs[$otherTable]['relations'] as $relation)
-                                <td>
+                                <td class="center">
                                     <form action="S2BOBRACKET{!!"url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                                         <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>

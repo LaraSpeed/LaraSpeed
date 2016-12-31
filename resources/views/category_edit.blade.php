@@ -10,17 +10,8 @@
             <input type ="text" class="form-control" name="name" value = "{{$category->name}}"placeholder="Name"  required />
         </div>
            
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Update" />
-        </div>
-
-    </form>
-
-        @if(isset($category->film))
+            @if(isset($category->film))
         <h3 class="text-danger">Associate Film</h3>
-    <form action="{{url("/category/addFilm/$category->category_id")}}" method="post">
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
             @forelse(\App\Film::all() as  $film)
@@ -32,16 +23,8 @@
             @endforelse
 
         </select><br/>
-
-        <input type="submit"  class="btn btn-primary" value="Associate"/>
-
-    </form>
     @else
                     <h3 class="text-danger">Associate Film</h3>
-    <form action="{{url("/category/addFilm/$category->category_id")}}" method="post">
-
-        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
             @forelse(\App\Film::all() as  $film)
                 <option value="{{$film->film_id}}">
@@ -50,8 +33,10 @@
             @empty
                 <option value="-1">No film</option>
             @endforelse
-        </select><br/>
+        </select><br/>            @endif
+     
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
 
-        <input type="submit"  class="btn btn-primary" value="Associate"/>
-    s</form>            @endif
-    @endsection
+    </form>@endsection

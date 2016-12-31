@@ -54,18 +54,18 @@
                     <thead>
                         <tr>
                                                        <!--class="{$attrType->formClass("table")}}"-->
-                            <th nowrap> <!-- -->
+                            <th class="center" nowrap> <!-- -->
                                 <a @if(session('identifiant', 'none') == 'asc') href="{{url("/delivery/sort?identifiant=1&asc")}}" @else href="{{url("/delivery/sort?identifiant=1&desc")}}" @endif><p @if(session('identifiant', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Identifiant @if(session('identifiant', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('identifiant', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th nowrap> <!-- -->
+                            <th class="center" nowrap> <!-- -->
                                 <a @if(session('date', 'none') == 'asc') href="{{url("/delivery/sort?date=1&asc")}}" @else href="{{url("/delivery/sort?date=1&desc")}}" @endif><p @if(session('date', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Date @if(session('date', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('date', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th nowrap> <!-- -->
+                            <th class="center" nowrap> <!-- -->
                                 <a @if(session('articles', 'none') == 'asc') href="{{url("/delivery/sort?articles=1&asc")}}" @else href="{{url("/delivery/sort?articles=1&desc")}}" @endif><p @if(session('articles', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Articles @if(session('articles', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('articles', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th> 
-                            <th><a href=""><p>Actions</p></a></th>
-                            <th><a href=""><p>Relations</p></a></th>
-                        </tr>
+                            
+                            <th class="center"><a href=""><p>Actions</p></a></th>
+                                                    </tr>
                     </thead>
 
                     <tbody>
@@ -78,19 +78,14 @@
                                                               <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="center">{{$delivery->articles}}</td>
                              
-                                <td>
+                                
+                                <td class="center">
                                     <a href="{{url("/delivery/$delivery->id")}}"><i class="fa fa-arrows-alt"></i></a>
                                     <a href="{{url("/delivery/$delivery->id")}}/edit"><i class="fa fa-edit"></i></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $delivery->identifiant}} ?', '{{url("/delivery/$delivery->id")}}')"><i class="fa fa-trash-o"></i></a>
                                 </td>
 
-                                                            <td>
-                                    <form action="{{url("/delivery/related/$delivery->id")}}" method="get">
-                                        <input type="hidden" name="tab" value="film" />
-                                        <button type="submit" class="btn btn-link">Film</button>
-                                    </form>
-                                </td>
-                                                        </tr>
+                                                            </tr>
                         @empty
                             <tr>
                                 <td colspan="4"><label class="text-danger">No delivery matching keyword {{session('keyword', 'Keyword')}}.</label></td>

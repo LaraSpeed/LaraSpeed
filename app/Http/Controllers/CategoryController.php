@@ -60,7 +60,7 @@ class CategoryController extends Controller {
     {
         request()->session()->forget("mutate");
         $category->load(array("film",));
-        return view('category_display', compact('category'));    
+return view('category_display', compact('category'));
     }
 
     /**
@@ -73,7 +73,7 @@ class CategoryController extends Controller {
     {
         request()->session()->forget("mutate");
         $category->load(array("film",));
-        return view('category_edit', compact('category'));
+return view('category_edit', compact('category'));
     }
 
     /**
@@ -84,7 +84,21 @@ class CategoryController extends Controller {
     */
     public function update(Category $category )
     {
-        $category->update(request()->all()); 
+            $data = request()->all();
+
+    $updateFields = array();
+             $updateFields["name"] = $data["name"];
+      
+    $category->update($updateFields);
+
+            if(request()->exists('film')){
+            $category->film()->sync(request()->get('film'));
+        }
+
+      
+
+
+
         return back();
     }
 

@@ -10,13 +10,7 @@
         </div>
         @endif @endforeach
 
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Update" />
-        </div>
-
-    </form>
-
-    @foreach($table['relations'] as $relation)
+        @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)
     S3Bif(isset(${!! $relation->getTable()."->".$relation->getOtherTable()!!}))
         @include($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config])
 
@@ -27,4 +21,10 @@
             @include("simpleBelongToMany", ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config])
         @endif
     S3Bendif
-    @endforeach
+    @endforeach @endif
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+
+    </form>

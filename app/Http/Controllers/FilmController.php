@@ -73,7 +73,7 @@ class FilmController extends Controller {
     {
         request()->session()->forget("mutate");
         $film->load(array("language","category",));
-        return view('film_display', compact('film'));    
+return view('film_display', compact('film'));
     }
 
     /**
@@ -86,7 +86,7 @@ class FilmController extends Controller {
     {
         request()->session()->forget("mutate");
         $film->load(array("language","category",));
-        return view('film_edit', compact('film'));
+return view('film_edit', compact('film'));
     }
 
     /**
@@ -97,7 +97,32 @@ class FilmController extends Controller {
     */
     public function update(Film $film )
     {
-        $film->update(request()->all()); 
+            $data = request()->all();
+
+    $updateFields = array();
+              $updateFields["title"] = $data["title"];
+             $updateFields["description"] = $data["description"];
+             $updateFields["release_year"] = $data["release_year"];
+              $updateFields["rental_duration"] = $data["rental_duration"];
+             $updateFields["rental_rate"] = $data["rental_rate"];
+             $updateFields["length"] = $data["length"];
+             $updateFields["replacement_cost"] = $data["replacement_cost"];
+        
+    $film->update($updateFields);
+
+            if(request()->exists('language')){
+            $language = \App\Language::find(request()->get('language'));
+            $film->language()->associate($language)->save();
+        }
+
+             if(request()->exists('category')){
+            $film->category()->sync(request()->get('category'));
+        }
+
+      
+
+
+
         return back();
     }
 

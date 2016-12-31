@@ -2,9 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Delivery;
-    use App\Film;
-
-     
+    
 class DeliveryController extends Controller {
 
     /**
@@ -46,7 +44,7 @@ class DeliveryController extends Controller {
          "articles" => $data["articles"],
      ]);
 
-      
+    
         return redirect('/delivery');    }
 
     /**
@@ -58,8 +56,7 @@ class DeliveryController extends Controller {
     public function show(Delivery $delivery )
     {
         request()->session()->forget("mutate");
-        $delivery->load(array("film",));
-        return view('delivery_display', compact('delivery'));    
+        return view('delivery_display', compact('delivery'));
     }
 
     /**
@@ -71,7 +68,6 @@ class DeliveryController extends Controller {
     public function edit(Delivery $delivery )
     {
         request()->session()->forget("mutate");
-        $delivery->load(array("film",));
         return view('delivery_edit', compact('delivery'));
     }
 
@@ -83,7 +79,19 @@ class DeliveryController extends Controller {
     */
     public function update(Delivery $delivery )
     {
-        $delivery->update(request()->all()); 
+            $data = request()->all();
+
+    $updateFields = array();
+             $updateFields["identifiant"] = $data["identifiant"];
+             $updateFields["date"] = $data["date"];
+             $updateFields["articles"] = $data["articles"];
+     
+    $delivery->update($updateFields);
+
+    
+
+
+
         return back();
     }
 
@@ -117,9 +125,7 @@ class DeliveryController extends Controller {
         }
 
         $table = request()->get('tab');
-        $delivery->load(array("film",));
-        return view('delivery_related', compact(['delivery', 'table']));
-    }
+            }
 
     /**
     * Search Table element By keyword
@@ -187,60 +193,7 @@ class DeliveryController extends Controller {
 
     }else{
 
-      if(request()->exists('tab') == 'film'){
-
-          if(request()->exists('title')){
-             session(['sortOrder' => $this->getOrder('title')]);
-             session(['sortKey' => 'title']);
-        }else{
-            request()->session()->forget("title");
-        }
-
-         if(request()->exists('description')){
-             session(['sortOrder' => $this->getOrder('description')]);
-             session(['sortKey' => 'description']);
-        }else{
-            request()->session()->forget("description");
-        }
-
-         if(request()->exists('release_year')){
-             session(['sortOrder' => $this->getOrder('release_year')]);
-             session(['sortKey' => 'release_year']);
-        }else{
-            request()->session()->forget("release_year");
-        }
-
-          if(request()->exists('rental_duration')){
-             session(['sortOrder' => $this->getOrder('rental_duration')]);
-             session(['sortKey' => 'rental_duration']);
-        }else{
-            request()->session()->forget("rental_duration");
-        }
-
-         if(request()->exists('rental_rate')){
-             session(['sortOrder' => $this->getOrder('rental_rate')]);
-             session(['sortKey' => 'rental_rate']);
-        }else{
-            request()->session()->forget("rental_rate");
-        }
-
-         if(request()->exists('length')){
-             session(['sortOrder' => $this->getOrder('length')]);
-             session(['sortKey' => 'length']);
-        }else{
-            request()->session()->forget("length");
-        }
-
-         if(request()->exists('replacement_cost')){
-             session(['sortOrder' => $this->getOrder('replacement_cost')]);
-             session(['sortKey' => 'replacement_cost']);
-        }else{
-            request()->session()->forget("replacement_cost");
-        }
-
-            
-      }
-         return back();
+        return back();
     }
     }
 
@@ -254,7 +207,6 @@ class DeliveryController extends Controller {
     }
 
     
- 
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

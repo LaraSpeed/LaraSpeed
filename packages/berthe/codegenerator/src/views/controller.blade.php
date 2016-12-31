@@ -3,7 +3,7 @@
 @section('modelNamespace'){{ucfirst($table['title'])}}@endsection
 
 @section('namespaces')
-    @if(key_exists("relations", $table))@foreach($table["relations"] as $relation){!! "use App\\".ucfirst($relation->getOtherTable()).";" !!}
+    @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation){!! "use App\\".ucfirst($relation->getOtherTable()).";" !!}
 
     @endforeach @endif
 @endsection
@@ -27,7 +27,7 @@ ${!! "data = request()->all();" !!}
 @endif @endforeach
     {!! "]);" !!}
 
-    @if(key_exists("relations", $table))@foreach($table["relations"] as $relation)@if($relation->isBelongsTo())
+    @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)@if($relation->isBelongsTo())
     {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
             ${!! $relation->getOtherTable()." = " !!}{!! ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));" !!}
             ${!! $table['title']."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();" !!}
@@ -44,31 +44,66 @@ ${!! "data = request()->all();" !!}
 
 @section('object'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>
-@section('show')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
+@section('show')@if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
 @include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
 
-        @include("showReturnValController", ['tab' => $relation->getTable(), "type" => "display"])
-    @endif
+@endif
+@include("showReturnValController", ['tab' => $table["title"], "type" => "display"])
 @endsection
 
 @section('editParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>
-@section('edit')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
+@section('edit')@if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
 @include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
 
-        @include("showReturnValController", ['tab' => $relation->getTable(), "type" => "edit"])
 @endif
+@include("showReturnValController", ['tab' => $table["title"], "type" => "edit"])
 @endsection
 
 @section('updateParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
-@section('update')${!! $table['title']."->update(request()->all());" !!} @endsection
+@section('update')
+    ${!! "data = request()->all();" !!}
+
+    ${!! "updateFields = array();" !!}
+    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
+        ${!! "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"];" !!}
+    @endif @endforeach
+
+    ${!! $table['title']."->update($"."updateFields);" !!}
+
+    @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)@if($relation->isBelongsTo())
+        {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
+            ${!! $relation->getOtherTable()." = " !!}{!! "\\App\\".ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));" !!}
+            ${!! $table["title"]."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();" !!}
+        {!! "}" !!}
+
+    @elseif($relation->isBelongsToMany())
+        {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
+            ${!! $table["title"]."->".$relation->getOtherTable()."()->sync(request()->get('".$relation->getOtherTable()."'));" !!}
+        {!! "}" !!}
+
+    @elseif($relation->isHasMany())
+        {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
+
+            ${!! "newOnes = \\App\\".ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));" !!}
+
+            {!! "foreach ($"."newOnes as $"."newOne){" !!}
+                ${!! $table["title"]."->".$relation->getOtherTable()."()->save($"."newOne);"!!}
+            {!! "}" !!}
+
+        {!! "}" !!}
+    @endif @endforeach @endif
+
+
+
+@endsection
 
 @section('deleteParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 @section('delete')${!! $table['title']."->delete();" !!} @endsection
 
 @section('relatedParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>
-@section('related')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
+@section('related')@if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
 @include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb), 'config' => $config])
 
         {!! "return view('".$relation->getTable()."_related', compact(['".$relation->getTable()."', 'table']));" !!}
@@ -105,7 +140,7 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::where('".$table['
 
     {!! "}else{" !!}
 
-    @if(key_exists("relations", $table))@foreach($table["relations"] as $relation)  {!!"if(request()->exists('tab') == '".$relation->getOtherTable()."'){" !!}
+    @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)  {!!"if(request()->exists('tab') == '".$relation->getOtherTable()."'){" !!}
 
         @foreach($tbs[$relation->getOtherTable()]['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
 {!!"if(request()->exists('$attrName')){" !!}
@@ -123,7 +158,7 @@ ${!! $table['title'].'s = ' !!}{!! ucfirst($table['title'])."::where('".$table['
     {!! "}" !!}
 @endsection
 
-@section('relations')@if(key_exists("relations", $table))@foreach($table["relations"] as $relation)
+@section('relations')@if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)
 @include($relation->getAction(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'tbs' => $tbs])
 
 @endforeach @endif

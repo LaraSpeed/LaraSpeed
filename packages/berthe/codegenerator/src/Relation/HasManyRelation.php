@@ -59,6 +59,11 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
         return $this->action;
     }
 
+    function isHasMany()
+    {
+        return true;
+    }
+
     function getRelationAccessor()
     {
         return $this->relationAccessor;

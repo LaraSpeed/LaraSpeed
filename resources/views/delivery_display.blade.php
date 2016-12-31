@@ -19,9 +19,4 @@
     <p>{{$delivery->articles}}</p>
 
      
-    
-    @if(isset($delivery->film))
-            @else
-        <label class="text-danger">No film related to this delivery.</label>
-    @endif
     @endsection

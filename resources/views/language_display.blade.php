@@ -16,4 +16,4 @@
             @else
         <label class="text-danger">No film related to this language.</label>
     @endif
-    @endsection
+     @endsection

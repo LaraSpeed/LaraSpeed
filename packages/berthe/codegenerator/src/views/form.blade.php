@@ -15,7 +15,7 @@
 		</div> <br/>
 		@endif @endforeach @endif
 
-	@if(array_key_exists('relations', $table))@foreach($table['relations'] as $relationType)@if($relationType->isBelongsTo())
+	@if(array_key_exists('relations', $table) && !empty($table["relations"]))@foreach($table['relations'] as $relationType)@if($relationType->isBelongsTo())
 		<div class="row">
 			<div class="col-md-2">
 				<label class="text-primary">{{ucfirst($relationType->getOtherTable())}} : </label>

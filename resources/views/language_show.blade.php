@@ -54,12 +54,13 @@
                     <thead>
                         <tr>
                                                        <!--class="{$attrType->formClass("table")}}"-->
-                            <th nowrap> <!-- -->
+                            <th class="center" nowrap> <!-- -->
                                 <a @if(session('name', 'none') == 'asc') href="{{url("/language/sort?name=1&asc")}}" @else href="{{url("/language/sort?name=1&desc")}}" @endif><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>   
-                            <th><a href=""><p>Actions</p></a></th>
-                            <th><a href=""><p>Relations</p></a></th>
-                        </tr>
+                                
+                            <th class="center"><a href=""><p>Actions</p></a></th>
+                                                        <th class="center"><a href=""><p>Relations</p></a></th>
+                                                    </tr>
                     </thead>
 
                     <tbody>
@@ -68,19 +69,20 @@
                                                                <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="center">{{$language->name}}</td>
                                
-                                <td>
+                                   
+                                <td class="center">
                                     <a href="{{url("/language/$language->language_id")}}"><i class="fa fa-arrows-alt"></i></a>
                                     <a href="{{url("/language/$language->language_id")}}/edit"><i class="fa fa-edit"></i></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $language->name}} ?', '{{url("/language/$language->language_id")}}')"><i class="fa fa-trash-o"></i></a>
                                 </td>
 
-                                                            <td>
+                                                                <td class="center">
                                     <form action="{{url("/language/related/$language->language_id")}}" method="get">
                                         <input type="hidden" name="tab" value="film" />
                                         <button type="submit" class="btn btn-link">Film</button>
                                     </form>
                                 </td>
-                                                        </tr>
+                                                          </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger">No language matching keyword {{session('keyword', 'Keyword')}}.</label></td>

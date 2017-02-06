@@ -10,6 +10,7 @@
             </div>
             <div class="modal-body">
                 <h3>@{{ description }}</h3>
+
                 <button type="button" ng-click="delete();" class="btn btn-primary">YES</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
 

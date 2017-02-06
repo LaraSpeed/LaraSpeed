@@ -53,4 +53,8 @@ class TypeBaseClass
     function isText(){
         return false;
     }
+
+    function isBoolean(){
+        return false;
+    }
 }

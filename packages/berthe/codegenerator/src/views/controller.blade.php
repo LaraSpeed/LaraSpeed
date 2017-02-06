@@ -22,8 +22,9 @@
 ${!! "data = request()->all();" !!}
 
         ${!! $table['title']." = " !!}{!! ucfirst($table['title'])."::create([" !!}
-    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
+    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@if(!$attrType->isBoolean())
         {!! "\"$attrName\" => $"."data[\"$attrName\"]," !!}
+        @else {!! "\"$attrName\" => ($"."data[\"$attrName\"] == 'on' ? 1:0)," !!} @endif
 @endif @endforeach
     {!! "]);" !!}
 

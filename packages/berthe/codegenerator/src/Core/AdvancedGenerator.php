@@ -82,20 +82,24 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 
     function generateLaravel(Templater $templater)
     {
-        foreach($this->mda as $tableName => $table){
-            
-            $table['title'] = $tableName; //var_dump($table['relations']);
+        try {
+            foreach($this->mda as $tableName => $table){
 
-            $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, "tbs" => $this->mda, "config" => $this->config]);
+                $table['title'] = $tableName; //var_dump($table['relations']);
 
-            $path = $templater->getPath($tableName);
+                $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, "tbs" => $this->mda, "config" => $this->config]);
 
-            $fileGenerator->put($path);
+                $path = $templater->getPath($tableName);
 
-            //Change Dir Right.
-            chmod($path, 0777);
+                $fileGenerator->put($path);
 
-            yield $path;
+                //Change Dir Right.
+                chmod($path, 0777);
+
+                yield $path;
+            }
+        }catch (\Exception $e){
+            echo $e->getMessage();
         }
     }
 

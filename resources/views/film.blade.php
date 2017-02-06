@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 <h1 class="text-danger">Film add form</h1>
-    <form action="{{url("/film")}}" method="post">     
+    <form action="{{url("/film")}}" method="post">   
 	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row">
@@ -19,11 +19,11 @@
 
         <div class="row">
 		    <div class="col-md-2">
-			    <label class="text-primary" id="description">Description * : </label>
+			    <label class="text-primary" id="description"> Description : </label>
 		    </div>
 
 		    <div class="col-md-7">
-			    <textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
+			    <textarea name="description" rows="10" cols="40" class="form-control" required></textarea>
 			</div>
 
 		</div> <br/>
@@ -32,24 +32,11 @@
 
         <div class="row">
 		    <div class="col-md-2">
-			    <label class="text-primary" id="release_year"> Release year : </label>
+			    <label class="text-primary" id="price">Price * : </label>
 		    </div>
 
 		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required />
-			</div>
-
-		</div> <br/>
-		    
-	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-        <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="rental_duration">Rental duration * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"placeholder="Rental duration"  required />
+			    <input type ="number" class="form-control" name="price"  data-plugin-maxlength="" maxlength="10"placeholder="Price"  required />
 			</div>
 
 		</div> <br/>
@@ -58,80 +45,35 @@
 
         <div class="row">
 		    <div class="col-md-2">
-			    <label class="text-primary" id="rental_rate">Rental rate * : </label>
+			    <label class="text-primary" id="famous"> Famous : </label>
 		    </div>
 
 		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"placeholder="Rental rate"  required />
+			    <input type ="checkbox" class="form-control" name="famous"  required />
 			</div>
 
 		</div> <br/>
 		  
-	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-        <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="length">Length * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"placeholder="Length"  required />
-			</div>
-
-		</div> <br/>
-		  
-	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-        <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="replacement_cost">Replacement cost * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />
-			</div>
-
-		</div> <br/>
-		        
 			<div class="row">
 			<div class="col-md-2">
-				<label class="text-primary">Language : </label>
+				<label class="text-primary">Director : </label>
 			</div>
 
 			<div class="col-md-5">
-				<select class="form-control" name="language">
-					@forelse(\App\Language::all() as  $language)
-					    <option value="{{$language->language_id}}" @if(session('defaultSelect', 'none') == $language->language_id) {{"selected=\"\"selected\""}} @endif>
-						    {{$language->name}}
+				<select class="form-control" name="director">
+					@forelse(\App\Director::all() as  $director)
+					    <option value="{{$director->id}}" @if(session('defaultSelect', 'none') == $director->id) {{"selected=\"\"selected\""}} @endif>
+						    {{$director->name}}
 					    </option>
 					@empty
-					    <option value="-1">No language</option>
+					    <option value="-1">No director</option>
 					@endforelse
 				</select>
 			</div>
 
 		</div><br/>
 
-		 		<div class="row">
-
-			<div class="col-md-2">
-				<label class="text-primary">Categorys : </label>
-			</div>
-
-			<div class="col-md-7">
-				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
-					@forelse(\App\Category::all() as  $category)
-					    <option value="{{$category->category_id}}" @if(session('defaultSelect', 'none') == $category->category_id) {{"selected=\"\"selected\""}} @endif>
-					{{$category->name}}
-					    </option>
-					@empty
-					    <option value="-1">No category</option>
-					@endforelse
-				</select>
-			</div>
-
-		</div><br/>
-	  
+		  
 		<div class="row">
 
 			<div class="col-md-2">

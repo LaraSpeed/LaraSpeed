@@ -2,9 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Film;
-    use App\Language;
-
-    use App\Category;
+    use App\Director;
 
      
 class FilmController extends Controller {
@@ -43,23 +41,16 @@ class FilmController extends Controller {
         $data = request()->all();
 
         $film = Film::create([
-              "title" => $data["title"],
-         "description" => $data["description"],
-         "release_year" => $data["release_year"],
-          "rental_duration" => $data["rental_duration"],
-         "rental_rate" => $data["rental_rate"],
-         "length" => $data["length"],
-         "replacement_cost" => $data["replacement_cost"],
-        ]);
+             "title" => $data["title"],
+                 "description" => $data["description"],
+                 "price" => $data["price"],
+          "famous" => ($data["famous"] == 'on' ? 1:0),      ]);
 
-        if(request()->exists('language')){
-            $language = Language::find(request()->get('language'));
-            $film->language()->associate($language)->save();
+        if(request()->exists('director')){
+            $director = Director::find(request()->get('director'));
+            $film->director()->associate($director)->save();
          }
 
-         if(request()->exists('category')){
-            $film->category()->attach($data["category"]);
-        }
       
         return redirect('/film');    }
 
@@ -72,7 +63,7 @@ class FilmController extends Controller {
     public function show(Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category",));
+        $film->load(array("director",));
 return view('film_display', compact('film'));
     }
 
@@ -85,7 +76,7 @@ return view('film_display', compact('film'));
     public function edit(Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category",));
+        $film->load(array("director",));
 return view('film_edit', compact('film'));
     }
 
@@ -100,23 +91,16 @@ return view('film_edit', compact('film'));
             $data = request()->all();
 
     $updateFields = array();
-              $updateFields["title"] = $data["title"];
+             $updateFields["title"] = $data["title"];
              $updateFields["description"] = $data["description"];
-             $updateFields["release_year"] = $data["release_year"];
-              $updateFields["rental_duration"] = $data["rental_duration"];
-             $updateFields["rental_rate"] = $data["rental_rate"];
-             $updateFields["length"] = $data["length"];
-             $updateFields["replacement_cost"] = $data["replacement_cost"];
-        
+             $updateFields["price"] = $data["price"];
+             $updateFields["famous"] = $data["famous"];
+     
     $film->update($updateFields);
 
-            if(request()->exists('language')){
-            $language = \App\Language::find(request()->get('language'));
-            $film->language()->associate($language)->save();
-        }
-
-             if(request()->exists('category')){
-            $film->category()->sync(request()->get('category'));
+            if(request()->exists('director')){
+            $director = \App\Director::find(request()->get('director'));
+            $film->director()->associate($director)->save();
         }
 
       
@@ -156,7 +140,7 @@ return view('film_edit', compact('film'));
         }
 
         $table = request()->get('tab');
-        $film->load(array("language","category",));
+        $film->load(array("director",));
         return view('film_related', compact(['film', 'table']));
     }
 
@@ -176,32 +160,16 @@ return view('film_edit', compact('film'));
 
         $keyword = '%'.$keyword.'%';
 
-        $films = Film::where('film_id', 'like', $keyword)
-         ->orWhere('film_id', 'like', $keyword)
-
-         ->orWhere('language_id', 'like', $keyword)
+        $films = Film::where('id', 'like', $keyword)
+         ->orWhere('id', 'like', $keyword)
 
          ->orWhere('title', 'like', $keyword)
 
          ->orWhere('description', 'like', $keyword)
 
-         ->orWhere('release_year', 'like', $keyword)
+         ->orWhere('price', 'like', $keyword)
 
-         ->orWhere('original_language_id', 'like', $keyword)
-
-         ->orWhere('rental_duration', 'like', $keyword)
-
-         ->orWhere('rental_rate', 'like', $keyword)
-
-         ->orWhere('length', 'like', $keyword)
-
-         ->orWhere('replacement_cost', 'like', $keyword)
-
-         ->orWhere('rating', 'like', $keyword)
-
-         ->orWhere('special_features', 'like', $keyword)
-
-         ->orWhere('last_update', 'like', $keyword)
+         ->orWhere('famous', 'like', $keyword)
 
         ->paginate(20);
 
@@ -220,7 +188,7 @@ return view('film_edit', compact('film'));
         request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
         $films = Film::query();
-         if(request()->exists('title')){
+        if(request()->exists('title')){
             $films = $films->orderBy('title', $this->getOrder('title'));
             $path = "title";
         }else{
@@ -232,43 +200,25 @@ return view('film_edit', compact('film'));
         }else{
             request()->session()->forget("description");
         }
-        if(request()->exists('release_year')){
-            $films = $films->orderBy('release_year', $this->getOrder('release_year'));
-            $path = "release_year";
+        if(request()->exists('price')){
+            $films = $films->orderBy('price', $this->getOrder('price'));
+            $path = "price";
         }else{
-            request()->session()->forget("release_year");
+            request()->session()->forget("price");
         }
-         if(request()->exists('rental_duration')){
-            $films = $films->orderBy('rental_duration', $this->getOrder('rental_duration'));
-            $path = "rental_duration";
+        if(request()->exists('famous')){
+            $films = $films->orderBy('famous', $this->getOrder('famous'));
+            $path = "famous";
         }else{
-            request()->session()->forget("rental_duration");
+            request()->session()->forget("famous");
         }
-        if(request()->exists('rental_rate')){
-            $films = $films->orderBy('rental_rate', $this->getOrder('rental_rate'));
-            $path = "rental_rate";
-        }else{
-            request()->session()->forget("rental_rate");
-        }
-        if(request()->exists('length')){
-            $films = $films->orderBy('length', $this->getOrder('length'));
-            $path = "length";
-        }else{
-            request()->session()->forget("length");
-        }
-        if(request()->exists('replacement_cost')){
-            $films = $films->orderBy('replacement_cost', $this->getOrder('replacement_cost'));
-            $path = "replacement_cost";
-        }else{
-            request()->session()->forget("replacement_cost");
-        }
-            $films = $films->paginate(20);
+         $films = $films->paginate(20);
         $films->setPath("sort?$path");
         return view('film_show', compact('films'));
 
     }else{
 
-      if(request()->exists('tab') == 'language'){
+      if(request()->exists('tab') == 'director'){
 
          if(request()->exists('name')){
              session(['sortOrder' => $this->getOrder('name')]);
@@ -277,18 +227,21 @@ return view('film_edit', compact('film'));
             request()->session()->forget("name");
         }
 
-          
-      }
-      if(request()->exists('tab') == 'category'){
-
-         if(request()->exists('name')){
-             session(['sortOrder' => $this->getOrder('name')]);
-             session(['sortKey' => 'name']);
+         if(request()->exists('birth')){
+             session(['sortOrder' => $this->getOrder('birth')]);
+             session(['sortKey' => 'birth']);
         }else{
-            request()->session()->forget("name");
+            request()->session()->forget("birth");
         }
 
-          
+         if(request()->exists('bio')){
+             session(['sortOrder' => $this->getOrder('bio')]);
+             session(['sortKey' => 'bio']);
+        }else{
+            request()->session()->forget("bio");
+        }
+
+         
       }
          return back();
     }
@@ -303,13 +256,9 @@ return view('film_edit', compact('film'));
         return back();
     }
 
-    function updateLanguage(Film $film ){
-        $language = \App\Language::find(request()->get('language'));
-        $film->language()->associate($language)->save();
-        return back();
-    }
-function addCategory(Film $film ){
-        $film->category()->sync(request()->get('category'));
+    function updateDirector(Film $film ){
+        $director = \App\Director::find(request()->get('director'));
+        $film->director()->associate($director)->save();
         return back();
     }
  

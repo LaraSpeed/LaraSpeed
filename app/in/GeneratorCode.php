@@ -19,11 +19,14 @@ class GeneratorCode  extends CallGenerator {
 
         //Attribute which should be displayed for each tables when needed one Attribute
         "displayAttributes" => array(
+
+            /** Todo 1 : Delete lines below (Example) */
+
             "film" => "title",
-            "language" => "name",
-            "category" => "name",
-            "delivery" => "identifiant",
-            "users" => "name"
+            "director" => "name",
+
+            /** Todo 4 : Define Every table's Single Attribute to display */
+
         ),
     );
 
@@ -32,45 +35,31 @@ class GeneratorCode  extends CallGenerator {
 
         $mcd = new MCD();
 
+        /** Todo 2 : Delete lines below  (Example) */
+
         $mcd->table("film")
-                ->increments("film_id")
-                ->smallInteger("language_id")
-                ->string("title", true, 255)
-                ->text("description", true)
-                ->integer("release_year")
-                ->smallInteger("original_language_id")
-                ->tinyInteger("rental_duration")
-                ->decimal("rental_rate", true, 4, 2)
-                ->tinyInteger("length")
-                ->decimal("replacement_cost", true, 5, 2)
-                ->enum("rating", array('G', 'PG', 'PG-1', 'R', 'NC-17'))
-                //This May be Set
-                ->set("special_features", array('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind The Scenes'))
-                ->timeStamp("last_update")
-                ->belongsTo("language")
-                ->belongsToMany("category")
-                ->end()
-
-            ->table("language")
-                ->increments("language_id")
-                ->string("name", true, 20)
-                ->timeStamp("last_update")
-                ->hasMany("film")
-                ->end()
-
-            ->table("category")
-                ->smallInteger("category_id")
-                ->string("name", true, 25)
-                ->timeStamp("last_update")
-                ->belongsToMany("film")
-                ->end()
-
-            ->table("delivery")
                 ->increments("id")
-                ->string("identifiant", true)
-                ->date("date", true)
-                ->longText("articles", false)
+                ->string("title", true)
+                ->longText("description")
+                ->double("price", true, 4, 2)
+                ->boolean("famous", false)
+                ->belongsTo("director")
+                ->end()
+
+            ->table("director")
+                ->increments("id")
+                ->string("name", true, 50) //true => required in form
+                ->date("birth")
+                ->text("bio", false) //false => Not required in form
+                ->hasMany("film")
                 ->end();
+
+
+        /** Todo 3 : Define your Conceptual Data Model Tables and Relations (Tables should be created in "alphabetical" order ) */
+
+        //$mcd->table("...")........
+
+
 
         //Set Additional Route
         parent::setRoutes($mcd->getRoutes());
@@ -78,16 +67,3 @@ class GeneratorCode  extends CallGenerator {
         return $mcd->getSite();
     }
 }
-
-/*$this->site = [
-     //Table Film
-     "film" => [
-         "attributs" => ["titre" => "", "annee" => 0],
-         "relations" => ["hasMany" => ["acteur"]],
-     ],
-     //Table Acteur
-     "acteur" => [
-         "attributs" => ["nom" => "", "age" => 0],
-         "relations" => ["belongsTo" => ["film"]],
-     ],
- ];*/

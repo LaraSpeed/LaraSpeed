@@ -43,4 +43,8 @@ class BooleanType extends TypeBaseClass implements FormableType
 
         return Variable::$C_NUMERIC;
     }
+
+    function isBoolean(){
+        return true;
+    }
 }

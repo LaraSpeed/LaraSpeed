@@ -1,0 +1,1 @@
+This package contains Templater classes use to provide path and out directory for generated files. 

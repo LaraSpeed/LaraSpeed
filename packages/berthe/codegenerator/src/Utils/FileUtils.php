@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 02/10/16
  * Time: 12:18 م
+ *
+ * This class is a Kind of Utility class for files
  */
 
 namespace Berthe\Codegenerator\Utils;

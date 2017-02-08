@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 02/10/16
  * Time: 02:57 م
+ *
+ * This class handle Generation of "routes" for Laravel 5.3
  */
 
 namespace Berthe\Codegenerator\Routess;
@@ -16,6 +18,12 @@ use Berthe\Codegenerator\Utils\FileUtils;
 class Laravel53Route implements RouteManagerInterface
 {
 
+    /**
+     * Add resource "routes" for table passed has arguments
+     * And Also handle "sort table", "access to related table" and "search element in table" routes
+     *
+     * @param $tableName
+     */
     static function addResourceRoute($tableName)
     {
 
@@ -43,6 +51,11 @@ class Laravel53Route implements RouteManagerInterface
 
     }
 
+    /**
+     * Add route passed has argument
+     *
+     * @param $routes
+     */
     static function addAdditionRoutes($routes)
     {
         $content = file_get_contents(base_path('routes/').'web.php');

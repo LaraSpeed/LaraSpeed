@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 11/10/16
  * Time: 12:23 م
+ *
+ * This Class handle parameter necessary for generating Edit table element forms, We found thing like "path to resource view".
  */
 
 namespace Berthe\Codegenerator\Templates;
@@ -11,7 +13,18 @@ namespace Berthe\Codegenerator\Templates;
 
 class EditTemplate extends Templater
 {
+    /**
+     * Type of template name
+     *
+     * @var string
+     */
     public $template = "edit";
+
+    /**
+     * Path to Edit resource view folder
+     *
+     * @var string
+     */
     public $outDir = "resources/views";
 
     /**

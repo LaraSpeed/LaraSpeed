@@ -1,4 +1,10 @@
 <?php
+/**
+ *
+ * This Class represent the intermediate between This package and the Laravel project,
+ *
+ * Declare classes in package level in oder to let them been usable in project level
+ */
 
 namespace Berthe\Codegenerator;
 

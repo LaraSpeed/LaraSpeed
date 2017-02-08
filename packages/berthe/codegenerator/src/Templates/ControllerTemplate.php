@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 02/10/16
  * Time: 12:00 م
+ *
+ * This Class handle parameter necessary for generating controller, We found thing like "path to controller"
  */
 
 namespace Berthe\Codegenerator\Templates;
@@ -11,7 +13,18 @@ namespace Berthe\Codegenerator\Templates;
 
 class ControllerTemplate extends Templater
 {
+    /**
+     * Type of template name
+     *
+     * @var string
+     */
     public $template = "controller";
+
+    /**
+     * Path to the controller in Laravel project
+     *
+     * @var string
+     */
     public $outDir =  "app/Http/Controllers";
 
     /**

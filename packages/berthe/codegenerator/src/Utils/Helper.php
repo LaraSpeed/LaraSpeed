@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 03/10/16
  * Time: 04:03 م
+ *
+ * This class is a simple Helper class used to perform simple operation like "Camel Case String"....
  */
 
 namespace Berthe\Codegenerator\Utils;
@@ -11,6 +13,12 @@ namespace Berthe\Codegenerator\Utils;
 
 class Helper
 {
+    /**
+     * Create String containing array definition (Something like : "[.....]")
+     *
+     * @param $array
+     * @return string
+     */
     public static function createStringArray($array){
         $str = "array(";
         $i = 0;

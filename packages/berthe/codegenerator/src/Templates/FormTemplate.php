@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 02/10/16
  * Time: 11:51 ص
+ *
+ * This Class handle parameter necessary for generating insertion forms, We found thing like "path to resource view".
  */
 
 namespace Berthe\Codegenerator\Templates;
@@ -15,9 +17,32 @@ use Berthe\Codegenerator\Utils\Variable;
 
 class FormTemplate extends Templater
 {
+    /**
+     * Template Type name
+     *
+     * @var string
+     */
     public $template = "form";
+
+    /**
+     * Path to form resource view folder
+     *
+     * @var string
+     */
     public $outDir = "resources/views";
+
+    /**
+     * Laravel version
+     *
+     * @var string
+     */
     public $version;
+
+    /**
+     * Additional route to add for the table
+     *
+     * @var array
+     */
     public $routes;
 
     public function __construct($version = "", $routes = array())

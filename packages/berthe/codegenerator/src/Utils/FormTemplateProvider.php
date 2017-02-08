@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 03/10/16
  * Time: 10:55 ص
+ *
+ * This Class is used to create HTML elements using function.
  */
 
 namespace Berthe\Codegenerator\Utils;

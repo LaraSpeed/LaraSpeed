@@ -1,5 +1,10 @@
 <?php
 
+/**
+ *
+ * This class is the actual definition of the "php artisan code:generate command"
+ */
+
 namespace Berthe\Codegenerator;
 
 use Illuminate\Console\Command;

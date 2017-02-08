@@ -34,21 +34,58 @@ use Berthe\Codegenerator\Relation\HasOneRelation;
 
 class MCD
 {
+    /**
+     * Tables informations and relation
+     *
+     * @var array
+     */
     private $tables;
 
+    /**
+     * Current table name (when you write $mcd->table("....") => the name of the table will be store in this variable)
+     *
+     * @var string
+     */
     private $currentTableName;
 
+    /**
+     * List of attributes for the current table (table which name is in $currentTable attributes)
+     *
+     * @var array
+     */
     private $currentAttributes;
 
+    /**
+     * List of relation for the current table (table which name is in $currentTable attributes)
+     *
+     * @var array
+     */
     private $currentRelations;
 
+    /**
+     *
+     * Track the end of a single table definition
+     * @var bool
+     */
     private $isEnded;
 
-    private $hasId = false; //Track whether current table has an ID setUp
+    /**
+     * Track whether current table has an ID setUp
+     *
+     * @var bool
+     */
+    private $hasId = false;
 
+    /**
+     * List of Additional Routes for tables relations
+     *
+     * @var array
+     */
     private $routes;
 
-
+    /**
+     * MCD constructor.
+     */
     public function __construct()
     {
         $this->tables = array();
@@ -58,6 +95,9 @@ class MCD
         $this->init();
     }
 
+    /**
+     * Init Attributes for a new table definition
+     */
     private function init(){
         $this->currentTableName = "table";
         $this->currentAttributes = array();
@@ -66,6 +106,11 @@ class MCD
         $this->hasId = false;
     }
 
+    /**
+     * Set an Id for the current table
+     *
+     * @param $id int
+     */
     private function setTableID($id)
     {
         if (!$this->hasId) {
@@ -74,6 +119,10 @@ class MCD
         }
     }
 
+    /**
+     * Get Additional routes to add for tables relations
+     * @return array
+     */
     public function getRoutes(){
         return $this->routes;
     }
@@ -363,6 +412,11 @@ class MCD
         return $this;
     }
 
+    /**
+     * Get the Conceptual Data Model as an array
+     *
+     * @return array
+     */
     public function getSite(){
         return $this->tables;
     }

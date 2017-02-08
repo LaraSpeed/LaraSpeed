@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 02/10/16
  * Time: 01:41 م
+ *
+ *This Class is the core class of the application, it define the actual definition of code generation logic for different components.
  */
 
 namespace Berthe\Codegenerator\Core;
@@ -26,9 +28,37 @@ use Berthe\Codegenerator\Utils\TemplateProvider;
 
 class AdvancedGenerator implements IAdvancedLaravelGenerator
 {
+    /**
+     * Contains the Conceptual Data Model as an array with the following structure :
+     *
+     *  [
+     *      //Table
+     *      "table1" => [
+     *          "attributes" => ["attribute1" => Type, "attribute2" => Type...],
+     *          "relations" => ["RelationType" => ["table1", "table2"...]],
+     *      ],
+     *      ...
+     *  ]
+     *
+     * @var array
+     */
     public $mda;
+
+
+
+    /**
+     * Contains the Configuration variable defined in "app/in/GeneratorCode.php"
+     *
+     * @var BasicConfig
+     */
     public $config;
-    
+
+
+    /**
+     * List of resources (css and js files for example) to be initially loaded.
+     *
+     * @var array
+     */
     public $resources = array(
         //Add ressources like "Input" => "Output"
 
@@ -60,15 +90,31 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         "glyphicons-halflings-regular.woff" => "public/fonts/glyphicons-halflings-regular.woff",
         "glyphicons-halflings-regular.woff2" => "public/fonts/glyphicons-halflings-regular.woff2"
     );
-    
+
+    /**
+     * List of image files to loaded.
+     *
+     * @var array
+     */
     public $img = array(
         "asc.png" => "public/asc.png",
         "desc.png" => "public/desc.png",
         "none.png" => "public/none.png"
     );
 
+    /**
+     * List of route needed for relation between tables
+     * @var array
+     */
     public $routes;
 
+
+    /**
+     * AdvancedGenerator constructor.
+     * @param array $table
+     * @param array $config
+     * @param array $routes
+     */
     public function __construct($table = array(), $config = array(), $routes = array())
     {
         $this->mda = $table;
@@ -80,6 +126,12 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         
     }
 
+    /**
+     * Generate single components (Controller, Model, ....) file for every table based on it's parameter Templater.
+     *
+     * @param Templater $templater
+     * @return \Generator
+     */
     function generateLaravel(Templater $templater)
     {
         foreach($this->mda as $tableName => $table){
@@ -99,46 +151,94 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         }
     }
 
+    /**
+     * Generate Model
+     *
+     * @return void
+     */
     function generateLaravelModel()
     {
         FileUtils::normalizeFile("<?php \n", $this->generateLaravel(new ModelTemplate), new BasicNormalization);
     }
 
+    /**
+     * Generate Schema
+     *
+     * @return void
+     */
     function generateLaravelSchema()
     {
         FileUtils::normalizeFile("<?php \n", $this->generateLaravel(new SchemaTemplate), new BasicNormalization);
     }
 
+    /**
+     * Generate Controller
+     *
+     * @return void
+     */
     function generateLaravelController()
     {
         FileUtils::normalizeFile("<?php \n", $this->generateLaravel(new ControllerTemplate), new BasicNormalization);
     }
 
+    /**
+     * Generate Creation Form
+     *
+     * @return void
+     */
     function generateLaravelForm()
     {
         FileUtils::normalizeFile("", $this->generateLaravel(new FormTemplate($this->config->version(), $this->routes)), new InheritMaster(new BasicNormalization));
     }
 
+
+    /**
+     * Generate list of table elements list.
+     *
+     */
     public function generateLaravelShowForm()
     {
         FileUtils::normalizeFile("", $this->generateLaravel(new DisplayTemplate), new InheritMaster(new BasicNormalization));
     }
 
+    /**
+     * Generate single table element view
+     *
+     * @return void
+     */
     public function generateLaravelDisplaySingleElement()
     {
         FileUtils::normalizeFile("", $this->generateLaravel(new SingleDisplayTemplate), new InheritMaster(new BasicNormalization));
     }
 
+    /**
+     * Generate Edit form
+     *
+     * @return void
+     */
     public function generateLaravelEditForm()
     {
         FileUtils::normalizeFile("", $this->generateLaravel(new EditTemplate), new InheritMaster(new BasicNormalization));
     }
 
+    /**
+     * Generate relation betwwen tables display form
+     *
+     * @return void
+     */
     public function generateLaravelRelatedForm()
     {
         FileUtils::normalizeFile("", $this->generateLaravel(new RelatedTemplate), new InheritMaster(new BasicNormalization));
     }
 
+
+    /**
+     * Generate component based on it name (Form, Controller)
+     *
+     * NB : This is used to hide generateForm(), generateController(), ... methods implementation
+     *
+     * @param string $type
+     */
     public function generate($type = "Form")
     {
         echo "Generate ".$type." started !\n";
@@ -147,6 +247,12 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         echo "Generate ".$type." finished !\n";
     }
 
+    /**
+     * Generate Constraint for the Schema
+     *
+     * @param string $template
+     * @param string $outdir
+     */
     public function generateLaravelSchemaConstraint($template = "constraints", $outdir = "")
     {
         $tbs = $this->mda;
@@ -157,6 +263,11 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         FileUtils::prependString("<?php \n", $path);
     }
 
+    /**
+     * Generate one components based on the Templater Specified, his differ from "generateLaravel()" method which generate all components.
+     *
+     * @param Templater $templater
+     */
     public function generateLaravelSimpleFile(Templater $templater)
     {
         $tbs = $this->mda;

@@ -1,5 +1,0 @@
-<div class="form-group">
-    <label></label>
-    <select class="form-control">
-    </select>
-</div>

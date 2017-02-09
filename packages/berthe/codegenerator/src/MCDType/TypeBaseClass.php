@@ -13,11 +13,6 @@ use Berthe\Codegenerator\Utils\Variable;
 
 class TypeBaseClass
 {
-    /**
-     * Determine whether the attribute associated to this type is required
-     *
-     * @var bool
-     */
     public $required;
 
     function getDBFunction()
@@ -56,6 +51,10 @@ class TypeBaseClass
     }
 
     function isText(){
+        return false;
+    }
+
+    function isBoolean(){
         return false;
     }
 }

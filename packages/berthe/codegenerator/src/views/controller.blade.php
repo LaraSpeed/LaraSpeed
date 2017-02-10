@@ -41,7 +41,7 @@ ${!! "data = request()->all();" !!}
     @endif @endforeach @endif
 @endsection
 
-@section('store'){!!"redirect('/".$table['title']."');"!!}@endsection
+@section('store'){!! "isset($"."data['carl'])?redirect('/".$table['title']."'):back();"!!}@endsection
 
 @section('object'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>

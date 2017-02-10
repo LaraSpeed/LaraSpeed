@@ -51,7 +51,7 @@ $<?php echo "data = request()->all();"; ?>
     <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('store'); ?><?php echo "redirect('/".$table['title']."');"; ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('store'); ?><?php echo "isset($"."data['carl'])?redirect('/".$table['title']."'):back();"; ?><?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('object'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>

@@ -54,17 +54,17 @@
                     <thead>
                         <tr>
                                                        <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap> <!-- -->
+                            <th class="center text-md" nowrap> <!-- -->
                                 <a @if(session('identifiant', 'none') == 'asc') href="{{url("/delivery/sort?identifiant=1&asc")}}" @else href="{{url("/delivery/sort?identifiant=1&desc")}}" @endif><p @if(session('identifiant', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Identifiant @if(session('identifiant', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('identifiant', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap> <!-- -->
+                            <th class="center text-md" nowrap> <!-- -->
                                 <a @if(session('date', 'none') == 'asc') href="{{url("/delivery/sort?date=1&asc")}}" @else href="{{url("/delivery/sort?date=1&desc")}}" @endif><p @if(session('date', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Date @if(session('date', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('date', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap> <!-- -->
+                            <th class="center text-md" nowrap> <!-- -->
                                 <a @if(session('articles', 'none') == 'asc') href="{{url("/delivery/sort?articles=1&asc")}}" @else href="{{url("/delivery/sort?articles=1&desc")}}" @endif><p @if(session('articles', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Articles @if(session('articles', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('articles', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th> 
                             
-                            <th class="center"><a href=""><p>Actions</p></a></th>
+                            <th class="center text-md"><a href=""><p>Actions</p></a></th>
                                                     </tr>
                     </thead>
 
@@ -80,9 +80,11 @@
                              
                                 
                                 <td class="center">
-                                    <a href="{{url("/delivery/$delivery->id")}}"><i class="fa fa-arrows-alt"></i></a>
-                                    <a href="{{url("/delivery/$delivery->id")}}/edit"><i class="fa fa-edit"></i></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $delivery->identifiant}} ?', '{{url("/delivery/$delivery->id")}}')"><i class="fa fa-trash-o"></i></a>
+                                    <a href="{{url("/delivery/$delivery->id")}}" data-toggle="tooltip" data-placement="top" title="Display">
+                                        <i class="fa fa-arrows-alt fa-lg"></i>
+                                    </a>
+                                    <a href="{{url("/delivery/$delivery->id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $delivery->identifiant}} ?', '{{url("/delivery/$delivery->id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
                                 </td>
 
                                                             </tr>

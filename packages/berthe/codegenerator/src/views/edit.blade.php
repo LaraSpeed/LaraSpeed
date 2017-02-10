@@ -5,7 +5,7 @@
         @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
         <div class="form-group">
-            <label class="text-danger">{{ucfirst(str_replace("_", " ", $attrName))}} : </label>
+            <label class="text-danger text-md">{{ucfirst(str_replace("_", " ", $attrName))}} : </label>
             {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET")!!}
         </div>
         @endif @endforeach

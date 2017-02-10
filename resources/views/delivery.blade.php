@@ -5,8 +5,8 @@
 	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="identifiant">Identifiant * : </label>
+		    <div class="col-md-3">
+			    <label class="text-primary text-md" id="identifiant">Identifiant * : </label>
 		    </div>
 
 		    <div class="col-md-7">
@@ -18,8 +18,8 @@
 	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="date">Date * : </label>
+		    <div class="col-md-3">
+			    <label class="text-primary text-md" id="date">Date * : </label>
 		    </div>
 
 		    <div class="col-md-2">
@@ -31,8 +31,8 @@
 	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="articles"> Articles : </label>
+		    <div class="col-md-3">
+			    <label class="text-primary text-md" id="articles"> Articles : </label>
 		    </div>
 
 		    <div class="col-md-7">
@@ -44,8 +44,8 @@
 	
 		<div class="row">
 
-			<div class="col-md-2">
-				<label class="text-danger"> * = Mandatory fields</label>
+			<div class="col-md-3">
+				<label class="text-danger text-md"> * = Mandatory fields</label>
 			</div>
 
 		</div> <br/>

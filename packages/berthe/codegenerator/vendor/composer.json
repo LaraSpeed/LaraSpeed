@@ -1,0 +1,21 @@
+{
+    "name": "berthe/codegenerator",
+    "description": "\"Laravel MCD Code Generator\"",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Seydou Berthe",
+            "email": "seydouberthe100@gmaill.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "philo/laravel-blade": "^3.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Berthe\\Codegenerator\\": "src/"
+        }
+    }
+}

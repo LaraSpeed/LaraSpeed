@@ -23,7 +23,7 @@ use BadMethodCallException;
 use PharException;
 
 /**
- * Test asset that extends an internal PHP class
+ * Test assets that extends an internal PHP class
  * This class should be serializable without problems
  * and without getting the "Erroneous data format for unserializing"
  * error

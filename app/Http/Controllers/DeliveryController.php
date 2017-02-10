@@ -40,9 +40,9 @@ class DeliveryController extends Controller {
 
         $delivery = Delivery::create([
              "identifiant" => $data["identifiant"],
-         "date" => $data["date"],
-         "articles" => $data["articles"],
-     ]);
+                 "date" => $data["date"],
+                 "articles" => $data["articles"],
+             ]);
 
     
         return redirect('/delivery');    }

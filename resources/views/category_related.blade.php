@@ -66,31 +66,31 @@
                     <thead>
                         <tr>
                                                      <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('title', 'none') == 'asc') href="{{url("/category/sort?title=1&tab=$table&asc")}}" @else href="{{url("/category/sort?title=1&tab=$table&desc")}}" @endif><p @if(session('title', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Title @if(session('title', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('title', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('description', 'none') == 'asc') href="{{url("/category/sort?description=1&tab=$table&asc")}}" @else href="{{url("/category/sort?description=1&tab=$table&desc")}}" @endif><p @if(session('description', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Description @if(session('description', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('description', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('release_year', 'none') == 'asc') href="{{url("/category/sort?release_year=1&tab=$table&asc")}}" @else href="{{url("/category/sort?release_year=1&tab=$table&desc")}}" @endif><p @if(session('release_year', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Release year @if(session('release_year', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('release_year', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                            <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('rental_duration', 'none') == 'asc') href="{{url("/category/sort?rental_duration=1&tab=$table&asc")}}" @else href="{{url("/category/sort?rental_duration=1&tab=$table&desc")}}" @endif><p @if(session('rental_duration', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Rental duration @if(session('rental_duration', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('rental_duration', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('rental_rate', 'none') == 'asc') href="{{url("/category/sort?rental_rate=1&tab=$table&asc")}}" @else href="{{url("/category/sort?rental_rate=1&tab=$table&desc")}}" @endif><p @if(session('rental_rate', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Rental rate @if(session('rental_rate', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('rental_rate', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('length', 'none') == 'asc') href="{{url("/category/sort?length=1&tab=$table&asc")}}" @else href="{{url("/category/sort?length=1&tab=$table&desc")}}" @endif><p @if(session('length', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Length @if(session('length', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('length', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap>
+                            <th class="center text-md" nowrap>
                                 <a @if(session('replacement_cost', 'none') == 'asc') href="{{url("/category/sort?replacement_cost=1&tab=$table&asc")}}" @else href="{{url("/category/sort?replacement_cost=1&tab=$table&desc")}}" @endif><p @if(session('replacement_cost', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Replacement cost @if(session('replacement_cost', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('replacement_cost', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
-                            </th>                                                            <th class="center">
+                            </th>                                                            <th class="center text-md">
                                 <a href=""><p>Language</p></a>
                             </th>
                             
-                            <th class="center"><a href=""><p>Actions</p></a></th>
+                            <th class="center text-md"><a href=""><p>Actions</p></a></th>
                                  
                         </tr>
                     </thead>
@@ -122,9 +122,9 @@
                                     </td>
                                     
                                 <td class="center">
-                                    <a href="{{url("/film/$film->film_id")}}"><i class="fa fa-arrows-alt"></i></a>
-                                    <a href="{{url("/film/$film->film_id")}}/edit"><i class="fa fa-edit"></i></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')"><i class="fa fa-trash-o"></i></a>
+                                    <a href="{{url("/film/$film->film_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><i class="fa fa-arrows-alt fa-lg"></i></a>
+                                    <a href="{{url("/film/$film->film_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
                                 </td>
 
                                                                  </tr>

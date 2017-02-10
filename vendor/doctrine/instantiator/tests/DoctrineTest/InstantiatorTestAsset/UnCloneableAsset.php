@@ -22,7 +22,7 @@ namespace DoctrineTest\InstantiatorTestAsset;
 use BadMethodCallException;
 
 /**
- * Base un-cloneable asset
+ * Base un-cloneable assets
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */

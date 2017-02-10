@@ -6,42 +6,42 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
              
         <div class="form-group">
-            <label class="text-danger">Title : </label>
+            <label class="text-danger text-md">Title : </label>
             <input type ="text" class="form-control" name="title" value = "{{$film->title}}"placeholder="Title"  required />
         </div>
           
         <div class="form-group">
-            <label class="text-danger">Description : </label>
+            <label class="text-danger text-md">Description : </label>
             <textarea name="description" rows="4" cols="20" class="form-control" required>{{$film->description}}</textarea>
         </div>
           
         <div class="form-group">
-            <label class="text-danger">Release year : </label>
+            <label class="text-danger text-md">Release year : </label>
             <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"value = "{{$film->release_year}}"placeholder="Release year"  required />
         </div>
             
         <div class="form-group">
-            <label class="text-danger">Rental duration : </label>
+            <label class="text-danger text-md">Rental duration : </label>
             <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration"  required />
         </div>
           
         <div class="form-group">
-            <label class="text-danger">Rental rate : </label>
+            <label class="text-danger text-md">Rental rate : </label>
             <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate"  required />
         </div>
           
         <div class="form-group">
-            <label class="text-danger">Length : </label>
+            <label class="text-danger text-md">Length : </label>
             <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"value = "{{$film->length}}"placeholder="Length"  required />
         </div>
           
         <div class="form-group">
-            <label class="text-danger">Replacement cost : </label>
+            <label class="text-danger text-md">Replacement cost : </label>
             <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
         </div>
                
             @if(isset($film->language))
-        <h3>Update Language</h3>
+        <label class="text-danger text-md">Update Language</label>
     <select class="form-control" name="language">
         @forelse(\App\Language::all() as  $language)
         <option value="{{$language->language_id}}" @if($language->language_id == $film->language->language_id) selected = "selected" @endif>
@@ -52,7 +52,7 @@
         @endforelse
     </select><br/>
     @else
-                    <h3>Update Language</h3>
+                    <label class="text-danger text-md">Update Language</label>
         <select class="form-control" name="language">
             @forelse(\App\Language::all() as  $language)
                 <option value="{{$language->language_id}}">
@@ -63,7 +63,7 @@
             @endforelse
         </select><br/>            @endif
         @if(isset($film->category))
-        <h3 class="text-danger">Associate Category</h3>
+        <label class="text-danger text-md">Associate Category</label>
 
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
             @forelse(\App\Category::all() as  $category)
@@ -76,7 +76,7 @@
 
         </select><br/>
     @else
-                    <h3 class="text-danger">Associate Category</h3>
+                    <label class="text-danger text-md">Associate Category</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
             @forelse(\App\Category::all() as  $category)
                 <option value="{{$category->category_id}}">

@@ -23,7 +23,7 @@ use BadMethodCallException;
 use Exception;
 
 /**
- * Test asset that extends an internal PHP base exception
+ * Test assets that extends an internal PHP base exception
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */

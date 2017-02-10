@@ -42,7 +42,7 @@ class CategoryController extends Controller {
 
         $category = Category::create([
              "name" => $data["name"],
-      ]);
+              ]);
 
         if(request()->exists('film')){
             $category->film()->attach($data["film"]);

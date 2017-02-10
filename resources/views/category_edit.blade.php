@@ -6,12 +6,12 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
            
         <div class="form-group">
-            <label class="text-danger">Name : </label>
+            <label class="text-danger text-md">Name : </label>
             <input type ="text" class="form-control" name="name" value = "{{$category->name}}"placeholder="Name"  required />
         </div>
            
             @if(isset($category->film))
-        <h3 class="text-danger">Associate Film</h3>
+        <label class="text-danger text-md">Associate Film</label>
 
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
             @forelse(\App\Film::all() as  $film)
@@ -24,7 +24,7 @@
 
         </select><br/>
     @else
-                    <h3 class="text-danger">Associate Film</h3>
+                    <label class="text-danger text-md">Associate Film</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
             @forelse(\App\Film::all() as  $film)
                 <option value="{{$film->film_id}}">

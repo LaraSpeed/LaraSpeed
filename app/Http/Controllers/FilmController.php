@@ -44,13 +44,13 @@ class FilmController extends Controller {
 
         $film = Film::create([
               "title" => $data["title"],
-         "description" => $data["description"],
-         "release_year" => $data["release_year"],
-          "rental_duration" => $data["rental_duration"],
-         "rental_rate" => $data["rental_rate"],
-         "length" => $data["length"],
-         "replacement_cost" => $data["replacement_cost"],
-        ]);
+                 "description" => $data["description"],
+                 "release_year" => $data["release_year"],
+                  "rental_duration" => $data["rental_duration"],
+                 "rental_rate" => $data["rental_rate"],
+                 "length" => $data["length"],
+                 "replacement_cost" => $data["replacement_cost"],
+                ]);
 
         if(request()->exists('language')){
             $language = Language::find(request()->get('language'));

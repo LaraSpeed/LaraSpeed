@@ -4,8 +4,8 @@
 	    <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
 
         <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
+		    <div class="col-md-3">
+			    <label class="text-primary text-md" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
 		    </div>
 
 		    <div class="{!! $attrType->formClass("form") !!}">
@@ -17,8 +17,8 @@
 
 	@if(array_key_exists('relations', $table) && !empty($table["relations"]))@foreach($table['relations'] as $relationType)@if($relationType->isBelongsTo())
 		<div class="row">
-			<div class="col-md-2">
-				<label class="text-primary">{{ucfirst($relationType->getOtherTable())}} : </label>
+			<div class="col-md-3">
+				<label class="text-primary text-md">{{ucfirst($relationType->getOtherTable())}} : </label>
 			</div>
 
 			<div class="col-md-5">
@@ -38,8 +38,8 @@
 		@elseif($relationType->isBelongsToMany())
 		<div class="row">
 
-			<div class="col-md-2">
-				<label class="text-primary">{{ucfirst($relationType->getOtherTable())}}s : </label>
+			<div class="col-md-3">
+				<label class="text-primary text-md">{{ucfirst($relationType->getOtherTable())}}s : </label>
 			</div>
 
 			<div class="col-md-7">
@@ -59,8 +59,8 @@
 
 		<div class="row">
 
-			<div class="col-md-2">
-				<label class="text-danger"> * = Mandatory fields</label>
+			<div class="col-md-3">
+				<label class="text-danger text-md"> * = Mandatory fields</label>
 			</div>
 
 		</div> <br/>

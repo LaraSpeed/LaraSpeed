@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="sidebar-left-xs">
+<html class="sidebar-left-sm">
     <head>
 
         <!-- Basic -->
@@ -162,6 +162,10 @@
             function goBack() {
                 window.history.back();
             }
+
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
         </script>
 
     </body>

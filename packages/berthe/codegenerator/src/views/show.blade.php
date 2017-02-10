@@ -53,19 +53,19 @@
                         <tr>
                         @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
                             <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center" nowrap> <!-- -->
+                            <th class="center text-md" nowrap> <!-- -->
                                 <a S3Bif(session('{{$attrName}}', 'none') == 'asc') href="S2BOBRACKET{!!"url(\"/".$table['title']."/sort?$attrName=1&asc\")"!!}S2BCBRACKET" S3Belse href="S2BOBRACKET{!!"url(\"/".$table['title']."/sort?$attrName=1&desc\")"!!}S2BCBRACKET" S3Bendif><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif >{!! ucfirst(str_replace("_", " ", $attrName))!!} S3Bif(session('{{$attrName}}', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> S3Belseif(session('{{$attrName}}', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> S3Belse <span class="text-dark"><i class="fa fa-arrows-v"></i></span> S3Bendif</p></a>
                             </th>@endif @endforeach
 
                             @if(key_exists("relations", $table) && !empty($table["relations"])) @foreach($table['relations'] as $relation) @if($relation->isBelongsTo())
-                                <th class="center">
+                                <th class="center text-md">
                                     <a href=""><p>{{ucfirst($relation->getOtherTable())}}</p></a>
                                 </th>
                             @endif @endforeach @endif
 
-                            <th class="center"><a href=""><p>Actions</p></a></th>
+                            <th class="center text-md"><a href=""><p>Actions</p></a></th>
                             @if(key_exists("relations", $table) && !empty($table["relations"]))
-                            <th class="center"><a href=""><p>Relations</p></a></th>
+                            <th class="center text-md"><a href=""><p>Relations</p></a></th>
                             @endif
                         </tr>
                     </thead>
@@ -89,9 +89,11 @@
                                 @endif @endforeach @endif
 
                                 <td class="center">
-                                    <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET"><i class="fa fa-arrows-alt"></i></a>
-                                    <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET/edit"><i class="fa fa-edit"></i></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $table['title']. "->".$config->displayedAttributes($table['title'])!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET')"><i class="fa fa-trash-o"></i></a>
+                                    <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display">
+                                        <i class="fa fa-arrows-alt fa-lg"></i>
+                                    </a>
+                                    <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $table['title']. "->".$config->displayedAttributes($table['title'])!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
                                 </td>
 
                                 @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo())

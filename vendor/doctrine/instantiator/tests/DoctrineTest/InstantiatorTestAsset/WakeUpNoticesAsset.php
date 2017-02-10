@@ -22,7 +22,7 @@ namespace DoctrineTest\InstantiatorTestAsset;
 use ArrayObject;
 
 /**
- * A simple asset for an abstract class
+ * A simple assets for an abstract class
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */

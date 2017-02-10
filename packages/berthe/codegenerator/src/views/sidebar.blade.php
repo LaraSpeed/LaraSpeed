@@ -2,7 +2,7 @@
     <li>
         <a href="">
             <i class="fa fa-home" aria-hidden="true"></i>
-            <span>Dashboard</span>
+            <span class="text-md">Dashboard</span>
         </a>
     </li>
 
@@ -10,7 +10,7 @@
         <li>
             <a href="{!!"{"."{url(\"/".$tab."\")}"."}"!!}">
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <span>{{ucfirst($tab)}}</span>
+                <span class="text-md">{{ucfirst($tab)}}</span>
             </a>
         </li>
     @endforeach

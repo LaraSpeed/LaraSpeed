@@ -42,7 +42,7 @@ class LanguageController extends Controller {
 
         $language = Language::create([
              "name" => $data["name"],
-      ]);
+              ]);
 
       
         return redirect('/language');    }

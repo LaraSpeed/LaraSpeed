@@ -5,8 +5,8 @@
 	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="row">
-		    <div class="col-md-2">
-			    <label class="text-primary" id="name">Name * : </label>
+		    <div class="col-md-3">
+			    <label class="text-primary text-md" id="name">Name * : </label>
 		    </div>
 
 		    <div class="col-md-7">
@@ -17,8 +17,8 @@
 		    
 			<div class="row">
 
-			<div class="col-md-2">
-				<label class="text-primary">Films : </label>
+			<div class="col-md-3">
+				<label class="text-primary text-md">Films : </label>
 			</div>
 
 			<div class="col-md-7">
@@ -37,8 +37,8 @@
 	  
 		<div class="row">
 
-			<div class="col-md-2">
-				<label class="text-danger"> * = Mandatory fields</label>
+			<div class="col-md-3">
+				<label class="text-danger text-md"> * = Mandatory fields</label>
 			</div>
 
 		</div> <br/>

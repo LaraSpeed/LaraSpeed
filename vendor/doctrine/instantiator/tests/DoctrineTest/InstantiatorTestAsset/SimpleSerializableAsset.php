@@ -23,7 +23,7 @@ use BadMethodCallException;
 use Serializable;
 
 /**
- * Base serializable test asset
+ * Base serializable test assets
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */

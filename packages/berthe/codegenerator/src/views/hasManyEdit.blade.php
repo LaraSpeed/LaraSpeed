@@ -1,4 +1,4 @@
-    <h3 class="text-danger">Add {{ucfirst($otherTable)}}</h3>
+    <label class="text-danger text-md">Add {{ucfirst($otherTable)}}</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $otherTable !!}"  name="{!! $otherTable !!}[]">
             S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all() as "!!} ${!! "$otherTable" !!})
                 <option value="S2BOBRACKET${!! "$otherTable->".$tbs[$otherTable]["id"] !!}S2BCBRACKET" S3Bforeach(${!! "$tab->".$otherTable." as "!!} ${!! "$otherTable"."tmp" !!}) S3Bif(${!! "$otherTable"."tmp->".$tbs[$otherTable]['id']." == $"."$otherTable->".$tbs[$otherTable]["id"] !!}) selected = "selected" S3Bendif S3Bendforeach>

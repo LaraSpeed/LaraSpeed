@@ -45,7 +45,7 @@ class DeliveryController extends Controller {
              ]);
 
     
-        return redirect('/delivery');    }
+        return isset($data['carl'])?redirect('/delivery'):back();    }
 
     /**
     * Display the specified resource.

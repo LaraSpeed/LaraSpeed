@@ -1,7 +1,9 @@
     <h1 class="text-danger">{{ucfirst($table['title'])}} add form</h1>
-    <form action="S2BOBRACKET{!!"url(\"/".$table['title']."\")"!!}S2BCBRACKET" method="post">@if( array_key_exists('attributs', $table) )@foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
+    <form action="S2BOBRACKET{!!"url(\"/".$table['title']."\")"!!}S2BCBRACKET" method="post">
 
-	    <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
+		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
+
+		@if( array_key_exists('attributs', $table) )@foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
         <div class="row">
 		    <div class="col-md-3">
@@ -67,10 +69,14 @@
 
 		<div class="row">
 			<div class="col-md-3">
-			    <button type="submit" class="btn btn-primary">Create and return to list</button>
+			    <button type="submit" name="carl" class="btn btn-primary">Create and return to list</button>
 			</div>
 
-			<div class="col-md-3 col-md-offset-4">
+			<div class="col-md-3">
+				<button type="submit" name="cas" class="btn btn-primary">Create and Stay</button>
+			</div>
+
+			<div class="col-md-3">
 			    <button type="reset" onclick="goBack();" class="btn btn-danger">Cancel and return to list</button>
 			</div>
 		</div>

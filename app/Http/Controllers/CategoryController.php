@@ -48,7 +48,7 @@ class CategoryController extends Controller {
             $category->film()->attach($data["film"]);
         }
       
-        return redirect('/category');    }
+        return isset($data['carl'])?redirect('/category'):back();    }
 
     /**
     * Display the specified resource.

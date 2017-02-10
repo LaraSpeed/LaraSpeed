@@ -70,12 +70,16 @@
                                 <td class="center">{{$language->name}}</td>
                                
                                    
-                                <td class="center">
+                                <td class="center" nowrap>
                                     <a href="{{url("/language/$language->language_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
-                                        <i class="fa fa-arrows-alt fa-lg"></i>
+                                        <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
                                     </a>
-                                    <a href="{{url("/language/$language->language_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $language->name}} ?', '{{url("/language/$language->language_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
+                                    <a href="{{url("/language/$language->language_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button>
+                                    </a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $language->name}} ?', '{{url("/language/$language->language_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button>
+                                    </a>
                                 </td>
 
                                                                 <td class="center">

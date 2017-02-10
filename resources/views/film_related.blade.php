@@ -75,7 +75,7 @@
                             <th class="center text-md" nowrap>
                                 <a @if(session('name', 'none') == 'asc') href="{{url("/film/sort?name=1&tab=$table&asc")}}" @else href="{{url("/film/sort?name=1&tab=$table&desc")}}" @endif><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
                             </th>                              
-                            <th class="center text-md"><a href=""><p>Actions</p></a></th>
+                            <th class="center text-md" nowrap><a href=""><p>Actions</p></a></th>
                                
                         </tr>
                     </thead>
@@ -87,10 +87,10 @@
                                 <td class="center">{{$category->name}}</td>
                                    
                                    
-                                <td class="center">
-                                    <a href="{{url("/category/$category->category_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><i class="fa fa-arrows-alt fa-lg"></i></a>
-                                    <a href="{{url("/category/$category->category_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit fa-lg"></i></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
+                                <td class="center" nowrap>
+                                    <a href="{{url("/category/$category->category_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="{{url("/category/$category->category_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
                                                                </tr>

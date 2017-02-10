@@ -61,8 +61,12 @@ class FilmController extends Controller {
             $film->category()->attach($data["category"]);
         }
       
+<<<<<<< HEAD
         return isset($data['carl'])?redirect('/film'):back();
     }
+=======
+        return isset($data['carl'])?redirect('/film'):back();    }
+>>>>>>> laraspeedV2
 
     /**
     * Display the specified resource.

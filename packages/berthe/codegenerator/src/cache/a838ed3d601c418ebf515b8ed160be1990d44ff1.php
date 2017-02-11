@@ -100,7 +100,7 @@
                                     </a>
                                 </td>
 
-                                <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$relation->isBelongsTo()): ?>
+                                <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
                                 <td class="center text-md">
                                     <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />

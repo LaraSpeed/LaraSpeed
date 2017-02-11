@@ -94,14 +94,14 @@
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
-                            @foreach($tbs[$otherTable]['relations'] as $relation)
+                            @foreach($tbs[$otherTable]['relations'] as $relation) @if(!$relation->isBelongsToMany())
                                 <td class="center text-md">
                                     <form action="S2BOBRACKET{!!"url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                                         <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
                                     </form>
                                 </td>
-                            @endforeach
+                            @endif @endforeach
                             </tr>
                         S3Bempty
                             <tr>

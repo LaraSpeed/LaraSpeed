@@ -82,13 +82,7 @@
                                     </a>
                                 </td>
 
-                                                                <td class="center text-md">
-                                    <form action="{{url("/category/related/$category->category_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="film" />
-                                        <button type="submit" class="btn btn-link">Film</button>
-                                    </form>
-                                </td>
-                                                          </tr>
+                                                              </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>

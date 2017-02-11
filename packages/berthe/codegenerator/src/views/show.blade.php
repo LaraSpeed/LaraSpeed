@@ -100,7 +100,7 @@
                                     </a>
                                 </td>
 
-                                @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo())
+                                @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo() && !$relation->isBelongsToMany())
                                 <td class="center text-md">
                                     <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />

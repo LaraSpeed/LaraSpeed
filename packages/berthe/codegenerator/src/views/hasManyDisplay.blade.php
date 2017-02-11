@@ -87,11 +87,11 @@
                             <tr>
                             @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable())
                             <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
+                                <td class="center text-md">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
                                 @endif @endforeach
 
                                 @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())
-                                    <td class="center">
+                                    <td class="center text-md">
                                         S3Bif(${!! $otherTable.'->'.$relation->getOtherTable() !!})
                                             S2BOBRACKET{!! "$".$otherTable.'->'.$relation->getOtherTable().'->'.$config->displayedAttributes($relation->getOtherTable())!!}S2BCBRACKET
                                         S3Belse
@@ -107,7 +107,7 @@
                                 </td>
 
                                 @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && !$relation->isBelongsTo())
-                                <td class="center">
+                                <td class="center text-md">
                                     <form action="S2BOBRACKET{!!"url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                                         <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
@@ -117,7 +117,7 @@
                             </tr>
                         S3Bempty
                             <tr>
-                                <td colspan="{{count($tbs[$otherTable]['attributs'])}}"><label class="text-danger">No {{$otherTable}} matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</label></td>
+                                <td colspan="{{count($tbs[$otherTable]['attributs'])}}"><label class="text-danger text-md">No {{$otherTable}} matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</label></td>
                             </tr>
                         S3Bendforelse
                     </tbody>

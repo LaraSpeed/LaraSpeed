@@ -84,7 +84,7 @@
                         @forelse($film->category_paginated as  $category)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$category->name}}</td>
+                                <td class="center text-md">{{$category->name}}</td>
                                    
                                    
                                 <td class="center" nowrap>
@@ -96,7 +96,7 @@
                                                                </tr>
                         @empty
                             <tr>
-                                <td colspan="3"><label class="text-danger">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>
+                                <td colspan="3"><label class="text-danger text-md">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>
                             </tr>
                         @endforelse
                     </tbody>

@@ -72,11 +72,11 @@
                         @forelse($deliverys as $delivery)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center">{{$delivery->identifiant}}</td>
+                                <td class="center text-md">{{$delivery->identifiant}}</td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center">{{$delivery->date}}</td>
+                                <td class="center text-md">{{$delivery->date}}</td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center">{{$delivery->articles}}</td>
+                                <td class="center text-md">{{$delivery->articles}}</td>
                              
                                 
                                 <td class="center" nowrap>
@@ -94,7 +94,7 @@
                                                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4"><label class="text-danger">No delivery matching keyword {{session('keyword', 'Keyword')}}.</label></td>
+                                <td colspan="4"><label class="text-danger text-md">No delivery matching keyword {{session('keyword', 'Keyword')}}.</label></td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -103,7 +103,7 @@
 
             <div class="row datatables-footer">
                 <div class="col-md-6"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 text-md">
                     {!!$deliverys->links()!!}
                 </div>
             </div>

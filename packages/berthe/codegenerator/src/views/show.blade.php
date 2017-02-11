@@ -75,11 +75,11 @@
                             <tr>
                             @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
                                 <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center">S2BOBRACKET${!! $table['title'].'->'.$attrName !!}S2BCBRACKET</td>
+                                <td class="center text-md">S2BOBRACKET${!! $table['title'].'->'.$attrName !!}S2BCBRACKET</td>
                             @endif @endforeach
 
                                 @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation) @if($relation->isBelongsTo())
-                                    <td class="center">
+                                    <td class="center text-md">
                                         S3Bif({!! "$".$table["title"].'->'.$relation->getOtherTable()!!})
                                             S2BOBRACKET{!! "$".$table["title"].'->'.$relation->getOtherTable().'->'.$config->displayedAttributes($relation->getOtherTable())!!}S2BCBRACKET
                                         S3Belse
@@ -101,7 +101,7 @@
                                 </td>
 
                                 @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo())
-                                <td class="center">
+                                <td class="center text-md">
                                     <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
                                         <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
@@ -111,7 +111,7 @@
                             </tr>
                         S3Bempty
                             <tr>
-                                <td colspan="{{count($table['attributs'])}}"><label class="text-danger">No {{$table['title']}} matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</label></td>
+                                <td colspan="{{count($table['attributs'])}}"><label class="text-danger text-md">No {{$table['title']}} matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</label></td>
                             </tr>
                         S3Bendforelse
                     </tbody>
@@ -120,7 +120,7 @@
 
             <div class="row datatables-footer">
                 <div class="col-md-6"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 text-md">
                     S2CBOBRACKET${!! $table['title']."s->links()" !!}S2CBCBRACKET
                 </div>
             </div>

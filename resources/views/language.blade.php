@@ -6,15 +6,9 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		   
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="name">Name * : </label>
-		    </div>
-
-		    <div class="col-md-7">
-			    <input type ="text" class="form-control" name="name" placeholder="Name"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="name">Name * : </label>
+			<input type ="text" class="form-control" name="name" placeholder="Name"  required />
 		</div> <br/>
 		    
 	  

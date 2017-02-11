@@ -5,32 +5,47 @@
 
 		@if( array_key_exists('attributs', $table) )@foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
-        <div class="form-group">
-			<label class="text-danger text-md" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
-			{!! $attrType->getForm()!!}
+        <div class="row">
+		    <div class="col-md-3">
+			    <label class="text-primary text-md" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
+		    </div>
+
+		    <div class="{!! $attrType->formClass("form") !!}">
+			    {!! $attrType->getForm()!!}
+			</div>
+
 		</div> <br/>
 		@endif @endforeach @endif
 
 	@if(array_key_exists('relations', $table) && !empty($table["relations"]))@foreach($table['relations'] as $relationType)@if($relationType->isBelongsTo())
-		<div class="form-group">
-			<label class="text-danger text-md">{{ucfirst($relationType->getOtherTable())}} : </label>
+		<div class="row">
+			<div class="col-md-3">
+				<label class="text-primary text-md">{{ucfirst($relationType->getOtherTable())}} : </label>
+			</div>
 
-			<select class="form-control" name="{!! $relationType->getOtherTable() !!}">
-				S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})
-					<option value="S2BOBRACKET${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == ${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}) S2BOBRACKET{!! "\"selected=\\\"\\\"selected\\\"\"" !!}S2BCBRACKET S3Bendif>
-						S2BOBRACKET${!! $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()) !!}S2BCBRACKET
-					</option>
-				S3Bempty
-					<option value="-1">No {{$relationType->getOtherTable()}}</option>
-				S3Bendforelse
-			</select>
+			<div class="col-md-5">
+				<select class="form-control" name="{!! $relationType->getOtherTable() !!}">
+					S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})
+					    <option value="S2BOBRACKET${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == ${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}) S2BOBRACKET{!! "\"selected=\\\"\\\"selected\\\"\"" !!}S2BCBRACKET S3Bendif>
+						    S2BOBRACKET${!! $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()) !!}S2BCBRACKET
+					    </option>
+					S3Bempty
+					    <option value="-1">No {{$relationType->getOtherTable()}}</option>
+					S3Bendforelse
+				</select>
+			</div>
+
 		</div><br/>
 
 		@elseif($relationType->isBelongsToMany())
-		<div class="form-group">
-			<label class="text-danger text-md">{{ucfirst($relationType->getOtherTable())}}s : </label>
+		<div class="row">
 
-			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $relationType->getOtherTable() !!}"  name="{!! $relationType->getOtherTable() !!}[]">
+			<div class="col-md-3">
+				<label class="text-primary text-md">{{ucfirst($relationType->getOtherTable())}}s : </label>
+			</div>
+
+			<div class="col-md-7">
+				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $relationType->getOtherTable() !!}"  name="{!! $relationType->getOtherTable() !!}[]">
 					S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})
 					    <option value="S2BOBRACKET${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == ${!! $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"] !!}) S2BOBRACKET{!! "\"selected=\\\"\\\"selected\\\"\"" !!}S2BCBRACKET S3Bendif>
 					S2BOBRACKET${!! $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()) !!}S2BCBRACKET
@@ -38,7 +53,9 @@
 					S3Bempty
 					    <option value="-1">No {{$relationType->getOtherTable()}}</option>
 					S3Bendforelse
-			</select>
+				</select>
+			</div>
+
 		</div><br/>
 	@endif @endforeach @endif
 

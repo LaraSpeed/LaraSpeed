@@ -6,37 +6,19 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		   
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="identifiant">Identifiant * : </label>
-		    </div>
-
-		    <div class="col-md-7">
-			    <input type ="text" class="form-control" name="identifiant" placeholder="Identifiant"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="identifiant">Identifiant * : </label>
+			<input type ="text" class="form-control" name="identifiant" placeholder="Identifiant"  required />
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="date">Date * : </label>
-		    </div>
-
-		    <div class="col-md-2">
-			    <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" placeholder="MM/DD/-YYYY" type="text"/></div>
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="date">Date * : </label>
+			<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" placeholder="MM/DD/-YYYY" type="text"/></div>
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="articles"> Articles : </label>
-		    </div>
-
-		    <div class="col-md-7">
-			    <textarea name="articles" rows="10" cols="40" class="form-control" required></textarea>
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="articles"> Articles : </label>
+			<textarea name="articles" rows="10" cols="40" class="form-control"" required></textarea>
 		</div> <br/>
 		  
 	

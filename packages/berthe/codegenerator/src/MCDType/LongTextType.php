@@ -77,11 +77,12 @@ class LongTextType extends TypeBaseClass implements FormableType
      * Get HTML Code associated with the Type
      *
      * @param string $value
+     * @param bool $editable
      * @return string
      */
-    function getForm($value = "")
+    function getForm($value = "", $editable = true)
     {
-        return FormTemplateProvider::textarea($this->attrName, 40, 10, "form-control", $value);
+        return FormTemplateProvider::textarea($this->attrName, 40, 10, "form-control", $value, $editable);
     }
 
     /**

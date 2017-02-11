@@ -6,25 +6,15 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		   
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="name">Name * : </label>
-		    </div>
-
-		    <div class="col-md-7">
-			    <input type ="text" class="form-control" name="name" placeholder="Name"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="name">Name * : </label>
+			<input type ="text" class="form-control" name="name" placeholder="Name"  required />
 		</div> <br/>
 		    
-			<div class="row">
+			<div class="form-group">
+			<label class="text-danger text-md">Films : </label>
 
-			<div class="col-md-3">
-				<label class="text-primary text-md">Films : </label>
-			</div>
-
-			<div class="col-md-7">
-				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
+			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
 					@forelse(\App\Film::all() as  $film)
 					    <option value="{{$film->film_id}}" @if(session('defaultSelect', 'none') == $film->film_id) {{"selected=\"\"selected\""}} @endif>
 					{{$film->title}}
@@ -32,9 +22,7 @@
 					@empty
 					    <option value="-1">No film</option>
 					@endforelse
-				</select>
-			</div>
-
+			</select>
 		</div><br/>
 	  
 		<div class="row">

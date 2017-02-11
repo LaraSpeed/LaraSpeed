@@ -32,7 +32,7 @@ class BooleanType extends TypeBaseClass implements FormableType
         return $this->formType;
     }
 
-    function getForm($value = "")
+    function getForm($value = "", $editable = true)
     {
         return FormTemplateProvider::checkBox($this->attrName, $value);
     }

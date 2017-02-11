@@ -6,17 +6,24 @@
 
     <br/>
 
+
        
-    <label class="text-primary">Identifiant : </label>
-    <p>{{$delivery->identifiant}}</p>
-
+        <div class="form-group">
+            <label class="text-danger text-md">Identifiant : </label>
+            <input type ="text" class="form-control" name="identifiant" value = "{{$delivery->identifiant}}"placeholder="Identifiant" readonly required />
+        </div>
       
-    <label class="text-primary">Date : </label>
-    <p>{{$delivery->date}}</p>
-
+        <div class="form-group">
+            <label class="text-danger text-md">Date : </label>
+            <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" value="{{$delivery->date}}" placeholder="MM/DD/-YYYY" type="text"/></div>
+        </div>
       
-    <label class="text-primary">Articles : </label>
-    <p>{{$delivery->articles}}</p>
-
+        <div class="form-group">
+            <label class="text-danger text-md">Articles : </label>
+            <textarea name="articles" rows="10" cols="40" class="form-control"" readonly >{{$delivery->articles}}</textarea>
+        </div>
      
+
+    
+
     @endsection

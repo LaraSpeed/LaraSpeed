@@ -5,48 +5,33 @@
 
 		<?php if( array_key_exists('attributs', $table) ): ?><?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
 
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="<?php echo e($attrName); ?>"><?php if($attrType->isRequired()): ?><?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> * : <?php else: ?> <?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> : <?php endif; ?></label>
-		    </div>
-
-		    <div class="<?php echo $attrType->formClass("form"); ?>">
-			    <?php echo $attrType->getForm(); ?>
-
-			</div>
+        <div class="form-group">
+			<label class="text-danger text-md" id="<?php echo e($attrName); ?>"><?php if($attrType->isRequired()): ?><?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> * : <?php else: ?> <?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> : <?php endif; ?></label>
+			<?php echo $attrType->getForm(); ?>
 
 		</div> <br/>
 		<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
 	<?php if(array_key_exists('relations', $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relationType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($relationType->isBelongsTo()): ?>
-		<div class="row">
-			<div class="col-md-3">
-				<label class="text-primary text-md"><?php echo e(ucfirst($relationType->getOtherTable())); ?> : </label>
-			</div>
+		<div class="form-group">
+			<label class="text-danger text-md"><?php echo e(ucfirst($relationType->getOtherTable())); ?> : </label>
 
-			<div class="col-md-5">
-				<select class="form-control" name="<?php echo $relationType->getOtherTable(); ?>">
-					S3Bforelse(<?php echo "\\App\\".ucfirst($relationType->getOtherTable())."::all() as "; ?> $<?php echo $relationType->getOtherTable(); ?>)
-					    <option value="S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == $<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>) S2BOBRACKET<?php echo "\"selected=\\\"\\\"selected\\\"\""; ?>S2BCBRACKET S3Bendif>
-						    S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()); ?>S2BCBRACKET
-					    </option>
-					S3Bempty
-					    <option value="-1">No <?php echo e($relationType->getOtherTable()); ?></option>
-					S3Bendforelse
-				</select>
-			</div>
-
+			<select class="form-control" name="<?php echo $relationType->getOtherTable(); ?>">
+				S3Bforelse(<?php echo "\\App\\".ucfirst($relationType->getOtherTable())."::all() as "; ?> $<?php echo $relationType->getOtherTable(); ?>)
+					<option value="S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == $<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>) S2BOBRACKET<?php echo "\"selected=\\\"\\\"selected\\\"\""; ?>S2BCBRACKET S3Bendif>
+						S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()); ?>S2BCBRACKET
+					</option>
+				S3Bempty
+					<option value="-1">No <?php echo e($relationType->getOtherTable()); ?></option>
+				S3Bendforelse
+			</select>
 		</div><br/>
 
 		<?php elseif($relationType->isBelongsToMany()): ?>
-		<div class="row">
+		<div class="form-group">
+			<label class="text-danger text-md"><?php echo e(ucfirst($relationType->getOtherTable())); ?>s : </label>
 
-			<div class="col-md-3">
-				<label class="text-primary text-md"><?php echo e(ucfirst($relationType->getOtherTable())); ?>s : </label>
-			</div>
-
-			<div class="col-md-7">
-				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one <?php echo $relationType->getOtherTable(); ?>"  name="<?php echo $relationType->getOtherTable(); ?>[]">
+			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one <?php echo $relationType->getOtherTable(); ?>"  name="<?php echo $relationType->getOtherTable(); ?>[]">
 					S3Bforelse(<?php echo "\\App\\".ucfirst($relationType->getOtherTable())."::all() as "; ?> $<?php echo $relationType->getOtherTable(); ?>)
 					    <option value="S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>S2BCBRACKET" S3Bif(session('defaultSelect', 'none') == $<?php echo $relationType->getOtherTable()."->".$tbs[$relationType->getOtherTable()]["id"]; ?>) S2BOBRACKET<?php echo "\"selected=\\\"\\\"selected\\\"\""; ?>S2BCBRACKET S3Bendif>
 					S2BOBRACKET$<?php echo $relationType->getOtherTable()."->".$config->displayedAttributes($relationType->getOtherTable()); ?>S2BCBRACKET
@@ -54,9 +39,7 @@
 					S3Bempty
 					    <option value="-1">No <?php echo e($relationType->getOtherTable()); ?></option>
 					S3Bendforelse
-				</select>
-			</div>
-
+			</select>
 		</div><br/>
 	<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 

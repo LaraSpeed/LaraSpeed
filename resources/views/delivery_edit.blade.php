@@ -17,7 +17,7 @@
           
         <div class="form-group">
             <label class="text-danger text-md">Articles : </label>
-            <textarea name="articles" rows="10" cols="40" class="form-control" required>{{$delivery->articles}}</textarea>
+            <textarea name="articles" rows="10" cols="40" class="form-control"">{{$delivery->articles}}</textarea>
         </div>
          
         

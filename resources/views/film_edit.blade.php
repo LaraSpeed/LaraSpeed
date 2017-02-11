@@ -12,7 +12,7 @@
           
         <div class="form-group">
             <label class="text-danger text-md">Description : </label>
-            <textarea name="description" rows="4" cols="20" class="form-control" required>{{$film->description}}</textarea>
+            <textarea name="description" rows="4" cols="20" class="form-control"">{{$film->description}}</textarea>
         </div>
           
         <div class="form-group">

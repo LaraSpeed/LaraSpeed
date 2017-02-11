@@ -6,110 +6,59 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		     
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="title">Title * : </label>
-		    </div>
-
-		    <div class="col-md-7">
-			    <input type ="text" class="form-control" name="title" placeholder="Title"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="title">Title * : </label>
+			<input type ="text" class="form-control" name="title" placeholder="Title"  required />
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="description">Description * : </label>
-		    </div>
-
-		    <div class="col-md-7">
-			    <textarea name="description" rows="4" cols="20" class="form-control" required></textarea>
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="description">Description * : </label>
+			<textarea name="description" rows="4" cols="20" class="form-control"" required></textarea>
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="release_year"> Release year : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="release_year"> Release year : </label>
+			<input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required />
 		</div> <br/>
 		    
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="rental_duration">Rental duration * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"placeholder="Rental duration"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="rental_duration">Rental duration * : </label>
+			<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"placeholder="Rental duration"  required />
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="rental_rate">Rental rate * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"placeholder="Rental rate"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="rental_rate">Rental rate * : </label>
+			<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"placeholder="Rental rate"  required />
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="length">Length * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"placeholder="Length"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="length">Length * : </label>
+			<input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"placeholder="Length"  required />
 		</div> <br/>
 		  
-        <div class="row">
-		    <div class="col-md-3">
-			    <label class="text-primary text-md" id="replacement_cost">Replacement cost * : </label>
-		    </div>
-
-		    <div class="col-md-3">
-			    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />
-			</div>
-
+        <div class="form-group">
+			<label class="text-danger text-md" id="replacement_cost">Replacement cost * : </label>
+			<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />
 		</div> <br/>
 		        
-			<div class="row">
-			<div class="col-md-3">
-				<label class="text-primary text-md">Language : </label>
-			</div>
+			<div class="form-group">
+			<label class="text-danger text-md">Language : </label>
 
-			<div class="col-md-5">
-				<select class="form-control" name="language">
-					@forelse(\App\Language::all() as  $language)
-					    <option value="{{$language->language_id}}" @if(session('defaultSelect', 'none') == $language->language_id) {{"selected=\"\"selected\""}} @endif>
-						    {{$language->name}}
-					    </option>
-					@empty
-					    <option value="-1">No language</option>
-					@endforelse
-				</select>
-			</div>
-
+			<select class="form-control" name="language">
+				@forelse(\App\Language::all() as  $language)
+					<option value="{{$language->language_id}}" @if(session('defaultSelect', 'none') == $language->language_id) {{"selected=\"\"selected\""}} @endif>
+						{{$language->name}}
+					</option>
+				@empty
+					<option value="-1">No language</option>
+				@endforelse
+			</select>
 		</div><br/>
 
-		 		<div class="row">
+		 		<div class="form-group">
+			<label class="text-danger text-md">Categorys : </label>
 
-			<div class="col-md-3">
-				<label class="text-primary text-md">Categorys : </label>
-			</div>
-
-			<div class="col-md-7">
-				<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
+			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
 					@forelse(\App\Category::all() as  $category)
 					    <option value="{{$category->category_id}}" @if(session('defaultSelect', 'none') == $category->category_id) {{"selected=\"\"selected\""}} @endif>
 					{{$category->name}}
@@ -117,9 +66,7 @@
 					@empty
 					    <option value="-1">No category</option>
 					@endforelse
-				</select>
-			</div>
-
+			</select>
 		</div><br/>
 	  
 		<div class="row">

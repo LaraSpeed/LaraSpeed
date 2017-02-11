@@ -75,11 +75,12 @@ class TinyIntegerType extends TypeBaseClass implements FormableType
      * Get HTML Code associated with the Type
      *
      * @param string $value
+     * @param bool $editable
      * @return string
      */
-    function getForm($value = "")
+    function getForm($value = "", $editable = true)
     {
-        return FormTemplateProvider::input($this->formType, $this->attrName, "form-control", $value, true);
+        return FormTemplateProvider::input($this->formType, $this->attrName, "form-control", $value, true, $editable);
     }
 
     /**

@@ -97,19 +97,19 @@
                         @forelse($language->film_paginated as  $film)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->title}}</td>
+                                <td class="center text-md">{{$film->title}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->description}}</td>
+                                <td class="center text-md">{{$film->description}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->release_year}}</td>
+                                <td class="center text-md">{{$film->release_year}}</td>
                                                                 <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->rental_duration}}</td>
+                                <td class="center text-md">{{$film->rental_duration}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->rental_rate}}</td>
+                                <td class="center text-md">{{$film->rental_rate}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->length}}</td>
+                                <td class="center text-md">{{$film->length}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">{{$film->replacement_cost}}</td>
+                                <td class="center text-md">{{$film->replacement_cost}}</td>
                                        
                                      
                                 <td class="center" nowrap>
@@ -118,7 +118,7 @@
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
-                                                                   <td class="center">
+                                                                   <td class="center text-md">
                                     <form action="{{url("/film/related/$film->film_id")}}" method="get">
                                         <input type="hidden" name="tab" value="category" />
                                         <button type="submit" class="btn btn-link">Category</button>
@@ -127,7 +127,7 @@
                                                           </tr>
                         @empty
                             <tr>
-                                <td colspan="13"><label class="text-danger">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>
+                                <td colspan="13"><label class="text-danger text-md">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>
                             </tr>
                         @endforelse
                     </tbody>

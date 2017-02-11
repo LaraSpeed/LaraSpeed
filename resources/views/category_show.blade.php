@@ -67,7 +67,7 @@
                         @forelse($categorys as $category)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center">{{$category->name}}</td>
+                                <td class="center text-md">{{$category->name}}</td>
                                
                                    
                                 <td class="center" nowrap>
@@ -82,7 +82,7 @@
                                     </a>
                                 </td>
 
-                                                                <td class="center">
+                                                                <td class="center text-md">
                                     <form action="{{url("/category/related/$category->category_id")}}" method="get">
                                         <input type="hidden" name="tab" value="film" />
                                         <button type="submit" class="btn btn-link">Film</button>
@@ -91,7 +91,7 @@
                                                           </tr>
                         @empty
                             <tr>
-                                <td colspan="3"><label class="text-danger">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>
+                                <td colspan="3"><label class="text-danger text-md">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -100,7 +100,7 @@
 
             <div class="row datatables-footer">
                 <div class="col-md-6"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 text-md">
                     {!!$categorys->links()!!}
                 </div>
             </div>

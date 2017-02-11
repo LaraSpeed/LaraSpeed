@@ -87,11 +87,11 @@
                             <tr>
                             <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
                             <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET</td>
+                                <td class="center text-md">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET</td>
                                 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
                                 <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && $relation->isBelongsTo()): ?>
-                                    <td class="center">
+                                    <td class="center text-md">
                                         S3Bif($<?php echo $otherTable.'->'.$relation->getOtherTable(); ?>)
                                             S2BOBRACKET<?php echo "$".$otherTable.'->'.$relation->getOtherTable().'->'.$config->displayedAttributes($relation->getOtherTable()); ?>S2BCBRACKET
                                         S3Belse
@@ -107,7 +107,7 @@
                                 </td>
 
                                 <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && !$relation->isBelongsTo()): ?>
-                                <td class="center">
+                                <td class="center text-md">
                                     <form action="S2BOBRACKET<?php echo "url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />
                                         <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
@@ -117,7 +117,7 @@
                             </tr>
                         S3Bempty
                             <tr>
-                                <td colspan="<?php echo e(count($tbs[$otherTable]['attributs'])); ?>"><label class="text-danger">No <?php echo e($otherTable); ?> matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</label></td>
+                                <td colspan="<?php echo e(count($tbs[$otherTable]['attributs'])); ?>"><label class="text-danger text-md">No <?php echo e($otherTable); ?> matching keyword S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET.</label></td>
                             </tr>
                         S3Bendforelse
                     </tbody>

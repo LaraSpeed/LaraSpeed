@@ -6,8 +6,8 @@
 
     @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
-    <label class="text-primary">{{ucfirst($attrName)}} : </label>
-    <p>S2BOBRACKET${!! $table['title'].'->'.$attrName!!}S2BCBRACKET</p>
+    <label class="text-primary text-md">{{ucfirst($attrName)}} : </label>
+    <p class="text-md">S2BOBRACKET${!! $table['title'].'->'.$attrName!!}S2BCBRACKET</p>
 
     @endif @endforeach
 

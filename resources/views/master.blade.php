@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="sidebar-left-sm">
+<html class="sidebar-left-sm scroll">
     <head>
 
         <!-- Basic -->
@@ -29,10 +29,13 @@
         <link rel="stylesheet" href="{{URL::asset("assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css")}}" />
         <link rel="stylesheet" href="{{URL::asset("assets/vendor/morris.js/morris.css")}}" />
 
-        <!-- Specific Page Vendor CSS -->
         <link rel="stylesheet" href="{{URL::asset("assets/vendor/select2/css/select2.css")}}" />
         <link rel="stylesheet" href="{{URL::asset("assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css")}}" />
         <link rel="stylesheet" href="{{URL::asset("assets/vendor/jquery-datatables-bs3/assets/css/datatables.css")}}" />
+
+        <!-- Specific Page Vendor CSS -->
+        @yield("spvcss")
+
 
         <!-- Theme CSS -->
         <link rel="stylesheet" href="{{URL::asset("assets/stylesheets/theme.css")}}" />
@@ -136,7 +139,13 @@
         <script src="{{URL::asset("assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js")}}"></script>
         <script src="{{URL::asset("assets/vendor/jquery-sparkline/jquery-sparkline.js")}}"></script>
         <script src="{{URL::asset("assets/vendor/jquery-validation/jquery.validate.js")}}"></script>
+
         <script src="{{URL::asset("assets/vendor/select2/js/select2.js")}}"></script>
+        <script src="{{URL::asset("assets/vendor/jquery-datatables/media/js/jquery.dataTables.js")}}"></script>
+        <script src="{{URL::asset("assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js")}}"></script>
+        <script src="{{URL::asset("assets/vendor/jquery-datatables-bs3/assets/js/datatables.js")}}"></script>
+
+        @yield("spvjs")
 
 
         <!-- Theme Base, Components and Settings -->
@@ -166,6 +175,22 @@
             $(document).ready(function(){
                 $('[data-toggle="tooltip"]').tooltip();
             });
+
+            (function( $ ) {
+
+                'use strict';
+
+                var datatableInit = function() {
+
+                    $('#datatable-default').dataTable();
+
+                };
+
+                $(function() {
+                    datatableInit();
+                });
+
+            }).apply( this, [ jQuery ]);
         </script>
 
     </body>

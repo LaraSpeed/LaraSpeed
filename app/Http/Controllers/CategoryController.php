@@ -18,7 +18,7 @@ class CategoryController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('category_show', ['categorys' => Category::paginate(20)]);
+        return view('category_show', ['categorys' => Category::all()]);
     }
 
     /**

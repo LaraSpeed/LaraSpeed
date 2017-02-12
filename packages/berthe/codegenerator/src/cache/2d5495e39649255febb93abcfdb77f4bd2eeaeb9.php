@@ -13,7 +13,7 @@
 
 <?php $__env->startSection('varID'); ?><?php echo e($table['title'].'s'); ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('modelCall'); ?><?php echo ucfirst($table['title']).'::paginate(20)'; ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('modelCall'); ?><?php echo ucfirst($table['title']).'::all()'; ?><?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('createView'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
 

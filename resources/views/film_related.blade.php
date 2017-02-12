@@ -68,26 +68,27 @@
 
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table mb-none">
+                <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
                                                    <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center text-md" nowrap>
-                                <a @if(session('name', 'none') == 'asc') href="{{url("/film/sort?name=1&tab=$table&asc")}}" @else href="{{url("/film/sort?name=1&tab=$table&desc")}}" @endif><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+                            <th class="text-md text-primary" nowrap>
+                              Name
                             </th>                              
-                            <th class="center text-md" nowrap><a href=""><p>Actions</p></a></th>
+                            <th class="text-md text-primary" nowrap>Actions</th>
+
                                
                         </tr>
                     </thead>
 
                     <tbody>
-                        @forelse($film->category_paginated as  $category)
+                        @forelse($film->category as  $category)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center text-md">{{$category->name}}</td>
+                                <td class="text-md">{{$category->name}}</td>
                                    
                                    
-                                <td class="center" nowrap>
+                                <td nowrap>
                                     <a href="{{url("/category/$category->category_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="{{url("/category/$category->category_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
@@ -101,13 +102,6 @@
                         @endforelse
                     </tbody>
                 </table>
-            </div>
-
-            <div class="row datatables-footer">
-                <div class="col-md-4"></div>
-                <div class="col-md-6">
-                    {!!$film->category_paginated->links()!!}
-                </div>
             </div>
         </div>
     </section>        @else

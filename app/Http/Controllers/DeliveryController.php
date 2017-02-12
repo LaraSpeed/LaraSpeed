@@ -16,7 +16,7 @@ class DeliveryController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('delivery_show', ['deliverys' => Delivery::paginate(20)]);
+        return view('delivery_show', ['deliverys' => Delivery::all()]);
     }
 
     /**

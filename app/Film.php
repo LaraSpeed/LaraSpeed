@@ -37,22 +37,7 @@ class Film extends Model
         return $value;
     }       
     
-    function getCategoryPaginatedAttribute(){
-        $category = $this->category();
-        if(session("keyword", "none") != "none"){
-            $key = "%".session('keyword','')."%";
-            $category->where('name', 'like', $key)
-             ;
-
-        }
-
-        if(session("sortKey", "none") == "none" or !Schema::hasColumn("category", session("sortKey", "none")))
-            return $category->paginate(20)->appends(array("tab" => "category"));
-
-        return $category->orderBy(session("sortKey", "name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "category"));
-
-    }
-
+    
  
     public function hasAttribute($attr)
     {

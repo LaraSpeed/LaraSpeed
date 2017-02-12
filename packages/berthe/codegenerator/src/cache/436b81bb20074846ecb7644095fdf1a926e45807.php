@@ -59,39 +59,44 @@
 
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table mb-none">
+                <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
                         <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
                         <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center text-md" nowrap>
-                                <a S3Bif(session('<?php echo e($attrName); ?>', 'none') == 'asc') href="S2BOBRACKET<?php echo "url(\"/".$tab."/sort?$attrName=1&tab=$"."table&asc\")"; ?>S2BCBRACKET" S3Belse href="S2BOBRACKET<?php echo "url(\"/".$tab."/sort?$attrName=1&tab=$"."table&desc\")"; ?>S2BCBRACKET" S3Bendif><p S3Bif(session('<?php echo e($attrName); ?>', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif ><?php echo ucfirst(str_replace("_", " ", $attrName)); ?> S3Bif(session('<?php echo e($attrName); ?>', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> S3Belseif(session('<?php echo e($attrName); ?>', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> S3Belse <span class="text-dark"><i class="fa fa-arrows-v"></i></span> S3Bendif</p></a>
+                            <th class="text-md text-primary" nowrap>
+                              <?php echo ucfirst(str_replace("_", " ", $attrName)); ?>
+
                             </th><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
                         <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && $relation->isBelongsTo()): ?>
-                            <th class="center text-md">
-                                <a href=""><p><?php echo e(ucfirst($relation->getOtherTable())); ?></p></a>
+                            <th class="text-md text-primary">
+                                <?php echo e(ucfirst($relation->getOtherTable())); ?>
+
                             </th>
                         <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
-                            <th class="center text-md" nowrap><a href=""><p>Actions</p></a></th>
-                            <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && !$relation->isBelongsTo()): ?>
-                                <th class="center text-md"><a href=""><p>Relations</p></a></th>
-                                <?php break; ?>
+                            <th class="text-md text-primary" nowrap>Actions</th>
+
+                            <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && !$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
+                                <th class="text-md text-primary">
+                                    <?php echo ucfirst($relation->getOtherTable()); ?>
+
+                                </th>
                             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
                         </tr>
                     </thead>
 
                     <tbody>
-                        S3Bforelse($<?php echo "$tab->$otherTable"."_paginated as "; ?> $<?php echo "$otherTable"; ?>)
+                        S3Bforelse($<?php echo "$tab->$otherTable"." as "; ?> $<?php echo "$otherTable"; ?>)
                             <tr>
                             <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
                             <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="center text-md">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET</td>
+                                <td class="text-md">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET</td>
                                 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
                                 <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && $relation->isBelongsTo()): ?>
-                                    <td class="center text-md">
+                                    <td class="text-md">
                                         S3Bif($<?php echo $otherTable.'->'.$relation->getOtherTable(); ?>)
                                             S2BOBRACKET<?php echo "$".$otherTable.'->'.$relation->getOtherTable().'->'.$config->displayedAttributes($relation->getOtherTable()); ?>S2BCBRACKET
                                         S3Belse
@@ -100,14 +105,14 @@
                                     </td>
                                 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
-                                <td class="center" nowrap>
+                                <td nowrap>
                                     <a href="S2BOBRACKET<?php echo "url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="S2BOBRACKET<?php echo "url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET $<?php echo $otherTable. "->".$config->displayedAttributes($otherTable); ?>S2BCBRACKET ?', 'S2BOBRACKET<?php echo "url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
                                 <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && !$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
-                                <td class="center text-md">
+                                <td class="text-md">
                                     <form action="S2BOBRACKET<?php echo "url(\"/".$otherTable."/related/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"; ?>S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />
                                         <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
@@ -122,13 +127,6 @@
                         S3Bendforelse
                     </tbody>
                 </table>
-            </div>
-
-            <div class="row datatables-footer">
-                <div class="col-md-4"></div>
-                <div class="col-md-6">
-                    S2CBOBRACKET$<?php echo "$tab->$otherTable"."_paginated->links()"; ?>S2CBCBRACKET
-                </div>
             </div>
         </div>
     </section>

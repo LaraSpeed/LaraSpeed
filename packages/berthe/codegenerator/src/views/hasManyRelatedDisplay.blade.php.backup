@@ -54,47 +54,41 @@
         </header>
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table table-striped mb-none" id="datatable-default">
+                <table class="table mb-none">
                     <thead>
                         <tr>
                         @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable())
                         <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="text-md text-primary" nowrap>
-                                {!! ucfirst(str_replace("_", " ", $attrName))!!}
+                            <th class="center text-md" nowrap>
+                                <a S3Bif(session('{{$attrName}}', 'none') == 'asc') href="S2BOBRACKET{!!"url(\"/".$tab."/sort?$attrName=1&tab=$"."table&asc\")"!!}S2BCBRACKET" S3Belse href="S2BOBRACKET{!!"url(\"/".$tab."/sort?$attrName=1&tab=$"."table&desc\")"!!}S2BCBRACKET" S3Bendif><p S3Bif(session('{{$attrName}}', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" S3Bendif >{!! ucfirst(str_replace("_", " ", $attrName))!!} S3Bif(session('{{$attrName}}', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> S3Belseif(session('{{$attrName}}', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> S3Belse <span class="text-dark"><i class="fa fa-arrows-v"></i></span> S3Bendif</p></a>
                             </th>@endif @endforeach
 
                             @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())
-                                <th class="text-md text-primary">
-                                   {{ucfirst($relation->getOtherTable())}}
+                                <th class="center text-md">
+                                    <a href=""><p>{{ucfirst($relation->getOtherTable())}}</p></a>
                                 </th>
                             @endif @endforeach @endif
 
-                            <th class="text-md text-primary" nowrap>Actions</th>
-
-                            @foreach($tbs[$otherTable]['relations'] as $relation) @if(!$relation->isBelongsToMany())
-                                <td class="text-md text-primary">
-                                    {!! ucfirst($relation->getOtherTable())  !!}
-                                </td>
-                            @endif @endforeach
-
+                            <th class="center text-md" nowrap><a href=""><p>Actions</p></a></th>
+                            <th class="center text-md"><a href=""><p>Relations</p></a></th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        S3Bforelse(${!!"$tab->$otherTable"." as "!!} ${!! "$otherTable" !!})
+                        S3Bforelse(${!!"$tab->$otherTable"."_paginated as "!!} ${!! "$otherTable" !!})
                             <tr>
                             @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable())
                             <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
+                                <td class="center text-md">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
                             @endif @endforeach
 
                                 @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())
-                                 <td class="text-md">
+                                 <td class="center text-md">
                                      S2BOBRACKET{!! "$".$otherTable.'->'.$relation->getOtherTable().'->'.$config->displayedAttributes($relation->getOtherTable())!!}S2BCBRACKET
                                  </td>
                             @endif @endforeach @endif
 
-                                <td nowrap>
+                                <td class="center" nowrap>
                                     <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
@@ -116,6 +110,13 @@
                         S3Bendforelse
                     </tbody>
                 </table>
+            </div>
+
+            <div class="row datatables-footer">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    S2CBOBRACKET${!! "$tab->$otherTable"."_paginated->links()" !!}S2CBCBRACKET
+                </div>
             </div>
         </div>
     </section>

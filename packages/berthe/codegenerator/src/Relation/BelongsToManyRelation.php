@@ -64,7 +64,7 @@ class BelongsToManyRelation extends BaseRelation implements FormRelationInterfac
      *
      * @var string
      */
-    public $relationAccessor = "hasManyRelationAccessor";
+    public $relationAccessor = "mockup";//"hasManyRelationAccessor";
 
     public function __construct($table = "", $other = "")
     {

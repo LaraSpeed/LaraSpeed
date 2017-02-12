@@ -20,7 +20,7 @@ class FilmController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('film_show', ['films' => Film::paginate(20)]);
+        return view('film_show', ['films' => Film::all()]);
     }
 
     /**

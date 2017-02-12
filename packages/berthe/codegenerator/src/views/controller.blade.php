@@ -14,7 +14,7 @@
 
 @section('varID'){{$table['title'].'s'}}@endsection
 
-@section('modelCall'){!!ucfirst($table['title']).'::paginate(20)'!!}@endsection
+@section('modelCall'){!!ucfirst($table['title']).'::all()'!!}@endsection
 
 @section('createView'){{$table['title']}}@endsection
 

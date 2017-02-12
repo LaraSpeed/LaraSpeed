@@ -25,28 +25,7 @@ class Category extends Model
 
         return $value;
     }  
-    function getFilmPaginatedAttribute(){
-        $film = $this->film();
-        if(session("keyword", "none") != "none"){
-            $key = "%".session('keyword','')."%";
-            $film->where('title', 'like', $key)
-               ->orWhere('description', 'like', $key)
-          ->orWhere('release_year', 'like', $key)
-           ->orWhere('rental_duration', 'like', $key)
-          ->orWhere('rental_rate', 'like', $key)
-          ->orWhere('length', 'like', $key)
-          ->orWhere('replacement_cost', 'like', $key)
-           ;
-
-        }
-
-        if(session("sortKey", "none") == "none" or !Schema::hasColumn("film", session("sortKey", "none")))
-            return $film->paginate(20)->appends(array("tab" => "film"));
-
-        return $film->orderBy(session("sortKey", "title"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "film"));
-
-    }
-
+    
  
     public function hasAttribute($attr)
     {

@@ -50,21 +50,22 @@
 
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table mb-none">
+                <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
                                                        <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center text-md" nowrap> <!-- -->
-                                <a @if(session('identifiant', 'none') == 'asc') href="{{url("/delivery/sort?identifiant=1&asc")}}" @else href="{{url("/delivery/sort?identifiant=1&desc")}}" @endif><p @if(session('identifiant', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Identifiant @if(session('identifiant', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('identifiant', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+                            <th class="text-md text-primary" nowrap> <!-- -->
+                                Identifiant
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center text-md" nowrap> <!-- -->
-                                <a @if(session('date', 'none') == 'asc') href="{{url("/delivery/sort?date=1&asc")}}" @else href="{{url("/delivery/sort?date=1&desc")}}" @endif><p @if(session('date', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Date @if(session('date', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('date', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+                            <th class="text-md text-primary" nowrap> <!-- -->
+                                Date
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center text-md" nowrap> <!-- -->
-                                <a @if(session('articles', 'none') == 'asc') href="{{url("/delivery/sort?articles=1&asc")}}" @else href="{{url("/delivery/sort?articles=1&desc")}}" @endif><p @if(session('articles', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Articles @if(session('articles', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('articles', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+                            <th class="text-md text-primary" nowrap> <!-- -->
+                                Articles
                             </th> 
                             
-                            <th class="center text-md"><a href=""><p>Actions</p></a></th>
+                            <th class="text-md text-primary">Actions</th>
+
                                                     </tr>
                     </thead>
 
@@ -72,14 +73,14 @@
                         @forelse($deliverys as $delivery)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center text-md">{{$delivery->identifiant}}</td>
+                                <td class="text-md">{{$delivery->identifiant}}</td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center text-md">{{$delivery->date}}</td>
+                                <td class="text-md">{{$delivery->date}}</td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center text-md">{{$delivery->articles}}</td>
+                                <td class="text-md">{{$delivery->articles}}</td>
                              
                                 
-                                <td class="center" nowrap>
+                                <td nowrap>
                                     <a href="{{url("/delivery/$delivery->id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
                                     </a>
@@ -99,13 +100,6 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
-            </div>
-
-            <div class="row datatables-footer">
-                <div class="col-md-6"></div>
-                <div class="col-md-6 text-md">
-                    {!!$deliverys->links()!!}
-                </div>
             </div>
         </div>
     </section>@endsection

@@ -50,27 +50,30 @@
 
         <div class="panel-body">
             <div class="table-responsive">
-                <table class="table mb-none">
+                <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
                                                        <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="center text-md" nowrap> <!-- -->
-                                <a @if(session('name', 'none') == 'asc') href="{{url("/language/sort?name=1&asc")}}" @else href="{{url("/language/sort?name=1&desc")}}" @endif><p @if(session('name', 'keyword') != "keyword") ng-style = "{ 'font-weight': 'bold', 'text-decoration' : 'underline' }" @endif >Name @if(session('name', 'none') == 'asc') <span class="text-dark"><i class="fa fa-arrow-up"></i></span> @elseif(session('name', 'none') == 'desc') <span class="text-dark"><i class="fa fa-arrow-down"></i></span> @else <span class="text-dark"><i class="fa fa-arrows-v"></i></span> @endif</p></a>
+                            <th class="text-md text-primary" nowrap> <!-- -->
+                                Name
                             </th>   
                                 
-                            <th class="center text-md"><a href=""><p>Actions</p></a></th>
-                                                        <th class="center text-md"><a href=""><p>Relations</p></a></th>
-                                                    </tr>
+                            <th class="text-md text-primary">Actions</th>
+
+                                                            <th class="text-md text-primary">
+                                    Film
+                                </th>
+                                                      </tr>
                     </thead>
 
                     <tbody>
                         @forelse($languages as $language)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="center text-md">{{$language->name}}</td>
+                                <td class="text-md">{{$language->name}}</td>
                                
                                    
-                                <td class="center" nowrap>
+                                <td nowrap>
                                     <a href="{{url("/language/$language->language_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
                                     </a>
@@ -82,7 +85,7 @@
                                     </a>
                                 </td>
 
-                                                                <td class="center text-md">
+                                                                <td class="text-md">
                                     <form action="{{url("/language/related/$language->language_id")}}" method="get">
                                         <input type="hidden" name="tab" value="film" />
                                         <button type="submit" class="btn btn-link">Film</button>
@@ -96,13 +99,6 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
-            </div>
-
-            <div class="row datatables-footer">
-                <div class="col-md-6"></div>
-                <div class="col-md-6 text-md">
-                    {!!$languages->links()!!}
-                </div>
             </div>
         </div>
     </section>@endsection

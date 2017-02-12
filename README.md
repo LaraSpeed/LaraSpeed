@@ -2,7 +2,25 @@
 
 <b>LaraSpeed</b> is Laravel Code generator package based on application Conceptual Data Model.
 
-Indeed, <b>LaraSpeed</b> package generate your Laravel 5.[1, 2, 3] application Models, Controllers, Views, Migrations after having specified the Conceptuel Data Model. As an example is always welcome, let's start by an example.
+Indeed, <b>LaraSpeed</b> package generate your Laravel 5.[1, 2, 3] application Models, Controllers, Views, Migrations after having specified the Conceptuel Data Model. 
+
+Laraspeed generates 
+<ul>
+    <li>
+        full Laravel CRUD code for each entity of the application Conceptual Data Model
+    </li>        
+    <li>
+        For each CRUD, reference to linked entities defined in  application Conceptual Data Model
+    </li>        <li>
+        Dril down interface to move from master to detail tables folowing the "one to many" relations defined in Conceptual Data Model
+    </li>    
+</ul>
+
+Laraspeed provide function close to PhpmyAdmin for database administration, it adds the relational table to table association management.
+
+It's objective is to generate complete backoffice management application in ni time.
+
+As an example is always welcome, let's start by an example.
 
 Let's consider the following Conceptual Data Model  :
 

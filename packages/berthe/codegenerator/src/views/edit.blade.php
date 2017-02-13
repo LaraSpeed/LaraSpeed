@@ -12,7 +12,7 @@
 
         @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)
     S3Bif(isset(${!! $relation->getTable()."->".$relation->getOtherTable()!!}))
-        @include($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config])
+        @include($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config, "type" => "edit"])
 
     S3Belse
         @if($relation->isBelongsTo())

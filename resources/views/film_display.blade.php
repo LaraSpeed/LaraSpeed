@@ -69,9 +69,9 @@
             @if(isset($film->category))
         <label class="text-danger text-md">Associate Category</label>
 
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
+        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]"  disabled >
             @forelse(\App\Category::all() as  $category)
-                <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" disabled @endif @endforeach>
+                <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected"  @endif @endforeach>
                     {{$category->name}}
                 </option>
             @empty

@@ -59,10 +59,7 @@
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Date
-                            </th>                              <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="text-md text-primary" nowrap> <!-- -->
-                                Articles
-                            </th> 
+                            </th>   
                             
                             <th class="text-md text-primary">Actions</th>
 
@@ -76,9 +73,7 @@
                                 <td class="text-md">{{$delivery->identifiant}}</td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="text-md">{{$delivery->date}}</td>
-                                                              <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$delivery->articles}}</td>
-                             
+                               
                                 
                                 <td nowrap>
                                     <a href="{{url("/delivery/$delivery->id")}}" data-toggle="tooltip" data-placement="top" title="Display">

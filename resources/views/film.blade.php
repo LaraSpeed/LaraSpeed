@@ -17,12 +17,12 @@
 		</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="release_year"> Release year : </label>
+			<label class="text-danger text-md" id="release_year">Release year * : </label>
 			<input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required />
 		</div> <br/>
 		    
         <div class="form-group">
-			<label class="text-danger text-md" id="rental_duration">Rental duration * : </label>
+			<label class="text-danger text-md" id="rental_duration"> Rental duration : </label>
 			<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"placeholder="Rental duration"  required />
 		</div> <br/>
 		  
@@ -37,7 +37,7 @@
 		</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="replacement_cost">Replacement cost * : </label>
+			<label class="text-danger text-md" id="replacement_cost"> Replacement cost : </label>
 			<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />
 		</div> <br/>
 		        

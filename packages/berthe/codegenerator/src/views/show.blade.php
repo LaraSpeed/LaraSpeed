@@ -51,7 +51,7 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                        @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
+                        @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isRequired())
                             <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 {!! ucfirst(str_replace("_", " ", $attrName))!!}
@@ -76,7 +76,7 @@
                     <tbody>
                         S3Bforelse(${{$table['title'].'s'}} as ${{$table['title']}})
                             <tr>
-                            @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
+                            @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isRequired())
                                 <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="text-md">S2BOBRACKET${!! $table['title'].'->'.$attrName !!}S2BCBRACKET</td>
                             @endif @endforeach

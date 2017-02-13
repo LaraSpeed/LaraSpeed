@@ -313,10 +313,11 @@ class MCD
 
     /**
      * @param string $attrName
+     * @param bool $required
      * @return $this
      */
-    public function tinyInteger($attrName = "tinyInteger"){
-        $this->currentAttributes[$attrName] = new TinyIntegerType($attrName);
+    public function tinyInteger($attrName = "tinyInteger", $required = false){
+        $this->currentAttributes[$attrName] = new TinyIntegerType($attrName, $required);
 
         //Create an ID for the current Table if not exist
         $this->setTableID($attrName);

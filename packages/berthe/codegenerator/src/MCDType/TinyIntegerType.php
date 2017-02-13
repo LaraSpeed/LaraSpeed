@@ -54,11 +54,12 @@ class TinyIntegerType extends TypeBaseClass implements FormableType
     /**
      * TinyIntegerType constructor.
      * @param string $attrName
+     * @param bool $required
      */
-    public function __construct($attrName = "")
+    public function __construct($attrName = "", $required = false)
     {
         $this->attrName = $attrName;
-        $this->required = true;
+        $this->required = $required;
     }
 
     /**

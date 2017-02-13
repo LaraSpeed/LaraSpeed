@@ -19,7 +19,7 @@
 
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
             @forelse(\App\Film::all() as  $film)
-                <option value="{{$film->film_id}}" @foreach($category->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
+                <option value="{{$film->film_id}}" @foreach($category->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" disabled @endif @endforeach>
                     {{$film->title}}
                 </option>
             @empty

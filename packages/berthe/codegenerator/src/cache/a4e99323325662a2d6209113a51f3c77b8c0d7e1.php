@@ -14,7 +14,7 @@
 
         <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
     S3Bif(isset($<?php echo $relation->getTable()."->".$relation->getOtherTable(); ?>))
-        <?php echo $__env->make($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config, "type" => "edit"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config, "type" => \Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     S3Belse
         <?php if($relation->isBelongsTo()): ?>

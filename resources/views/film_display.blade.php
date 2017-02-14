@@ -46,7 +46,7 @@
 
             @if(isset($film->language))
         <label class="text-danger text-md">Update Language</label>
-    <select class="form-control" name="language">
+    <select class="form-control" name="language"  disabled >
         @forelse(\App\Language::all() as  $language)
         <option value="{{$language->language_id}}" @if($language->language_id == $film->language->language_id) selected = "selected" @endif>
             {{$language->name}}

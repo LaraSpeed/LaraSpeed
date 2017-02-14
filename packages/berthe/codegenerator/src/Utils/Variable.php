@@ -120,4 +120,17 @@ class Variable
 
     //public static $C_
 
+    /**
+     * Specify Display view Type
+     *
+     */
+    public static $DISPLAY_VIEW = "display_view";
+
+    /**
+     * Specify Edit View Type
+     *
+     */
+    public static $EDIT_VIEW = "edit_view";
+
+
 }

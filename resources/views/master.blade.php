@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="sidebar-left-sm scroll">
+<html class="sidebar-left-xs scroll">
     <head>
 
         <!-- Basic -->

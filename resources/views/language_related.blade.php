@@ -19,7 +19,7 @@
                 <input type="hidden" name="tab" value="{{$table}}" />
                 <div class="col-md-2 col-sm-2"></div>
 
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-8 col-sm-8">
                     <div class="input-group input-search">
                         <input  type="text" class="form-control" name="keyword" placeholder="{{session('keyword', 'Keyword')}}"/>
                         <span class="input-group-btn">
@@ -28,6 +28,10 @@
                             </button>
                         </span>
                     </div>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success">Search</button>
                 </div>
             </form>
         </div>

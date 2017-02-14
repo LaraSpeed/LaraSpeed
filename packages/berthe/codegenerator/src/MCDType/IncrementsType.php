@@ -42,5 +42,7 @@ class IncrementsType extends TypeBaseClass
         $this->attrName = $attrName;
 
         $this->required = true;
+
+        $this->displayed =false;
     }
 }

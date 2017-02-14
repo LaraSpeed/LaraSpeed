@@ -50,6 +50,8 @@ class SmallIntegerType extends TypeBaseClass
         $this->autoIncrement = $autoIncrement;
 
         $this->required = true;
+
+        $this->displayed = true;
     }
 
     /**

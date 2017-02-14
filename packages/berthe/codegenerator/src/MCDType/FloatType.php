@@ -72,13 +72,14 @@ class FloatType extends TypeBaseClass implements FormableType
      * @param int $precision
      * @param int $scale
      */
-    public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0)
+    public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0, $displayed = true)
     {
         $this->attrName = $attrName;
         $this->precision = $precision;
         $this->scale = $scale;
 
         $this->required = $required;
+        $this->displayed = $displayed;
     }
 
 

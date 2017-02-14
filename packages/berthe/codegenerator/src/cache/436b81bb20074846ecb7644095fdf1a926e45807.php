@@ -62,7 +62,7 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                        <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isRequired()): ?>
+                        <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isDisplayed()): ?>
                         <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               <?php echo ucfirst(str_replace("_", " ", $attrName)); ?>
@@ -90,7 +90,7 @@
                     <tbody>
                         S3Bforelse($<?php echo "$tab->$otherTable"." as "; ?> $<?php echo "$otherTable"; ?>)
                             <tr>
-                            <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isRequired()): ?>
+                            <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isDisplayed()): ?>
                             <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET</td>
                                 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>

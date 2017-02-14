@@ -36,10 +36,12 @@ class BigIncrementsType extends TypeBaseClass
      * BigIncrementsType constructor.
      * @param string $attrName
      * @param bool $required
+     * @param bool $displayed
      */
-    public function __construct($attrName = "", $required = false)
+    public function __construct($attrName = "", $required = false, $displayed = false)
     {
         $this->attrName = $attrName;
         $this->required = $required;
+        $this->displayed = $displayed;
     }
 }

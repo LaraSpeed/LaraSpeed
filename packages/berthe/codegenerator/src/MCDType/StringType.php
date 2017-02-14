@@ -58,18 +58,22 @@ class StringType extends TypeBaseClass implements FormableType
      */
     public $mutator = "textMutator";
 
+
     /**
      * StringType constructor.
      * @param string $attrName
      * @param bool $required
      * @param int $nb_character
+     * @param bool $displayed
      */
-    public function __construct($attrName = "", $required = false, $nb_character = 0)
+    public function __construct($attrName = "", $required = false, $nb_character = 0, $displayed = true)
     {
         $this->attrName = $attrName;
         $this->nb_characters = $nb_character;
 
         $this->required = $required;
+
+        $this->displayed = $displayed;
     }
 
     /**

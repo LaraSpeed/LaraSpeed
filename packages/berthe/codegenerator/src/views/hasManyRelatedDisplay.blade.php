@@ -57,7 +57,7 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                        @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isRequired())
+                        @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isDisplayed())
                         <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                                 {!! ucfirst(str_replace("_", " ", $attrName))!!}
@@ -83,7 +83,7 @@
                     <tbody>
                         S3Bforelse(${!!"$tab->$otherTable"." as "!!} ${!! "$otherTable" !!})
                             <tr>
-                            @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isRequired())
+                            @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isDisplayed())
                             <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
                             @endif @endforeach

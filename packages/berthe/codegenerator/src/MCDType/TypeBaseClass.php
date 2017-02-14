@@ -15,11 +15,12 @@ class TypeBaseClass
 {
     public $required;
 
+    public $displayed;
+
     function getDBFunction()
     {
         return "$this->functionName('".$this->attrName."')";
     }
-    
 
     function isDisplayable()
     {
@@ -56,5 +57,9 @@ class TypeBaseClass
 
     function isBoolean(){
         return false;
+    }
+
+    function isDisplayed(){
+        return $this->displayed;
     }
 }

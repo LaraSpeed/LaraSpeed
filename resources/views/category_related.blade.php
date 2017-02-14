@@ -74,7 +74,10 @@
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Release year
-                            </th>                              <!--class="{$attrType->formClass("table")}}"-->
+                            </th>                            <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Rental duration
+                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Rental rate
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
@@ -99,7 +102,9 @@
                                 <td class="text-md">{{$film->description}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->release_year}}</td>
-                                                                  <!-- class="{$attrType->formClass("table")}}" -->
+                                                                <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->rental_duration}}</td>
+                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->rental_rate}}</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->length}}</td>

@@ -1,1 +1,0 @@
-<?php echo "return view('".$tab."_".$type."', compact('".$tab."'));"; ?>

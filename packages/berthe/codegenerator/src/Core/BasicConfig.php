@@ -69,4 +69,18 @@ class BasicConfig implements ConfigInterface
     {
         return $this->configs["displayAttributes"];
     }
+
+    /**
+     * Get a table's icon to display in the SideBar
+     *
+     * @param string $tableName
+     * @return string
+     * @throws \Exception
+     */
+    function getTableIcon($tableName = ""){
+        if (array_key_exists("sidebarIcons", $this->configs) && array_key_exists($tableName, $this->configs["sidebarIcons"]))
+            return $this->configs["sidebarIcons"][$tableName];
+
+            throw new \Exception("Icon not specified for table : [".$tableName."]");
+    }
 }

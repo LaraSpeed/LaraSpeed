@@ -9,7 +9,7 @@
     <?php $__currentLoopData = $tbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tab => $table): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
         <li>
             <a href="<?php echo "{"."{url(\"/".$tab."\")}"."}"; ?>">
-                <i class="fa fa-home" aria-hidden="true"></i>
+                <i class="<?php echo e($config->getTableIcon($tab)); ?>" aria-hidden="true"></i>
                 <span class="text-md"><?php echo e(ucfirst($tab)); ?></span>
             </a>
         </li>

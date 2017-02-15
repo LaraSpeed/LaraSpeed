@@ -25,6 +25,14 @@ class GeneratorCode  extends CallGenerator {
             "delivery" => "identifiant",
             "users" => "name"
         ),
+
+        "sidebarIcons" => array(
+            "film" => "fa fa-film",
+            "language" => "fa fa-language",
+            "category" => "fa fa-tags",
+            "delivery" => "fa fa-gift",
+            "users" => "fa fa-user"
+        ),
     );
 
 

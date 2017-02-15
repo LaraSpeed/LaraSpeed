@@ -276,7 +276,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
     public function generateLaravelSimpleFile(Templater $templater)
     {
         $tbs = $this->mda;
-        $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["tbs" => $tbs]);
+        $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["tbs" => $tbs, "config" => $this->config]);
         $fileGenerator->put($templater->getPath(""));
         chmod($templater->getPath(""), 0777);
         //FileUtils::prependString("<?php \n", $path);

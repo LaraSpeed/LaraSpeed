@@ -1,21 +1,21 @@
 @extends('master')
 @section('content')
-@if(isset($category->film) && "film" == $table)
+@if(isset($actor->film) && "film" == $table)
             <div class="row">
         <div class="col-md-4">
             <h1 class="text-danger">List of Films</h1>
         </div>
 
         <div class="col-md-5">
-            {{ session(['defaultSelect' => $category->category_id]) }}
-            <h4 class="text-danger"><b>Category : {{$category->name}}</b></h4>
+            {{ session(['defaultSelect' => $actor->actor_id]) }}
+            <h4 class="text-danger"><b>Actor : {{$actor->first_name}}</b></h4>
         </div>
     </div>
 
     <div class="row">
 
         <div class="col-md-8 col-sm-8">
-            <form action="{{url("/category/search")}}" method="get">
+            <form action="{{url("/actor/search")}}" method="get">
                 <input type="hidden" name="tab" value="{{$table}}" />
                 <div class="col-md-2 col-sm-2"></div>
 
@@ -98,7 +98,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($category->film as  $film)
+                        @forelse($actor->film as  $film)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->title}}</td>

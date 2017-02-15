@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 class CreateForeignKeys extends Migration {
     public function up()
     {
-                Schema::table('film', function(Blueprint $table) {
+                Schema::table('actor', function(Blueprint $table) {
+
+        });
+
+        Schema::table('film', function(Blueprint $table) {
 $table->integer('language_id')->unsigned()->index()->nullable();
             $table->foreign('language_id')->references('id')->on('language')->onDelete('cascade')->onUpdate('cascade');
         });
@@ -22,7 +26,11 @@ $table->integer('language_id')->unsigned()->index()->nullable();
     }
     public function down()
     {
-                Schema::table('film', function(Blueprint $table) {
+                Schema::table('actor', function(Blueprint $table) {
+    
+        });
+
+        Schema::table('film', function(Blueprint $table) {
                 $table->dropForeign('film_language_id_foreign');
         });
 

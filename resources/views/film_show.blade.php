@@ -79,10 +79,10 @@
                                                               <th class="text-md text-primary">
                                    Language
                                 </th>
-                                
+                                  
                             <th class="text-md text-primary">Actions</th>
 
-                                                       </tr>
+                                                        </tr>
                     </thead>
 
                     <tbody>
@@ -108,7 +108,7 @@
                                             {{ "Not specified" }}
                                         @endif
                                     </td>
-                                    
+                                      
                                 <td nowrap>
                                     <a href="{{url("/film/$film->film_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -121,7 +121,7 @@
                                     </a>
                                 </td>
 
-                                                               </tr>
+                                                                </tr>
                         @empty
                             <tr>
                                 <td colspan="13"><label class="text-danger text-md">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>

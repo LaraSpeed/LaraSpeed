@@ -7,6 +7,12 @@
     </li>
 
             <li>
+            <a href="{{url("/actor")}}">
+                <i class="fa fa-play" aria-hidden="true"></i>
+                <span class="text-md">Actor</span>
+            </a>
+        </li>
+            <li>
             <a href="{{url("/film")}}">
                 <i class="fa fa-film" aria-hidden="true"></i>
                 <span class="text-md">Film</span>

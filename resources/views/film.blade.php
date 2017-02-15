@@ -68,6 +68,19 @@
 					@endforelse
 			</select>
 		</div><br/>
+	 		<div class="form-group">
+			<label class="text-danger text-md">Actors : </label>
+
+			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one actor"  name="actor[]">
+					@forelse(\App\Actor::all() as  $actor)
+					    <option value="{{$actor->actor_id}}" @if(session('defaultSelect', 'none') == $actor->actor_id) {{"selected=\"\"selected\""}} @endif>
+					{{$actor->first_name}}
+					    </option>
+					@empty
+					    <option value="-1">No actor</option>
+					@endforelse
+			</select>
+		</div><br/>
 	  
 		<div class="row">
 

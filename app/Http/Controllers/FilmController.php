@@ -6,6 +6,8 @@ use App\Film;
 
     use App\Category;
 
+    use App\Actor;
+
      
 class FilmController extends Controller {
 
@@ -60,6 +62,9 @@ class FilmController extends Controller {
          if(request()->exists('category')){
             $film->category()->attach($data["category"]);
         }
+         if(request()->exists('actor')){
+            $film->actor()->attach($data["actor"]);
+        }
       
         return isset($data['carl'])?redirect('/film'):back();    }
 
@@ -72,7 +77,7 @@ class FilmController extends Controller {
     public function show(Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category",));
+        $film->load(array("language","category","actor",));
 return view('film_display', compact('film'));
     }
 
@@ -85,7 +90,7 @@ return view('film_display', compact('film'));
     public function edit(Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category",));
+        $film->load(array("language","category","actor",));
 return view('film_edit', compact('film'));
     }
 
@@ -117,6 +122,10 @@ return view('film_edit', compact('film'));
 
              if(request()->exists('category')){
             $film->category()->sync(request()->get('category'));
+        }
+
+             if(request()->exists('actor')){
+            $film->actor()->sync(request()->get('actor'));
         }
 
       
@@ -156,7 +165,7 @@ return view('film_edit', compact('film'));
         }
 
         $table = request()->get('tab');
-        $film->load(array("language","category",));
+        $film->load(array("language","category","actor",));
         return view('film_related', compact(['film', 'table']));
     }
 
@@ -290,6 +299,24 @@ return view('film_edit', compact('film'));
 
           
       }
+      if(request()->exists('tab') == 'actor'){
+
+         if(request()->exists('first_name')){
+             session(['sortOrder' => $this->getOrder('first_name')]);
+             session(['sortKey' => 'first_name']);
+        }else{
+            request()->session()->forget("first_name");
+        }
+
+         if(request()->exists('last_name')){
+             session(['sortOrder' => $this->getOrder('last_name')]);
+             session(['sortKey' => 'last_name']);
+        }else{
+            request()->session()->forget("last_name");
+        }
+
+          
+      }
          return back();
     }
     }
@@ -310,6 +337,10 @@ return view('film_edit', compact('film'));
     }
 function addCategory(Film $film ){
         $film->category()->sync(request()->get('category'));
+        return back();
+    }
+function addActor(Film $film ){
+        $film->actor()->sync(request()->get('actor'));
         return back();
     }
  

@@ -19,6 +19,7 @@ class GeneratorCode  extends CallGenerator {
 
         //Attribute which should be displayed for each tables when needed one Attribute
         "displayAttributes" => array(
+            "actor" => "first_name",
             "film" => "title",
             "language" => "name",
             "category" => "name",
@@ -27,6 +28,7 @@ class GeneratorCode  extends CallGenerator {
         ),
 
         "sidebarIcons" => array(
+            "actor" => "fa fa-play",
             "film" => "fa fa-film",
             "language" => "fa fa-language",
             "category" => "fa fa-tags",
@@ -40,7 +42,15 @@ class GeneratorCode  extends CallGenerator {
 
         $mcd = new MCD();
 
-        $mcd->table("film")
+        $mcd->table("actor")
+                ->smallInteger("actor_id", true)
+                ->string("first_name", 30, true)
+                ->string("last_name", 30, true)
+                ->timeStamp("last_update")
+                ->belongsToMany("film")
+                ->end()
+
+            ->table("film")
                 ->increments("film_id")
                 ->smallInteger("language_id")
                 ->string("title", 255, true, true)
@@ -57,6 +67,7 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->belongsTo("language")
                 ->belongsToMany("category")
+                ->belongsToMany("actor")
                 ->end()
 
             ->table("language")

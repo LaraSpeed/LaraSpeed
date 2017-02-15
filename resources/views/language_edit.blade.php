@@ -13,7 +13,7 @@
             @if(isset($language->film))
         <label class="text-danger text-md">Add Film</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
-            @forelse(\App\Film::all() as  $film)
+            @forelse(\App\Film::all()->sortBy('title') as  $film)
                 <option value="{{$film->film_id}}" @foreach($language->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
                     {{$film->title}}
                 </option>

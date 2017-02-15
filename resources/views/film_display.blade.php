@@ -70,7 +70,7 @@
         <label class="text-danger text-md">Associate Category</label>
 
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]"  disabled >
-            @forelse(\App\Category::all() as  $category)
+            @forelse(\App\Category::all()->sortBy('name') as  $category)
                 <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected"  @endif @endforeach>
                     {{$category->name}}
                 </option>
@@ -82,7 +82,7 @@
         @else
                     <label class="text-danger text-md">Associate Category</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
-            @forelse(\App\Category::all() as  $category)
+            @forelse(\App\Category::all()->sortBy('name') as  $category)
                 <option value="{{$category->category_id}}">
                     {{$category->name}}
                 </option>

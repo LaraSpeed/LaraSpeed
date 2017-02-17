@@ -114,6 +114,19 @@
                 <option value="-1">No actor</option>
             @endforelse
         </select><br/>                @endif
+            @if(isset($film->inventory))
+        <label class="text-danger text-md">Add Inventory</label>
+        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
+            @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
+                <option value="{{$inventory->inventory_id}}" @foreach($film->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
+                    {{$inventory->film_id}}
+                </option>
+            @empty
+                <option value="-1">No inventory</option>
+            @endforelse
+        </select><br/>
+        @else
+                @endif
      
 
     
@@ -130,5 +143,10 @@
     @if(isset($film->actor))
             @else
         <label class="text-danger text-md">No actor related to this film.</label>
+    @endif
+    
+    @if(isset($film->inventory))
+            @else
+        <label class="text-danger text-md">No inventory related to this film.</label>
     @endif
      @endsection

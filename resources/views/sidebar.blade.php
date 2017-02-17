@@ -31,6 +31,60 @@
             </a>
         </li>
             <li>
+            <a href="{{url("/inventory")}}">
+                <i class="fa fa-archive" aria-hidden="true"></i>
+                <span class="text-md">Inventory</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/customer")}}">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span class="text-md">Customer</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/rental")}}">
+                <i class="fa fa-industry" aria-hidden="true"></i>
+                <span class="text-md">Rental</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/payment")}}">
+                <i class="fa fa-paypal" aria-hidden="true"></i>
+                <span class="text-md">Payment</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/address")}}">
+                <i class="fa fa-hotel" aria-hidden="true"></i>
+                <span class="text-md">Address</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/city")}}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="text-md">City</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/country")}}">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="text-md">Country</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/store")}}">
+                <i class="fa fa-amazon" aria-hidden="true"></i>
+                <span class="text-md">Store</span>
+            </a>
+        </li>
+            <li>
+            <a href="{{url("/staff")}}">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <span class="text-md">Staff</span>
+            </a>
+        </li>
+            <li>
             <a href="{{url("/delivery")}}">
                 <i class="fa fa-gift" aria-hidden="true"></i>
                 <span class="text-md">Delivery</span>

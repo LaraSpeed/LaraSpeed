@@ -23,6 +23,15 @@ class GeneratorCode  extends CallGenerator {
             "film" => "title",
             "language" => "name",
             "category" => "name",
+            "inventory" => "film_id",
+            "customer" => "first_name",
+            "rental" => "customer_id",
+            "address" => "address",
+            "city" => "city",
+            "country" => "country",
+            "payment" => "amount",
+            "staff" => "first_name",
+            "store" => "address",
             "delivery" => "identifiant",
             "users" => "name"
         ),
@@ -33,7 +42,16 @@ class GeneratorCode  extends CallGenerator {
             "language" => "fa fa-language",
             "category" => "fa fa-tags",
             "delivery" => "fa fa-gift",
-            "users" => "fa fa-user"
+            "users" => "fa fa-user",
+            "inventory" => "fa fa-archive",
+            "customer" => "fa fa-users",
+            "rental" => "fa fa-industry",
+            "address" => "fa fa-hotel",
+            "payment" => "fa fa-paypal",
+            "city" => "fa fa-home",
+            "country" => "fa fa-home",
+            "staff" => "fa fa-user",
+            "store" => "fa fa-amazon"
         ),
     );
 
@@ -68,6 +86,7 @@ class GeneratorCode  extends CallGenerator {
                 ->belongsTo("language")
                 ->belongsToMany("category")
                 ->belongsToMany("actor")
+                ->hasMany("inventory")
                 ->end()
 
             ->table("language")
@@ -82,6 +101,107 @@ class GeneratorCode  extends CallGenerator {
                 ->string("name", 25, true)
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
+                ->end()
+
+            ->table("inventory")
+                ->smallInteger("inventory_id")
+                ->smallInteger("film_id")
+                ->smallInteger("store_id")
+                ->timeStamp("last_update")
+                ->belongsTo("film")
+                ->belongsToMany("customer") //pivot => rental
+                ->end()
+
+            ->table("customer")
+                ->smallInteger("customer_id")
+                ->smallInteger("store_id")
+                ->string("first_name", 25, true)
+                ->string("last_name", 45, true)
+                ->string("email", 50, true)
+                ->smallInteger("address_id")
+                ->boolean("active", false, false)
+                ->date("create_date", true)
+                ->timeStamp("last_update")
+                ->smallInteger("active")
+                ->belongsToMany("inventory")
+                ->hasMany("payment")
+                ->belongsTo("address")
+                ->end()
+
+            ->table("rental")
+                ->smallInteger("rental_id")
+                ->timeStamp("rental_date")
+                ->smallInteger("inventory_id")
+                ->smallInteger("customer_id")
+                ->timeStamp("return_date")
+                ->smallInteger("staff_id")
+                ->timeStamp("last_update")
+                ->hasMany("payment")
+                ->belongsTo("staff")
+                ->end()
+
+            ->table("payment")
+                ->smallInteger("payment_id")
+                ->smallInteger("customer_id")
+                ->smallInteger("rental_id")
+                ->decimal("amount", 4, 4, true)
+                ->timeStamp("payment_date")
+                ->belongsTo("rental")
+                ->belongsTo("customer")
+                ->end()
+
+            ->table("address")
+                ->smallInteger("address_id")
+                ->string("address", 50, true)
+                ->string("address2", 50)
+                ->string("district", 20, true)
+                ->smallInteger("city_id")
+                ->string("postal_code", 10, true)
+                ->string("phone", 20, true)
+                ->timeStamp("last_update")
+                ->hasMany("customer")
+                ->hasMany("staff")
+                ->belongsTo("city")
+                //->belongsToMany("staff")
+                ->end()
+
+            ->table("city")
+                ->smallInteger("city_id")
+                ->string("city", 50, true)
+                ->smallInteger("country_id")
+                ->timeStamp("last_update")
+                ->hasMany("address")
+                ->belongsTo("country")
+                ->end()
+
+            ->table("country")
+                ->smallInteger("country_id", true)
+                ->string("country", 50, true)
+                ->timeStamp("last_update")
+                ->hasMany("city")
+                ->end()
+
+            ->table("store")
+                ->smallInteger("store_id", true)
+                ->smallInteger("manager_staff_id")
+                ->smallInteger("address_id")
+            ->end()
+
+            ->table("staff")
+                ->smallInteger("staff_id", true)
+                ->string("first_name", 45, true)
+                ->string("last_name", 15, true)
+                ->smallInteger("address_id")
+                //->blob("picture")
+                ->string("email", 50, true)
+                ->smallInteger("store_id", false, false)
+                ->tinyInteger("active", false, false)
+                ->string("username", 16, true)
+                ->string("password", 40, true, false)
+                ->timeStamp("last_update")
+                ->hasMany("rental")
+                ->belongsTo("address")
+                //->belongsToMany("address") //Pivot store
                 ->end()
 
             ->table("delivery")

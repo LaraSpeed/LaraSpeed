@@ -24,6 +24,10 @@ class Film extends Model
         return $this->belongsToMany('App\Actor');
     }
 
+    function inventory(){ 
+        return $this->hasMany('App\Inventory');
+    }
+
  
     function getTitleAttribute($value){
 
@@ -40,6 +44,7 @@ class Film extends Model
 
         return $value;
     }       
+    
     
     
     

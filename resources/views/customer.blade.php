@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Customer add form</h1>
+<h1 class="text-danger">Add Customer</h1>
     <form action="{{url("/customer")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">

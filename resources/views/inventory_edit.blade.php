@@ -51,7 +51,7 @@
         ); </script>
     
     @else
-                    <label class="text-danger text-md">Associate Customer</label>
+                    <label class="text-danger text-md">Associate Customers</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one customer"  name="customer[]">
             @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
                 <option value="{{$customer->customer_id}}">

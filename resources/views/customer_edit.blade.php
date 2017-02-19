@@ -49,7 +49,7 @@
         ); </script>
     
     @else
-                    <label class="text-danger text-md">Associate Inventory</label>
+                    <label class="text-danger text-md">Associate Inventorys</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
                 <option value="{{$inventory->inventory_id}}">
@@ -60,7 +60,7 @@
             @endforelse
         </select><br/>            @endif
         @if(isset($customer->payment))
-        <label class="text-danger text-md">Add Payment</label>
+        <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
             @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($customer->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>

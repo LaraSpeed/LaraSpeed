@@ -10,7 +10,7 @@
         <li>
             <a href="{!!"{"."{url(\"/".$tab."\")}"."}"!!}">
                 <i class="{{$config->getTableIcon($tab)}}" aria-hidden="true"></i>
-                <span class="text-md">{{ucfirst($tab)}}</span>
+                <span class="text-md">{{ucfirst($tab)."s"}}</span>
             </a>
         </li>
     @endforeach

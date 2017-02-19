@@ -11,7 +11,7 @@
         </div>
            
             @if(isset($language->film))
-        <label class="text-danger text-md">Add Film</label>
+        <label class="text-danger text-md">Add Films</label>
         <select id="film" name="film[]" multiple="multiple" size="10">
             @forelse(\App\Film::all()->sortBy('title') as  $film)
                 <option value="{{$film->film_id}}" @foreach($language->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>

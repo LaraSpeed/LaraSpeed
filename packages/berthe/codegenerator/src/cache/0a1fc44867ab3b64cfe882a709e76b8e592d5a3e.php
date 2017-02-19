@@ -1,4 +1,4 @@
-    <h1 class="text-danger"><?php echo e(ucfirst($table['title'])); ?> add form</h1>
+    <h1 class="text-danger">Add <?php echo e(ucfirst($table['title'])); ?></h1>
     <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."\")"; ?>S2BCBRACKET" method="post">
 
 		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">

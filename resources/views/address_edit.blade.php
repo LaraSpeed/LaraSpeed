@@ -31,7 +31,7 @@
         </div>
            
             @if(isset($address->customer))
-        <label class="text-danger text-md">Add Customer</label>
+        <label class="text-danger text-md">Add Customers</label>
         <select id="customer" name="customer[]" multiple="multiple" size="10">
             @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
                 <option value="{{$customer->customer_id}}" @foreach($address->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
@@ -52,7 +52,7 @@
     @else
             @endif
         @if(isset($address->staff))
-        <label class="text-danger text-md">Add Staff</label>
+        <label class="text-danger text-md">Add Staffs</label>
         <select id="staff" name="staff[]" multiple="multiple" size="10">
             @forelse(\App\Staff::all()->sortBy('first_name') as  $staff)
                 <option value="{{$staff->staff_id}}" @foreach($address->staff as  $stafftmp) @if($stafftmp->staff_id == $staff->staff_id) selected = "selected" @endif @endforeach>

@@ -40,7 +40,7 @@
        
 
             @if(isset($staff->rental))
-        <label class="text-danger text-md">Add Rental</label>
+        <label class="text-danger text-md">Add Rentals</label>
         <select id="rental" name="rental[]" multiple="multiple" size="10">
             @forelse(\App\Rental::all()->sortBy('customer_id') as  $rental)
                 <option value="{{$rental->rental_id}}" @foreach($staff->rental as  $rentaltmp) @if($rentaltmp->rental_id == $rental->rental_id) selected = "selected" @endif @endforeach>

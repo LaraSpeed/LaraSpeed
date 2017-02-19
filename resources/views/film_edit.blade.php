@@ -86,7 +86,7 @@
         ); </script>
     
     @else
-                    <label class="text-danger text-md">Associate Category</label>
+                    <label class="text-danger text-md">Associate Categorys</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
             @forelse(\App\Category::all()->sortBy('name') as  $category)
                 <option value="{{$category->category_id}}">
@@ -120,7 +120,7 @@
         ); </script>
     
     @else
-                    <label class="text-danger text-md">Associate Actor</label>
+                    <label class="text-danger text-md">Associate Actors</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one actor"  name="actor[]">
             @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)
                 <option value="{{$actor->actor_id}}">
@@ -131,7 +131,7 @@
             @endforelse
         </select><br/>            @endif
         @if(isset($film->inventory))
-        <label class="text-danger text-md">Add Inventory</label>
+        <label class="text-danger text-md">Add Inventorys</label>
         <select id="inventory" name="inventory[]" multiple="multiple" size="10">
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
                 <option value="{{$inventory->inventory_id}}" @foreach($film->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>

@@ -11,7 +11,7 @@
         </div>
              
             @if(isset($city->address))
-        <label class="text-danger text-md">Add Address</label>
+        <label class="text-danger text-md">Add Addresss</label>
         <select id="address" name="address[]" multiple="multiple" size="10">
             @forelse(\App\Address::all()->sortBy('address') as  $address)
                 <option value="{{$address->address_id}}" @foreach($city->address as  $addresstmp) @if($addresstmp->address_id == $address->address_id) selected = "selected" @endif @endforeach>

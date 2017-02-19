@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Country add form</h1>
+<h1 class="text-danger">Add Country</h1>
     <form action="{{url("/country")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">

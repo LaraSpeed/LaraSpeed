@@ -6,7 +6,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                       
             @if(isset($rental->payment))
-        <label class="text-danger text-md">Add Payment</label>
+        <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
             @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($rental->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>

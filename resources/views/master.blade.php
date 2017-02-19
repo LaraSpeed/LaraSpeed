@@ -37,6 +37,15 @@
         @yield("spvcss")
 
 
+        <link rel="stylesheet" href="{{URL::asset("css/bootstrap3.css")}}" />
+        <link rel="stylesheet" href="{{URL::asset("css/prettify.min.css")}}" />
+        <link rel="stylesheet" href="{{URL::asset("css/bootstrap-duallistbox.css")}}" />
+
+        <script src="{{URL::asset("js/jquery.js")}}"></script>
+        <script src="{{URL::asset("js/bootstrap3.js")}}"></script>
+        <script src="{{URL::asset("js/prettyfy.min.js")}}"></script>
+        <script src="{{URL::asset("js/jquery.bootstrap-duallistbox.js")}}"></script>
+
         <!-- Theme CSS -->
         <link rel="stylesheet" href="{{URL::asset("assets/stylesheets/theme.css")}}" />
 
@@ -50,6 +59,7 @@
         <script src="{{URL::asset("assets/vendor/modernizr/modernizr.js")}}"></script>
 
         <!--Custom Css-->
+
 
     </head>
 

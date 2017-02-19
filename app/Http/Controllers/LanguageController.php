@@ -18,7 +18,7 @@ class LanguageController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('language_show', ['languages' => Language::all()]);
+        return view('language_show', ['languages' => Language::paginate(20)]);
     }
 
     /**

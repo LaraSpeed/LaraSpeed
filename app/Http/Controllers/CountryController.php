@@ -18,7 +18,7 @@ class CountryController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('country_show', ['countrys' => Country::all()]);
+        return view('country_show', ['countrys' => Country::paginate(20)]);
     }
 
     /**

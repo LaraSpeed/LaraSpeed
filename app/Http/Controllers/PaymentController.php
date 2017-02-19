@@ -20,7 +20,7 @@ class PaymentController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('payment_show', ['payments' => Payment::all()]);
+        return view('payment_show', ['payments' => Payment::paginate(20)]);
     }
 
     /**

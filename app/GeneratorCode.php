@@ -183,8 +183,8 @@ class GeneratorCode  extends CallGenerator {
 
             ->table("store")
                 ->smallInteger("store_id", true)
-                ->smallInteger("manager_staff_id")
-                ->smallInteger("address_id")
+                ->smallInteger("manager_staff_id", true, true)
+                ->smallInteger("address_id", true, true)
             ->end()
 
             ->table("staff")

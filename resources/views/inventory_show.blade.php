@@ -99,6 +99,9 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
+                <div class="col-md-12">
+                    {!!$inventorys->links()!!}
+                </div>
             </div>
         </div>
     </section>@endsection

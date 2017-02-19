@@ -41,7 +41,7 @@
 
             @if(isset($staff->rental))
         <label class="text-danger text-md">Add Rental</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one rental"  name="rental[]">
+        <select id="rental" name="rental[]" multiple="multiple" size="10">
             @forelse(\App\Rental::all()->sortBy('customer_id') as  $rental)
                 <option value="{{$rental->rental_id}}" @foreach($staff->rental as  $rentaltmp) @if($rentaltmp->rental_id == $rental->rental_id) selected = "selected" @endif @endforeach>
                     {{$rental->customer_id}}
@@ -50,6 +50,14 @@
                 <option value="-1">No rental</option>
             @endforelse
         </select><br/>
+        <script> $('#rental').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Rental',
+                selectedListLabel: 'Selected Rental',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
         @else
                 @endif
             @if(isset($staff->address))

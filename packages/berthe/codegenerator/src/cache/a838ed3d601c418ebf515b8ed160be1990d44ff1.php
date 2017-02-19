@@ -126,6 +126,9 @@
                         S3Bendforelse
                     </tbody>
                 </table><!--End Table-->
+                <div class="col-md-12">
+                    S2CBOBRACKET$<?php echo $table['title'].'s'."->links()"; ?>S2CBCBRACKET
+                </div>
             </div>
         </div>
     </section>

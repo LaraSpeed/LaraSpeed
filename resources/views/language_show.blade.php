@@ -103,6 +103,9 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
+                <div class="col-md-12">
+                    {!!$languages->links()!!}
+                </div>
             </div>
         </div>
     </section>@endsection

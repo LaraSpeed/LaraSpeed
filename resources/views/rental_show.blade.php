@@ -108,6 +108,9 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
+                <div class="col-md-12">
+                    {!!$rentals->links()!!}
+                </div>
             </div>
         </div>
     </section>@endsection

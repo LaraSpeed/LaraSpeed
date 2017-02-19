@@ -20,7 +20,7 @@ class CityController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('city_show', ['citys' => City::all()]);
+        return view('city_show', ['citys' => City::paginate(20)]);
     }
 
     /**

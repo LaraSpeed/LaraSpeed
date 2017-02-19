@@ -16,7 +16,7 @@ class StoreController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('store_show', ['stores' => Store::all()]);
+        return view('store_show', ['stores' => Store::paginate(20)]);
     }
 
     /**

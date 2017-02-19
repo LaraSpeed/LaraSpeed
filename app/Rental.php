@@ -22,7 +22,22 @@ class Rental extends Model
 
  
      
-    
+    function getPaymentPaginatedAttribute(){
+        $payment = $this->payment();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $payment->where('amount', 'like', $key)
+               ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("payment", session("sortKey", "none")))
+            return $payment->paginate(20)->appends(array("tab" => "payment"));
+
+        return $payment->orderBy(session("sortKey", "amount"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "payment"));
+
+    }
+
     
  
     public function hasAttribute($attr)

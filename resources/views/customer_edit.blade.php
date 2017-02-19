@@ -28,9 +28,9 @@
             @if(isset($customer->inventory))
         <label class="text-danger text-md">Associate Inventory</label>
 
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]" >
+        <select id="inventory" name="inventory[]"  multiple="multiple" size="10" >
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
-                <option value="{{$inventory->inventory_id}}" @foreach($customer->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected"  disabled  @endif @endforeach>
+                <option value="{{$inventory->inventory_id}}" @foreach($customer->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
                     {{$inventory->film_id}}
                 </option>
             @empty
@@ -38,6 +38,16 @@
             @endforelse
 
         </select><br/>
+
+            <script> $('#inventory').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'Non-selected inventory',
+                    selectedListLabel: 'Selected inventory',
+                    moveOnSelect: true,
+                    nonSelectedFilter: ''
+                }
+        ); </script>
+    
     @else
                     <label class="text-danger text-md">Associate Inventory</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
@@ -51,7 +61,7 @@
         </select><br/>            @endif
         @if(isset($customer->payment))
         <label class="text-danger text-md">Add Payment</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one payment"  name="payment[]">
+        <select id="payment" name="payment[]" multiple="multiple" size="10">
             @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($customer->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
                     {{$payment->amount}}
@@ -60,6 +70,14 @@
                 <option value="-1">No payment</option>
             @endforelse
         </select><br/>
+        <script> $('#payment').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Payment',
+                selectedListLabel: 'Selected Payment',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
     @else
             @endif
         @if(isset($customer->address))

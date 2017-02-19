@@ -22,7 +22,7 @@ class CustomerController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('customer_show', ['customers' => Customer::all()]);
+        return view('customer_show', ['customers' => Customer::paginate(20)]);
     }
 
     /**

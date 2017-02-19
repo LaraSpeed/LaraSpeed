@@ -1,3 +1,4 @@
+
     <h1 class="text-danger">Edit {{ucfirst($table['title'])}}</h1>
     <form method="post" action="S2BOBRACKET{!! "url(\"".$table['title']."/$".$table['title']."->".$table['id']."\")" !!}S2BCBRACKET">
         {{ method_field('PUT') }}

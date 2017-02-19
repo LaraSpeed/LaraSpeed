@@ -1,3 +1,4 @@
+
     <h1 class="text-danger">Edit <?php echo e(ucfirst($table['title'])); ?></h1>
     <form method="post" action="S2BOBRACKET<?php echo "url(\"".$table['title']."/$".$table['title']."->".$table['id']."\")"; ?>S2BCBRACKET">
         <?php echo e(method_field('PUT')); ?>

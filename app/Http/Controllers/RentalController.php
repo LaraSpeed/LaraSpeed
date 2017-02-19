@@ -20,7 +20,7 @@ class RentalController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('rental_show', ['rentals' => Rental::all()]);
+        return view('rental_show', ['rentals' => Rental::paginate(20)]);
     }
 
     /**

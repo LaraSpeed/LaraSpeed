@@ -61,8 +61,46 @@ class Address extends Model
 
         return $value;
     }  
-    
-    
+    function getCustomerPaginatedAttribute(){
+        $customer = $this->customer();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $customer->where('first_name', 'like', $key)
+               ->orWhere('last_name', 'like', $key)
+          ->orWhere('email', 'like', $key)
+            ->orWhere('create_date', 'like', $key)
+         ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("customer", session("sortKey", "none")))
+            return $customer->paginate(20)->appends(array("tab" => "customer"));
+
+        return $customer->orderBy(session("sortKey", "first_name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "customer"));
+
+    }
+
+    function getStaffPaginatedAttribute(){
+        $staff = $this->staff();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $staff->where('first_name', 'like', $key)
+              ->orWhere('last_name', 'like', $key)
+           ->orWhere('email', 'like', $key)
+           ->orWhere('active', 'like', $key)
+          ->orWhere('username', 'like', $key)
+          ->orWhere('password', 'like', $key)
+         ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("staff", session("sortKey", "none")))
+            return $staff->paginate(20)->appends(array("tab" => "staff"));
+
+        return $staff->orderBy(session("sortKey", "first_name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "staff"));
+
+    }
+
     
  
     public function hasAttribute($attr)

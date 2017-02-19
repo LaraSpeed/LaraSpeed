@@ -57,7 +57,22 @@ class Staff extends Model
 
         return $value;
     }  
-    
+    function getRentalPaginatedAttribute(){
+        $rental = $this->rental();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $rental->where('customer_id', 'like', $key)
+                 ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("rental", session("sortKey", "none")))
+            return $rental->paginate(20)->appends(array("tab" => "rental"));
+
+        return $rental->orderBy(session("sortKey", "customer_id"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "rental"));
+
+    }
+
     
  
     public function hasAttribute($attr)

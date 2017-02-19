@@ -25,7 +25,22 @@ class Country extends Model
 
         return $value;
     }  
-    
+    function getCityPaginatedAttribute(){
+        $city = $this->city();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $city->where('city', 'like', $key)
+              ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("city", session("sortKey", "none")))
+            return $city->paginate(20)->appends(array("tab" => "city"));
+
+        return $city->orderBy(session("sortKey", "city"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "city"));
+
+    }
+
  
     public function hasAttribute($attr)
     {

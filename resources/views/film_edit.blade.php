@@ -65,9 +65,9 @@
         @if(isset($film->category))
         <label class="text-danger text-md">Associate Category</label>
 
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]" >
+        <select id="category" name="category[]"  multiple="multiple" size="10" >
             @forelse(\App\Category::all()->sortBy('name') as  $category)
-                <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected"  disabled  @endif @endforeach>
+                <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
                     {{$category->name}}
                 </option>
             @empty
@@ -75,6 +75,16 @@
             @endforelse
 
         </select><br/>
+
+            <script> $('#category').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'Non-selected category',
+                    selectedListLabel: 'Selected category',
+                    moveOnSelect: true,
+                    nonSelectedFilter: ''
+                }
+        ); </script>
+    
     @else
                     <label class="text-danger text-md">Associate Category</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
@@ -89,9 +99,9 @@
         @if(isset($film->actor))
         <label class="text-danger text-md">Associate Actor</label>
 
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one actor"  name="actor[]" >
+        <select id="actor" name="actor[]"  multiple="multiple" size="10" >
             @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)
-                <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected"  disabled  @endif @endforeach>
+                <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected" @endif @endforeach>
                     {{$actor->first_name}}
                 </option>
             @empty
@@ -99,6 +109,16 @@
             @endforelse
 
         </select><br/>
+
+            <script> $('#actor').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'Non-selected actor',
+                    selectedListLabel: 'Selected actor',
+                    moveOnSelect: true,
+                    nonSelectedFilter: ''
+                }
+        ); </script>
+    
     @else
                     <label class="text-danger text-md">Associate Actor</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one actor"  name="actor[]">
@@ -112,7 +132,7 @@
         </select><br/>            @endif
         @if(isset($film->inventory))
         <label class="text-danger text-md">Add Inventory</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
+        <select id="inventory" name="inventory[]" multiple="multiple" size="10">
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
                 <option value="{{$inventory->inventory_id}}" @foreach($film->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
                     {{$inventory->film_id}}
@@ -121,6 +141,14 @@
                 <option value="-1">No inventory</option>
             @endforelse
         </select><br/>
+        <script> $('#inventory').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Inventory',
+                selectedListLabel: 'Selected Inventory',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
     @else
             @endif
      

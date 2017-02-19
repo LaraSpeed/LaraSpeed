@@ -13,9 +13,9 @@
             @if(isset($category->film))
         <label class="text-danger text-md">Associate Film</label>
 
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]" >
+        <select id="film" name="film[]"  multiple="multiple" size="10" >
             @forelse(\App\Film::all()->sortBy('title') as  $film)
-                <option value="{{$film->film_id}}" @foreach($category->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected"  disabled  @endif @endforeach>
+                <option value="{{$film->film_id}}" @foreach($category->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
                     {{$film->title}}
                 </option>
             @empty
@@ -23,6 +23,16 @@
             @endforelse
 
         </select><br/>
+
+            <script> $('#film').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'Non-selected film',
+                    selectedListLabel: 'Selected film',
+                    moveOnSelect: true,
+                    nonSelectedFilter: ''
+                }
+        ); </script>
+    
     @else
                     <label class="text-danger text-md">Associate Film</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">

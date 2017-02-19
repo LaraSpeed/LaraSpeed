@@ -20,7 +20,7 @@ class InventoryController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('inventory_show', ['inventorys' => Inventory::all()]);
+        return view('inventory_show', ['inventorys' => Inventory::paginate(20)]);
     }
 
     /**

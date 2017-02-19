@@ -18,7 +18,7 @@ class ActorController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('actor_show', ['actors' => Actor::all()]);
+        return view('actor_show', ['actors' => Actor::paginate(20)]);
     }
 
     /**

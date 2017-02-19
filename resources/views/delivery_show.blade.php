@@ -104,6 +104,9 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
+                <div class="col-md-12">
+                    {!!$deliverys->links()!!}
+                </div>
             </div>
         </div>
     </section>@endsection

@@ -64,7 +64,7 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
      *
      * @var string
      */
-    public $relationAccessor = "mockup";//"hasManyRelationAccessor";
+    public $relationAccessor = "hasManyRelationAccessor";
 
     /**
      * HasManyRelation constructor.

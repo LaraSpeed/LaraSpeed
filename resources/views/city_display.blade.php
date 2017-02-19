@@ -16,7 +16,7 @@
 
             @if(isset($city->address))
         <label class="text-danger text-md">Add Address</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one address"  name="address[]">
+        <select id="address" name="address[]" multiple="multiple" size="10">
             @forelse(\App\Address::all()->sortBy('address') as  $address)
                 <option value="{{$address->address_id}}" @foreach($city->address as  $addresstmp) @if($addresstmp->address_id == $address->address_id) selected = "selected" @endif @endforeach>
                     {{$address->address}}
@@ -25,6 +25,14 @@
                 <option value="-1">No address</option>
             @endforelse
         </select><br/>
+        <script> $('#address').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Address',
+                selectedListLabel: 'Selected Address',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
         @else
                 @endif
             @if(isset($city->country))

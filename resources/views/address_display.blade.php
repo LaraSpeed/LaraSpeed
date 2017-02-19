@@ -36,7 +36,7 @@
 
             @if(isset($address->customer))
         <label class="text-danger text-md">Add Customer</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one customer"  name="customer[]">
+        <select id="customer" name="customer[]" multiple="multiple" size="10">
             @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
                 <option value="{{$customer->customer_id}}" @foreach($address->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
                     {{$customer->first_name}}
@@ -45,11 +45,19 @@
                 <option value="-1">No customer</option>
             @endforelse
         </select><br/>
+        <script> $('#customer').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Customer',
+                selectedListLabel: 'Selected Customer',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
         @else
                 @endif
             @if(isset($address->staff))
         <label class="text-danger text-md">Add Staff</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one staff"  name="staff[]">
+        <select id="staff" name="staff[]" multiple="multiple" size="10">
             @forelse(\App\Staff::all()->sortBy('first_name') as  $staff)
                 <option value="{{$staff->staff_id}}" @foreach($address->staff as  $stafftmp) @if($stafftmp->staff_id == $staff->staff_id) selected = "selected" @endif @endforeach>
                     {{$staff->first_name}}
@@ -58,6 +66,14 @@
                 <option value="-1">No staff</option>
             @endforelse
         </select><br/>
+        <script> $('#staff').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Staff',
+                selectedListLabel: 'Selected Staff',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
         @else
                 @endif
             @if(isset($address->city))

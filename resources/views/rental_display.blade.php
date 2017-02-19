@@ -11,7 +11,7 @@
 
             @if(isset($rental->payment))
         <label class="text-danger text-md">Add Payment</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one payment"  name="payment[]">
+        <select id="payment" name="payment[]" multiple="multiple" size="10">
             @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($rental->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
                     {{$payment->amount}}
@@ -20,6 +20,14 @@
                 <option value="-1">No payment</option>
             @endforelse
         </select><br/>
+        <script> $('#payment').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Payment',
+                selectedListLabel: 'Selected Payment',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
         @else
                 @endif
             @if(isset($rental->staff))

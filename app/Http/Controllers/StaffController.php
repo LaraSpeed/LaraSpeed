@@ -20,7 +20,7 @@ class StaffController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('staff_show', ['staffs' => Staff::all()]);
+        return view('staff_show', ['staffs' => Staff::paginate(20)]);
     }
 
     /**

@@ -128,6 +128,9 @@
                         @endforelse
                     </tbody>
                 </table><!--End Table-->
+                <div class="col-md-12">
+                    {!!$customers->links()!!}
+                </div>
             </div>
         </div>
     </section>@endsection

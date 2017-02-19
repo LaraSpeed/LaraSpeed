@@ -22,7 +22,7 @@ class AddressController extends Controller {
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
         session(["mutate" => '1']);
-        return view('address_show', ['addresss' => Address::all()]);
+        return view('address_show', ['addresss' => Address::paginate(20)]);
     }
 
     /**

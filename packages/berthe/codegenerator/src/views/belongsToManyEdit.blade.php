@@ -1,4 +1,4 @@
-    <label class="text-danger text-md">Associate {{ucfirst($otherTable)}}</label>
+    <label class="text-danger text-md">Associate {{ucfirst($config->getPluralForm($otherTable))}}</label>
 
         <select id="{{$otherTable}}" name="{!! $otherTable !!}[]" @if($type == \Berthe\Codegenerator\Utils\Variable::$DISPLAY_VIEW) multiple data-plugin-selectTwo class="form-control populate" disabled @else multiple="multiple" size="10" @endif>
             S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all()->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!})

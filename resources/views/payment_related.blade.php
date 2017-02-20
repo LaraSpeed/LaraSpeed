@@ -2,7 +2,8 @@
 @section('content')
 @if(isset($payment->rental) && "rental" == $table)
             <h3 class="text-danger">Rental : </h3>
-               @else
+        {{$payment->rental->return_date}}
+           @else
 
         @endif
         @if(isset($payment->customer) && "customer" == $table)

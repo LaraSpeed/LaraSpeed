@@ -28,7 +28,7 @@ class ActorController extends Controller {
     */
     public function create()
     {
-        return view('actor');
+        return view(' actor ');
     }
 
     /**
@@ -38,18 +38,18 @@ class ActorController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $actor = Actor::create([
-             "first_name" => $data["first_name"],
-                 "last_name" => $data["last_name"],
-              ]);
+$actor = Actor::create([
+     "first_name" => $data["first_name"],
+     "last_name" => $data["last_name"],
+  ]);
 
-        if(request()->exists('film')){
-            $actor->film()->attach($data["film"]);
-        }
-      
-        return isset($data['carl'])?redirect('/actor'):back();    }
+    if(request()->exists('film')){
+    $actor->film()->attach($data["film"]);
+    }
+   
+        return  isset($data['carl'])?redirect('/actor'):back();     }
 
     /**
     * Display the specified resource.
@@ -57,11 +57,11 @@ class ActorController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Actor $actor )
+    public function show( Actor $actor )
     {
         request()->session()->forget("mutate");
-        $actor->load(array("film",));
-return view('actor_display', compact('actor'));
+         $actor->load(array("film",));
+return view('actor_display', compact('actor')); 
     }
 
     /**

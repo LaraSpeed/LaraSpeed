@@ -30,7 +30,7 @@ class RentalController extends Controller {
     */
     public function create()
     {
-        return view('rental');
+        return view(' rental ');
     }
 
     /**
@@ -40,18 +40,19 @@ class RentalController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $rental = Rental::create([
-               ]);
+$rental = Rental::create([
+        "return_date" => $data["return_date"],
+   ]);
 
-         if(request()->exists('staff')){
-            $staff = Staff::find(request()->get('staff'));
-            $rental->staff()->associate($staff)->save();
-         }
+     if(request()->exists('staff')){
+    $staff = Staff::find(request()->get('staff'));
+    $rental->staff()->associate($staff)->save();
+    }
 
-      
-        return isset($data['carl'])?redirect('/rental'):back();    }
+   
+        return  isset($data['carl'])?redirect('/rental'):back();     }
 
     /**
     * Display the specified resource.
@@ -59,11 +60,11 @@ class RentalController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Rental $rental )
+    public function show( Rental $rental )
     {
         request()->session()->forget("mutate");
-        $rental->load(array("payment","staff",));
-return view('rental_display', compact('rental'));
+         $rental->load(array("payment","staff",));
+return view('rental_display', compact('rental')); 
     }
 
     /**
@@ -90,7 +91,8 @@ return view('rental_edit', compact('rental'));
             $data = request()->all();
 
     $updateFields = array();
-           
+                $updateFields["return_date"] = $data["return_date"];
+       
     $rental->update($updateFields);
 
             if(request()->exists('payment')){
@@ -196,7 +198,13 @@ return view('rental_edit', compact('rental'));
         request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
         $rentals = Rental::query();
-               $rentals = $rentals->paginate(20);
+           if(request()->exists('return_date')){
+            $rentals = $rentals->orderBy('return_date', $this->getOrder('return_date'));
+            $path = "return_date";
+        }else{
+            request()->session()->forget("return_date");
+        }
+           $rentals = $rentals->paginate(20);
         $rentals->setPath("sort?$path");
         return view('rental_show', compact('rentals'));
 

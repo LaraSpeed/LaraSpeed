@@ -21,7 +21,23 @@ class Rental extends Model
     }
 
  
-     
+    function setReturnDateAttribute($value){
+
+        $val = explode("-", $value);
+
+        if(count($val) < 2)
+            $val = explode("/", $value);
+
+        $value = "$val[2]-$val[0]-$val[1]";
+        $this->attributes['return_date'] = date("Y-m-d", strtotime($value));
+
+    }
+
+    function getReturnDateAttribute($value){
+
+        return date("m-d-Y", strtotime($value));
+
+    }  
     function getPaymentPaginatedAttribute(){
         $payment = $this->payment();
         if(session("keyword", "none") != "none"){

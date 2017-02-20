@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Add Film</h1>
+<h1 class="text-danger">Create Film</h1>
     <form action="{{url("/film")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -56,7 +56,7 @@
 		</div><br/>
 
 		 		<div class="form-group">
-			<label class="text-danger text-md">Categorys : </label>
+			<label class="text-danger text-md">Categories : </label>
 
 			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
 					@forelse(\App\Category::all() as  $category)

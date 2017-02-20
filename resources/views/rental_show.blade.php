@@ -57,7 +57,10 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                                      
+                                                             <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap> <!-- -->
+                                Return date
+                            </th>     
                                                                 <th class="text-md text-primary">
                                    Staff
                                 </th>
@@ -73,7 +76,9 @@
                     <tbody>
                         @forelse($rentals as $rental)
                             <tr>
-                                          
+                                                                     <!--class="{$attrType->formClass("table")}}"-->
+                                <td class="text-md">{{$rental->return_date}}</td>
+                                 
                                                                        <td class="text-md">
                                         @if($rental->staff)
                                             {{$rental->staff->first_name}}

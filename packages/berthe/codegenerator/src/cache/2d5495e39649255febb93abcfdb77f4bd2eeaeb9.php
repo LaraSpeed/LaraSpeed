@@ -15,52 +15,15 @@
 
 <?php $__env->startSection('modelCall'); ?><?php echo ucfirst($table['title']).'::paginate(20)'; ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('createView'); ?><?php echo e($table['title']); ?><?php $__env->stopSection(); ?>
+<?php $__env->startSection('createView'); ?> <?php echo $__env->make("controllers.createAction", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('storeContent'); ?>
-$<?php echo "data = request()->all();"; ?>
+<?php $__env->startSection('storeContent'); ?> <?php echo $__env->make("controllers.storeActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('store'); ?> <?php echo $__env->make("controllers.storeActionReturnValue", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-        $<?php echo $table['title']." = "; ?><?php echo ucfirst($table['title'])."::create(["; ?>
-
-    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?><?php if(!$attrType->isBoolean()): ?>
-        <?php echo "\"$attrName\" => $"."data[\"$attrName\"],"; ?>
-
-        <?php else: ?> <?php echo "\"$attrName\" => ($"."data[\"$attrName\"] == 'on' ? 1:0),"; ?> <?php endif; ?>
-<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-    <?php echo "]);"; ?>
-
-
-    <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($relation->isBelongsTo()): ?>
-    <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
-
-            $<?php echo $relation->getOtherTable()." = "; ?><?php echo ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));"; ?>
-
-            $<?php echo $table['title']."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();"; ?>
-
-         <?php echo "}"; ?>
-
-
-    <?php elseif($relation->isBelongsToMany()): ?>
-    <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
-
-            $<?php echo $table['title']."->".$relation->getOtherTable()."()->attach($"."data[\"".$relation->getOtherTable()."\"]);"; ?>
-
-        <?php echo "}"; ?>
-
-    <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('store'); ?><?php echo "isset($"."data['carl'])?redirect('/".$table['title']."'):back();"; ?><?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('object'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('object'); ?> <?php echo $__env->make("controllers.showActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>
-<?php $__env->startSection('show'); ?><?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-<?php echo $__env->make($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<?php endif; ?>
-<?php echo $__env->make("showReturnValController", ['tab' => $table["title"], "type" => "display"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php $__env->stopSection(); ?>
+<?php $__env->startSection('show'); ?> <?php echo $__env->make("controllers.showActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('editParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>

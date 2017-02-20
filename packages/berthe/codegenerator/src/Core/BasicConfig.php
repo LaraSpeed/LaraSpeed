@@ -83,4 +83,18 @@ class BasicConfig implements ConfigInterface
 
             throw new \Exception("Icon not specified for table : [".$tableName."]");
     }
+
+    /**
+     * Get the plurial form of a given table
+     *
+     * @param string $tableName
+     * @throws \Exception
+     */
+    function getPluralForm($tableName = "")
+    {
+        if (array_key_exists("tablePluralForm", $this->configs) && array_key_exists($tableName, $this->configs["tablePluralForm"]))
+            return $this->configs["tablePluralForm"][$tableName];
+
+        throw new \Exception("Plural form specified for table : [".$tableName."]");
+    }
 }

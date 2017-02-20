@@ -62,7 +62,8 @@ class Staff extends Model
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
             $rental->where('customer_id', 'like', $key)
-                 ;
+                ->orWhere('return_date', 'like', $key)
+          ;
 
         }
 

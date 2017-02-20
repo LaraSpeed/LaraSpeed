@@ -1,6 +1,6 @@
     <div class="row">
         <div class="col-md-4">
-            <h1 class="text-danger">List of {{ucfirst($otherTable).'s'}}</h1>
+            <h1 class="text-danger">List of {{ucfirst($config->getPluralForm($otherTable))}}</h1>
         </div>
 
         <div class="col-md-5">
@@ -58,7 +58,7 @@
                 <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
             </div>
 
-            <h2 class="panel-title">{{ucfirst($otherTable."s")}}</h2>
+            <h2 class="panel-title">{{ucfirst($config->getPluralForm($otherTable))}}</h2>
         </header>
 
         <div class="panel-body">

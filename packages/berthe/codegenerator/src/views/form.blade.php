@@ -1,4 +1,4 @@
-    <h1 class="text-danger">Add {{ucfirst($table['title'])}}</h1>
+    <h1 class="text-danger">Create {{ucfirst($table['title'])}}</h1>
     <form action="S2BOBRACKET{!!"url(\"/".$table['title']."\")"!!}S2BCBRACKET" method="post">
 
 		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
@@ -28,7 +28,7 @@
 
 		@elseif($relationType->isBelongsToMany())
 		<div class="form-group">
-			<label class="text-danger text-md">{{ucfirst($relationType->getOtherTable())}}s : </label>
+			<label class="text-danger text-md">{{ucfirst($config->getPluralForm($relationType->getOtherTable()))}} : </label>
 
 			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $relationType->getOtherTable() !!}"  name="{!! $relationType->getOtherTable() !!}[]">
 					S3Bforelse({!!"\\App\\".ucfirst($relationType->getOtherTable())."::all() as "!!} ${!! $relationType->getOtherTable() !!})

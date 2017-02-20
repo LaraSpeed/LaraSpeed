@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Add Actor</h1>
+<h1 class="text-danger">Create Actor</h1>
     <form action="{{url("/actor")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">

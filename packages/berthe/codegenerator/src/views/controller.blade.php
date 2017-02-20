@@ -16,41 +16,15 @@
 
 @section('modelCall'){!!ucfirst($table['title']).'::paginate(20)'!!}@endsection
 
-@section('createView'){{$table['title']}}@endsection
+@section('createView') @include("controllers.createAction", ["table" => $table]) @endsection
 
-@section('storeContent')
-${!! "data = request()->all();" !!}
+@section('storeContent') @include("controllers.storeActionContent", ["table" => $table]) @endsection
 
-        ${!! $table['title']." = " !!}{!! ucfirst($table['title'])."::create([" !!}
-    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@if(!$attrType->isBoolean())
-        {!! "\"$attrName\" => $"."data[\"$attrName\"]," !!}
-        @else {!! "\"$attrName\" => ($"."data[\"$attrName\"] == 'on' ? 1:0)," !!} @endif
-@endif @endforeach
-    {!! "]);" !!}
+@section('store') @include("controllers.storeActionReturnValue", ["table" => $table]) @endsection
 
-    @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)@if($relation->isBelongsTo())
-    {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
-            ${!! $relation->getOtherTable()." = " !!}{!! ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));" !!}
-            ${!! $table['title']."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();" !!}
-         {!! "}" !!}
-
-    @elseif($relation->isBelongsToMany())
-    {!! "if(request()->exists('".$relation->getOtherTable()."')){" !!}
-            ${!! $table['title']."->".$relation->getOtherTable()."()->attach($"."data[\"".$relation->getOtherTable()."\"]);" !!}
-        {!! "}" !!}
-    @endif @endforeach @endif
-@endsection
-
-@section('store'){!! "isset($"."data['carl'])?redirect('/".$table['title']."'):back();"!!}@endsection
-
-@section('object'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
+@section('object') @include("controllers.showActionParam", ["table" => $table]) @endsection
 <?php $tb = array(); ?>
-@section('show')@if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
-@include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
-
-@endif
-@include("showReturnValController", ['tab' => $table["title"], "type" => "display"])
-@endsection
+@section('show') @include("controllers.showActionContent", ["table" => $table]) @endsection
 
 @section('editParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 <?php $tb = array(); ?>

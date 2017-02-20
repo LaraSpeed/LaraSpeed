@@ -26,7 +26,7 @@
         </div>
            
             @if(isset($customer->inventory))
-        <label class="text-danger text-md">Associate Inventory</label>
+        <label class="text-danger text-md">Associate Inventories</label>
 
         <select id="inventory" name="inventory[]"  multiple="multiple" size="10" >
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
@@ -49,7 +49,7 @@
         ); </script>
     
     @else
-                    <label class="text-danger text-md">Associate Inventorys</label>
+                    <label class="text-danger text-md">Associate Inventories</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
                 <option value="{{$inventory->inventory_id}}">

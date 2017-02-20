@@ -67,7 +67,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($film->category))
-        <label class="text-danger text-md">Associate Category</label>
+        <label class="text-danger text-md">Associate Categories</label>
 
         <select id="category" name="category[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Category::all()->sortBy('name') as  $category)
@@ -82,7 +82,7 @@
 
     
         @else
-                    <label class="text-danger text-md">Associate Categorys</label>
+                    <label class="text-danger text-md">Associate Categories</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
             @forelse(\App\Category::all()->sortBy('name') as  $category)
                 <option value="{{$category->category_id}}">
@@ -93,7 +93,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($film->actor))
-        <label class="text-danger text-md">Associate Actor</label>
+        <label class="text-danger text-md">Associate Actors</label>
 
         <select id="actor" name="actor[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)
@@ -119,7 +119,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($film->inventory))
-        <label class="text-danger text-md">Add Inventorys</label>
+        <label class="text-danger text-md">Add Inventories</label>
         <select id="inventory" name="inventory[]" multiple="multiple" size="10">
             @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
                 <option value="{{$inventory->inventory_id}}" @foreach($film->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>

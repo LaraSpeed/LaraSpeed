@@ -30,7 +30,7 @@ class StaffController extends Controller {
     */
     public function create()
     {
-        return view('staff');
+        return view(' staff ');
     }
 
     /**
@@ -40,24 +40,24 @@ class StaffController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $staff = Staff::create([
-             "first_name" => $data["first_name"],
-                 "last_name" => $data["last_name"],
-                  "email" => $data["email"],
-                  "active" => $data["active"],
-                 "username" => $data["username"],
-                 "password" => $data["password"],
-              ]);
+$staff = Staff::create([
+     "first_name" => $data["first_name"],
+     "last_name" => $data["last_name"],
+      "email" => $data["email"],
+      "active" => $data["active"],
+     "username" => $data["username"],
+     "password" => $data["password"],
+  ]);
 
-         if(request()->exists('address')){
-            $address = Address::find(request()->get('address'));
-            $staff->address()->associate($address)->save();
-         }
+     if(request()->exists('address')){
+    $address = Address::find(request()->get('address'));
+    $staff->address()->associate($address)->save();
+    }
 
-      
-        return isset($data['carl'])?redirect('/staff'):back();    }
+   
+        return  isset($data['carl'])?redirect('/staff'):back();     }
 
     /**
     * Display the specified resource.
@@ -65,11 +65,11 @@ class StaffController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Staff $staff )
+    public function show( Staff $staff )
     {
         request()->session()->forget("mutate");
-        $staff->load(array("rental","address",));
-return view('staff_display', compact('staff'));
+         $staff->load(array("rental","address",));
+return view('staff_display', compact('staff')); 
     }
 
     /**
@@ -258,7 +258,14 @@ return view('staff_edit', compact('staff'));
 
       if(request()->exists('tab') == 'rental'){
 
-               
+            if(request()->exists('return_date')){
+             session(['sortOrder' => $this->getOrder('return_date')]);
+             session(['sortKey' => 'return_date']);
+        }else{
+            request()->session()->forget("return_date");
+        }
+
+           
       }
       if(request()->exists('tab') == 'address'){
 

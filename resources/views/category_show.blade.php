@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">List of Categorys</h1>
+<h1 class="text-danger">List of Categories</h1>
 
     <div class="row">
 
@@ -49,7 +49,7 @@
                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
             </div>
-            <h2 class="panel-title">Categorys</h2>
+            <h2 class="panel-title">Categories</h2>
         </header>
 
         <div class="panel-body">

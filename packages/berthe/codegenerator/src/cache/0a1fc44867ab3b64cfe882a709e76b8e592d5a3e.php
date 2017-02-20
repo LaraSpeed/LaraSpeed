@@ -1,4 +1,4 @@
-    <h1 class="text-danger">Add <?php echo e(ucfirst($table['title'])); ?></h1>
+    <h1 class="text-danger">Create <?php echo e(ucfirst($table['title'])); ?></h1>
     <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."\")"; ?>S2BCBRACKET" method="post">
 
 		<input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET">
@@ -29,7 +29,7 @@
 
 		<?php elseif($relationType->isBelongsToMany()): ?>
 		<div class="form-group">
-			<label class="text-danger text-md"><?php echo e(ucfirst($relationType->getOtherTable())); ?>s : </label>
+			<label class="text-danger text-md"><?php echo e(ucfirst($config->getPluralForm($relationType->getOtherTable()))); ?> : </label>
 
 			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one <?php echo $relationType->getOtherTable(); ?>"  name="<?php echo $relationType->getOtherTable(); ?>[]">
 					S3Bforelse(<?php echo "\\App\\".ucfirst($relationType->getOtherTable())."::all() as "; ?> $<?php echo $relationType->getOtherTable(); ?>)

@@ -11,7 +11,7 @@
         </div>
            
             @if(isset($category->film))
-        <label class="text-danger text-md">Associate Film</label>
+        <label class="text-danger text-md">Associate Films</label>
 
         <select id="film" name="film[]"  multiple="multiple" size="10" >
             @forelse(\App\Film::all()->sortBy('title') as  $film)

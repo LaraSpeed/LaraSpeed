@@ -69,7 +69,10 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                                                                   
+                                                         <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Return date
+                            </th>                                  
                             <th class="text-md text-primary" nowrap>Actions</th>
 
                                                              <th class="text-md text-primary">
@@ -82,7 +85,9 @@
                     <tbody>
                         @forelse($staff->rental as  $rental)
                             <tr>
-                                          
+                                                                 <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$rental->return_date}}</td>
+                                     
                                      
                                 <td nowrap>
                                     <a href="{{url("/rental/$rental->rental_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>

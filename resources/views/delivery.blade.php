@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Add Delivery</h1>
+<h1 class="text-danger">Create Delivery</h1>
     <form action="{{url("/delivery")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">

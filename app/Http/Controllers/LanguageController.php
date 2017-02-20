@@ -28,7 +28,7 @@ class LanguageController extends Controller {
     */
     public function create()
     {
-        return view('language');
+        return view(' language ');
     }
 
     /**
@@ -38,14 +38,14 @@ class LanguageController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $language = Language::create([
-             "name" => $data["name"],
-              ]);
+$language = Language::create([
+     "name" => $data["name"],
+  ]);
 
-      
-        return isset($data['carl'])?redirect('/language'):back();    }
+   
+        return  isset($data['carl'])?redirect('/language'):back();     }
 
     /**
     * Display the specified resource.
@@ -53,11 +53,11 @@ class LanguageController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Language $language )
+    public function show( Language $language )
     {
         request()->session()->forget("mutate");
-        $language->load(array("film",));
-return view('language_display', compact('language'));
+         $language->load(array("film",));
+return view('language_display', compact('language')); 
     }
 
     /**

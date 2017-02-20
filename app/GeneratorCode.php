@@ -12,50 +12,6 @@ use Berthe\Codegenerator\Core\MCD;
 
 class GeneratorCode  extends CallGenerator {
 
-    public $configs = array(
-
-        //Laravel Version for which the code should be generated.
-        "version" => "5.3",
-
-        //Attribute which should be displayed for each tables when needed one Attribute
-        "displayAttributes" => array(
-            "actor" => "first_name",
-            "film" => "title",
-            "language" => "name",
-            "category" => "name",
-            "inventory" => "film_id",
-            "customer" => "first_name",
-            "rental" => "customer_id",
-            "address" => "address",
-            "city" => "city",
-            "country" => "country",
-            "payment" => "amount",
-            "staff" => "first_name",
-            "store" => "address",
-            "delivery" => "identifiant",
-            "users" => "name"
-        ),
-
-        "sidebarIcons" => array(
-            "actor" => "fa fa-play",
-            "film" => "fa fa-film",
-            "language" => "fa fa-language",
-            "category" => "fa fa-tags",
-            "delivery" => "fa fa-gift",
-            "users" => "fa fa-user",
-            "inventory" => "fa fa-archive",
-            "customer" => "fa fa-users",
-            "rental" => "fa fa-industry",
-            "address" => "fa fa-hotel",
-            "payment" => "fa fa-paypal",
-            "city" => "fa fa-home",
-            "country" => "fa fa-home",
-            "staff" => "fa fa-user",
-            "store" => "fa fa-amazon"
-        ),
-    );
-
-
     public function getSite(){
 
         $mcd = new MCD();
@@ -133,7 +89,7 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("rental_date")
                 ->smallInteger("inventory_id")
                 ->smallInteger("customer_id")
-                ->timeStamp("return_date")
+                ->date("return_date")
                 ->smallInteger("staff_id")
                 ->timeStamp("last_update")
                 ->hasMany("payment")
@@ -216,17 +172,66 @@ class GeneratorCode  extends CallGenerator {
         
         return $mcd->getSite();
     }
-}
 
-/*$this->site = [
-     //Table Film
-     "film" => [
-         "attributs" => ["titre" => "", "annee" => 0],
-         "relations" => ["hasMany" => ["acteur"]],
-     ],
-     //Table Acteur
-     "acteur" => [
-         "attributs" => ["nom" => "", "age" => 0],
-         "relations" => ["belongsTo" => ["film"]],
-     ],
- ];*/
+    public $configs = array(
+
+        //Laravel Version for which the code should be generated.
+        "version" => "5.3",
+
+        //Attribute which should be displayed for each tables when needed one Attribute
+        "displayAttributes" => array(
+            "actor" => "first_name",
+            "film" => "title",
+            "language" => "name",
+            "category" => "name",
+            "inventory" => "film_id",
+            "customer" => "first_name",
+            "rental" => "customer_id",
+            "address" => "address",
+            "city" => "city",
+            "country" => "country",
+            "payment" => "amount",
+            "staff" => "first_name",
+            "store" => "address",
+            "delivery" => "identifiant",
+            "users" => "name"
+        ),
+
+        "tablePluralForm" => array(
+            "actor" => "actors",
+            "film" => "films",
+            "language" => "languages",
+            "category" => "categories",
+            "inventory" => "inventories",
+            "customer" => "customers",
+            "rental" => "rentals",
+            "address" => "addresses",
+            "city" => "cities",
+            "country" => "countries",
+            "payment" => "payments",
+            "staff" => "staffs",
+            "store" => "stores",
+            "delivery" => "deliveries",
+            "users" => "users"
+        ),
+
+        "sidebarIcons" => array(
+            "actor" => "fa fa-play",
+            "film" => "fa fa-film",
+            "language" => "fa fa-language",
+            "category" => "fa fa-tags",
+            "delivery" => "fa fa-gift",
+            "users" => "fa fa-user",
+            "inventory" => "fa fa-archive",
+            "customer" => "fa fa-users",
+            "rental" => "fa fa-industry",
+            "address" => "fa fa-hotel",
+            "payment" => "fa fa-paypal",
+            "city" => "fa fa-home",
+            "country" => "fa fa-home",
+            "staff" => "fa fa-user",
+            "store" => "fa fa-amazon"
+        ),
+    );
+
+}

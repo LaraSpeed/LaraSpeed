@@ -16,4 +16,6 @@ interface ConfigInterface
     function version();
     function displayedAttributes($tableName="");
     function getAllDisplayedAttribute();
+    function getTableIcon($tableName = "");
+    function getPluralForm($tableName = "");
 }

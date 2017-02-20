@@ -28,7 +28,7 @@
             @endforelse
         </select><br/>            @endif
         @if(isset($inventory->customer))
-        <label class="text-danger text-md">Associate Customer</label>
+        <label class="text-danger text-md">Associate Customers</label>
 
         <select id="customer" name="customer[]"  multiple="multiple" size="10" >
             @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)

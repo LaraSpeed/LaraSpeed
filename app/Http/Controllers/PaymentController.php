@@ -30,7 +30,7 @@ class PaymentController extends Controller {
     */
     public function create()
     {
-        return view('payment');
+        return view(' payment ');
     }
 
     /**
@@ -40,24 +40,24 @@ class PaymentController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $payment = Payment::create([
-               "amount" => $data["amount"],
-              ]);
+$payment = Payment::create([
+       "amount" => $data["amount"],
+  ]);
 
-        if(request()->exists('rental')){
-            $rental = Rental::find(request()->get('rental'));
-            $payment->rental()->associate($rental)->save();
-         }
+    if(request()->exists('rental')){
+    $rental = Rental::find(request()->get('rental'));
+    $payment->rental()->associate($rental)->save();
+    }
 
-         if(request()->exists('customer')){
-            $customer = Customer::find(request()->get('customer'));
-            $payment->customer()->associate($customer)->save();
-         }
+     if(request()->exists('customer')){
+    $customer = Customer::find(request()->get('customer'));
+    $payment->customer()->associate($customer)->save();
+    }
 
-      
-        return isset($data['carl'])?redirect('/payment'):back();    }
+   
+        return  isset($data['carl'])?redirect('/payment'):back();     }
 
     /**
     * Display the specified resource.
@@ -65,11 +65,11 @@ class PaymentController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Payment $payment )
+    public function show( Payment $payment )
     {
         request()->session()->forget("mutate");
-        $payment->load(array("rental","customer",));
-return view('payment_display', compact('payment'));
+         $payment->load(array("rental","customer",));
+return view('payment_display', compact('payment')); 
     }
 
     /**
@@ -209,7 +209,14 @@ return view('payment_edit', compact('payment'));
 
       if(request()->exists('tab') == 'rental'){
 
-               
+            if(request()->exists('return_date')){
+             session(['sortOrder' => $this->getOrder('return_date')]);
+             session(['sortKey' => 'return_date']);
+        }else{
+            request()->session()->forget("return_date");
+        }
+
+           
       }
       if(request()->exists('tab') == 'customer'){
 

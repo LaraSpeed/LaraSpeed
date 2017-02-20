@@ -30,7 +30,7 @@ class InventoryController extends Controller {
     */
     public function create()
     {
-        return view('inventory');
+        return view(' inventory ');
     }
 
     /**
@@ -40,21 +40,21 @@ class InventoryController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $inventory = Inventory::create([
-            ]);
+$inventory = Inventory::create([
+    ]);
 
-        if(request()->exists('film')){
-            $film = Film::find(request()->get('film'));
-            $inventory->film()->associate($film)->save();
-         }
+    if(request()->exists('film')){
+    $film = Film::find(request()->get('film'));
+    $inventory->film()->associate($film)->save();
+    }
 
-         if(request()->exists('customer')){
-            $inventory->customer()->attach($data["customer"]);
-        }
-      
-        return isset($data['carl'])?redirect('/inventory'):back();    }
+     if(request()->exists('customer')){
+    $inventory->customer()->attach($data["customer"]);
+    }
+   
+        return  isset($data['carl'])?redirect('/inventory'):back();     }
 
     /**
     * Display the specified resource.
@@ -62,11 +62,11 @@ class InventoryController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Inventory $inventory )
+    public function show( Inventory $inventory )
     {
         request()->session()->forget("mutate");
-        $inventory->load(array("film","customer",));
-return view('inventory_display', compact('inventory'));
+         $inventory->load(array("film","customer",));
+return view('inventory_display', compact('inventory')); 
     }
 
     /**

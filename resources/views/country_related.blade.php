@@ -3,7 +3,7 @@
 @if(isset($country->city) && "city" == $table)
             <div class="row">
         <div class="col-md-4">
-            <h1 class="text-danger">List of Citys</h1>
+            <h1 class="text-danger">List of Cities</h1>
         </div>
 
         <div class="col-md-5">
@@ -61,7 +61,7 @@
                 <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
             </div>
 
-            <h2 class="panel-title">Citys</h2>
+            <h2 class="panel-title">Cities</h2>
         </header>
 
         <div class="panel-body">

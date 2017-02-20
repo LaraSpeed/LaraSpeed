@@ -26,7 +26,7 @@ class DeliveryController extends Controller {
     */
     public function create()
     {
-        return view('delivery');
+        return view(' delivery ');
     }
 
     /**
@@ -36,16 +36,16 @@ class DeliveryController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $delivery = Delivery::create([
-             "identifiant" => $data["identifiant"],
-                 "date" => $data["date"],
-                 "articles" => $data["articles"],
-             ]);
+$delivery = Delivery::create([
+     "identifiant" => $data["identifiant"],
+     "date" => $data["date"],
+     "articles" => $data["articles"],
+ ]);
 
-    
-        return isset($data['carl'])?redirect('/delivery'):back();    }
+ 
+        return  isset($data['carl'])?redirect('/delivery'):back();     }
 
     /**
     * Display the specified resource.
@@ -53,10 +53,10 @@ class DeliveryController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Delivery $delivery )
+    public function show( Delivery $delivery )
     {
         request()->session()->forget("mutate");
-        return view('delivery_display', compact('delivery'));
+         return view('delivery_display', compact('delivery')); 
     }
 
     /**

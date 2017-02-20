@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">List of Addresss</h1>
+<h1 class="text-danger">List of Addresses</h1>
 
     <div class="row">
 
@@ -49,7 +49,7 @@
                 <a href="#" class="panel-action panel-action-toggle" data-panel-toggle></a>
                 <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
             </div>
-            <h2 class="panel-title">Addresss</h2>
+            <h2 class="panel-title">Addresses</h2>
         </header>
 
         <div class="panel-body">

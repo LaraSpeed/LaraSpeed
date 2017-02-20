@@ -1,4 +1,4 @@
-    <label class="text-danger text-md">Associate {{ucfirst($otherTable)."s"}}</label>
+    <label class="text-danger text-md">Associate {{ucfirst($config->getPluralForm($otherTable))}}</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $otherTable !!}"  name="{!! $otherTable !!}[]">
             S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all()->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!})
                 <option value="S2BOBRACKET${!! "$otherTable->".$tbs[$otherTable]["id"] !!}S2BCBRACKET">

@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Add Customer</h1>
+<h1 class="text-danger">Create Customer</h1>
     <form action="{{url("/customer")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -27,7 +27,7 @@
 		</div> <br/>
 		    
 			<div class="form-group">
-			<label class="text-danger text-md">Inventorys : </label>
+			<label class="text-danger text-md">Inventories : </label>
 
 			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
 					@forelse(\App\Inventory::all() as  $inventory)

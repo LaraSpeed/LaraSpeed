@@ -1,11 +1,16 @@
 @extends('master')
 @section('content')
-<h1 class="text-danger">Add Rental</h1>
+<h1 class="text-danger">Create Rental</h1>
     <form action="{{url("/rental")}}" method="post">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-		               
+		         
+        <div class="form-group">
+			<label class="text-danger text-md" id="return_date"> Return date : </label>
+			<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" placeholder="MM/DD/-YYYY" type="text"/></div>
+		</div> <br/>
+		      
 	 		<div class="form-group">
 			<label class="text-danger text-md">Staff : </label>
 

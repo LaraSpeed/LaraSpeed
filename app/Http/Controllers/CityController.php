@@ -30,7 +30,7 @@ class CityController extends Controller {
     */
     public function create()
     {
-        return view('city');
+        return view(' city ');
     }
 
     /**
@@ -40,19 +40,19 @@ class CityController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $city = City::create([
-             "city" => $data["city"],
-               ]);
+$city = City::create([
+     "city" => $data["city"],
+   ]);
 
-         if(request()->exists('country')){
-            $country = Country::find(request()->get('country'));
-            $city->country()->associate($country)->save();
-         }
+     if(request()->exists('country')){
+    $country = Country::find(request()->get('country'));
+    $city->country()->associate($country)->save();
+    }
 
-      
-        return isset($data['carl'])?redirect('/city'):back();    }
+   
+        return  isset($data['carl'])?redirect('/city'):back();     }
 
     /**
     * Display the specified resource.
@@ -60,11 +60,11 @@ class CityController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(City $city )
+    public function show( City $city )
     {
         request()->session()->forget("mutate");
-        $city->load(array("address","country",));
-return view('city_display', compact('city'));
+         $city->load(array("address","country",));
+return view('city_display', compact('city')); 
     }
 
     /**

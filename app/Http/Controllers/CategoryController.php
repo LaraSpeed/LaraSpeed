@@ -28,7 +28,7 @@ class CategoryController extends Controller {
     */
     public function create()
     {
-        return view('category');
+        return view(' category ');
     }
 
     /**
@@ -38,17 +38,17 @@ class CategoryController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $category = Category::create([
-             "name" => $data["name"],
-              ]);
+$category = Category::create([
+     "name" => $data["name"],
+  ]);
 
-        if(request()->exists('film')){
-            $category->film()->attach($data["film"]);
-        }
-      
-        return isset($data['carl'])?redirect('/category'):back();    }
+    if(request()->exists('film')){
+    $category->film()->attach($data["film"]);
+    }
+   
+        return  isset($data['carl'])?redirect('/category'):back();     }
 
     /**
     * Display the specified resource.
@@ -56,11 +56,11 @@ class CategoryController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Category $category )
+    public function show( Category $category )
     {
         request()->session()->forget("mutate");
-        $category->load(array("film",));
-return view('category_display', compact('category'));
+         $category->load(array("film",));
+return view('category_display', compact('category')); 
     }
 
     /**

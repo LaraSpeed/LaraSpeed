@@ -1,4 +1,4 @@
-    <label class="text-danger text-md">Add {{ucfirst($otherTable)."s"}}</label>
+    <label class="text-danger text-md">Add {{ucfirst($config->getPluralForm($otherTable))}}</label>
         <select id="{{$otherTable}}" name="{!! $otherTable !!}[]" multiple="multiple" size="10">
             S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all()->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!})
                 <option value="S2BOBRACKET${!! "$otherTable->".$tbs[$otherTable]["id"] !!}S2BCBRACKET" S3Bforeach(${!! "$tab->".$otherTable." as "!!} ${!! "$otherTable"."tmp" !!}) S3Bif(${!! "$otherTable"."tmp->".$tbs[$otherTable]['id']." == $"."$otherTable->".$tbs[$otherTable]["id"] !!}) selected = "selected" S3Bendif S3Bendforeach>

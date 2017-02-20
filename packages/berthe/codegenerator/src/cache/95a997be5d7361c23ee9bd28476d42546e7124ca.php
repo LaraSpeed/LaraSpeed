@@ -10,7 +10,7 @@
         <li>
             <a href="<?php echo "{"."{url(\"/".$tab."\")}"."}"; ?>">
                 <i class="<?php echo e($config->getTableIcon($tab)); ?>" aria-hidden="true"></i>
-                <span class="text-md"><?php echo e(ucfirst($tab)."s"); ?></span>
+                <span class="text-md"><?php echo e(ucfirst($config->getPluralForm($tab))); ?></span>
             </a>
         </li>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>

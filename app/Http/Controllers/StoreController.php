@@ -26,7 +26,7 @@ class StoreController extends Controller {
     */
     public function create()
     {
-        return view('store');
+        return view(' store ');
     }
 
     /**
@@ -36,13 +36,13 @@ class StoreController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $store = Store::create([
-           ]);
+$store = Store::create([
+   ]);
 
-    
-        return isset($data['carl'])?redirect('/store'):back();    }
+ 
+        return  isset($data['carl'])?redirect('/store'):back();     }
 
     /**
     * Display the specified resource.
@@ -50,10 +50,10 @@ class StoreController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Store $store )
+    public function show( Store $store )
     {
         request()->session()->forget("mutate");
-        return view('store_display', compact('store'));
+         return view('store_display', compact('store')); 
     }
 
     /**

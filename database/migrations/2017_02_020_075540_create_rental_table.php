@@ -17,7 +17,7 @@ class CreateRentalTable extends Migration
             $table->timestamp('rental_date');
             $table->smallInteger('inventory_id');
             $table->smallInteger('customer_id');
-            $table->timestamp('return_date');
+            $table->date('return_date');
             $table->smallInteger('staff_id');
             $table->timestamp('last_update');
             $table->timestamps();

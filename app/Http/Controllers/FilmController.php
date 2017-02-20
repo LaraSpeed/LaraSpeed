@@ -34,7 +34,7 @@ class FilmController extends Controller {
     */
     public function create()
     {
-        return view('film');
+        return view(' film ');
     }
 
     /**
@@ -44,31 +44,31 @@ class FilmController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $film = Film::create([
-              "title" => $data["title"],
-                 "description" => $data["description"],
-                 "release_year" => $data["release_year"],
-                  "rental_duration" => $data["rental_duration"],
-                 "rental_rate" => $data["rental_rate"],
-                 "length" => $data["length"],
-                 "replacement_cost" => $data["replacement_cost"],
-                ]);
+$film = Film::create([
+      "title" => $data["title"],
+     "description" => $data["description"],
+     "release_year" => $data["release_year"],
+      "rental_duration" => $data["rental_duration"],
+     "rental_rate" => $data["rental_rate"],
+     "length" => $data["length"],
+     "replacement_cost" => $data["replacement_cost"],
+    ]);
 
-        if(request()->exists('language')){
-            $language = Language::find(request()->get('language'));
-            $film->language()->associate($language)->save();
-         }
+    if(request()->exists('language')){
+    $language = Language::find(request()->get('language'));
+    $film->language()->associate($language)->save();
+    }
 
-         if(request()->exists('category')){
-            $film->category()->attach($data["category"]);
-        }
-         if(request()->exists('actor')){
-            $film->actor()->attach($data["actor"]);
-        }
-       
-        return isset($data['carl'])?redirect('/film'):back();    }
+     if(request()->exists('category')){
+    $film->category()->attach($data["category"]);
+    }
+     if(request()->exists('actor')){
+    $film->actor()->attach($data["actor"]);
+    }
+    
+        return  isset($data['carl'])?redirect('/film'):back();     }
 
     /**
     * Display the specified resource.
@@ -76,11 +76,11 @@ class FilmController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Film $film )
+    public function show( Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category","actor","inventory",));
-return view('film_display', compact('film'));
+         $film->load(array("language","category","actor","inventory",));
+return view('film_display', compact('film')); 
     }
 
     /**

@@ -28,7 +28,7 @@ class CountryController extends Controller {
     */
     public function create()
     {
-        return view('country');
+        return view(' country ');
     }
 
     /**
@@ -38,14 +38,14 @@ class CountryController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $country = Country::create([
-             "country" => $data["country"],
-              ]);
+$country = Country::create([
+     "country" => $data["country"],
+  ]);
 
-      
-        return isset($data['carl'])?redirect('/country'):back();    }
+   
+        return  isset($data['carl'])?redirect('/country'):back();     }
 
     /**
     * Display the specified resource.
@@ -53,11 +53,11 @@ class CountryController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Country $country )
+    public function show( Country $country )
     {
         request()->session()->forget("mutate");
-        $country->load(array("city",));
-return view('country_display', compact('country'));
+         $country->load(array("city",));
+return view('country_display', compact('country')); 
     }
 
     /**

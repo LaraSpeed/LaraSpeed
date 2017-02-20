@@ -7,7 +7,12 @@
     <br/>
 
 
-                  
+             
+        <div class="form-group">
+            <label class="text-danger text-md">Return date : </label>
+            <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" value="{{$rental->return_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>
+        </div>
+         
 
             @if(isset($rental->payment))
         <label class="text-danger text-md">Add Payments</label>

@@ -32,7 +32,7 @@ class AddressController extends Controller {
     */
     public function create()
     {
-        return view('address');
+        return view(' address ');
     }
 
     /**
@@ -42,23 +42,23 @@ class AddressController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $address = Address::create([
-             "address" => $data["address"],
-                 "address2" => $data["address2"],
-                 "district" => $data["district"],
-                  "postal_code" => $data["postal_code"],
-                 "phone" => $data["phone"],
-              ]);
+$address = Address::create([
+     "address" => $data["address"],
+     "address2" => $data["address2"],
+     "district" => $data["district"],
+      "postal_code" => $data["postal_code"],
+     "phone" => $data["phone"],
+  ]);
 
-          if(request()->exists('city')){
-            $city = City::find(request()->get('city'));
-            $address->city()->associate($city)->save();
-         }
+      if(request()->exists('city')){
+    $city = City::find(request()->get('city'));
+    $address->city()->associate($city)->save();
+    }
 
-      
-        return isset($data['carl'])?redirect('/address'):back();    }
+   
+        return  isset($data['carl'])?redirect('/address'):back();     }
 
     /**
     * Display the specified resource.
@@ -66,11 +66,11 @@ class AddressController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Address $address )
+    public function show( Address $address )
     {
         request()->session()->forget("mutate");
-        $address->load(array("customer","staff","city",));
-return view('address_display', compact('address'));
+         $address->load(array("customer","staff","city",));
+return view('address_display', compact('address')); 
     }
 
     /**

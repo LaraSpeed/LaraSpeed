@@ -27,13 +27,13 @@
             <li>
             <a href="{{url("/category")}}">
                 <i class="fa fa-tags" aria-hidden="true"></i>
-                <span class="text-md">Categorys</span>
+                <span class="text-md">Categories</span>
             </a>
         </li>
             <li>
             <a href="{{url("/inventory")}}">
                 <i class="fa fa-archive" aria-hidden="true"></i>
-                <span class="text-md">Inventorys</span>
+                <span class="text-md">Inventories</span>
             </a>
         </li>
             <li>
@@ -57,19 +57,19 @@
             <li>
             <a href="{{url("/address")}}">
                 <i class="fa fa-hotel" aria-hidden="true"></i>
-                <span class="text-md">Addresss</span>
+                <span class="text-md">Addresses</span>
             </a>
         </li>
             <li>
             <a href="{{url("/city")}}">
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <span class="text-md">Citys</span>
+                <span class="text-md">Cities</span>
             </a>
         </li>
             <li>
             <a href="{{url("/country")}}">
                 <i class="fa fa-home" aria-hidden="true"></i>
-                <span class="text-md">Countrys</span>
+                <span class="text-md">Countries</span>
             </a>
         </li>
             <li>
@@ -87,7 +87,7 @@
             <li>
             <a href="{{url("/delivery")}}">
                 <i class="fa fa-gift" aria-hidden="true"></i>
-                <span class="text-md">Deliverys</span>
+                <span class="text-md">Deliveries</span>
             </a>
         </li>
     </ul>

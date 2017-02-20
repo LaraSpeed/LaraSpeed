@@ -20,7 +20,7 @@
        
 
             @if(isset($actor->film))
-        <label class="text-danger text-md">Associate Film</label>
+        <label class="text-danger text-md">Associate Films</label>
 
         <select id="film" name="film[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Film::all()->sortBy('title') as  $film)

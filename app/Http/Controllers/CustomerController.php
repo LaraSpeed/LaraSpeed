@@ -32,7 +32,7 @@ class CustomerController extends Controller {
     */
     public function create()
     {
-        return view('customer');
+        return view(' customer ');
     }
 
     /**
@@ -42,25 +42,25 @@ class CustomerController extends Controller {
     */
     public function store()
     {
-        $data = request()->all();
+         $data = request()->all();
 
-        $customer = Customer::create([
-              "first_name" => $data["first_name"],
-                 "last_name" => $data["last_name"],
-                 "email" => $data["email"],
-                   "create_date" => $data["create_date"],
-              ]);
+$customer = Customer::create([
+      "first_name" => $data["first_name"],
+     "last_name" => $data["last_name"],
+     "email" => $data["email"],
+       "create_date" => $data["create_date"],
+  ]);
 
-        if(request()->exists('inventory')){
-            $customer->inventory()->attach($data["inventory"]);
-        }
-          if(request()->exists('address')){
-            $address = Address::find(request()->get('address'));
-            $customer->address()->associate($address)->save();
-         }
+    if(request()->exists('inventory')){
+    $customer->inventory()->attach($data["inventory"]);
+    }
+      if(request()->exists('address')){
+    $address = Address::find(request()->get('address'));
+    $customer->address()->associate($address)->save();
+    }
 
-      
-        return isset($data['carl'])?redirect('/customer'):back();    }
+   
+        return  isset($data['carl'])?redirect('/customer'):back();     }
 
     /**
     * Display the specified resource.
@@ -68,11 +68,11 @@ class CustomerController extends Controller {
     * @param    Mixed
     * @return  Response
     */
-    public function show(Customer $customer )
+    public function show( Customer $customer )
     {
         request()->session()->forget("mutate");
-        $customer->load(array("inventory","payment","address",));
-return view('customer_display', compact('customer'));
+         $customer->load(array("inventory","payment","address",));
+return view('customer_display', compact('customer')); 
     }
 
     /**

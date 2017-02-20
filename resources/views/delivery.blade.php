@@ -8,18 +8,15 @@
 		   
         <div class="form-group">
 			<label class="text-danger text-md" id="identifiant">Identifiant * : </label>
-			<input type ="text" class="form-control" name="identifiant" placeholder="Identifiant"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="identifiant" placeholder="Identifiant"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="date">Date * : </label>
-			<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" placeholder="MM/DD/-YYYY" type="text"/></div>
-		</div> <br/>
+			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="articles"> Articles : </label>
-			<textarea name="articles" rows="10" cols="40" class="form-control"" required></textarea>
-		</div> <br/>
+			 <textarea name="articles" rows="10" cols="40" class="form-control"" required></textarea> 		</div> <br/>
 		  
 	
 		<div class="row">

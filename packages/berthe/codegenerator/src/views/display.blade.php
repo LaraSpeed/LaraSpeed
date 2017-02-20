@@ -9,7 +9,12 @@
 
         <div class="form-group">
             <label class="text-danger text-md">{{ucfirst(str_replace("_", " ", $attrName))}} : </label>
-            {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", false)!!}
+            @if($attrType->hasUnit())
+                <div class="input-group mb-md">
+                    <span class="input-group-addon">{{$attrType->getUnit()}}</span>
+                    {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", false)!!}
+                </div>
+            @else {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", false)!!} @endif
         </div>
     @endif @endforeach
 

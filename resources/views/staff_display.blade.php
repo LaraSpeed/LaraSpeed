@@ -10,33 +10,27 @@
        
         <div class="form-group">
             <label class="text-danger text-md">First name : </label>
-            <input type ="text" class="form-control" name="first_name" value = "{{$staff->first_name}}"placeholder="First name" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="first_name" value = "{{$staff->first_name}}"placeholder="First name" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Last name : </label>
-            <input type ="text" class="form-control" name="last_name" value = "{{$staff->last_name}}"placeholder="Last name" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="last_name" value = "{{$staff->last_name}}"placeholder="Last name" readonly required />         </div>
         
         <div class="form-group">
             <label class="text-danger text-md">Email : </label>
-            <input type ="text" class="form-control" name="email" value = "{{$staff->email}}"placeholder="Email" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="email" value = "{{$staff->email}}"placeholder="Email" readonly required />         </div>
         
         <div class="form-group">
             <label class="text-danger text-md">Active : </label>
-            <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"value = "{{$staff->active}}"placeholder="Active" readonly required />
-        </div>
+             <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"value = "{{$staff->active}}"placeholder="Active" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Username : </label>
-            <input type ="text" class="form-control" name="username" value = "{{$staff->username}}"placeholder="Username" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="username" value = "{{$staff->username}}"placeholder="Username" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Password : </label>
-            <input type ="text" class="form-control" name="password" value = "{{$staff->password}}"placeholder="Password" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="password" value = "{{$staff->password}}"placeholder="Password" readonly required />         </div>
        
 
             @if(isset($staff->rental))

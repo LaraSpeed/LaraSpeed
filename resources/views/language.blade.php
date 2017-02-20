@@ -8,8 +8,7 @@
 		   
         <div class="form-group">
 			<label class="text-danger text-md" id="name">Name * : </label>
-			<input type ="text" class="form-control" name="name" placeholder="Name"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="name" placeholder="Name"  required /> 		</div> <br/>
 		    
 	  
 		<div class="row">

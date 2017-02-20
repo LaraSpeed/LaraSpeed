@@ -7,8 +7,7 @@
            
         <div class="form-group">
             <label class="text-danger text-md">Name : </label>
-            <input type ="text" class="form-control" name="name" value = "{{$category->name}}"placeholder="Name"  required />
-        </div>
+             <input type ="text" class="form-control" name="name" value = "{{$category->name}}"placeholder="Name"  required />         </div>
            
             @if(isset($category->film))
         <label class="text-danger text-md">Associate Films</label>

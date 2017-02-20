@@ -96,7 +96,7 @@
                             <tr>
                             <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isDisplayed()): ?>
                             <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET</td>
+                                <td class="text-md">S2BOBRACKET$<?php echo $otherTable.'->'.$attrName; ?>S2BCBRACKET <?php echo e($attrType->getUnit()); ?></td>
                                 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
                                 <?php if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"])): ?><?php $__currentLoopData = $tbs[$otherTable]['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->getOtherTable() != $tab && $relation->isBelongsTo()): ?>

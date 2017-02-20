@@ -10,13 +10,11 @@
        
         <div class="form-group">
             <label class="text-danger text-md">First name : </label>
-            <input type ="text" class="form-control" name="first_name" value = "{{$actor->first_name}}"placeholder="First name" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="first_name" value = "{{$actor->first_name}}"placeholder="First name" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Last name : </label>
-            <input type ="text" class="form-control" name="last_name" value = "{{$actor->last_name}}"placeholder="Last name" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="last_name" value = "{{$actor->last_name}}"placeholder="Last name" readonly required />         </div>
        
 
             @if(isset($actor->film))

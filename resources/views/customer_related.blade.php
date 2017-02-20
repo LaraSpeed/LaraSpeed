@@ -196,7 +196,7 @@
                         @forelse($customer->payment as  $payment)
                             <tr>
                                                                <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$payment->amount}}</td>
+                                <td class="text-md">{{$payment->amount}} $</td>
                                    
                                                                      <td class="text-md">
                                         @if($payment->rental)

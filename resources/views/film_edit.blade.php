@@ -7,38 +7,47 @@
              
         <div class="form-group">
             <label class="text-danger text-md">Title : </label>
-            <input type ="text" class="form-control" name="title" value = "{{$film->title}}"placeholder="Title"  required />
-        </div>
+             <input type ="text" class="form-control" name="title" value = "{{$film->title}}"placeholder="Title"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Description : </label>
-            <textarea name="description" rows="4" cols="20" class="form-control"">{{$film->description}}</textarea>
-        </div>
+             <textarea name="description" rows="4" cols="20" class="form-control"">{{$film->description}}</textarea>         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Release year : </label>
-            <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"value = "{{$film->release_year}}"placeholder="Release year"  required />
-        </div>
+             <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"value = "{{$film->release_year}}"placeholder="Release year"  required />         </div>
             
         <div class="form-group">
             <label class="text-danger text-md">Rental duration : </label>
-            <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration"  required />
-        </div>
+                            <div class="input-group mb-md">
+                    <span class="input-group-addon">days</span>
+                    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration" readonly required />
+                </div>
+                    </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Rental rate : </label>
-            <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate"  required />
-        </div>
+                            <div class="input-group mb-md">
+                    <span class="input-group-addon">$</span>
+                    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate" readonly required />
+                </div>
+                    </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Length : </label>
-            <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"value = "{{$film->length}}"placeholder="Length"  required />
-        </div>
+                            <div class="input-group mb-md">
+                    <span class="input-group-addon">minutes</span>
+                    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"value = "{{$film->length}}"placeholder="Length" readonly required />
+                </div>
+                    </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Replacement cost : </label>
-            <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
-        </div>
+                            <div class="input-group mb-md">
+                    <span class="input-group-addon">$</span>
+                    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost" readonly required />
+                </div>
+                    </div>
                
             @if(isset($film->language))
         <label class="text-danger text-md">Update Language</label>

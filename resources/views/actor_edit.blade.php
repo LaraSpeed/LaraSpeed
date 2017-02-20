@@ -7,13 +7,11 @@
            
         <div class="form-group">
             <label class="text-danger text-md">First name : </label>
-            <input type ="text" class="form-control" name="first_name" value = "{{$actor->first_name}}"placeholder="First name"  required />
-        </div>
+             <input type ="text" class="form-control" name="first_name" value = "{{$actor->first_name}}"placeholder="First name"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Last name : </label>
-            <input type ="text" class="form-control" name="last_name" value = "{{$actor->last_name}}"placeholder="Last name"  required />
-        </div>
+             <input type ="text" class="form-control" name="last_name" value = "{{$actor->last_name}}"placeholder="Last name"  required />         </div>
            
             @if(isset($actor->film))
         <label class="text-danger text-md">Associate Films</label>

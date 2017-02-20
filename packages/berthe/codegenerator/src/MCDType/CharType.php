@@ -63,8 +63,9 @@ class CharType extends TypeBaseClass implements FormableType
      * @param bool $required
      * @param int $nb_character
      * @param bool $displayed
+     * @param $unit
      */
-    public function __construct($attrName = "", $required = false, $nb_character=0, $displayed = true)
+    public function __construct($attrName = "", $required = false, $nb_character=0, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
         $this->nb_character = $nb_character;
@@ -78,6 +79,8 @@ class CharType extends TypeBaseClass implements FormableType
         $this->required = $required;
 
         $this->displayed = $displayed;
+
+        $this->unit = $unit;
     }
 
     /**

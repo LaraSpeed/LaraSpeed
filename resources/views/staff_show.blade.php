@@ -86,13 +86,13 @@
                         @forelse($staffs as $staff)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$staff->first_name}}</td>
+                                <td class="text-md">{{$staff->first_name}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$staff->last_name}}</td>
+                                <td class="text-md">{{$staff->last_name}} </td>
                                                                 <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$staff->email}}</td>
+                                <td class="text-md">{{$staff->email}} </td>
                                                                   <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$staff->username}}</td>
+                                <td class="text-md">{{$staff->username}} </td>
                                  
                                                                        <td class="text-md">
                                         @if($staff->address)

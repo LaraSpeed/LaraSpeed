@@ -7,23 +7,19 @@
              
         <div class="form-group">
             <label class="text-danger text-md">First name : </label>
-            <input type ="text" class="form-control" name="first_name" value = "{{$customer->first_name}}"placeholder="First name"  required />
-        </div>
+             <input type ="text" class="form-control" name="first_name" value = "{{$customer->first_name}}"placeholder="First name"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Last name : </label>
-            <input type ="text" class="form-control" name="last_name" value = "{{$customer->last_name}}"placeholder="Last name"  required />
-        </div>
+             <input type ="text" class="form-control" name="last_name" value = "{{$customer->last_name}}"placeholder="Last name"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Email : </label>
-            <input type ="text" class="form-control" name="email" value = "{{$customer->email}}"placeholder="Email"  required />
-        </div>
+             <input type ="text" class="form-control" name="email" value = "{{$customer->email}}"placeholder="Email"  required />         </div>
               
         <div class="form-group">
             <label class="text-danger text-md">Create date : </label>
-            <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" value="{{$customer->create_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>
-        </div>
+             <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" value="{{$customer->create_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
            
             @if(isset($customer->inventory))
         <label class="text-danger text-md">Associate Inventories</label>

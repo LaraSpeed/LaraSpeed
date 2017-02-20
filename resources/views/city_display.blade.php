@@ -10,8 +10,7 @@
        
         <div class="form-group">
             <label class="text-danger text-md">City : </label>
-            <input type ="text" class="form-control" name="city" value = "{{$city->city}}"placeholder="City" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="city" value = "{{$city->city}}"placeholder="City" readonly required />         </div>
          
 
             @if(isset($city->address))

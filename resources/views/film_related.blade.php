@@ -89,7 +89,7 @@
                         @forelse($film->category as  $category)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$category->name}}</td>
+                                <td class="text-md">{{$category->name}} </td>
                                    
                                    
                                 <td nowrap>
@@ -197,9 +197,9 @@
                         @forelse($film->actor as  $actor)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$actor->first_name}}</td>
+                                <td class="text-md">{{$actor->first_name}} </td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$actor->last_name}}</td>
+                                <td class="text-md">{{$actor->last_name}} </td>
                                    
                                    
                                 <td nowrap>

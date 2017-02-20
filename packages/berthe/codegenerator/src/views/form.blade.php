@@ -7,7 +7,12 @@
 
         <div class="form-group">
 			<label class="text-danger text-md" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
-			{!! $attrType->getForm()!!}
+			@if($attrType->hasUnit())
+				<div class="input-group mb-md">
+					<span class="input-group-addon">{{$attrType->getUnit()}}</span>
+					{!! $attrType->getForm()!!}
+				</div>
+			@else {!! $attrType->getForm()!!} @endif
 		</div> <br/>
 		@endif @endforeach @endif
 

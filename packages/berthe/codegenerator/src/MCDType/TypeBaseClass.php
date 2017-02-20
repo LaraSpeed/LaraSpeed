@@ -17,6 +17,8 @@ class TypeBaseClass
 
     public $displayed;
 
+    public $unit;
+
     function getDBFunction()
     {
         return "$this->functionName('".$this->attrName."')";
@@ -61,5 +63,13 @@ class TypeBaseClass
 
     function isDisplayed(){
         return $this->displayed;
+    }
+
+    function hasUnit(){
+        return $this->unit !== "";
+    }
+
+    public function getUnit(){
+        return $this->unit;
     }
 }

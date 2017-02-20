@@ -57,13 +57,15 @@ class TextType extends TypeBaseClass implements FormableType
      * @param bool $required
      * @param bool $displayed
      */
-    public function __construct($attrName = "", $required = false, $displayed = true)
+    public function __construct($attrName = "", $required = false, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
 
         $this->required = $required;
 
         $this->displayed = $displayed;
+
+        $this->unit = $unit;
     }
 
     /**

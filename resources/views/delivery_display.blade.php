@@ -10,18 +10,15 @@
        
         <div class="form-group">
             <label class="text-danger text-md">Identifiant : </label>
-            <input type ="text" class="form-control" name="identifiant" value = "{{$delivery->identifiant}}"placeholder="Identifiant" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="identifiant" value = "{{$delivery->identifiant}}"placeholder="Identifiant" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Date : </label>
-            <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" value="{{$delivery->date}}" placeholder="MM/DD/-YYYY" type="text"/></div>
-        </div>
+             <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="date" value="{{$delivery->date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Articles : </label>
-            <textarea name="articles" rows="10" cols="40" class="form-control"" readonly >{{$delivery->articles}}</textarea>
-        </div>
+             <textarea name="articles" rows="10" cols="40" class="form-control"" readonly >{{$delivery->articles}}</textarea>         </div>
      
 
     

@@ -78,10 +78,7 @@
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Release year
-                            </th>                            <!--class="{$attrType->formClass("table")}}"-->
-                            <th class="text-md text-primary" nowrap>
-                              Rental duration
-                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
+                            </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Rental rate
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
@@ -101,17 +98,15 @@
                         @forelse($language->film as  $film)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$film->title}}</td>
+                                <td class="text-md">{{$film->title}} </td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$film->description}}</td>
+                                <td class="text-md">{{$film->description}} </td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$film->release_year}}</td>
-                                                                <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$film->rental_duration}}</td>
+                                <td class="text-md">{{$film->release_year}} </td>
+                                                                  <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->rental_rate}} $</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$film->rental_rate}}</td>
-                                                              <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$film->length}}</td>
+                                <td class="text-md">{{$film->length}} minutes</td>
                                          
                                          
                                 <td nowrap>

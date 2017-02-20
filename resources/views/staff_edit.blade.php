@@ -7,33 +7,27 @@
            
         <div class="form-group">
             <label class="text-danger text-md">First name : </label>
-            <input type ="text" class="form-control" name="first_name" value = "{{$staff->first_name}}"placeholder="First name"  required />
-        </div>
+             <input type ="text" class="form-control" name="first_name" value = "{{$staff->first_name}}"placeholder="First name"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Last name : </label>
-            <input type ="text" class="form-control" name="last_name" value = "{{$staff->last_name}}"placeholder="Last name"  required />
-        </div>
+             <input type ="text" class="form-control" name="last_name" value = "{{$staff->last_name}}"placeholder="Last name"  required />         </div>
             
         <div class="form-group">
             <label class="text-danger text-md">Email : </label>
-            <input type ="text" class="form-control" name="email" value = "{{$staff->email}}"placeholder="Email"  required />
-        </div>
+             <input type ="text" class="form-control" name="email" value = "{{$staff->email}}"placeholder="Email"  required />         </div>
             
         <div class="form-group">
             <label class="text-danger text-md">Active : </label>
-            <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"value = "{{$staff->active}}"placeholder="Active"  required />
-        </div>
+             <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"value = "{{$staff->active}}"placeholder="Active"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Username : </label>
-            <input type ="text" class="form-control" name="username" value = "{{$staff->username}}"placeholder="Username"  required />
-        </div>
+             <input type ="text" class="form-control" name="username" value = "{{$staff->username}}"placeholder="Username"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Password : </label>
-            <input type ="text" class="form-control" name="password" value = "{{$staff->password}}"placeholder="Password"  required />
-        </div>
+             <input type ="text" class="form-control" name="password" value = "{{$staff->password}}"placeholder="Password"  required />         </div>
            
             @if(isset($staff->rental))
         <label class="text-danger text-md">Add Rentals</label>

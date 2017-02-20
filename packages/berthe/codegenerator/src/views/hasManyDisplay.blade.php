@@ -93,7 +93,7 @@
                             <tr>
                             @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isDisplayed())
                             <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET</td>
+                                <td class="text-md">S2BOBRACKET${!! $otherTable.'->'.$attrName !!}S2BCBRACKET {{$attrType->getUnit()}}</td>
                                 @endif @endforeach
 
                                 @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())

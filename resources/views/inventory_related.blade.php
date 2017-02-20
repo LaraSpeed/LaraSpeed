@@ -110,13 +110,13 @@
                         @forelse($inventory->customer as  $customer)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$customer->first_name}}</td>
+                                <td class="text-md">{{$customer->first_name}} </td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$customer->last_name}}</td>
+                                <td class="text-md">{{$customer->last_name}} </td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$customer->email}}</td>
+                                <td class="text-md">{{$customer->email}} </td>
                                                                   <!-- class="{$attrType->formClass("table")}}" -->
-                                <td class="text-md">{{$customer->create_date}}</td>
+                                <td class="text-md">{{$customer->create_date}} </td>
                                    
                                                                          <td class="text-md">
                                         @if($customer->address)

@@ -8,8 +8,13 @@
 
         <div class="form-group">
             <label class="text-danger text-md"><?php echo e(ucfirst(str_replace("_", " ", $attrName))); ?> : </label>
-            <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET"); ?>
+            <?php if($attrType->hasUnit()): ?>
+                <div class="input-group mb-md">
+                    <span class="input-group-addon"><?php echo e($attrType->getUnit()); ?></span>
+                    <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", false); ?>
 
+                </div>
+            <?php else: ?> <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET"); ?> <?php endif; ?>
         </div>
         <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 

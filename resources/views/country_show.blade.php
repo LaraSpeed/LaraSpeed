@@ -74,7 +74,7 @@
                         @forelse($countrys as $country)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$country->country}}</td>
+                                <td class="text-md">{{$country->country}} </td>
                                
                                    
                                 <td nowrap>

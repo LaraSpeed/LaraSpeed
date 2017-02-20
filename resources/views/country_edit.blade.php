@@ -7,8 +7,7 @@
            
         <div class="form-group">
             <label class="text-danger text-md">Country : </label>
-            <input type ="text" class="form-control" name="country" value = "{{$country->country}}"placeholder="Country"  required />
-        </div>
+             <input type ="text" class="form-control" name="country" value = "{{$country->country}}"placeholder="Country"  required />         </div>
            
             @if(isset($country->city))
         <label class="text-danger text-md">Add Cities</label>

@@ -7,28 +7,23 @@
            
         <div class="form-group">
             <label class="text-danger text-md">Address : </label>
-            <input type ="text" class="form-control" name="address" value = "{{$address->address}}"placeholder="Address"  required />
-        </div>
+             <input type ="text" class="form-control" name="address" value = "{{$address->address}}"placeholder="Address"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Address2 : </label>
-            <input type ="text" class="form-control" name="address2" value = "{{$address->address2}}"placeholder="Address2"  required />
-        </div>
+             <input type ="text" class="form-control" name="address2" value = "{{$address->address2}}"placeholder="Address2"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">District : </label>
-            <input type ="text" class="form-control" name="district" value = "{{$address->district}}"placeholder="District"  required />
-        </div>
+             <input type ="text" class="form-control" name="district" value = "{{$address->district}}"placeholder="District"  required />         </div>
             
         <div class="form-group">
             <label class="text-danger text-md">Postal code : </label>
-            <input type ="text" class="form-control" name="postal_code" value = "{{$address->postal_code}}"placeholder="Postal code"  required />
-        </div>
+             <input type ="text" class="form-control" name="postal_code" value = "{{$address->postal_code}}"placeholder="Postal code"  required />         </div>
           
         <div class="form-group">
             <label class="text-danger text-md">Phone : </label>
-            <input type ="text" class="form-control" name="phone" value = "{{$address->phone}}"placeholder="Phone"  required />
-        </div>
+             <input type ="text" class="form-control" name="phone" value = "{{$address->phone}}"placeholder="Phone"  required />         </div>
            
             @if(isset($address->customer))
         <label class="text-danger text-md">Add Customers</label>

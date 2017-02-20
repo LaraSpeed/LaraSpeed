@@ -8,23 +8,19 @@
 		     
         <div class="form-group">
 			<label class="text-danger text-md" id="first_name">First name * : </label>
-			<input type ="text" class="form-control" name="first_name" placeholder="First name"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="first_name" placeholder="First name"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="last_name">Last name * : </label>
-			<input type ="text" class="form-control" name="last_name" placeholder="Last name"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="last_name" placeholder="Last name"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="email">Email * : </label>
-			<input type ="text" class="form-control" name="email" placeholder="Email"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="email" placeholder="Email"  required /> 		</div> <br/>
 		      
         <div class="form-group">
 			<label class="text-danger text-md" id="create_date">Create date * : </label>
-			<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" placeholder="MM/DD/-YYYY" type="text"/></div>
-		</div> <br/>
+			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		    
 			<div class="form-group">
 			<label class="text-danger text-md">Inventories : </label>

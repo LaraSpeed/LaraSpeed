@@ -8,28 +8,23 @@
 		   
         <div class="form-group">
 			<label class="text-danger text-md" id="address">Address * : </label>
-			<input type ="text" class="form-control" name="address" placeholder="Address"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="address" placeholder="Address"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="address2"> Address2 : </label>
-			<input type ="text" class="form-control" name="address2" placeholder="Address2"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="address2" placeholder="Address2"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="district">District * : </label>
-			<input type ="text" class="form-control" name="district" placeholder="District"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="district" placeholder="District"  required /> 		</div> <br/>
 		    
         <div class="form-group">
 			<label class="text-danger text-md" id="postal_code">Postal code * : </label>
-			<input type ="text" class="form-control" name="postal_code" placeholder="Postal code"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="postal_code" placeholder="Postal code"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="phone">Phone * : </label>
-			<input type ="text" class="form-control" name="phone" placeholder="Phone"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="phone" placeholder="Phone"  required /> 		</div> <br/>
 		    
 	  		<div class="form-group">
 			<label class="text-danger text-md">City : </label>

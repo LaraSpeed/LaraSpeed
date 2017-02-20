@@ -74,9 +74,9 @@
                         @forelse($actors as $actor)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$actor->first_name}}</td>
+                                <td class="text-md">{{$actor->first_name}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$actor->last_name}}</td>
+                                <td class="text-md">{{$actor->last_name}} </td>
                                
                                    
                                 <td nowrap>

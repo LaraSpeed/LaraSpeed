@@ -8,8 +8,7 @@
 		         
         <div class="form-group">
 			<label class="text-danger text-md" id="return_date"> Return date : </label>
-			<div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" placeholder="MM/DD/-YYYY" type="text"/></div>
-		</div> <br/>
+			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		      
 	 		<div class="form-group">
 			<label class="text-danger text-md">Staff : </label>

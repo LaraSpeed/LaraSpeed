@@ -77,7 +77,7 @@
                         @forelse($rentals as $rental)
                             <tr>
                                                                      <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$rental->return_date}}</td>
+                                <td class="text-md">{{$rental->return_date}} </td>
                                  
                                                                        <td class="text-md">
                                         @if($rental->staff)

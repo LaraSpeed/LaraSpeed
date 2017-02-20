@@ -74,7 +74,7 @@
                         @forelse($languages as $language)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$language->name}}</td>
+                                <td class="text-md">{{$language->name}} </td>
                                
                                    
                                 <td nowrap>

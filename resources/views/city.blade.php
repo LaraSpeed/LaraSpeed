@@ -8,8 +8,7 @@
 		   
         <div class="form-group">
 			<label class="text-danger text-md" id="city">City * : </label>
-			<input type ="text" class="form-control" name="city" placeholder="City"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="city" placeholder="City"  required /> 		</div> <br/>
 		      
 	 		<div class="form-group">
 			<label class="text-danger text-md">Country : </label>

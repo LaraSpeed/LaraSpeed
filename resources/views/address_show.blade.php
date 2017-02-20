@@ -92,15 +92,15 @@
                         @forelse($addresss as $address)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$address->address}}</td>
+                                <td class="text-md">{{$address->address}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$address->address2}}</td>
+                                <td class="text-md">{{$address->address2}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$address->district}}</td>
+                                <td class="text-md">{{$address->district}} </td>
                                                                 <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$address->postal_code}}</td>
+                                <td class="text-md">{{$address->postal_code}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$address->phone}}</td>
+                                <td class="text-md">{{$address->phone}} </td>
                                
                                                                          <td class="text-md">
                                         @if($address->city)

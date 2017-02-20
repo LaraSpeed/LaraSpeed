@@ -149,10 +149,11 @@ class MCD
      * @param bool $required
      * @param int $nb_characters
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function string($attrName = "string", $nb_characters = 0, $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new StringType($attrName, $required, $nb_characters, $displayed);
+    public function string($attrName = "string", $nb_characters = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new StringType($attrName, $required, $nb_characters, $displayed, $unit);
         return $this;
     }
 
@@ -161,10 +162,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function integer($attrName="integer", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new IntegerType($attrName, $required, $displayed);
+    public function integer($attrName="integer", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new IntegerType($attrName, $required, $displayed, $unit);
         return $this;
     }
 
@@ -185,10 +187,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function bigInteger($attrName = "bigint", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new BigIntegerType($attrName, $required, $displayed);
+    public function bigInteger($attrName = "bigint", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new BigIntegerType($attrName, $required, $displayed, $unit);
         return $this;
     }
 
@@ -196,10 +199,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function boolean($attrName = "bool", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new BooleanType($attrName, $required, $displayed);
+    public function boolean($attrName = "bool", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new BooleanType($attrName, $required, $displayed, $unit);
         return $this;
     }
 
@@ -208,10 +212,11 @@ class MCD
      * @param $required
      * @param int $nb_character
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function char($attrName= "char", $nb_character = 0, $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new CharType($attrName, $required, $nb_character, $displayed);
+    public function char($attrName= "char", $nb_character = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new CharType($attrName, $required, $nb_character, $displayed, $unit);
         return $this;
     }
 
@@ -221,10 +226,11 @@ class MCD
      * @param int $precision
      * @param int $scale
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function decimal($attrName = "decimal", $precision = 0, $scale = 0, $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new DecimalType($attrName, $required, $precision, $scale, $displayed);
+    public function decimal($attrName = "decimal", $precision = 0, $scale = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new DecimalType($attrName, $required, $precision, $scale, $displayed, $unit);
         return $this;
     }
 
@@ -234,10 +240,11 @@ class MCD
      * @param int $digit
      * @param int $after
      * @param bool $displayed
+     * @param $unit
      * @return $this
      */
-    public function double($attrName = "double", $digit = 0, $after = 0, $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new DoubleType($attrName, $required, $digit, $after, $displayed);
+    public function double($attrName = "double", $digit = 0, $after = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new DoubleType($attrName, $required, $digit, $after, $displayed, $unit);
         return $this;
     }
 
@@ -257,10 +264,11 @@ class MCD
      * @param $precision
      * @param $scale
      * @param bool $displayed
+     * @param string $unit
      * @return $this
      */
-    public function float($attrName = "float", $precision, $scale, $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new FloatType($attrName, $required, $precision, $scale, $displayed);
+    public function float($attrName = "float", $precision, $scale, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new FloatType($attrName, $required, $precision, $scale, $displayed, $unit);
         return $this;
     }
 
@@ -281,10 +289,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param $unit
      * @return $this
      */
-    public function longText($attrName = "longtext", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new LongTextType($attrName, $required, $displayed);
+    public function longText($attrName = "longtext", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new LongTextType($attrName, $required, $displayed, $unit);
         return $this;
     }
 
@@ -307,10 +316,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param $unit
      * @return $this
      */
-    public function text($attrName = "text", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new TextType($attrName, $required, $displayed);
+    public function text($attrName = "text", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new TextType($attrName, $required, $displayed, $unit);
         return $this;
     }
 
@@ -327,10 +337,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param $unit
      * @return $this
      */
-    public function tinyInteger($attrName = "tinyInteger", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new TinyIntegerType($attrName, $required, $displayed);
+    public function tinyInteger($attrName = "tinyInteger", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new TinyIntegerType($attrName, $required, $displayed, $unit);
 
         //Create an ID for the current Table if not exist
         $this->setTableID($attrName);
@@ -352,10 +363,11 @@ class MCD
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param $unit
      * @return $this
      */
-    public function date($attrName = "date", $required = false, $displayed = true){
-        $this->currentAttributes[$attrName] = new DateType($attrName, $required, $displayed);
+    public function date($attrName = "date", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributes[$attrName] = new DateType($attrName, $required, $displayed, $unit);
         return $this;
     }
 

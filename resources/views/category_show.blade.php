@@ -71,7 +71,7 @@
                         @forelse($categorys as $category)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$category->name}}</td>
+                                <td class="text-md">{{$category->name}} </td>
                                
                                    
                                 <td nowrap>

@@ -56,14 +56,18 @@ class LongTextType extends TypeBaseClass implements FormableType
      * @param string $attrName
      * @param bool $required
      * @param bool $displayed
+     * @param $unit
      */
-    public function __construct($attrName = "", $required = false, $displayed = true)
+    public function __construct($attrName = "", $required = false, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
 
         $this->required = $required;
 
         $this->displayed = $displayed;
+
+        $this->unit = $unit;
+
     }
 
     /**

@@ -10,28 +10,23 @@
        
         <div class="form-group">
             <label class="text-danger text-md">Address : </label>
-            <input type ="text" class="form-control" name="address" value = "{{$address->address}}"placeholder="Address" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="address" value = "{{$address->address}}"placeholder="Address" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Address2 : </label>
-            <input type ="text" class="form-control" name="address2" value = "{{$address->address2}}"placeholder="Address2" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="address2" value = "{{$address->address2}}"placeholder="Address2" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">District : </label>
-            <input type ="text" class="form-control" name="district" value = "{{$address->district}}"placeholder="District" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="district" value = "{{$address->district}}"placeholder="District" readonly required />         </div>
         
         <div class="form-group">
             <label class="text-danger text-md">Postal code : </label>
-            <input type ="text" class="form-control" name="postal_code" value = "{{$address->postal_code}}"placeholder="Postal code" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="postal_code" value = "{{$address->postal_code}}"placeholder="Postal code" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Phone : </label>
-            <input type ="text" class="form-control" name="phone" value = "{{$address->phone}}"placeholder="Phone" readonly required />
-        </div>
+             <input type ="text" class="form-control" name="phone" value = "{{$address->phone}}"placeholder="Phone" readonly required />         </div>
        
 
             @if(isset($address->customer))

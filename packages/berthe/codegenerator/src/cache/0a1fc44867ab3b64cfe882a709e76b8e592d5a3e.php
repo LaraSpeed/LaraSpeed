@@ -7,8 +7,13 @@
 
         <div class="form-group">
 			<label class="text-danger text-md" id="<?php echo e($attrName); ?>"><?php if($attrType->isRequired()): ?><?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> * : <?php else: ?> <?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> : <?php endif; ?></label>
-			<?php echo $attrType->getForm(); ?>
+			<?php if($attrType->hasUnit()): ?>
+				<div class="input-group mb-md">
+					<span class="input-group-addon"><?php echo e($attrType->getUnit()); ?></span>
+					<?php echo $attrType->getForm(); ?>
 
+				</div>
+			<?php else: ?> <?php echo $attrType->getForm(); ?> <?php endif; ?>
 		</div> <br/>
 		<?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 

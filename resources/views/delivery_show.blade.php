@@ -77,11 +77,11 @@
                         @forelse($deliverys as $delivery)
                             <tr>
                                                                <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$delivery->identifiant}}</td>
+                                <td class="text-md">{{$delivery->identifiant}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$delivery->date}}</td>
+                                <td class="text-md">{{$delivery->date}} </td>
                                                               <!--class="{$attrType->formClass("table")}}"-->
-                                <td class="text-md">{{$delivery->articles}}</td>
+                                <td class="text-md">{{$delivery->articles}} </td>
                              
                                 
                                 <td nowrap>

@@ -8,33 +8,27 @@
 		   
         <div class="form-group">
 			<label class="text-danger text-md" id="first_name">First name * : </label>
-			<input type ="text" class="form-control" name="first_name" placeholder="First name"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="first_name" placeholder="First name"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="last_name">Last name * : </label>
-			<input type ="text" class="form-control" name="last_name" placeholder="Last name"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="last_name" placeholder="Last name"  required /> 		</div> <br/>
 		    
         <div class="form-group">
 			<label class="text-danger text-md" id="email">Email * : </label>
-			<input type ="text" class="form-control" name="email" placeholder="Email"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="email" placeholder="Email"  required /> 		</div> <br/>
 		    
         <div class="form-group">
 			<label class="text-danger text-md" id="active"> Active : </label>
-			<input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"placeholder="Active"  required />
-		</div> <br/>
+			 <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"placeholder="Active"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="username">Username * : </label>
-			<input type ="text" class="form-control" name="username" placeholder="Username"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="username" placeholder="Username"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="password">Password * : </label>
-			<input type ="text" class="form-control" name="password" placeholder="Password"  required />
-		</div> <br/>
+			 <input type ="text" class="form-control" name="password" placeholder="Password"  required /> 		</div> <br/>
 		    
 	 		<div class="form-group">
 			<label class="text-danger text-md">Address : </label>

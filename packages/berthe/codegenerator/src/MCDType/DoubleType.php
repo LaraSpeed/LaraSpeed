@@ -72,8 +72,9 @@ class DoubleType extends TypeBaseClass implements FormableType
      * @param int $precision
      * @param int $scale
      * @param bool $displayed
+     * @param $unit
      */
-    public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0, $displayed = true)
+    public function __construct($attrName = "", $required = false, $precision = 0, $scale = 0, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
         $this->precision = $precision;
@@ -81,6 +82,7 @@ class DoubleType extends TypeBaseClass implements FormableType
 
         $this->required = $required;
         $this->displayed = $displayed;
+        $this->unit = $unit;
     }
 
     /**

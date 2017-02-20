@@ -21,11 +21,12 @@ class BooleanType extends TypeBaseClass implements FormableType
     public $displayable = true;
     public $mutator = "booleanMutator";
 
-    public function __construct($attrName = "", $required = false, $displayed = true)
+    public function __construct($attrName = "", $required = false, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
         $this->required = $required;
         $this->displayed = $displayed;
+        $this->unit = $unit;
     }
 
     function getFormType()

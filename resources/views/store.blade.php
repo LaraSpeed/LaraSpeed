@@ -6,7 +6,21 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		       
-	
+			<div class="form-group">
+			<label class="text-danger text-md">Address : </label>
+
+			<select class="form-control" name="address">
+				@forelse(\App\Address::all() as  $address)
+					<option value="{{$address->address_id}}" @if(session('defaultSelect', 'none') == $address->address_id) {{"selected=\"\"selected\""}} @endif>
+						{{$address->address}}
+					</option>
+				@empty
+					<option value="-1">No address</option>
+				@endforelse
+			</select>
+		</div><br/>
+
+		     
 		<div class="row">
 
 			<div class="col-md-3">

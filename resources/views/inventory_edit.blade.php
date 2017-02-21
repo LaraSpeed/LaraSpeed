@@ -27,38 +27,26 @@
                 <option value="-1">No film</option>
             @endforelse
         </select><br/>            @endif
-        @if(isset($inventory->customer))
-        <label class="text-danger text-md">Associate Customers</label>
-
-        <select id="customer" name="customer[]"  multiple="multiple" size="10" >
-            @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
-                <option value="{{$customer->customer_id}}" @foreach($inventory->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
-                    {{$customer->first_name}}
-                </option>
-            @empty
-                <option value="-1">No customer</option>
-            @endforelse
-
-        </select><br/>
-
-            <script> $('#customer').bootstrapDualListbox(
-                {
-                    nonSelectedListLabel: 'Non-selected customer',
-                    selectedListLabel: 'Selected customer',
-                    moveOnSelect: true,
-                    nonSelectedFilter: ''
-                }
-        ); </script>
-    
+        @if(isset($inventory->store))
+        <label class="text-danger text-md">Update Store</label>
+    <select class="form-control" name="store" >
+        @forelse(\App\Store::all() as  $store)
+        <option value="{{$store->store_id}}" @if($store->store_id == $inventory->store->store_id) selected = "selected" @endif>
+            {{$store->address->address}}
+        </option>
+        @empty
+        <option value="-1">No store</option>
+        @endforelse
+    </select><br/>
     @else
-                    <label class="text-danger text-md">Associate Customers</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one customer"  name="customer[]">
-            @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
-                <option value="{{$customer->customer_id}}">
-                    {{$customer->first_name}}
+                    <label class="text-danger text-md">Update Store</label>
+        <select class="form-control" name="store">
+            @forelse(\App\Store::all() as  $store)
+                <option value="{{$store->store_id}}">
+                    {{$store->address->address}}
                 </option>
             @empty
-                <option value="-1">No customer</option>
+                <option value="-1">No store</option>
             @endforelse
         </select><br/>            @endif
      

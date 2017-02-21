@@ -25,6 +25,13 @@ class CallGenerator
     public $routes;
 
     /**
+     * List of pivots tables
+     *
+     * @var array
+     */
+    public $pivots;
+
+    /**
      * Get the "Conceptual Data Model" as an array.
      * It's actually the one overrided in "app/in/GeneratorCode.php" file to define "Conceptual Data Model".
      *
@@ -44,6 +51,15 @@ class CallGenerator
     }
 
     /**
+     * Set the list of pivots tables
+     *
+     * @param array $pivots
+     */
+    public function setPivots($pivots = []){
+        $this->pivots = $pivots;
+    }
+
+    /**
      * Generate different component (Controllers, Schemas, Models and forms).
      * It's fired when "php artisan code:generate" is called.
      *
@@ -51,7 +67,10 @@ class CallGenerator
      */
     public function index()
     {
-        $laravelGenerator = new AdvancedGenerator($this->getSite(), $this->configs, $this->routes);
+        $mcd = $this->getSite();
+        $this->configs["pivots"] = $this->pivots;
+
+        $laravelGenerator = new AdvancedGenerator($mcd, $this->configs, $this->routes);
             //new LaravelCodeGenerator($this->getSite());
         $laravelGenerator->generate();
         $laravelGenerator->generate('ShowForm');

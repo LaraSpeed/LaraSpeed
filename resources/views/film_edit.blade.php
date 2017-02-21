@@ -142,9 +142,9 @@
         @if(isset($film->inventory))
         <label class="text-danger text-md">Add Inventories</label>
         <select id="inventory" name="inventory[]" multiple="multiple" size="10">
-            @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
+            @forelse(\App\Inventory::all()->sortBy('store->address->address') as  $inventory)
                 <option value="{{$inventory->inventory_id}}" @foreach($film->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
-                    {{$inventory->film_id}}
+                    {{$inventory->store->address->address}}
                 </option>
             @empty
                 <option value="-1">No inventory</option>

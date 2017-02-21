@@ -5,9 +5,13 @@
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-		         
+		   
         <div class="form-group">
-			<label class="text-danger text-md" id="return_date"> Return date : </label>
+			<label class="text-danger text-md" id="rental_date">Rental date * : </label>
+			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="rental_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
+		      
+        <div class="form-group">
+			<label class="text-danger text-md" id="return_date">Return date * : </label>
 			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		      
 	 		<div class="form-group">
@@ -20,6 +24,34 @@
 					</option>
 				@empty
 					<option value="-1">No staff</option>
+				@endforelse
+			</select>
+		</div><br/>
+
+		 		<div class="form-group">
+			<label class="text-danger text-md">Customer : </label>
+
+			<select class="form-control" name="customer">
+				@forelse(\App\Customer::all() as  $customer)
+					<option value="{{$customer->customer_id}}" @if(session('defaultSelect', 'none') == $customer->customer_id) {{"selected=\"\"selected\""}} @endif>
+						{{$customer->first_name}}
+					</option>
+				@empty
+					<option value="-1">No customer</option>
+				@endforelse
+			</select>
+		</div><br/>
+
+		 		<div class="form-group">
+			<label class="text-danger text-md">Inventory : </label>
+
+			<select class="form-control" name="inventory">
+				@forelse(\App\Inventory::all() as  $inventory)
+					<option value="{{$inventory->inventory_id}}" @if(session('defaultSelect', 'none') == $inventory->inventory_id) {{"selected=\"\"selected\""}} @endif>
+						{{$inventory->store->address->address}}
+					</option>
+				@empty
+					<option value="-1">No inventory</option>
 				@endforelse
 			</select>
 		</div><br/>

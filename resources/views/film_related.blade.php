@@ -290,7 +290,10 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                                                             
+                                                                                       <th class="text-md text-primary">
+                                Store
+                            </th>
+                          
                             <th class="text-md text-primary" nowrap>Actions</th>
 
                                  
@@ -301,11 +304,18 @@
                         @forelse($film->inventory as  $inventory)
                             <tr>
                                     
-                                     
+                                                                       <td class="text-md">
+                                        @if($inventory->store)
+                                            {{$inventory->store->address->address}}
+                                        @else
+                                            {{ "Not specified" }}
+                                        @endif
+                                    </td>
+                                  
                                 <td nowrap>
                                     <a href="{{url("/inventory/$inventory->inventory_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="{{url("/inventory/$inventory->inventory_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $inventory->film_id}} ?', '{{url("/inventory/$inventory->inventory_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $inventory->store->address->address}} ?', '{{url("/inventory/$inventory->inventory_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
                                                                  </tr>

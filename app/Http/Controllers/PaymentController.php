@@ -6,6 +6,8 @@ use App\Payment;
 
     use App\Customer;
 
+    use App\Staff;
+
      
 class PaymentController extends Controller {
 
@@ -44,7 +46,8 @@ class PaymentController extends Controller {
 
 $payment = Payment::create([
        "amount" => $data["amount"],
-  ]);
+     "payment_date" => $data["payment_date"],
+ ]);
 
     if(request()->exists('rental')){
     $rental = Rental::find(request()->get('rental'));
@@ -54,6 +57,11 @@ $payment = Payment::create([
      if(request()->exists('customer')){
     $customer = Customer::find(request()->get('customer'));
     $payment->customer()->associate($customer)->save();
+    }
+
+     if(request()->exists('staff')){
+    $staff = Staff::find(request()->get('staff'));
+    $payment->staff()->associate($staff)->save();
     }
 
    
@@ -68,7 +76,7 @@ $payment = Payment::create([
     public function show( Payment $payment )
     {
         request()->session()->forget("mutate");
-         $payment->load(array("rental","customer",));
+         $payment->load(array("rental","customer","staff",));
 return view('payment_display', compact('payment')); 
     }
 
@@ -81,7 +89,7 @@ return view('payment_display', compact('payment'));
     public function edit(Payment $payment )
     {
         request()->session()->forget("mutate");
-        $payment->load(array("rental","customer",));
+        $payment->load(array("rental","customer","staff",));
 return view('payment_edit', compact('payment'));
     }
 
@@ -97,7 +105,8 @@ return view('payment_edit', compact('payment'));
 
     $updateFields = array();
                $updateFields["amount"] = $data["amount"];
-      
+             $updateFields["payment_date"] = $data["payment_date"];
+     
     $payment->update($updateFields);
 
             if(request()->exists('rental')){
@@ -108,6 +117,11 @@ return view('payment_edit', compact('payment'));
              if(request()->exists('customer')){
             $customer = \App\Customer::find(request()->get('customer'));
             $payment->customer()->associate($customer)->save();
+        }
+
+             if(request()->exists('staff')){
+            $staff = \App\Staff::find(request()->get('staff'));
+            $payment->staff()->associate($staff)->save();
         }
 
       
@@ -147,7 +161,7 @@ return view('payment_edit', compact('payment'));
         }
 
         $table = request()->get('tab');
-        $payment->load(array("rental","customer",));
+        $payment->load(array("rental","customer","staff",));
         return view('payment_related', compact(['payment', 'table']));
     }
 
@@ -201,7 +215,13 @@ return view('payment_edit', compact('payment'));
         }else{
             request()->session()->forget("amount");
         }
-          $payments = $payments->paginate(20);
+        if(request()->exists('payment_date')){
+            $payments = $payments->orderBy('payment_date', $this->getOrder('payment_date'));
+            $path = "payment_date";
+        }else{
+            request()->session()->forget("payment_date");
+        }
+         $payments = $payments->paginate(20);
         $payments->setPath("sort?$path");
         return view('payment_show', compact('payments'));
 
@@ -209,7 +229,14 @@ return view('payment_edit', compact('payment'));
 
       if(request()->exists('tab') == 'rental'){
 
-            if(request()->exists('return_date')){
+         if(request()->exists('rental_date')){
+             session(['sortOrder' => $this->getOrder('rental_date')]);
+             session(['sortKey' => 'rental_date']);
+        }else{
+            request()->session()->forget("rental_date");
+        }
+
+           if(request()->exists('return_date')){
              session(['sortOrder' => $this->getOrder('return_date')]);
              session(['sortKey' => 'return_date']);
         }else{
@@ -241,11 +268,64 @@ return view('payment_edit', compact('payment'));
             request()->session()->forget("email");
         }
 
-           if(request()->exists('create_date')){
+          if(request()->exists('active')){
+             session(['sortOrder' => $this->getOrder('active')]);
+             session(['sortKey' => 'active']);
+        }else{
+            request()->session()->forget("active");
+        }
+
+         if(request()->exists('create_date')){
              session(['sortOrder' => $this->getOrder('create_date')]);
              session(['sortKey' => 'create_date']);
         }else{
             request()->session()->forget("create_date");
+        }
+
+          
+      }
+      if(request()->exists('tab') == 'staff'){
+
+         if(request()->exists('first_name')){
+             session(['sortOrder' => $this->getOrder('first_name')]);
+             session(['sortKey' => 'first_name']);
+        }else{
+            request()->session()->forget("first_name");
+        }
+
+         if(request()->exists('last_name')){
+             session(['sortOrder' => $this->getOrder('last_name')]);
+             session(['sortKey' => 'last_name']);
+        }else{
+            request()->session()->forget("last_name");
+        }
+
+          if(request()->exists('email')){
+             session(['sortOrder' => $this->getOrder('email')]);
+             session(['sortKey' => 'email']);
+        }else{
+            request()->session()->forget("email");
+        }
+
+          if(request()->exists('active')){
+             session(['sortOrder' => $this->getOrder('active')]);
+             session(['sortKey' => 'active']);
+        }else{
+            request()->session()->forget("active");
+        }
+
+         if(request()->exists('username')){
+             session(['sortOrder' => $this->getOrder('username')]);
+             session(['sortKey' => 'username']);
+        }else{
+            request()->session()->forget("username");
+        }
+
+         if(request()->exists('password')){
+             session(['sortOrder' => $this->getOrder('password')]);
+             session(['sortKey' => 'password']);
+        }else{
+            request()->session()->forget("password");
         }
 
           
@@ -271,6 +351,11 @@ return view('payment_edit', compact('payment'));
 function updateCustomer(Payment $payment ){
         $customer = \App\Customer::find(request()->get('customer'));
         $payment->customer()->associate($customer)->save();
+        return back();
+    }
+function updateStaff(Payment $payment ){
+        $staff = \App\Staff::find(request()->get('staff'));
+        $payment->staff()->associate($staff)->save();
         return back();
     }
  

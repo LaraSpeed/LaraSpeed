@@ -82,7 +82,7 @@ class Film extends Model
         $inventory = $this->inventory();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
-            $inventory->where('film_id', 'like', $key)
+            $inventory->where('store->address->address', 'like', $key)
               ;
 
         }
@@ -90,7 +90,7 @@ class Film extends Model
         if(session("sortKey", "none") == "none" or !Schema::hasColumn("inventory", session("sortKey", "none")))
             return $inventory->paginate(20)->appends(array("tab" => "inventory"));
 
-        return $inventory->orderBy(session("sortKey", "film_id"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "inventory"));
+        return $inventory->orderBy(session("sortKey", "store->address->address"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "inventory"));
 
     }
 

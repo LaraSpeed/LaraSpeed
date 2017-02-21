@@ -20,8 +20,32 @@ class Rental extends Model
         return $this->belongsTo('App\Staff');
     }
 
+    function customer(){ 
+        return $this->belongsTo('App\Customer');
+    }
+
+    function inventory(){ 
+        return $this->belongsTo('App\Inventory');
+    }
+
  
-    function setReturnDateAttribute($value){
+    function setRentalDateAttribute($value){
+
+        $val = explode("-", $value);
+
+        if(count($val) < 2)
+            $val = explode("/", $value);
+
+        $value = "$val[2]-$val[0]-$val[1]";
+        $this->attributes['rental_date'] = date("Y-m-d", strtotime($value));
+
+    }
+
+    function getRentalDateAttribute($value){
+
+        return date("m-d-Y", strtotime($value));
+
+    } function setReturnDateAttribute($value){
 
         $val = explode("-", $value);
 
@@ -43,7 +67,8 @@ class Rental extends Model
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
             $payment->where('amount', 'like', $key)
-               ;
+                ->orWhere('payment_date', 'like', $key)
+        ;
 
         }
 
@@ -54,6 +79,8 @@ class Rental extends Model
 
     }
 
+    
+    
     
  
     public function hasAttribute($attr)

@@ -12,16 +12,20 @@ class Customer extends Model
 
     protected $fillable = ["customer_id", "store_id", "first_name", "last_name", "email", "address_id", "active", "create_date", "last_update",  ];
 
-        function inventory(){ 
-        return $this->belongsToMany('App\Inventory', 'rental');
+        function payment(){ 
+        return $this->hasMany('App\Payment');
     }
 
-    function payment(){ 
-        return $this->hasMany('App\Payment');
+    function rental(){ 
+        return $this->hasMany('App\Rental');
     }
 
     function address(){ 
         return $this->belongsTo('App\Address');
+    }
+
+    function store(){ 
+        return $this->belongsTo('App\Store');
     }
 
  
@@ -46,7 +50,7 @@ class Customer extends Model
         }
 
         return $value;
-    } function setCreateDateAttribute($value){
+    }  function setCreateDateAttribute($value){
 
         $val = explode("-", $value);
 
@@ -63,28 +67,13 @@ class Customer extends Model
         return date("m-d-Y", strtotime($value));
 
     }  
-    function getInventoryPaginatedAttribute(){
-        $inventory = $this->inventory();
-        if(session("keyword", "none") != "none"){
-            $key = "%".session('keyword','')."%";
-            $inventory->where('film_id', 'like', $key)
-              ;
-
-        }
-
-        if(session("sortKey", "none") == "none" or !Schema::hasColumn("inventory", session("sortKey", "none")))
-            return $inventory->paginate(20)->appends(array("tab" => "inventory"));
-
-        return $inventory->orderBy(session("sortKey", "film_id"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "inventory"));
-
-    }
-
     function getPaymentPaginatedAttribute(){
         $payment = $this->payment();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
             $payment->where('amount', 'like', $key)
-               ;
+                ->orWhere('payment_date', 'like', $key)
+        ;
 
         }
 
@@ -95,6 +84,24 @@ class Customer extends Model
 
     }
 
+    function getRentalPaginatedAttribute(){
+        $rental = $this->rental();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $rental->where('rental_date', 'like', $key)
+                ->orWhere('return_date', 'like', $key)
+          ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("rental", session("sortKey", "none")))
+            return $rental->paginate(20)->appends(array("tab" => "rental"));
+
+        return $rental->orderBy(session("sortKey", "rental_date"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "rental"));
+
+    }
+
+    
     
  
     public function hasAttribute($attr)

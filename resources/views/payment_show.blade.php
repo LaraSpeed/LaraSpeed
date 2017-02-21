@@ -60,17 +60,23 @@
                                                            <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Amount
-                            </th>   
+                            </th>                              <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap> <!-- -->
+                                Payment date
+                            </th> 
                                                               <th class="text-md text-primary">
                                    Rental
                                 </th>
                                                               <th class="text-md text-primary">
                                    Customer
                                 </th>
+                                                              <th class="text-md text-primary">
+                                   Staff
+                                </th>
                               
                             <th class="text-md text-primary">Actions</th>
 
-                                                       </tr>
+                                                        </tr>
                     </thead>
 
                     <tbody>
@@ -78,10 +84,12 @@
                             <tr>
                                                                    <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="text-md">{{$payment->amount}} $</td>
-                               
+                                                              <!--class="{$attrType->formClass("table")}}"-->
+                                <td class="text-md">{{$payment->payment_date}} </td>
+                             
                                                                      <td class="text-md">
                                         @if($payment->rental)
-                                            {{$payment->rental->customer_id}}
+                                            {{$payment->rental->rental_date}}
                                         @else
                                             {{ "Not specified" }}
                                         @endif
@@ -89,6 +97,13 @@
                                                                       <td class="text-md">
                                         @if($payment->customer)
                                             {{$payment->customer->first_name}}
+                                        @else
+                                            {{ "Not specified" }}
+                                        @endif
+                                    </td>
+                                                                      <td class="text-md">
+                                        @if($payment->staff)
+                                            {{$payment->staff->first_name}}
                                         @else
                                             {{ "Not specified" }}
                                         @endif
@@ -106,7 +121,7 @@
                                     </a>
                                 </td>
 
-                                                               </tr>
+                                                                </tr>
                         @empty
                             <tr>
                                 <td colspan="5"><label class="text-danger text-md">No payment matching keyword {{session('keyword', 'Keyword')}}.</label></td>

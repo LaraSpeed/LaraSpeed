@@ -2,11 +2,13 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
-    use App\Inventory;
-
     use App\Payment;
 
+    use App\Rental;
+
     use App\Address;
+
+    use App\Store;
 
      
 class CustomerController extends Controller {
@@ -48,15 +50,17 @@ $customer = Customer::create([
       "first_name" => $data["first_name"],
      "last_name" => $data["last_name"],
      "email" => $data["email"],
-       "create_date" => $data["create_date"],
+   "active" => ($data["active"] == 'on' ? 1:0),      "create_date" => $data["create_date"],
   ]);
 
-    if(request()->exists('inventory')){
-    $customer->inventory()->attach($data["inventory"]);
-    }
       if(request()->exists('address')){
     $address = Address::find(request()->get('address'));
     $customer->address()->associate($address)->save();
+    }
+
+     if(request()->exists('store')){
+    $store = Store::find(request()->get('store'));
+    $customer->store()->associate($store)->save();
     }
 
    
@@ -71,7 +75,7 @@ $customer = Customer::create([
     public function show( Customer $customer )
     {
         request()->session()->forget("mutate");
-         $customer->load(array("inventory","payment","address",));
+         $customer->load(array("payment","rental","address","store",));
 return view('customer_display', compact('customer')); 
     }
 
@@ -84,7 +88,7 @@ return view('customer_display', compact('customer'));
     public function edit(Customer $customer )
     {
         request()->session()->forget("mutate");
-        $customer->load(array("inventory","payment","address",));
+        $customer->load(array("payment","rental","address","store",));
 return view('customer_edit', compact('customer'));
     }
 
@@ -102,15 +106,12 @@ return view('customer_edit', compact('customer'));
               $updateFields["first_name"] = $data["first_name"];
              $updateFields["last_name"] = $data["last_name"];
              $updateFields["email"] = $data["email"];
-               $updateFields["create_date"] = $data["create_date"];
+              $updateFields["active"] = $data["active"];
+             $updateFields["create_date"] = $data["create_date"];
       
     $customer->update($updateFields);
 
-            if(request()->exists('inventory')){
-            $customer->inventory()->sync(request()->get('inventory'));
-        }
-
-             if(request()->exists('payment')){
+            if(request()->exists('payment')){
 
             $newOnes = \App\Payment::find(request()->get('payment'));
 
@@ -119,9 +120,23 @@ return view('customer_edit', compact('customer'));
             }
 
         }
+             if(request()->exists('rental')){
+
+            $newOnes = \App\Rental::find(request()->get('rental'));
+
+            foreach ($newOnes as $newOne){
+                $customer->rental()->save($newOne);
+            }
+
+        }
              if(request()->exists('address')){
             $address = \App\Address::find(request()->get('address'));
             $customer->address()->associate($address)->save();
+        }
+
+             if(request()->exists('store')){
+            $store = \App\Store::find(request()->get('store'));
+            $customer->store()->associate($store)->save();
         }
 
       
@@ -161,7 +176,7 @@ return view('customer_edit', compact('customer'));
         }
 
         $table = request()->get('tab');
-        $customer->load(array("inventory","payment","address",));
+        $customer->load(array("payment","rental","address","store",));
         return view('customer_related', compact(['customer', 'table']));
     }
 
@@ -235,7 +250,13 @@ return view('customer_edit', compact('customer'));
         }else{
             request()->session()->forget("email");
         }
-          if(request()->exists('create_date')){
+         if(request()->exists('active')){
+            $customers = $customers->orderBy('active', $this->getOrder('active'));
+            $path = "active";
+        }else{
+            request()->session()->forget("active");
+        }
+        if(request()->exists('create_date')){
             $customers = $customers->orderBy('create_date', $this->getOrder('create_date'));
             $path = "create_date";
         }else{
@@ -247,10 +268,6 @@ return view('customer_edit', compact('customer'));
 
     }else{
 
-      if(request()->exists('tab') == 'inventory'){
-
-            
-      }
       if(request()->exists('tab') == 'payment'){
 
            if(request()->exists('amount')){
@@ -260,7 +277,32 @@ return view('customer_edit', compact('customer'));
             request()->session()->forget("amount");
         }
 
-          
+         if(request()->exists('payment_date')){
+             session(['sortOrder' => $this->getOrder('payment_date')]);
+             session(['sortKey' => 'payment_date']);
+        }else{
+            request()->session()->forget("payment_date");
+        }
+
+         
+      }
+      if(request()->exists('tab') == 'rental'){
+
+         if(request()->exists('rental_date')){
+             session(['sortOrder' => $this->getOrder('rental_date')]);
+             session(['sortKey' => 'rental_date']);
+        }else{
+            request()->session()->forget("rental_date");
+        }
+
+           if(request()->exists('return_date')){
+             session(['sortOrder' => $this->getOrder('return_date')]);
+             session(['sortKey' => 'return_date']);
+        }else{
+            request()->session()->forget("return_date");
+        }
+
+           
       }
       if(request()->exists('tab') == 'address'){
 
@@ -301,6 +343,10 @@ return view('customer_edit', compact('customer'));
 
           
       }
+      if(request()->exists('tab') == 'store'){
+
+           
+      }
          return back();
     }
     }
@@ -314,11 +360,7 @@ return view('customer_edit', compact('customer'));
         return back();
     }
 
-    function addInventory(Customer $customer ){
-        $customer->inventory()->sync(request()->get('inventory'));
-        return back();
-    }
-function addPayment(Customer $customer ){
+    function addPayment(Customer $customer ){
         $newOnes = Payment::find(request()->get('film'));
 
         foreach ($newOnes as $newOne){
@@ -327,9 +369,23 @@ function addPayment(Customer $customer ){
 
         return back();
     }
+function addRental(Customer $customer ){
+        $newOnes = Rental::find(request()->get('film'));
+
+        foreach ($newOnes as $newOne){
+            $customer->rental()->save($newOne);
+        }
+
+        return back();
+    }
 function updateAddress(Customer $customer ){
         $address = \App\Address::find(request()->get('address'));
         $customer->address()->associate($address)->save();
+        return back();
+    }
+function updateStore(Customer $customer ){
+        $store = \App\Store::find(request()->get('store'));
+        $customer->store()->associate($store)->save();
         return back();
     }
  

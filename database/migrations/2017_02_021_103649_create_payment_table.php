@@ -13,11 +13,11 @@ class CreatePaymentTable extends Migration
     {
         Schema::create('payment', function (Blueprint $table) {
 
-                        $table->smallInteger('payment_id');
+                        $table->increments('payment_id');
             $table->smallInteger('customer_id');
             $table->smallInteger('rental_id');
             $table->decimal('amount', 4, 4);
-            $table->timestamp('payment_date');
+            $table->date('payment_date');
             $table->timestamps();
         });
     }

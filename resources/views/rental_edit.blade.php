@@ -4,7 +4,11 @@
     <form method="post" action="{{url("rental/$rental->rental_id")}}">
         <input type="hidden" name="_method" value="PUT">
         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                 
+           
+        <div class="form-group">
+            <label class="text-danger text-md">Rental date : </label>
+             <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="rental_date" value="{{$rental->rental_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
+              
         <div class="form-group">
             <label class="text-danger text-md">Return date : </label>
              <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" value="{{$rental->return_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
@@ -50,6 +54,50 @@
                 </option>
             @empty
                 <option value="-1">No staff</option>
+            @endforelse
+        </select><br/>            @endif
+        @if(isset($rental->customer))
+        <label class="text-danger text-md">Update Customer</label>
+    <select class="form-control" name="customer" >
+        @forelse(\App\Customer::all() as  $customer)
+        <option value="{{$customer->customer_id}}" @if($customer->customer_id == $rental->customer->customer_id) selected = "selected" @endif>
+            {{$customer->first_name}}
+        </option>
+        @empty
+        <option value="-1">No customer</option>
+        @endforelse
+    </select><br/>
+    @else
+                    <label class="text-danger text-md">Update Customer</label>
+        <select class="form-control" name="customer">
+            @forelse(\App\Customer::all() as  $customer)
+                <option value="{{$customer->customer_id}}">
+                    {{$customer->first_name}}
+                </option>
+            @empty
+                <option value="-1">No customer</option>
+            @endforelse
+        </select><br/>            @endif
+        @if(isset($rental->inventory))
+        <label class="text-danger text-md">Update Inventory</label>
+    <select class="form-control" name="inventory" >
+        @forelse(\App\Inventory::all() as  $inventory)
+        <option value="{{$inventory->inventory_id}}" @if($inventory->inventory_id == $rental->inventory->inventory_id) selected = "selected" @endif>
+            {{$inventory->store->address->address}}
+        </option>
+        @empty
+        <option value="-1">No inventory</option>
+        @endforelse
+    </select><br/>
+    @else
+                    <label class="text-danger text-md">Update Inventory</label>
+        <select class="form-control" name="inventory">
+            @forelse(\App\Inventory::all() as  $inventory)
+                <option value="{{$inventory->inventory_id}}">
+                    {{$inventory->store->address->address}}
+                </option>
+            @empty
+                <option value="-1">No inventory</option>
             @endforelse
         </select><br/>            @endif
      

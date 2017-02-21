@@ -70,8 +70,11 @@
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Username
                             </th>     
-                                                                <th class="text-md text-primary">
+                                                                  <th class="text-md text-primary">
                                    Address
+                                </th>
+                                                              <th class="text-md text-primary">
+                                   Store
                                 </th>
                               
                             <th class="text-md text-primary">Actions</th>
@@ -79,7 +82,10 @@
                                                             <th class="text-md text-primary">
                                     Rental
                                 </th>
-                                                       </tr>
+                                                             <th class="text-md text-primary">
+                                    Payment
+                                </th>
+                                                        </tr>
                     </thead>
 
                     <tbody>
@@ -94,9 +100,16 @@
                                                                   <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="text-md">{{$staff->username}} </td>
                                  
-                                                                       <td class="text-md">
+                                                                         <td class="text-md">
                                         @if($staff->address)
                                             {{$staff->address->address}}
+                                        @else
+                                            {{ "Not specified" }}
+                                        @endif
+                                    </td>
+                                                                      <td class="text-md">
+                                        @if($staff->store)
+                                            {{$staff->store->address->address}}
                                         @else
                                             {{ "Not specified" }}
                                         @endif
@@ -120,7 +133,13 @@
                                         <button type="submit" class="btn btn-link">Rental</button>
                                     </form>
                                 </td>
-                                                           </tr>
+                                                             <td class="text-md">
+                                    <form action="{{url("/staff/related/$staff->staff_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="payment" />
+                                        <button type="submit" class="btn btn-link">Payment</button>
+                                    </form>
+                                </td>
+                                                            </tr>
                         @empty
                             <tr>
                                 <td colspan="10"><label class="text-danger text-md">No staff matching keyword {{session('keyword', 'Keyword')}}.</label></td>

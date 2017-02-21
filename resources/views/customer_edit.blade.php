@@ -16,46 +16,16 @@
         <div class="form-group">
             <label class="text-danger text-md">Email : </label>
              <input type ="text" class="form-control" name="email" value = "{{$customer->email}}"placeholder="Email"  required />         </div>
-              
+            
+        <div class="form-group">
+            <label class="text-danger text-md">Active : </label>
+             <input type ="checkbox" class="form-control" name="active"  checked  required />         </div>
+          
         <div class="form-group">
             <label class="text-danger text-md">Create date : </label>
              <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" value="{{$customer->create_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
            
-            @if(isset($customer->inventory))
-        <label class="text-danger text-md">Associate Inventories</label>
-
-        <select id="inventory" name="inventory[]"  multiple="multiple" size="10" >
-            @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
-                <option value="{{$inventory->inventory_id}}" @foreach($customer->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
-                    {{$inventory->film_id}}
-                </option>
-            @empty
-                <option value="-1">No inventory</option>
-            @endforelse
-
-        </select><br/>
-
-            <script> $('#inventory').bootstrapDualListbox(
-                {
-                    nonSelectedListLabel: 'Non-selected inventory',
-                    selectedListLabel: 'Selected inventory',
-                    moveOnSelect: true,
-                    nonSelectedFilter: ''
-                }
-        ); </script>
-    
-    @else
-                    <label class="text-danger text-md">Associate Inventories</label>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
-            @forelse(\App\Inventory::all()->sortBy('film_id') as  $inventory)
-                <option value="{{$inventory->inventory_id}}">
-                    {{$inventory->film_id}}
-                </option>
-            @empty
-                <option value="-1">No inventory</option>
-            @endforelse
-        </select><br/>            @endif
-        @if(isset($customer->payment))
+            @if(isset($customer->payment))
         <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
             @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
@@ -70,6 +40,27 @@
             {
                 nonSelectedListLabel: 'Non-selected Payment',
                 selectedListLabel: 'Selected Payment',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
+    @else
+            @endif
+        @if(isset($customer->rental))
+        <label class="text-danger text-md">Add Rentals</label>
+        <select id="rental" name="rental[]" multiple="multiple" size="10">
+            @forelse(\App\Rental::all()->sortBy('rental_date') as  $rental)
+                <option value="{{$rental->rental_id}}" @foreach($customer->rental as  $rentaltmp) @if($rentaltmp->rental_id == $rental->rental_id) selected = "selected" @endif @endforeach>
+                    {{$rental->rental_date}}
+                </option>
+            @empty
+                <option value="-1">No rental</option>
+            @endforelse
+        </select><br/>
+        <script> $('#rental').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Rental',
+                selectedListLabel: 'Selected Rental',
                 moveOnSelect: true,
                 nonSelectedFilter: ''
             }
@@ -96,6 +87,28 @@
                 </option>
             @empty
                 <option value="-1">No address</option>
+            @endforelse
+        </select><br/>            @endif
+        @if(isset($customer->store))
+        <label class="text-danger text-md">Update Store</label>
+    <select class="form-control" name="store" >
+        @forelse(\App\Store::all() as  $store)
+        <option value="{{$store->store_id}}" @if($store->store_id == $customer->store->store_id) selected = "selected" @endif>
+            {{$store->address->address}}
+        </option>
+        @empty
+        <option value="-1">No store</option>
+        @endforelse
+    </select><br/>
+    @else
+                    <label class="text-danger text-md">Update Store</label>
+        <select class="form-control" name="store">
+            @forelse(\App\Store::all() as  $store)
+                <option value="{{$store->store_id}}">
+                    {{$store->address->address}}
+                </option>
+            @empty
+                <option value="-1">No store</option>
             @endforelse
         </select><br/>            @endif
      

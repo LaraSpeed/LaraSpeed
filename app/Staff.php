@@ -16,8 +16,16 @@ class Staff extends Model
         return $this->hasMany('App\Rental');
     }
 
+    function payment(){ 
+        return $this->hasMany('App\Payment');
+    }
+
     function address(){ 
         return $this->belongsTo('App\Address');
+    }
+
+    function store(){ 
+        return $this->belongsTo('App\Store');
     }
 
  
@@ -61,7 +69,7 @@ class Staff extends Model
         $rental = $this->rental();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
-            $rental->where('customer_id', 'like', $key)
+            $rental->where('rental_date', 'like', $key)
                 ->orWhere('return_date', 'like', $key)
           ;
 
@@ -70,10 +78,28 @@ class Staff extends Model
         if(session("sortKey", "none") == "none" or !Schema::hasColumn("rental", session("sortKey", "none")))
             return $rental->paginate(20)->appends(array("tab" => "rental"));
 
-        return $rental->orderBy(session("sortKey", "customer_id"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "rental"));
+        return $rental->orderBy(session("sortKey", "rental_date"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "rental"));
 
     }
 
+    function getPaymentPaginatedAttribute(){
+        $payment = $this->payment();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $payment->where('amount', 'like', $key)
+                ->orWhere('payment_date', 'like', $key)
+        ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("payment", session("sortKey", "none")))
+            return $payment->paginate(20)->appends(array("tab" => "payment"));
+
+        return $payment->orderBy(session("sortKey", "amount"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "payment"));
+
+    }
+
+    
     
  
     public function hasAttribute($attr)

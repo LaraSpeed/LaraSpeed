@@ -13,7 +13,7 @@ class CreateCountryTable extends Migration
     {
         Schema::create('country', function (Blueprint $table) {
 
-                        $table->smallInteger('country_id', 1);
+                        $table->increments('country_id');
             $table->string('country', 50);
             $table->timestamp('last_update');
             $table->timestamps();

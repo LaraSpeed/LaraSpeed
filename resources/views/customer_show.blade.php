@@ -73,13 +73,19 @@
                                                                   <th class="text-md text-primary">
                                    Address
                                 </th>
+                                                              <th class="text-md text-primary">
+                                   Store
+                                </th>
                               
                             <th class="text-md text-primary">Actions</th>
 
-                                                             <th class="text-md text-primary">
+                                                            <th class="text-md text-primary">
                                     Payment
                                 </th>
-                                                       </tr>
+                                                             <th class="text-md text-primary">
+                                    Rental
+                                </th>
+                                                        </tr>
                     </thead>
 
                     <tbody>
@@ -101,6 +107,13 @@
                                             {{ "Not specified" }}
                                         @endif
                                     </td>
+                                                                      <td class="text-md">
+                                        @if($customer->store)
+                                            {{$customer->store->address->address}}
+                                        @else
+                                            {{ "Not specified" }}
+                                        @endif
+                                    </td>
                                   
                                 <td nowrap>
                                     <a href="{{url("/customer/$customer->customer_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
@@ -114,13 +127,19 @@
                                     </a>
                                 </td>
 
-                                                                 <td class="text-md">
+                                                                <td class="text-md">
                                     <form action="{{url("/customer/related/$customer->customer_id")}}" method="get">
                                         <input type="hidden" name="tab" value="payment" />
                                         <button type="submit" class="btn btn-link">Payment</button>
                                     </form>
                                 </td>
-                                                           </tr>
+                                                             <td class="text-md">
+                                    <form action="{{url("/customer/related/$customer->customer_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="rental" />
+                                        <button type="submit" class="btn btn-link">Rental</button>
+                                    </form>
+                                </td>
+                                                            </tr>
                         @empty
                             <tr>
                                 <td colspan="9"><label class="text-danger text-md">No customer matching keyword {{session('keyword', 'Keyword')}}.</label></td>

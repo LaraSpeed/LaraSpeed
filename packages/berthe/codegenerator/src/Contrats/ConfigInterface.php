@@ -18,4 +18,5 @@ interface ConfigInterface
     function getAllDisplayedAttribute();
     function getTableIcon($tableName = "");
     function getPluralForm($tableName = "");
+    function isPivot($tableName = "");
 }

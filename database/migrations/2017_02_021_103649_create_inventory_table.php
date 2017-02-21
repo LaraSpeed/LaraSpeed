@@ -2,7 +2,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoreTable extends Migration
+class CreateInventoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,11 +11,12 @@ class CreateStoreTable extends Migration
      */
     public function up()
     {
-        Schema::create('store', function (Blueprint $table) {
+        Schema::create('inventory', function (Blueprint $table) {
 
-                        $table->smallInteger('store_id', 1);
-            $table->smallInteger('manager_staff_id', 1);
-            $table->smallInteger('address_id', 1);
+                        $table->increments('inventory_id');
+            $table->smallInteger('film_id');
+            $table->smallInteger('store_id');
+            $table->timestamp('last_update');
             $table->timestamps();
         });
     }
@@ -26,7 +27,7 @@ class CreateStoreTable extends Migration
      */
     public function down()
     {
-        Schema::drop('store');
+        Schema::drop('inventory');
     }
 }
 

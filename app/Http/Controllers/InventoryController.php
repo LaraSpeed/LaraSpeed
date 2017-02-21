@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Inventory;
     use App\Film;
 
-    use App\Customer;
+    use App\Store;
 
      
 class InventoryController extends Controller {
@@ -50,9 +50,11 @@ $inventory = Inventory::create([
     $inventory->film()->associate($film)->save();
     }
 
-     if(request()->exists('customer')){
-    $inventory->customer()->attach($data["customer"]);
+     if(request()->exists('store')){
+    $store = Store::find(request()->get('store'));
+    $inventory->store()->associate($store)->save();
     }
+
    
         return  isset($data['carl'])?redirect('/inventory'):back();     }
 
@@ -65,7 +67,7 @@ $inventory = Inventory::create([
     public function show( Inventory $inventory )
     {
         request()->session()->forget("mutate");
-         $inventory->load(array("film","customer",));
+         $inventory->load(array("film","store",));
 return view('inventory_display', compact('inventory')); 
     }
 
@@ -78,7 +80,7 @@ return view('inventory_display', compact('inventory'));
     public function edit(Inventory $inventory )
     {
         request()->session()->forget("mutate");
-        $inventory->load(array("film","customer",));
+        $inventory->load(array("film","store",));
 return view('inventory_edit', compact('inventory'));
     }
 
@@ -101,8 +103,9 @@ return view('inventory_edit', compact('inventory'));
             $inventory->film()->associate($film)->save();
         }
 
-             if(request()->exists('customer')){
-            $inventory->customer()->sync(request()->get('customer'));
+             if(request()->exists('store')){
+            $store = \App\Store::find(request()->get('store'));
+            $inventory->store()->associate($store)->save();
         }
 
       
@@ -142,7 +145,7 @@ return view('inventory_edit', compact('inventory'));
         }
 
         $table = request()->get('tab');
-        $inventory->load(array("film","customer",));
+        $inventory->load(array("film","store",));
         return view('inventory_related', compact(['inventory', 'table']));
     }
 
@@ -247,37 +250,9 @@ return view('inventory_edit', compact('inventory'));
 
             
       }
-      if(request()->exists('tab') == 'customer'){
+      if(request()->exists('tab') == 'store'){
 
-          if(request()->exists('first_name')){
-             session(['sortOrder' => $this->getOrder('first_name')]);
-             session(['sortKey' => 'first_name']);
-        }else{
-            request()->session()->forget("first_name");
-        }
-
-         if(request()->exists('last_name')){
-             session(['sortOrder' => $this->getOrder('last_name')]);
-             session(['sortKey' => 'last_name']);
-        }else{
-            request()->session()->forget("last_name");
-        }
-
-         if(request()->exists('email')){
-             session(['sortOrder' => $this->getOrder('email')]);
-             session(['sortKey' => 'email']);
-        }else{
-            request()->session()->forget("email");
-        }
-
-           if(request()->exists('create_date')){
-             session(['sortOrder' => $this->getOrder('create_date')]);
-             session(['sortKey' => 'create_date']);
-        }else{
-            request()->session()->forget("create_date");
-        }
-
-          
+           
       }
          return back();
     }
@@ -297,8 +272,9 @@ return view('inventory_edit', compact('inventory'));
         $inventory->film()->associate($film)->save();
         return back();
     }
-function addCustomer(Inventory $inventory ){
-        $inventory->customer()->sync(request()->get('customer'));
+function updateStore(Inventory $inventory ){
+        $store = \App\Store::find(request()->get('store'));
+        $inventory->store()->associate($store)->save();
         return back();
     }
  

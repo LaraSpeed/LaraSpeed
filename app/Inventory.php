@@ -16,32 +16,14 @@ class Inventory extends Model
         return $this->belongsTo('App\Film');
     }
 
-    function customer(){ 
-        return $this->belongsToMany('App\Customer', 'rental');
+    function store(){ 
+        return $this->belongsTo('App\Store');
     }
 
  
      
     
-    function getCustomerPaginatedAttribute(){
-        $customer = $this->customer();
-        if(session("keyword", "none") != "none"){
-            $key = "%".session('keyword','')."%";
-            $customer->where('first_name', 'like', $key)
-               ->orWhere('last_name', 'like', $key)
-          ->orWhere('email', 'like', $key)
-            ->orWhere('create_date', 'like', $key)
-         ;
-
-        }
-
-        if(session("sortKey", "none") == "none" or !Schema::hasColumn("customer", session("sortKey", "none")))
-            return $customer->paginate(20)->appends(array("tab" => "customer"));
-
-        return $customer->orderBy(session("sortKey", "first_name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "customer"));
-
-    }
-
+    
  
     public function hasAttribute($attr)
     {

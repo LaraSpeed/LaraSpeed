@@ -53,23 +53,23 @@ class GeneratorCode  extends CallGenerator {
                 ->end()
 
             ->table("category")
-                ->smallInteger("category_id")
+                ->increments("category_id")
                 ->string("name", 25, true)
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
                 ->end()
 
             ->table("inventory")
-                ->smallInteger("inventory_id")
+                ->increments("inventory_id")
                 ->smallInteger("film_id")
                 ->smallInteger("store_id")
                 ->timeStamp("last_update")
                 ->belongsTo("film")
-                ->belongsToMany("customer") //pivot => rental
+                ->belongsTo("store")
                 ->end()
 
             ->table("customer")
-                ->smallInteger("customer_id")
+                ->increments("customer_id")
                 ->smallInteger("store_id")
                 ->string("first_name", 25, true)
                 ->string("last_name", 45, true)
@@ -78,36 +78,39 @@ class GeneratorCode  extends CallGenerator {
                 ->boolean("active", false, false)
                 ->date("create_date", true)
                 ->timeStamp("last_update")
-                ->smallInteger("active")
-                ->belongsToMany("inventory")
                 ->hasMany("payment")
+                ->hasMany("rental")
                 ->belongsTo("address")
+                ->belongsTo("store")
                 ->end()
 
             ->table("rental")
-                ->smallInteger("rental_id")
-                ->timeStamp("rental_date")
+                ->increments("rental_id")
+                ->date("rental_date", true, true)
                 ->smallInteger("inventory_id")
                 ->smallInteger("customer_id")
-                ->date("return_date")
+                ->date("return_date", true, true)
                 ->smallInteger("staff_id")
                 ->timeStamp("last_update")
                 ->hasMany("payment")
                 ->belongsTo("staff")
+                ->belongsTo("customer")
+                ->belongsTo("inventory")
                 ->end()
 
             ->table("payment")
-                ->smallInteger("payment_id")
+                ->increments("payment_id")
                 ->smallInteger("customer_id")
                 ->smallInteger("rental_id")
                 ->decimal("amount", 4, 4, true, true, "$")
-                ->timeStamp("payment_date")
+                ->date("payment_date", true, true)
                 ->belongsTo("rental")
                 ->belongsTo("customer")
+                ->belongsTo("staff")
                 ->end()
 
             ->table("address")
-                ->smallInteger("address_id")
+                ->increments("address_id")
                 ->string("address", 50, true)
                 ->string("address2", 50)
                 ->string("district", 20, true)
@@ -117,12 +120,12 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->hasMany("customer")
                 ->hasMany("staff")
+                ->hasMany("store")
                 ->belongsTo("city")
-                //->belongsToMany("staff")
                 ->end()
 
             ->table("city")
-                ->smallInteger("city_id")
+                ->increments("city_id")
                 ->string("city", 50, true)
                 ->smallInteger("country_id")
                 ->timeStamp("last_update")
@@ -131,17 +134,21 @@ class GeneratorCode  extends CallGenerator {
                 ->end()
 
             ->table("country")
-                ->smallInteger("country_id", true)
+                ->increments("country_id", true)
                 ->string("country", 50, true)
                 ->timeStamp("last_update")
                 ->hasMany("city")
                 ->end()
 
             ->table("store")
-                ->smallInteger("store_id", true)
+                ->increments("store_id", true)
                 ->smallInteger("manager_staff_id", true, true)
                 ->smallInteger("address_id", true, true)
-            ->end()
+                ->belongsTo("address")
+                ->hasMany("staff")
+                ->hasMany("inventory")
+                ->hasMany("customer")
+                ->end()
 
             ->table("staff")
                 ->smallInteger("staff_id", true)
@@ -156,8 +163,9 @@ class GeneratorCode  extends CallGenerator {
                 ->string("password", 40, true, false)
                 ->timeStamp("last_update")
                 ->hasMany("rental")
+                ->hasMany("payment")
                 ->belongsTo("address")
-                //->belongsToMany("address") //Pivot store
+                ->belongsTo("store")
                 ->end()
 
             ->table("delivery")
@@ -169,6 +177,7 @@ class GeneratorCode  extends CallGenerator {
 
         //Set Additional Route
         parent::setRoutes($mcd->getRoutes());
+        parent::setPivots($mcd->getPivots());
         
         return $mcd->getSite();
     }
@@ -184,15 +193,15 @@ class GeneratorCode  extends CallGenerator {
             "film" => "title",
             "language" => "name",
             "category" => "name",
-            "inventory" => "film_id",
+            "inventory" => "store->address->address",
             "customer" => "first_name",
-            "rental" => "customer_id",
+            "rental" => "rental_date",
             "address" => "address",
             "city" => "city",
             "country" => "country",
             "payment" => "amount",
             "staff" => "first_name",
-            "store" => "address",
+            "store" => "address->address",
             "delivery" => "identifiant",
             "users" => "name"
         ),

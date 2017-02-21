@@ -13,7 +13,7 @@ class CreateAddressTable extends Migration
     {
         Schema::create('address', function (Blueprint $table) {
 
-                        $table->smallInteger('address_id');
+                        $table->increments('address_id');
             $table->string('address', 50);
             $table->string('address2', 50);
             $table->string('district', 20);

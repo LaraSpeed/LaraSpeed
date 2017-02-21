@@ -97,4 +97,15 @@ class BasicConfig implements ConfigInterface
 
         throw new \Exception("Plural form specified for table : [".$tableName."]");
     }
+
+    /**
+     * Test whether the given tableName is pivots table or not
+     *
+     * @param string $tableName
+     * @return bool
+     */
+    function isPivot($tableName = "")
+    {
+        return in_array($tableName, $this->configs["pivots"]);
+    }
 }

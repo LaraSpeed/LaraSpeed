@@ -8,7 +8,7 @@
 
         <div class="col-md-5">
             {{ session(['defaultSelect' => $rental->rental_id]) }}
-            <h4 class="text-danger"><b>Rental : {{$rental->customer_id}}</b></h4>
+            <h4 class="text-danger"><b>Rental : {{$rental->rental_date}}</b></h4>
         </div>
     </div>
 
@@ -72,13 +72,19 @@
                                                        <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Amount
-                            </th>                                                          <th class="text-md text-primary">
+                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Payment date
+                            </th>                                                        <th class="text-md text-primary">
                                 Customer
+                            </th>
+                                                      <th class="text-md text-primary">
+                                Staff
                             </th>
                           
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                                 
+                                   
                         </tr>
                     </thead>
 
@@ -87,10 +93,19 @@
                             <tr>
                                                                <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$payment->amount}} $</td>
-                                   
+                                                              <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$payment->payment_date}} </td>
+                                 
                                                                        <td class="text-md">
                                         @if($payment->customer)
                                             {{$payment->customer->first_name}}
+                                        @else
+                                            {{ "Not specified" }}
+                                        @endif
+                                    </td>
+                                                                      <td class="text-md">
+                                        @if($payment->staff)
+                                            {{$payment->staff->first_name}}
                                         @else
                                             {{ "Not specified" }}
                                         @endif
@@ -102,7 +117,7 @@
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $payment->amount}} ?', '{{url("/payment/$payment->payment_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
-                                                                 </tr>
+                                                                   </tr>
                         @empty
                             <tr>
                                 <td colspan="5"><label class="text-danger text-md">No payment matching keyword {{session('keyword', 'Keyword')}}.</label></td>
@@ -124,6 +139,21 @@
      {{$rental->staff->username}}
      {{$rental->staff->password}}
           @else
+
+        @endif
+        @if(isset($rental->customer) && "customer" == $table)
+            <h3 class="text-danger">Customer : </h3>
+      {{$rental->customer->first_name}}
+     {{$rental->customer->last_name}}
+     {{$rental->customer->email}}
+      {{$rental->customer->active}}
+     {{$rental->customer->create_date}}
+          @else
+
+        @endif
+        @if(isset($rental->inventory) && "inventory" == $table)
+            <h3 class="text-danger">Inventory : </h3>
+            @else
 
         @endif
  @endsection

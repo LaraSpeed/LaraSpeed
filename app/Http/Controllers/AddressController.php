@@ -6,6 +6,8 @@ use App\Address;
 
     use App\Staff;
 
+    use App\Store;
+
     use App\City;
 
      
@@ -52,7 +54,7 @@ $address = Address::create([
      "phone" => $data["phone"],
   ]);
 
-      if(request()->exists('city')){
+       if(request()->exists('city')){
     $city = City::find(request()->get('city'));
     $address->city()->associate($city)->save();
     }
@@ -69,7 +71,7 @@ $address = Address::create([
     public function show( Address $address )
     {
         request()->session()->forget("mutate");
-         $address->load(array("customer","staff","city",));
+         $address->load(array("customer","staff","store","city",));
 return view('address_display', compact('address')); 
     }
 
@@ -82,7 +84,7 @@ return view('address_display', compact('address'));
     public function edit(Address $address )
     {
         request()->session()->forget("mutate");
-        $address->load(array("customer","staff","city",));
+        $address->load(array("customer","staff","store","city",));
 return view('address_edit', compact('address'));
     }
 
@@ -120,6 +122,15 @@ return view('address_edit', compact('address'));
 
             foreach ($newOnes as $newOne){
                 $address->staff()->save($newOne);
+            }
+
+        }
+             if(request()->exists('store')){
+
+            $newOnes = \App\Store::find(request()->get('store'));
+
+            foreach ($newOnes as $newOne){
+                $address->store()->save($newOne);
             }
 
         }
@@ -165,7 +176,7 @@ return view('address_edit', compact('address'));
         }
 
         $table = request()->get('tab');
-        $address->load(array("customer","staff","city",));
+        $address->load(array("customer","staff","store","city",));
         return view('address_related', compact(['address', 'table']));
     }
 
@@ -278,7 +289,14 @@ return view('address_edit', compact('address'));
             request()->session()->forget("email");
         }
 
-           if(request()->exists('create_date')){
+          if(request()->exists('active')){
+             session(['sortOrder' => $this->getOrder('active')]);
+             session(['sortKey' => 'active']);
+        }else{
+            request()->session()->forget("active");
+        }
+
+         if(request()->exists('create_date')){
              session(['sortOrder' => $this->getOrder('create_date')]);
              session(['sortKey' => 'create_date']);
         }else{
@@ -333,6 +351,10 @@ return view('address_edit', compact('address'));
 
           
       }
+      if(request()->exists('tab') == 'store'){
+
+           
+      }
       if(request()->exists('tab') == 'city'){
 
          if(request()->exists('city')){
@@ -371,6 +393,15 @@ function addStaff(Address $address ){
 
         foreach ($newOnes as $newOne){
             $address->staff()->save($newOne);
+        }
+
+        return back();
+    }
+function addStore(Address $address ){
+        $newOnes = Store::find(request()->get('film'));
+
+        foreach ($newOnes as $newOne){
+            $address->store()->save($newOne);
         }
 
         return back();

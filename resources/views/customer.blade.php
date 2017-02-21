@@ -17,24 +17,15 @@
         <div class="form-group">
 			<label class="text-danger text-md" id="email">Email * : </label>
 			 <input type ="text" class="form-control" name="email" placeholder="Email"  required /> 		</div> <br/>
-		      
+		    
+        <div class="form-group">
+			<label class="text-danger text-md" id="active"> Active : </label>
+			 <input type ="checkbox" class="form-control" name="active"  required /> 		</div> <br/>
+		  
         <div class="form-group">
 			<label class="text-danger text-md" id="create_date">Create date * : </label>
 			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		    
-			<div class="form-group">
-			<label class="text-danger text-md">Inventories : </label>
-
-			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one inventory"  name="inventory[]">
-					@forelse(\App\Inventory::all() as  $inventory)
-					    <option value="{{$inventory->inventory_id}}" @if(session('defaultSelect', 'none') == $inventory->inventory_id) {{"selected=\"\"selected\""}} @endif>
-					{{$inventory->film_id}}
-					    </option>
-					@empty
-					    <option value="-1">No inventory</option>
-					@endforelse
-			</select>
-		</div><br/>
 	  		<div class="form-group">
 			<label class="text-danger text-md">Address : </label>
 
@@ -45,6 +36,20 @@
 					</option>
 				@empty
 					<option value="-1">No address</option>
+				@endforelse
+			</select>
+		</div><br/>
+
+		 		<div class="form-group">
+			<label class="text-danger text-md">Store : </label>
+
+			<select class="form-control" name="store">
+				@forelse(\App\Store::all() as  $store)
+					<option value="{{$store->store_id}}" @if(session('defaultSelect', 'none') == $store->store_id) {{"selected=\"\"selected\""}} @endif>
+						{{$store->address->address}}
+					</option>
+				@empty
+					<option value="-1">No store</option>
 				@endforelse
 			</select>
 		</div><br/>

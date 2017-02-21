@@ -71,6 +71,27 @@
         ); </script>
         @else
                 @endif
+            @if(isset($address->store))
+        <label class="text-danger text-md">Add Stores</label>
+        <select id="store" name="store[]" multiple="multiple" size="10">
+            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
+                <option value="{{$store->store_id}}" @foreach($address->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
+                    {{$store->address->address}}
+                </option>
+            @empty
+                <option value="-1">No store</option>
+            @endforelse
+        </select><br/>
+        <script> $('#store').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected Store',
+                selectedListLabel: 'Selected Store',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
+        @else
+                @endif
             @if(isset($address->city))
         <label class="text-danger text-md">Update City</label>
     <select class="form-control" name="city"  disabled >
@@ -104,6 +125,11 @@
     @if(isset($address->staff))
             @else
         <label class="text-danger text-md">No staff related to this address.</label>
+    @endif
+    
+    @if(isset($address->store))
+            @else
+        <label class="text-danger text-md">No store related to this address.</label>
     @endif
     
     @if(isset($address->city))

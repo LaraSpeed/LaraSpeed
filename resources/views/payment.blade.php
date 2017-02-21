@@ -13,14 +13,18 @@
 					<input type ="number" class="form-control" name="amount"  data-plugin-maxlength="" maxlength="10"placeholder="Amount"  required />
 				</div>
 					</div> <br/>
-		    
+		  
+        <div class="form-group">
+			<label class="text-danger text-md" id="payment_date">Payment date * : </label>
+			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="payment_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
+		  
 			<div class="form-group">
 			<label class="text-danger text-md">Rental : </label>
 
 			<select class="form-control" name="rental">
 				@forelse(\App\Rental::all() as  $rental)
 					<option value="{{$rental->rental_id}}" @if(session('defaultSelect', 'none') == $rental->rental_id) {{"selected=\"\"selected\""}} @endif>
-						{{$rental->customer_id}}
+						{{$rental->rental_date}}
 					</option>
 				@empty
 					<option value="-1">No rental</option>
@@ -38,6 +42,20 @@
 					</option>
 				@empty
 					<option value="-1">No customer</option>
+				@endforelse
+			</select>
+		</div><br/>
+
+		 		<div class="form-group">
+			<label class="text-danger text-md">Staff : </label>
+
+			<select class="form-control" name="staff">
+				@forelse(\App\Staff::all() as  $staff)
+					<option value="{{$staff->staff_id}}" @if(session('defaultSelect', 'none') == $staff->staff_id) {{"selected=\"\"selected\""}} @endif>
+						{{$staff->first_name}}
+					</option>
+				@empty
+					<option value="-1">No staff</option>
 				@endforelse
 			</select>
 		</div><br/>

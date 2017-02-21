@@ -84,6 +84,11 @@ class MCD
     private $routes;
 
     /**
+     * List of pivot tables
+     */
+    private $pivots;
+
+    /**
      * MCD constructor.
      */
     public function __construct()
@@ -91,6 +96,8 @@ class MCD
         $this->tables = array();
 
         $this->routes = array();
+
+        $this->pivots = [];
 
         $this->init();
     }
@@ -131,12 +138,18 @@ class MCD
     /**
      * Function initializing adding table.
      * @param string $tableName
+     * @param bool $pivot
      * @return $this
      */
-    public function table($tableName = "table"){
+    public function table($tableName = "table", $pivot = false){
         $this->tables[$tableName] = array();
         $this->currentTableName = $tableName;
         $this->tables[$this->currentTableName]['relations'] = array();
+
+        if($pivot){
+            $this->pivots[] = $tableName;
+         }
+
 
         //$this->routes[$this->currentTableName."/clearSearch"] = ucfirst($this->currentTableName)."Controller@clearSearch";
 
@@ -446,6 +459,13 @@ class MCD
      */
     public function getSite(){
         return $this->tables;
+    }
+
+    /**
+     * Get pivots tables
+     */
+    public function getPivots(){
+        return $this->pivots;
     }
 
 }

@@ -13,8 +13,8 @@ class CreateRentalTable extends Migration
     {
         Schema::create('rental', function (Blueprint $table) {
 
-                        $table->smallInteger('rental_id');
-            $table->timestamp('rental_date');
+                        $table->increments('rental_id');
+            $table->date('rental_date');
             $table->smallInteger('inventory_id');
             $table->smallInteger('customer_id');
             $table->date('return_date');

@@ -30,7 +30,7 @@
 			<label class="text-danger text-md" id="password">Password * : </label>
 			 <input type ="text" class="form-control" name="password" placeholder="Password"  required /> 		</div> <br/>
 		    
-	 		<div class="form-group">
+	  		<div class="form-group">
 			<label class="text-danger text-md">Address : </label>
 
 			<select class="form-control" name="address">
@@ -40,6 +40,20 @@
 					</option>
 				@empty
 					<option value="-1">No address</option>
+				@endforelse
+			</select>
+		</div><br/>
+
+		 		<div class="form-group">
+			<label class="text-danger text-md">Store : </label>
+
+			<select class="form-control" name="store">
+				@forelse(\App\Store::all() as  $store)
+					<option value="{{$store->store_id}}" @if(session('defaultSelect', 'none') == $store->store_id) {{"selected=\"\"selected\""}} @endif>
+						{{$store->address->address}}
+					</option>
+				@empty
+					<option value="-1">No store</option>
 				@endforelse
 			</select>
 		</div><br/>

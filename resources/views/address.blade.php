@@ -26,7 +26,7 @@
 			<label class="text-danger text-md" id="phone">Phone * : </label>
 			 <input type ="text" class="form-control" name="phone" placeholder="Phone"  required /> 		</div> <br/>
 		    
-	  		<div class="form-group">
+	   		<div class="form-group">
 			<label class="text-danger text-md">City : </label>
 
 			<select class="form-control" name="city">

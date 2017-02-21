@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 use App\Staff;
     use App\Rental;
 
+    use App\Payment;
+
     use App\Address;
+
+    use App\Store;
 
      
 class StaffController extends Controller {
@@ -51,9 +55,14 @@ $staff = Staff::create([
      "password" => $data["password"],
   ]);
 
-     if(request()->exists('address')){
+      if(request()->exists('address')){
     $address = Address::find(request()->get('address'));
     $staff->address()->associate($address)->save();
+    }
+
+     if(request()->exists('store')){
+    $store = Store::find(request()->get('store'));
+    $staff->store()->associate($store)->save();
     }
 
    
@@ -68,7 +77,7 @@ $staff = Staff::create([
     public function show( Staff $staff )
     {
         request()->session()->forget("mutate");
-         $staff->load(array("rental","address",));
+         $staff->load(array("rental","payment","address","store",));
 return view('staff_display', compact('staff')); 
     }
 
@@ -81,7 +90,7 @@ return view('staff_display', compact('staff'));
     public function edit(Staff $staff )
     {
         request()->session()->forget("mutate");
-        $staff->load(array("rental","address",));
+        $staff->load(array("rental","payment","address","store",));
 return view('staff_edit', compact('staff'));
     }
 
@@ -114,9 +123,23 @@ return view('staff_edit', compact('staff'));
             }
 
         }
+             if(request()->exists('payment')){
+
+            $newOnes = \App\Payment::find(request()->get('payment'));
+
+            foreach ($newOnes as $newOne){
+                $staff->payment()->save($newOne);
+            }
+
+        }
              if(request()->exists('address')){
             $address = \App\Address::find(request()->get('address'));
             $staff->address()->associate($address)->save();
+        }
+
+             if(request()->exists('store')){
+            $store = \App\Store::find(request()->get('store'));
+            $staff->store()->associate($store)->save();
         }
 
       
@@ -156,7 +179,7 @@ return view('staff_edit', compact('staff'));
         }
 
         $table = request()->get('tab');
-        $staff->load(array("rental","address",));
+        $staff->load(array("rental","payment","address","store",));
         return view('staff_related', compact(['staff', 'table']));
     }
 
@@ -258,7 +281,14 @@ return view('staff_edit', compact('staff'));
 
       if(request()->exists('tab') == 'rental'){
 
-            if(request()->exists('return_date')){
+         if(request()->exists('rental_date')){
+             session(['sortOrder' => $this->getOrder('rental_date')]);
+             session(['sortKey' => 'rental_date']);
+        }else{
+            request()->session()->forget("rental_date");
+        }
+
+           if(request()->exists('return_date')){
              session(['sortOrder' => $this->getOrder('return_date')]);
              session(['sortKey' => 'return_date']);
         }else{
@@ -266,6 +296,24 @@ return view('staff_edit', compact('staff'));
         }
 
            
+      }
+      if(request()->exists('tab') == 'payment'){
+
+           if(request()->exists('amount')){
+             session(['sortOrder' => $this->getOrder('amount')]);
+             session(['sortKey' => 'amount']);
+        }else{
+            request()->session()->forget("amount");
+        }
+
+         if(request()->exists('payment_date')){
+             session(['sortOrder' => $this->getOrder('payment_date')]);
+             session(['sortKey' => 'payment_date']);
+        }else{
+            request()->session()->forget("payment_date");
+        }
+
+         
       }
       if(request()->exists('tab') == 'address'){
 
@@ -306,6 +354,10 @@ return view('staff_edit', compact('staff'));
 
           
       }
+      if(request()->exists('tab') == 'store'){
+
+           
+      }
          return back();
     }
     }
@@ -328,9 +380,23 @@ return view('staff_edit', compact('staff'));
 
         return back();
     }
+function addPayment(Staff $staff ){
+        $newOnes = Payment::find(request()->get('film'));
+
+        foreach ($newOnes as $newOne){
+            $staff->payment()->save($newOne);
+        }
+
+        return back();
+    }
 function updateAddress(Staff $staff ){
         $address = \App\Address::find(request()->get('address'));
         $staff->address()->associate($address)->save();
+        return back();
+    }
+function updateStore(Staff $staff ){
+        $store = \App\Store::find(request()->get('store'));
+        $staff->store()->associate($store)->save();
         return back();
     }
  

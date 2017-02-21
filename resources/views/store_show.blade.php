@@ -58,17 +58,36 @@
                     <thead>
                         <tr>
                               
-                            
+                                                              <th class="text-md text-primary">
+                                   Address
+                                </th>
+                                    
                             <th class="text-md text-primary">Actions</th>
 
-                                                    </tr>
+                                                             <th class="text-md text-primary">
+                                    Staff
+                                </th>
+                                                             <th class="text-md text-primary">
+                                    Inventory
+                                </th>
+                                                             <th class="text-md text-primary">
+                                    Customer
+                                </th>
+                                                      </tr>
                     </thead>
 
                     <tbody>
                         @forelse($stores as $store)
                             <tr>
                                   
-                                
+                                                                     <td class="text-md">
+                                        @if($store->address)
+                                            {{$store->address->address}}
+                                        @else
+                                            {{ "Not specified" }}
+                                        @endif
+                                    </td>
+                                        
                                 <td nowrap>
                                     <a href="{{url("/store/$store->store_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -76,12 +95,30 @@
                                     <a href="{{url("/store/$store->store_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit">
                                         <button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button>
                                     </a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $store->address}} ?', '{{url("/store/$store->store_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $store->address->address}} ?', '{{url("/store/$store->store_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete">
                                         <button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button>
                                     </a>
                                 </td>
 
-                                                            </tr>
+                                                                 <td class="text-md">
+                                    <form action="{{url("/store/related/$store->store_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="staff" />
+                                        <button type="submit" class="btn btn-link">Staff</button>
+                                    </form>
+                                </td>
+                                                             <td class="text-md">
+                                    <form action="{{url("/store/related/$store->store_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="inventory" />
+                                        <button type="submit" class="btn btn-link">Inventory</button>
+                                    </form>
+                                </td>
+                                                             <td class="text-md">
+                                    <form action="{{url("/store/related/$store->store_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="customer" />
+                                        <button type="submit" class="btn btn-link">Customer</button>
+                                    </form>
+                                </td>
+                                                          </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No store matching keyword {{session('keyword', 'Keyword')}}.</label></td>

@@ -13,7 +13,7 @@ class CreateCityTable extends Migration
     {
         Schema::create('city', function (Blueprint $table) {
 
-                        $table->smallInteger('city_id');
+                        $table->increments('city_id');
             $table->string('city', 50);
             $table->smallInteger('country_id');
             $table->timestamp('last_update');

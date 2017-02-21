@@ -73,7 +73,7 @@
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Phone
                             </th>   
-                                                                  <th class="text-md text-primary">
+                                                                    <th class="text-md text-primary">
                                    City
                                 </th>
                               
@@ -84,6 +84,9 @@
                                 </th>
                                                              <th class="text-md text-primary">
                                     Staff
+                                </th>
+                                                             <th class="text-md text-primary">
+                                    Store
                                 </th>
                                                        </tr>
                     </thead>
@@ -102,7 +105,7 @@
                                                               <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="text-md">{{$address->phone}} </td>
                                
-                                                                         <td class="text-md">
+                                                                           <td class="text-md">
                                         @if($address->city)
                                             {{$address->city->city}}
                                         @else
@@ -132,6 +135,12 @@
                                     <form action="{{url("/address/related/$address->address_id")}}" method="get">
                                         <input type="hidden" name="tab" value="staff" />
                                         <button type="submit" class="btn btn-link">Staff</button>
+                                    </form>
+                                </td>
+                                                             <td class="text-md">
+                                    <form action="{{url("/address/related/$address->address_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="store" />
+                                        <button type="submit" class="btn btn-link">Store</button>
                                     </form>
                                 </td>
                                                            </tr>

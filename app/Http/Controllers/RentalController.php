@@ -6,6 +6,10 @@ use App\Rental;
 
     use App\Staff;
 
+    use App\Customer;
+
+    use App\Inventory;
+
      
 class RentalController extends Controller {
 
@@ -43,12 +47,23 @@ class RentalController extends Controller {
          $data = request()->all();
 
 $rental = Rental::create([
-        "return_date" => $data["return_date"],
+     "rental_date" => $data["rental_date"],
+       "return_date" => $data["return_date"],
    ]);
 
      if(request()->exists('staff')){
     $staff = Staff::find(request()->get('staff'));
     $rental->staff()->associate($staff)->save();
+    }
+
+     if(request()->exists('customer')){
+    $customer = Customer::find(request()->get('customer'));
+    $rental->customer()->associate($customer)->save();
+    }
+
+     if(request()->exists('inventory')){
+    $inventory = Inventory::find(request()->get('inventory'));
+    $rental->inventory()->associate($inventory)->save();
     }
 
    
@@ -63,7 +78,7 @@ $rental = Rental::create([
     public function show( Rental $rental )
     {
         request()->session()->forget("mutate");
-         $rental->load(array("payment","staff",));
+         $rental->load(array("payment","staff","customer","inventory",));
 return view('rental_display', compact('rental')); 
     }
 
@@ -76,7 +91,7 @@ return view('rental_display', compact('rental'));
     public function edit(Rental $rental )
     {
         request()->session()->forget("mutate");
-        $rental->load(array("payment","staff",));
+        $rental->load(array("payment","staff","customer","inventory",));
 return view('rental_edit', compact('rental'));
     }
 
@@ -91,7 +106,8 @@ return view('rental_edit', compact('rental'));
             $data = request()->all();
 
     $updateFields = array();
-                $updateFields["return_date"] = $data["return_date"];
+             $updateFields["rental_date"] = $data["rental_date"];
+               $updateFields["return_date"] = $data["return_date"];
        
     $rental->update($updateFields);
 
@@ -107,6 +123,16 @@ return view('rental_edit', compact('rental'));
              if(request()->exists('staff')){
             $staff = \App\Staff::find(request()->get('staff'));
             $rental->staff()->associate($staff)->save();
+        }
+
+             if(request()->exists('customer')){
+            $customer = \App\Customer::find(request()->get('customer'));
+            $rental->customer()->associate($customer)->save();
+        }
+
+             if(request()->exists('inventory')){
+            $inventory = \App\Inventory::find(request()->get('inventory'));
+            $rental->inventory()->associate($inventory)->save();
         }
 
       
@@ -146,7 +172,7 @@ return view('rental_edit', compact('rental'));
         }
 
         $table = request()->get('tab');
-        $rental->load(array("payment","staff",));
+        $rental->load(array("payment","staff","customer","inventory",));
         return view('rental_related', compact(['rental', 'table']));
     }
 
@@ -198,7 +224,13 @@ return view('rental_edit', compact('rental'));
         request()->session()->forget("sortOrder");
     if(!request()->exists('tab')){
         $rentals = Rental::query();
-           if(request()->exists('return_date')){
+        if(request()->exists('rental_date')){
+            $rentals = $rentals->orderBy('rental_date', $this->getOrder('rental_date'));
+            $path = "rental_date";
+        }else{
+            request()->session()->forget("rental_date");
+        }
+          if(request()->exists('return_date')){
             $rentals = $rentals->orderBy('return_date', $this->getOrder('return_date'));
             $path = "return_date";
         }else{
@@ -219,7 +251,14 @@ return view('rental_edit', compact('rental'));
             request()->session()->forget("amount");
         }
 
-          
+         if(request()->exists('payment_date')){
+             session(['sortOrder' => $this->getOrder('payment_date')]);
+             session(['sortKey' => 'payment_date']);
+        }else{
+            request()->session()->forget("payment_date");
+        }
+
+         
       }
       if(request()->exists('tab') == 'staff'){
 
@@ -267,6 +306,49 @@ return view('rental_edit', compact('rental'));
 
           
       }
+      if(request()->exists('tab') == 'customer'){
+
+          if(request()->exists('first_name')){
+             session(['sortOrder' => $this->getOrder('first_name')]);
+             session(['sortKey' => 'first_name']);
+        }else{
+            request()->session()->forget("first_name");
+        }
+
+         if(request()->exists('last_name')){
+             session(['sortOrder' => $this->getOrder('last_name')]);
+             session(['sortKey' => 'last_name']);
+        }else{
+            request()->session()->forget("last_name");
+        }
+
+         if(request()->exists('email')){
+             session(['sortOrder' => $this->getOrder('email')]);
+             session(['sortKey' => 'email']);
+        }else{
+            request()->session()->forget("email");
+        }
+
+          if(request()->exists('active')){
+             session(['sortOrder' => $this->getOrder('active')]);
+             session(['sortKey' => 'active']);
+        }else{
+            request()->session()->forget("active");
+        }
+
+         if(request()->exists('create_date')){
+             session(['sortOrder' => $this->getOrder('create_date')]);
+             session(['sortKey' => 'create_date']);
+        }else{
+            request()->session()->forget("create_date");
+        }
+
+          
+      }
+      if(request()->exists('tab') == 'inventory'){
+
+            
+      }
          return back();
     }
     }
@@ -292,6 +374,16 @@ return view('rental_edit', compact('rental'));
 function updateStaff(Rental $rental ){
         $staff = \App\Staff::find(request()->get('staff'));
         $rental->staff()->associate($staff)->save();
+        return back();
+    }
+function updateCustomer(Rental $rental ){
+        $customer = \App\Customer::find(request()->get('customer'));
+        $rental->customer()->associate($customer)->save();
+        return back();
+    }
+function updateInventory(Rental $rental ){
+        $inventory = \App\Inventory::find(request()->get('inventory'));
+        $rental->inventory()->associate($inventory)->save();
         return back();
     }
  

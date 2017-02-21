@@ -20,6 +20,10 @@ class Address extends Model
         return $this->hasMany('App\Staff');
     }
 
+    function store(){ 
+        return $this->hasMany('App\Store');
+    }
+
     function city(){ 
         return $this->belongsTo('App\City');
     }
@@ -68,7 +72,8 @@ class Address extends Model
             $customer->where('first_name', 'like', $key)
                ->orWhere('last_name', 'like', $key)
           ->orWhere('email', 'like', $key)
-            ->orWhere('create_date', 'like', $key)
+           ->orWhere('active', 'like', $key)
+          ->orWhere('create_date', 'like', $key)
          ;
 
         }
@@ -98,6 +103,22 @@ class Address extends Model
             return $staff->paginate(20)->appends(array("tab" => "staff"));
 
         return $staff->orderBy(session("sortKey", "first_name"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "staff"));
+
+    }
+
+    function getStorePaginatedAttribute(){
+        $store = $this->store();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $store->where('address->address', 'like', $key)
+             ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("store", session("sortKey", "none")))
+            return $store->paginate(20)->appends(array("tab" => "store"));
+
+        return $store->orderBy(session("sortKey", "address->address"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "store"));
 
     }
 

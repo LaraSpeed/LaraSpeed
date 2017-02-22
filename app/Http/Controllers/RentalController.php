@@ -8,8 +8,6 @@ use App\Rental;
 
     use App\Customer;
 
-    use App\Inventory;
-
      
 class RentalController extends Controller {
 
@@ -61,11 +59,6 @@ $rental = Rental::create([
     $rental->customer()->associate($customer)->save();
     }
 
-     if(request()->exists('inventory')){
-    $inventory = Inventory::find(request()->get('inventory'));
-    $rental->inventory()->associate($inventory)->save();
-    }
-
    
         return  isset($data['carl'])?redirect('/rental'):back();     }
 
@@ -78,7 +71,7 @@ $rental = Rental::create([
     public function show( Rental $rental )
     {
         request()->session()->forget("mutate");
-         $rental->load(array("payment","staff","customer","inventory",));
+         $rental->load(array("payment","staff","customer",));
 return view('rental_display', compact('rental')); 
     }
 
@@ -91,7 +84,7 @@ return view('rental_display', compact('rental'));
     public function edit(Rental $rental )
     {
         request()->session()->forget("mutate");
-        $rental->load(array("payment","staff","customer","inventory",));
+        $rental->load(array("payment","staff","customer",));
 return view('rental_edit', compact('rental'));
     }
 
@@ -128,11 +121,6 @@ return view('rental_edit', compact('rental'));
              if(request()->exists('customer')){
             $customer = \App\Customer::find(request()->get('customer'));
             $rental->customer()->associate($customer)->save();
-        }
-
-             if(request()->exists('inventory')){
-            $inventory = \App\Inventory::find(request()->get('inventory'));
-            $rental->inventory()->associate($inventory)->save();
         }
 
       
@@ -172,7 +160,7 @@ return view('rental_edit', compact('rental'));
         }
 
         $table = request()->get('tab');
-        $rental->load(array("payment","staff","customer","inventory",));
+        $rental->load(array("payment","staff","customer",));
         return view('rental_related', compact(['rental', 'table']));
     }
 
@@ -345,10 +333,6 @@ return view('rental_edit', compact('rental'));
 
           
       }
-      if(request()->exists('tab') == 'inventory'){
-
-            
-      }
          return back();
     }
     }
@@ -379,11 +363,6 @@ function updateStaff(Rental $rental ){
 function updateCustomer(Rental $rental ){
         $customer = \App\Customer::find(request()->get('customer'));
         $rental->customer()->associate($customer)->save();
-        return back();
-    }
-function updateInventory(Rental $rental ){
-        $inventory = \App\Inventory::find(request()->get('inventory'));
-        $rental->inventory()->associate($inventory)->save();
         return back();
     }
  

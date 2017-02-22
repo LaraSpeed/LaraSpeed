@@ -90,7 +90,20 @@
 					@endforelse
 			</select>
 		</div><br/>
-	   
+	 		<div class="form-group">
+			<label class="text-danger text-md">Stores : </label>
+
+			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one store"  name="store[]">
+					@forelse(\App\Store::all() as  $store)
+					    <option value="{{$store->store_id}}" @if(session('defaultSelect', 'none') == $store->store_id) {{"selected=\"\"selected\""}} @endif>
+					{{$store->address->address}}
+					    </option>
+					@empty
+					    <option value="-1">No store</option>
+					@endforelse
+			</select>
+		</div><br/>
+	  
 		<div class="row">
 
 			<div class="col-md-3">

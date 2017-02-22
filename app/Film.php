@@ -24,8 +24,8 @@ class Film extends Model
         return $this->belongsToMany('App\Actor');
     }
 
-    function inventory(){ 
-        return $this->hasMany('App\Inventory');
+    function store(){ 
+        return $this->belongsToMany('App\Store');
     }
 
  
@@ -78,19 +78,19 @@ class Film extends Model
 
     }
 
-    function getInventoryPaginatedAttribute(){
-        $inventory = $this->inventory();
+    function getStorePaginatedAttribute(){
+        $store = $this->store();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
-            $inventory->where('store->address->address', 'like', $key)
-              ;
+            $store->where('address->address', 'like', $key)
+             ;
 
         }
 
-        if(session("sortKey", "none") == "none" or !Schema::hasColumn("inventory", session("sortKey", "none")))
-            return $inventory->paginate(20)->appends(array("tab" => "inventory"));
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("store", session("sortKey", "none")))
+            return $store->paginate(20)->appends(array("tab" => "store"));
 
-        return $inventory->orderBy(session("sortKey", "store->address->address"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "inventory"));
+        return $store->orderBy(session("sortKey", "address->address"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "store"));
 
     }
 

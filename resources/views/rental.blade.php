@@ -42,20 +42,6 @@
 			</select>
 		</div><br/>
 
-		 		<div class="form-group">
-			<label class="text-danger text-md">Inventory : </label>
-
-			<select class="form-control" name="inventory">
-				@forelse(\App\Inventory::all() as  $inventory)
-					<option value="{{$inventory->inventory_id}}" @if(session('defaultSelect', 'none') == $inventory->inventory_id) {{"selected=\"\"selected\""}} @endif>
-						{{$inventory->store->address->address}}
-					</option>
-				@empty
-					<option value="-1">No inventory</option>
-				@endforelse
-			</select>
-		</div><br/>
-
 		  
 		<div class="row">
 

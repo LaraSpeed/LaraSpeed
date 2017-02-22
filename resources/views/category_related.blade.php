@@ -90,10 +90,7 @@
                                 
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                                                                   <th class="text-md text-primary">
-                                    Inventory
-                                </th>
-                              
+                                     
                         </tr>
                     </thead>
 
@@ -125,13 +122,7 @@
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
-                                                                       <td class="text-md">
-                                    <form action="{{url("/film/related/$film->film_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="inventory" />
-                                        <button type="submit" class="btn btn-link">Inventory</button>
-                                    </form>
-                                </td>
-                                                          </tr>
+                                                                     </tr>
                         @empty
                             <tr>
                                 <td colspan="13"><label class="text-danger text-md">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>

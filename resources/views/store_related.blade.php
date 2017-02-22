@@ -158,10 +158,10 @@
     </section>        @else
 
         @endif
-        @if(isset($store->inventory) && "inventory" == $table)
+        @if(isset($store->film) && "film" == $table)
             <div class="row">
         <div class="col-md-4">
-            <h1 class="text-danger">List of Inventories</h1>
+            <h1 class="text-danger">List of Films</h1>
         </div>
 
         <div class="col-md-5">
@@ -205,8 +205,8 @@
 
     <div class="row">
         <div class="col-md-2 col-sm-2">
-            <form action="{{url("/inventory/create")}}" method="get">
-                <button type="submit" class="btn btn-primary">Add new Inventory</button>
+            <form action="{{url("/film/create")}}" method="get">
+                <button type="submit" class="btn btn-primary">Add new Film</button>
             </form>
         </div>
     </div>
@@ -219,7 +219,7 @@
                 <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
             </div>
 
-            <h2 class="panel-title">Inventories</h2>
+            <h2 class="panel-title">Films</h2>
         </header>
 
         <div class="panel-body">
@@ -227,38 +227,63 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                                                                                     <th class="text-md text-primary">
-                                Film
+                                                     <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Title
+                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Description
+                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Release year
+                            </th>                              <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Rental rate
+                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Length
+                            </th>                                                              <th class="text-md text-primary">
+                                Language
                             </th>
-                            
+                                
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                                 
+                                     
                         </tr>
                     </thead>
 
                     <tbody>
-                        @forelse($store->inventory as  $inventory)
+                        @forelse($store->film as  $film)
                             <tr>
-                                    
+                                                             <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->title}} </td>
+                                                              <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->description}} </td>
+                                                              <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->release_year}} </td>
+                                                                  <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->rental_rate}} $</td>
+                                                              <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->length}} minutes</td>
+                                         
                                                                      <td class="text-md">
-                                        @if($inventory->film)
-                                            {{$inventory->film->title}}
+                                        @if($film->language)
+                                            {{$film->language->name}}
                                         @else
                                             {{ "Not specified" }}
                                         @endif
                                     </td>
-                                    
+                                        
                                 <td nowrap>
-                                    <a href="{{url("/inventory/$inventory->inventory_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
-                                    <a href="{{url("/inventory/$inventory->inventory_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $inventory->store->address->address}} ?', '{{url("/inventory/$inventory->inventory_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                    <a href="{{url("/film/$film->film_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="{{url("/film/$film->film_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $film->title}} ?', '{{url("/film/$film->film_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
-                                                                 </tr>
+                                                                     </tr>
                         @empty
                             <tr>
-                                <td colspan="4"><label class="text-danger text-md">No inventory matching keyword {{session('keyword', 'Keyword')}}.</label></td>
+                                <td colspan="13"><label class="text-danger text-md">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>
                             </tr>
                         @endforelse
                     </tbody>

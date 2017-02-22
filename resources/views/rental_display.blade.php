@@ -20,9 +20,9 @@
             @if(isset($rental->payment))
         <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
-            @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
+            @forelse(\App\Payment::all()->sortBy('payment_date') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($rental->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
-                    {{$payment->amount}}
+                    {{$payment->payment_date}}
                 </option>
             @empty
                 <option value="-1">No payment</option>
@@ -82,28 +82,6 @@
                 <option value="-1">No customer</option>
             @endforelse
         </select><br/>                @endif
-            @if(isset($rental->inventory))
-        <label class="text-danger text-md">Update Inventory</label>
-    <select class="form-control" name="inventory"  disabled >
-        @forelse(\App\Inventory::all() as  $inventory)
-        <option value="{{$inventory->inventory_id}}" @if($inventory->inventory_id == $rental->inventory->inventory_id) selected = "selected" @endif>
-            {{$inventory->store->address->address}}
-        </option>
-        @empty
-        <option value="-1">No inventory</option>
-        @endforelse
-    </select><br/>
-        @else
-                    <label class="text-danger text-md">Update Inventory</label>
-        <select class="form-control" name="inventory">
-            @forelse(\App\Inventory::all() as  $inventory)
-                <option value="{{$inventory->inventory_id}}">
-                    {{$inventory->store->address->address}}
-                </option>
-            @empty
-                <option value="-1">No inventory</option>
-            @endforelse
-        </select><br/>                @endif
      
 
     
@@ -120,10 +98,5 @@
     @if(isset($rental->customer))
             @else
         <label class="text-danger text-md">No customer related to this rental.</label>
-    @endif
-    
-    @if(isset($rental->inventory))
-            @else
-        <label class="text-danger text-md">No inventory related to this rental.</label>
     @endif
      @endsection

@@ -2,9 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Inventory;
-    use App\Film;
-
-    use App\Store;
+    use App\Customer;
 
      
 class InventoryController extends Controller {
@@ -45,16 +43,9 @@ class InventoryController extends Controller {
 $inventory = Inventory::create([
     ]);
 
-    if(request()->exists('film')){
-    $film = Film::find(request()->get('film'));
-    $inventory->film()->associate($film)->save();
+    if(request()->exists('customer')){
+    $inventory->customer()->attach($data["customer"]);
     }
-
-     if(request()->exists('store')){
-    $store = Store::find(request()->get('store'));
-    $inventory->store()->associate($store)->save();
-    }
-
    
         return  isset($data['carl'])?redirect('/inventory'):back();     }
 
@@ -67,7 +58,7 @@ $inventory = Inventory::create([
     public function show( Inventory $inventory )
     {
         request()->session()->forget("mutate");
-         $inventory->load(array("film","store",));
+         $inventory->load(array("customer",));
 return view('inventory_display', compact('inventory')); 
     }
 
@@ -80,7 +71,7 @@ return view('inventory_display', compact('inventory'));
     public function edit(Inventory $inventory )
     {
         request()->session()->forget("mutate");
-        $inventory->load(array("film","store",));
+        $inventory->load(array("customer",));
 return view('inventory_edit', compact('inventory'));
     }
 
@@ -98,14 +89,8 @@ return view('inventory_edit', compact('inventory'));
         
     $inventory->update($updateFields);
 
-            if(request()->exists('film')){
-            $film = \App\Film::find(request()->get('film'));
-            $inventory->film()->associate($film)->save();
-        }
-
-             if(request()->exists('store')){
-            $store = \App\Store::find(request()->get('store'));
-            $inventory->store()->associate($store)->save();
+            if(request()->exists('customer')){
+            $inventory->customer()->sync(request()->get('customer'));
         }
 
       
@@ -145,7 +130,7 @@ return view('inventory_edit', compact('inventory'));
         }
 
         $table = request()->get('tab');
-        $inventory->load(array("film","store",));
+        $inventory->load(array("customer",));
         return view('inventory_related', compact(['inventory', 'table']));
     }
 
@@ -197,62 +182,44 @@ return view('inventory_edit', compact('inventory'));
 
     }else{
 
-      if(request()->exists('tab') == 'film'){
+      if(request()->exists('tab') == 'customer'){
 
-          if(request()->exists('title')){
-             session(['sortOrder' => $this->getOrder('title')]);
-             session(['sortKey' => 'title']);
+          if(request()->exists('first_name')){
+             session(['sortOrder' => $this->getOrder('first_name')]);
+             session(['sortKey' => 'first_name']);
         }else{
-            request()->session()->forget("title");
+            request()->session()->forget("first_name");
         }
 
-         if(request()->exists('description')){
-             session(['sortOrder' => $this->getOrder('description')]);
-             session(['sortKey' => 'description']);
+         if(request()->exists('last_name')){
+             session(['sortOrder' => $this->getOrder('last_name')]);
+             session(['sortKey' => 'last_name']);
         }else{
-            request()->session()->forget("description");
+            request()->session()->forget("last_name");
         }
 
-         if(request()->exists('release_year')){
-             session(['sortOrder' => $this->getOrder('release_year')]);
-             session(['sortKey' => 'release_year']);
+         if(request()->exists('email')){
+             session(['sortOrder' => $this->getOrder('email')]);
+             session(['sortKey' => 'email']);
         }else{
-            request()->session()->forget("release_year");
+            request()->session()->forget("email");
         }
 
-          if(request()->exists('rental_duration')){
-             session(['sortOrder' => $this->getOrder('rental_duration')]);
-             session(['sortKey' => 'rental_duration']);
+          if(request()->exists('active')){
+             session(['sortOrder' => $this->getOrder('active')]);
+             session(['sortKey' => 'active']);
         }else{
-            request()->session()->forget("rental_duration");
+            request()->session()->forget("active");
         }
 
-         if(request()->exists('rental_rate')){
-             session(['sortOrder' => $this->getOrder('rental_rate')]);
-             session(['sortKey' => 'rental_rate']);
+         if(request()->exists('create_date')){
+             session(['sortOrder' => $this->getOrder('create_date')]);
+             session(['sortKey' => 'create_date']);
         }else{
-            request()->session()->forget("rental_rate");
+            request()->session()->forget("create_date");
         }
 
-         if(request()->exists('length')){
-             session(['sortOrder' => $this->getOrder('length')]);
-             session(['sortKey' => 'length']);
-        }else{
-            request()->session()->forget("length");
-        }
-
-         if(request()->exists('replacement_cost')){
-             session(['sortOrder' => $this->getOrder('replacement_cost')]);
-             session(['sortKey' => 'replacement_cost']);
-        }else{
-            request()->session()->forget("replacement_cost");
-        }
-
-            
-      }
-      if(request()->exists('tab') == 'store'){
-
-           
+          
       }
          return back();
     }
@@ -267,14 +234,8 @@ return view('inventory_edit', compact('inventory'));
         return back();
     }
 
-    function updateFilm(Inventory $inventory ){
-        $film = \App\Film::find(request()->get('film'));
-        $inventory->film()->associate($film)->save();
-        return back();
-    }
-function updateStore(Inventory $inventory ){
-        $store = \App\Store::find(request()->get('store'));
-        $inventory->store()->associate($store)->save();
+    function addCustomer(Inventory $inventory ){
+        $inventory->customer()->sync(request()->get('customer'));
         return back();
     }
  

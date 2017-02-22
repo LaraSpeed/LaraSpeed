@@ -48,27 +48,40 @@
         ); </script>
     @else
             @endif
-        @if(isset($store->inventory))
-        <label class="text-danger text-md">Add Inventories</label>
-        <select id="inventory" name="inventory[]" multiple="multiple" size="10">
-            @forelse(\App\Inventory::all()->sortBy('store->address->address') as  $inventory)
-                <option value="{{$inventory->inventory_id}}" @foreach($store->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
-                    {{$inventory->store->address->address}}
+        @if(isset($store->film))
+        <label class="text-danger text-md">Associate Films</label>
+
+        <select id="film" name="film[]"  multiple="multiple" size="10" >
+            @forelse(\App\Film::all()->sortBy('title') as  $film)
+                <option value="{{$film->film_id}}" @foreach($store->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
+                    {{$film->title}}
                 </option>
             @empty
-                <option value="-1">No inventory</option>
+                <option value="-1">No film</option>
             @endforelse
+
         </select><br/>
-        <script> $('#inventory').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Inventory',
-                selectedListLabel: 'Selected Inventory',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
+
+            <script> $('#film').bootstrapDualListbox(
+                {
+                    nonSelectedListLabel: 'Non-selected film',
+                    selectedListLabel: 'Selected film',
+                    moveOnSelect: true,
+                    nonSelectedFilter: ''
+                }
         ); </script>
+    
     @else
-            @endif
+                    <label class="text-danger text-md">Associate Films</label>
+        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
+            @forelse(\App\Film::all()->sortBy('title') as  $film)
+                <option value="{{$film->film_id}}">
+                    {{$film->title}}
+                </option>
+            @empty
+                <option value="-1">No film</option>
+            @endforelse
+        </select><br/>            @endif
         @if(isset($store->customer))
         <label class="text-danger text-md">Add Customers</label>
         <select id="customer" name="customer[]" multiple="multiple" size="10">

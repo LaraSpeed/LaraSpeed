@@ -42,7 +42,7 @@ class GeneratorCode  extends CallGenerator {
                 ->belongsTo("language")
                 ->belongsToMany("category")
                 ->belongsToMany("actor")
-                ->hasMany("inventory")
+                ->belongsToMany("store") //=> Pivot => inventory
                 ->end()
 
             ->table("language")
@@ -57,15 +57,6 @@ class GeneratorCode  extends CallGenerator {
                 ->string("name", 25, true)
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
-                ->end()
-
-            ->table("inventory")
-                ->increments("inventory_id")
-                ->smallInteger("film_id")
-                ->smallInteger("store_id")
-                ->timeStamp("last_update")
-                ->belongsTo("film")
-                ->belongsTo("store")
                 ->end()
 
             ->table("customer")
@@ -95,7 +86,6 @@ class GeneratorCode  extends CallGenerator {
                 ->hasMany("payment")
                 ->belongsTo("staff")
                 ->belongsTo("customer")
-                ->belongsTo("inventory")
                 ->end()
 
             ->table("payment")
@@ -146,7 +136,8 @@ class GeneratorCode  extends CallGenerator {
                 ->smallInteger("address_id", true, true)
                 ->belongsTo("address")
                 ->hasMany("staff")
-                ->hasMany("inventory")
+                //->hasMany("inventory")
+                ->belongsToMany("film")
                 ->hasMany("customer")
                 ->end()
 
@@ -193,13 +184,12 @@ class GeneratorCode  extends CallGenerator {
             "film" => "title",
             "language" => "name",
             "category" => "name",
-            "inventory" => "store->address->address",
             "customer" => "first_name",
             "rental" => "rental_date",
             "address" => "address",
             "city" => "city",
             "country" => "country",
-            "payment" => "amount",
+            "payment" => "payment_date",
             "staff" => "first_name",
             "store" => "address->address",
             "delivery" => "identifiant",

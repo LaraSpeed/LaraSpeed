@@ -24,10 +24,6 @@ class Rental extends Model
         return $this->belongsTo('App\Customer');
     }
 
-    function inventory(){ 
-        return $this->belongsTo('App\Inventory');
-    }
-
  
     function setRentalDateAttribute($value){
 
@@ -66,20 +62,19 @@ class Rental extends Model
         $payment = $this->payment();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
-            $payment->where('amount', 'like', $key)
-                ->orWhere('payment_date', 'like', $key)
-        ;
+            $payment->where('payment_date', 'like', $key)
+               ->orWhere('amount', 'like', $key)
+         ;
 
         }
 
         if(session("sortKey", "none") == "none" or !Schema::hasColumn("payment", session("sortKey", "none")))
             return $payment->paginate(20)->appends(array("tab" => "payment"));
 
-        return $payment->orderBy(session("sortKey", "amount"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "payment"));
+        return $payment->orderBy(session("sortKey", "payment_date"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "payment"));
 
     }
 
-    
     
     
  

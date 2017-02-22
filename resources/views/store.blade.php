@@ -20,7 +20,20 @@
 			</select>
 		</div><br/>
 
-		     
+		  		<div class="form-group">
+			<label class="text-danger text-md">Films : </label>
+
+			<select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
+					@forelse(\App\Film::all() as  $film)
+					    <option value="{{$film->film_id}}" @if(session('defaultSelect', 'none') == $film->film_id) {{"selected=\"\"selected\""}} @endif>
+					{{$film->title}}
+					    </option>
+					@empty
+					    <option value="-1">No film</option>
+					@endforelse
+			</select>
+		</div><br/>
+	   
 		<div class="row">
 
 			<div class="col-md-3">

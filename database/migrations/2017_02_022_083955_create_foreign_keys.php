@@ -23,12 +23,6 @@ $table->integer('language_id')->unsigned()->index()->nullable();
 
         });
 
-        Schema::table('inventory', function(Blueprint $table) {
-$table->integer('film_id')->unsigned()->index()->nullable();
-            $table->foreign('film_id')->references('id')->on('film')->onDelete('cascade')->onUpdate('cascade');$table->integer('store_id')->unsigned()->index()->nullable();
-            $table->foreign('store_id')->references('id')->on('store')->onDelete('cascade')->onUpdate('cascade');
-        });
-
         Schema::table('customer', function(Blueprint $table) {
 $table->integer('address_id')->unsigned()->index()->nullable();
             $table->foreign('address_id')->references('id')->on('address')->onDelete('cascade')->onUpdate('cascade');$table->integer('store_id')->unsigned()->index()->nullable();
@@ -38,8 +32,7 @@ $table->integer('address_id')->unsigned()->index()->nullable();
         Schema::table('rental', function(Blueprint $table) {
 $table->integer('staff_id')->unsigned()->index()->nullable();
             $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');$table->integer('customer_id')->unsigned()->index()->nullable();
-            $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade')->onUpdate('cascade');$table->integer('inventory_id')->unsigned()->index()->nullable();
-            $table->foreign('inventory_id')->references('id')->on('inventory')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::table('payment', function(Blueprint $table) {
@@ -93,16 +86,12 @@ $table->integer('address_id')->unsigned()->index()->nullable();
     
         });
 
-        Schema::table('inventory', function(Blueprint $table) {
-                $table->dropForeign('inventory_film_id_foreign');            $table->dropForeign('inventory_store_id_foreign');
-        });
-
         Schema::table('customer', function(Blueprint $table) {
                 $table->dropForeign('customer_address_id_foreign');            $table->dropForeign('customer_store_id_foreign');
         });
 
         Schema::table('rental', function(Blueprint $table) {
-                $table->dropForeign('rental_staff_id_foreign');            $table->dropForeign('rental_customer_id_foreign');            $table->dropForeign('rental_inventory_id_foreign');
+                $table->dropForeign('rental_staff_id_foreign');            $table->dropForeign('rental_customer_id_foreign');
         });
 
         Schema::table('payment', function(Blueprint $table) {

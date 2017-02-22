@@ -8,7 +8,7 @@ use App\Film;
 
     use App\Actor;
 
-    use App\Inventory;
+    use App\Store;
 
      
 class FilmController extends Controller {
@@ -67,7 +67,10 @@ $film = Film::create([
      if(request()->exists('actor')){
     $film->actor()->attach($data["actor"]);
     }
-    
+     if(request()->exists('store')){
+    $film->store()->attach($data["store"]);
+    }
+   
         return  isset($data['carl'])?redirect('/film'):back();     }
 
     /**
@@ -79,7 +82,7 @@ $film = Film::create([
     public function show( Film $film )
     {
         request()->session()->forget("mutate");
-         $film->load(array("language","category","actor","inventory",));
+         $film->load(array("language","category","actor","store",));
 return view('film_display', compact('film')); 
     }
 
@@ -92,7 +95,7 @@ return view('film_display', compact('film'));
     public function edit(Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category","actor","inventory",));
+        $film->load(array("language","category","actor","store",));
 return view('film_edit', compact('film'));
     }
 
@@ -130,15 +133,10 @@ return view('film_edit', compact('film'));
             $film->actor()->sync(request()->get('actor'));
         }
 
-             if(request()->exists('inventory')){
-
-            $newOnes = \App\Inventory::find(request()->get('inventory'));
-
-            foreach ($newOnes as $newOne){
-                $film->inventory()->save($newOne);
-            }
-
+             if(request()->exists('store')){
+            $film->store()->sync(request()->get('store'));
         }
+
       
 
 
@@ -176,7 +174,7 @@ return view('film_edit', compact('film'));
         }
 
         $table = request()->get('tab');
-        $film->load(array("language","category","actor","inventory",));
+        $film->load(array("language","category","actor","store",));
         return view('film_related', compact(['film', 'table']));
     }
 
@@ -328,9 +326,9 @@ return view('film_edit', compact('film'));
 
           
       }
-      if(request()->exists('tab') == 'inventory'){
+      if(request()->exists('tab') == 'store'){
 
-            
+           
       }
          return back();
     }
@@ -358,13 +356,8 @@ function addActor(Film $film ){
         $film->actor()->sync(request()->get('actor'));
         return back();
     }
-function addInventory(Film $film ){
-        $newOnes = Inventory::find(request()->get('film'));
-
-        foreach ($newOnes as $newOne){
-            $film->inventory()->save($newOne);
-        }
-
+function addStore(Film $film ){
+        $film->store()->sync(request()->get('store'));
         return back();
     }
  

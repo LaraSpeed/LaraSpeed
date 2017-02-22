@@ -221,10 +221,10 @@
     </section>        @else
 
         @endif
-        @if(isset($film->inventory) && "inventory" == $table)
+        @if(isset($film->store) && "store" == $table)
             <div class="row">
         <div class="col-md-4">
-            <h1 class="text-danger">List of Inventories</h1>
+            <h1 class="text-danger">List of Stores</h1>
         </div>
 
         <div class="col-md-5">
@@ -268,8 +268,8 @@
 
     <div class="row">
         <div class="col-md-2 col-sm-2">
-            <form action="{{url("/inventory/create")}}" method="get">
-                <button type="submit" class="btn btn-primary">Add new Inventory</button>
+            <form action="{{url("/store/create")}}" method="get">
+                <button type="submit" class="btn btn-primary">Add new Store</button>
             </form>
         </div>
     </div>
@@ -282,7 +282,7 @@
                 <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
             </div>
 
-            <h2 class="panel-title">Inventories</h2>
+            <h2 class="panel-title">Stores</h2>
         </header>
 
         <div class="panel-body">
@@ -290,38 +290,56 @@
                 <table class="table table-striped mb-none" id="datatable-default">
                     <thead>
                         <tr>
-                                                                                       <th class="text-md text-primary">
-                                Store
+                                                                                   <th class="text-md text-primary">
+                                Address
                             </th>
-                          
+                                
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                                 
+                                                               <th class="text-md text-primary">
+                                    Staff
+                                </th>
+                                                                <th class="text-md text-primary">
+                                    Customer
+                                </th>
+                              
                         </tr>
                     </thead>
 
                     <tbody>
-                        @forelse($film->inventory as  $inventory)
+                        @forelse($film->store as  $store)
                             <tr>
-                                    
-                                                                       <td class="text-md">
-                                        @if($inventory->store)
-                                            {{$inventory->store->address->address}}
+                                  
+                                                                     <td class="text-md">
+                                        @if($store->address)
+                                            {{$store->address->address}}
                                         @else
                                             {{ "Not specified" }}
                                         @endif
                                     </td>
-                                  
+                                        
                                 <td nowrap>
-                                    <a href="{{url("/inventory/$inventory->inventory_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
-                                    <a href="{{url("/inventory/$inventory->inventory_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $inventory->store->address->address}} ?', '{{url("/inventory/$inventory->inventory_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                    <a href="{{url("/store/$store->store_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="{{url("/store/$store->store_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $store->address->address}} ?', '{{url("/store/$store->store_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
 
-                                                                 </tr>
+                                                                   <td class="text-md">
+                                    <form action="{{url("/store/related/$store->store_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="staff" />
+                                        <button type="submit" class="btn btn-link">Staff</button>
+                                    </form>
+                                </td>
+                                                                <td class="text-md">
+                                    <form action="{{url("/store/related/$store->store_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="customer" />
+                                        <button type="submit" class="btn btn-link">Customer</button>
+                                    </form>
+                                </td>
+                                                          </tr>
                         @empty
                             <tr>
-                                <td colspan="4"><label class="text-danger text-md">No inventory matching keyword {{session('keyword', 'Keyword')}}.</label></td>
+                                <td colspan="3"><label class="text-danger text-md">No store matching keyword {{session('keyword', 'Keyword')}}.</label></td>
                             </tr>
                         @endforelse
                     </tbody>

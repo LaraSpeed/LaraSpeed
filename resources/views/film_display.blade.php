@@ -127,27 +127,32 @@
                 <option value="-1">No actor</option>
             @endforelse
         </select><br/>                @endif
-            @if(isset($film->inventory))
-        <label class="text-danger text-md">Add Inventories</label>
-        <select id="inventory" name="inventory[]" multiple="multiple" size="10">
-            @forelse(\App\Inventory::all()->sortBy('store->address->address') as  $inventory)
-                <option value="{{$inventory->inventory_id}}" @foreach($film->inventory as  $inventorytmp) @if($inventorytmp->inventory_id == $inventory->inventory_id) selected = "selected" @endif @endforeach>
-                    {{$inventory->store->address->address}}
+            @if(isset($film->store))
+        <label class="text-danger text-md">Associate Stores</label>
+
+        <select id="store" name="store[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
+                <option value="{{$store->store_id}}" @foreach($film->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
+                    {{$store->address->address}}
                 </option>
             @empty
-                <option value="-1">No inventory</option>
+                <option value="-1">No store</option>
             @endforelse
+
         </select><br/>
-        <script> $('#inventory').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Inventory',
-                selectedListLabel: 'Selected Inventory',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
+
+    
         @else
-                @endif
+                    <label class="text-danger text-md">Associate Stores</label>
+        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one store"  name="store[]">
+            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
+                <option value="{{$store->store_id}}">
+                    {{$store->address->address}}
+                </option>
+            @empty
+                <option value="-1">No store</option>
+            @endforelse
+        </select><br/>                @endif
      
 
     
@@ -166,8 +171,8 @@
         <label class="text-danger text-md">No actor related to this film.</label>
     @endif
     
-    @if(isset($film->inventory))
+    @if(isset($film->store))
             @else
-        <label class="text-danger text-md">No inventory related to this film.</label>
+        <label class="text-danger text-md">No store related to this film.</label>
     @endif
      @endsection

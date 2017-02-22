@@ -20,8 +20,8 @@ class Store extends Model
         return $this->hasMany('App\Staff');
     }
 
-    function inventory(){ 
-        return $this->hasMany('App\Inventory');
+    function film(){ 
+        return $this->belongsToMany('App\Film');
     }
 
     function customer(){ 
@@ -52,19 +52,25 @@ class Store extends Model
 
     }
 
-    function getInventoryPaginatedAttribute(){
-        $inventory = $this->inventory();
+    function getFilmPaginatedAttribute(){
+        $film = $this->film();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
-            $inventory->where('store->address->address', 'like', $key)
-              ;
+            $film->where('title', 'like', $key)
+               ->orWhere('description', 'like', $key)
+          ->orWhere('release_year', 'like', $key)
+           ->orWhere('rental_duration', 'like', $key)
+          ->orWhere('rental_rate', 'like', $key)
+          ->orWhere('length', 'like', $key)
+          ->orWhere('replacement_cost', 'like', $key)
+           ;
 
         }
 
-        if(session("sortKey", "none") == "none" or !Schema::hasColumn("inventory", session("sortKey", "none")))
-            return $inventory->paginate(20)->appends(array("tab" => "inventory"));
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("film", session("sortKey", "none")))
+            return $film->paginate(20)->appends(array("tab" => "film"));
 
-        return $inventory->orderBy(session("sortKey", "store->address->address"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "inventory"));
+        return $film->orderBy(session("sortKey", "title"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "film"));
 
     }
 

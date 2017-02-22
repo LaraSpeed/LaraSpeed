@@ -6,7 +6,7 @@ use App\Store;
 
     use App\Staff;
 
-    use App\Inventory;
+    use App\Film;
 
     use App\Customer;
 
@@ -54,7 +54,10 @@ $store = Store::create([
     $store->address()->associate($address)->save();
     }
 
-      
+      if(request()->exists('film')){
+    $store->film()->attach($data["film"]);
+    }
+    
         return  isset($data['carl'])?redirect('/store'):back();     }
 
     /**
@@ -66,7 +69,7 @@ $store = Store::create([
     public function show( Store $store )
     {
         request()->session()->forget("mutate");
-         $store->load(array("address","staff","inventory","customer",));
+         $store->load(array("address","staff","film","customer",));
 return view('store_display', compact('store')); 
     }
 
@@ -79,7 +82,7 @@ return view('store_display', compact('store'));
     public function edit(Store $store )
     {
         request()->session()->forget("mutate");
-        $store->load(array("address","staff","inventory","customer",));
+        $store->load(array("address","staff","film","customer",));
 return view('store_edit', compact('store'));
     }
 
@@ -111,15 +114,10 @@ return view('store_edit', compact('store'));
             }
 
         }
-             if(request()->exists('inventory')){
-
-            $newOnes = \App\Inventory::find(request()->get('inventory'));
-
-            foreach ($newOnes as $newOne){
-                $store->inventory()->save($newOne);
-            }
-
+             if(request()->exists('film')){
+            $store->film()->sync(request()->get('film'));
         }
+
              if(request()->exists('customer')){
 
             $newOnes = \App\Customer::find(request()->get('customer'));
@@ -166,7 +164,7 @@ return view('store_edit', compact('store'));
         }
 
         $table = request()->get('tab');
-        $store->load(array("address","staff","inventory","customer",));
+        $store->load(array("address","staff","film","customer",));
         return view('store_related', compact(['store', 'table']));
     }
 
@@ -301,7 +299,56 @@ return view('store_edit', compact('store'));
 
           
       }
-      if(request()->exists('tab') == 'inventory'){
+      if(request()->exists('tab') == 'film'){
+
+          if(request()->exists('title')){
+             session(['sortOrder' => $this->getOrder('title')]);
+             session(['sortKey' => 'title']);
+        }else{
+            request()->session()->forget("title");
+        }
+
+         if(request()->exists('description')){
+             session(['sortOrder' => $this->getOrder('description')]);
+             session(['sortKey' => 'description']);
+        }else{
+            request()->session()->forget("description");
+        }
+
+         if(request()->exists('release_year')){
+             session(['sortOrder' => $this->getOrder('release_year')]);
+             session(['sortKey' => 'release_year']);
+        }else{
+            request()->session()->forget("release_year");
+        }
+
+          if(request()->exists('rental_duration')){
+             session(['sortOrder' => $this->getOrder('rental_duration')]);
+             session(['sortKey' => 'rental_duration']);
+        }else{
+            request()->session()->forget("rental_duration");
+        }
+
+         if(request()->exists('rental_rate')){
+             session(['sortOrder' => $this->getOrder('rental_rate')]);
+             session(['sortKey' => 'rental_rate']);
+        }else{
+            request()->session()->forget("rental_rate");
+        }
+
+         if(request()->exists('length')){
+             session(['sortOrder' => $this->getOrder('length')]);
+             session(['sortKey' => 'length']);
+        }else{
+            request()->session()->forget("length");
+        }
+
+         if(request()->exists('replacement_cost')){
+             session(['sortOrder' => $this->getOrder('replacement_cost')]);
+             session(['sortKey' => 'replacement_cost']);
+        }else{
+            request()->session()->forget("replacement_cost");
+        }
 
             
       }
@@ -371,13 +418,8 @@ function addStaff(Store $store ){
 
         return back();
     }
-function addInventory(Store $store ){
-        $newOnes = Inventory::find(request()->get('film'));
-
-        foreach ($newOnes as $newOne){
-            $store->inventory()->save($newOne);
-        }
-
+function addFilm(Store $store ){
+        $store->film()->sync(request()->get('film'));
         return back();
     }
 function addCustomer(Store $store ){

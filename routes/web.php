@@ -115,3 +115,6 @@ Route::post('store/addInventory/{store}', 'StoreController@addInventory');
 Route::post('store/addCustomer/{store}', 'StoreController@addCustomer');
 Route::post('staff/addPayment/{staff}', 'StaffController@addPayment');
 Route::post('staff/updateStore/{staff}', 'StaffController@updateStore');
+Route::post('inventory/addRental/{inventory}', 'InventoryController@addRental');
+Route::post('film/addStore/{film}', 'FilmController@addStore');
+Route::post('store/addFilm/{store}', 'StoreController@addFilm');

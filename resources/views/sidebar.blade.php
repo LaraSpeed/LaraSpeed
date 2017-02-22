@@ -31,12 +31,6 @@
             </a>
         </li>
              <li>
-            <a href="{{url("/inventory")}}">
-                <i class="fa fa-archive" aria-hidden="true"></i>
-                <span class="text-md">Inventories</span>
-            </a>
-        </li>
-             <li>
             <a href="{{url("/customer")}}">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <span class="text-md">Customers</span>

@@ -79,10 +79,7 @@
                                     
                             <th class="text-md text-primary">Actions</th>
 
-                                                               <th class="text-md text-primary">
-                                    Inventory
-                                </th>
-                                                      </tr>
+                                                         </tr>
                     </thead>
 
                     <tbody>
@@ -119,13 +116,7 @@
                                     </a>
                                 </td>
 
-                                                                   <td class="text-md">
-                                    <form action="{{url("/film/related/$film->film_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="inventory" />
-                                        <button type="submit" class="btn btn-link">Inventory</button>
-                                    </form>
-                                </td>
-                                                          </tr>
+                                                                 </tr>
                         @empty
                             <tr>
                                 <td colspan="13"><label class="text-danger text-md">No film matching keyword {{session('keyword', 'Keyword')}}.</label></td>

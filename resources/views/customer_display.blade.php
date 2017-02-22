@@ -32,9 +32,9 @@
             @if(isset($customer->payment))
         <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
-            @forelse(\App\Payment::all()->sortBy('amount') as  $payment)
+            @forelse(\App\Payment::all()->sortBy('payment_date') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($customer->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
-                    {{$payment->amount}}
+                    {{$payment->payment_date}}
                 </option>
             @empty
                 <option value="-1">No payment</option>

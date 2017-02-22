@@ -371,10 +371,7 @@
                                                                <th class="text-md text-primary">
                                     Staff
                                 </th>
-                                                              <th class="text-md text-primary">
-                                    Inventory
-                                </th>
-                                                              <th class="text-md text-primary">
+                                                                <th class="text-md text-primary">
                                     Customer
                                 </th>
                               
@@ -398,13 +395,7 @@
                                         <button type="submit" class="btn btn-link">Staff</button>
                                     </form>
                                 </td>
-                                                              <td class="text-md">
-                                    <form action="{{url("/store/related/$store->store_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="inventory" />
-                                        <button type="submit" class="btn btn-link">Inventory</button>
-                                    </form>
-                                </td>
-                                                              <td class="text-md">
+                                                                <td class="text-md">
                                     <form action="{{url("/store/related/$store->store_id")}}" method="get">
                                         <input type="hidden" name="tab" value="customer" />
                                         <button type="submit" class="btn btn-link">Customer</button>

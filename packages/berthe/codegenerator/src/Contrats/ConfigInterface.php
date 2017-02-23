@@ -19,4 +19,5 @@ interface ConfigInterface
     function getTableIcon($tableName = "");
     function getPluralForm($tableName = "");
     function isPivot($tableName = "");
+    function getHoverMessage($tableName = "", $relatedTableName = "");
 }

@@ -90,7 +90,7 @@
                                                                 <td class="text-md">
                                     <form action="{{url("/city/related/$city->city_id")}}" method="get">
                                         <input type="hidden" name="tab" value="address" />
-                                        <button type="submit" class="btn btn-link">Address</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Addresses in the city">Addresses</button>
                                     </form>
                                 </td>
                                

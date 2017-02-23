@@ -88,13 +88,13 @@
                                                                  <td class="text-md">
                                     <form action="{{url("/store/related/$store->store_id")}}" method="get">
                                         <input type="hidden" name="tab" value="staff" />
-                                        <button type="submit" class="btn btn-link">Staff</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Staffs in the Store">Staffs</button>
                                     </form>
                                 </td>
                                                               <td class="text-md">
                                     <form action="{{url("/store/related/$store->store_id")}}" method="get">
                                         <input type="hidden" name="tab" value="customer" />
-                                        <button type="submit" class="btn btn-link">Customer</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="">Customers</button>
                                     </form>
                                 </td>
                               

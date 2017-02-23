@@ -22,14 +22,21 @@ class CallGenerator
      *
      * @var array
      */
-    public $routes;
+    private $routes;
 
     /**
      * List of pivots tables
      *
      * @var array
      */
-    public $pivots;
+    private $pivots;
+
+    /**
+     * Table relations Hovers Messages
+     *
+     * @var array
+     */
+    private $hoverMessages;
 
     /**
      * Get the "Conceptual Data Model" as an array.
@@ -60,6 +67,15 @@ class CallGenerator
     }
 
     /**
+     * Set Hovers Message
+     *
+     * @param array $hoverMessages
+     */
+    public function setHoverMessages($hoverMessages = []){
+        $this->hoverMessages = $hoverMessages;
+    }
+
+    /**
      * Generate different component (Controllers, Schemas, Models and forms).
      * It's fired when "php artisan code:generate" is called.
      *
@@ -69,6 +85,7 @@ class CallGenerator
     {
         $mcd = $this->getSite();
         $this->configs["pivots"] = $this->pivots;
+        $this->configs["hoverMessages"] = $this->hoverMessages;
 
         $laravelGenerator = new AdvancedGenerator($mcd, $this->configs, $this->routes);
             //new LaravelCodeGenerator($this->getSite());

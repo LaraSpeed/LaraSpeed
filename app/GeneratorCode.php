@@ -21,7 +21,7 @@ class GeneratorCode  extends CallGenerator {
                 ->string("first_name", 30, true)
                 ->string("last_name", 30, true)
                 ->timeStamp("last_update")
-                ->belongsToMany("film")
+                ->belongsToMany("film", "Films where the Actor played")
                 ->end()
 
             ->table("film")
@@ -40,23 +40,23 @@ class GeneratorCode  extends CallGenerator {
                 ->set("special_features", array('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind The Scenes'))
                 ->timeStamp("last_update")
                 ->belongsTo("language")
-                ->belongsToMany("category")
-                ->belongsToMany("actor")
-                ->belongsToMany("store") //=> Pivot => inventory
+                ->belongsToMany("category", "Categories associated to this film")
+                ->belongsToMany("actor", "Actors that played in the Film")
+                ->belongsToMany("store", "Stores where the Film is inventoried") //=> Pivot => inventory
                 ->end()
 
             ->table("language")
                 ->increments("language_id")
                 ->string("name", 20, true)
                 ->timeStamp("last_update")
-                ->hasMany("film")
+                ->hasMany("film", "Films in the Language")
                 ->end()
 
             ->table("category")
                 ->increments("category_id")
                 ->string("name", 25, true)
                 ->timeStamp("last_update")
-                ->belongsToMany("film")
+                ->belongsToMany("film", "Films related to the Category")
                 ->end()
 
             ->table("customer")
@@ -69,8 +69,8 @@ class GeneratorCode  extends CallGenerator {
                 ->boolean("active", false, false)
                 ->date("create_date", true)
                 ->timeStamp("last_update")
-                ->hasMany("payment")
-                ->hasMany("rental")
+                ->hasMany("payment", "Customer's Payments")
+                ->hasMany("rental", "Customer's Rentals")
                 ->belongsTo("address")
                 ->belongsTo("store")
                 ->end()
@@ -83,7 +83,7 @@ class GeneratorCode  extends CallGenerator {
                 ->date("return_date", true, true)
                 ->smallInteger("staff_id")
                 ->timeStamp("last_update")
-                ->hasMany("payment")
+                ->hasMany("payment", "Rental's Payments")
                 ->belongsTo("staff")
                 ->belongsTo("customer")
                 ->end()
@@ -108,9 +108,9 @@ class GeneratorCode  extends CallGenerator {
                 ->string("postal_code", 10, true)
                 ->string("phone", 20, true)
                 ->timeStamp("last_update")
-                ->hasMany("customer")
-                ->hasMany("staff")
-                ->hasMany("store")
+                ->hasMany("customer", "Customers at the Address")
+                ->hasMany("staff", "Staffs at the Address")
+                ->hasMany("store", "Stores at the Address")
                 ->belongsTo("city")
                 ->end()
 
@@ -119,7 +119,7 @@ class GeneratorCode  extends CallGenerator {
                 ->string("city", 50, true)
                 ->smallInteger("country_id")
                 ->timeStamp("last_update")
-                ->hasMany("address")
+                ->hasMany("address", "Addresses in the city")
                 ->belongsTo("country")
                 ->end()
 
@@ -127,7 +127,7 @@ class GeneratorCode  extends CallGenerator {
                 ->increments("country_id", true)
                 ->string("country", 50, true)
                 ->timeStamp("last_update")
-                ->hasMany("city")
+                ->hasMany("city", "Cities in the Country")
                 ->end()
 
             ->table("store")
@@ -135,9 +135,8 @@ class GeneratorCode  extends CallGenerator {
                 ->smallInteger("manager_staff_id", true, true)
                 ->smallInteger("address_id", true, true)
                 ->belongsTo("address")
-                ->hasMany("staff")
-                //->hasMany("inventory")
-                ->belongsToMany("film")
+                ->hasMany("staff", "Staffs in the Store")
+                ->belongsToMany("film", "Films in the Store")
                 ->hasMany("customer")
                 ->end()
 
@@ -153,8 +152,8 @@ class GeneratorCode  extends CallGenerator {
                 ->string("username", 16, true)
                 ->string("password", 40, true, false)
                 ->timeStamp("last_update")
-                ->hasMany("rental")
-                ->hasMany("payment")
+                ->hasMany("rental", "Rentals make by the Staff")
+                ->hasMany("payment", "Payments received by the Staff")
                 ->belongsTo("address")
                 ->belongsTo("store")
                 ->end()
@@ -166,9 +165,10 @@ class GeneratorCode  extends CallGenerator {
                 ->longText("articles", false)
                 ->end();
 
-        //Set Additional Route
+        //Set Additional Information
         parent::setRoutes($mcd->getRoutes());
         parent::setPivots($mcd->getPivots());
+        parent::setHoverMessages($mcd->getHoversMessages());
         
         return $mcd->getSite();
     }

@@ -119,19 +119,19 @@
                                                                  <td class="text-md">
                                     <form action="{{url("/address/related/$address->address_id")}}" method="get">
                                         <input type="hidden" name="tab" value="customer" />
-                                        <button type="submit" class="btn btn-link">Customer</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Customers at the Address">Customers</button>
                                     </form>
                                 </td>
                                                               <td class="text-md">
                                     <form action="{{url("/address/related/$address->address_id")}}" method="get">
                                         <input type="hidden" name="tab" value="staff" />
-                                        <button type="submit" class="btn btn-link">Staff</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Staffs at the Address">Staffs</button>
                                     </form>
                                 </td>
                                                               <td class="text-md">
                                     <form action="{{url("/address/related/$address->address_id")}}" method="get">
                                         <input type="hidden" name="tab" value="store" />
-                                        <button type="submit" class="btn btn-link">Store</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Stores at the Address">Stores</button>
                                     </form>
                                 </td>
                                 

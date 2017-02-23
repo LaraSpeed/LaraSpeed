@@ -99,7 +99,7 @@
                                 <td class="text-md">
                                     <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
-                                        <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="{{$config->getHoverMessage($table['title'].$relation->getOtherTable())}}">{!! ucfirst($config->getPluralForm($relation->getOtherTable()))  !!}</button>
                                     </form>
                                 </td>
                             @endif @endforeach @endif

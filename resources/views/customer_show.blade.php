@@ -118,13 +118,13 @@
                                                                 <td class="text-md">
                                     <form action="{{url("/customer/related/$customer->customer_id")}}" method="get">
                                         <input type="hidden" name="tab" value="payment" />
-                                        <button type="submit" class="btn btn-link">Payment</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Customer&#039;s Payments">Payments</button>
                                     </form>
                                 </td>
                                                              <td class="text-md">
                                     <form action="{{url("/customer/related/$customer->customer_id")}}" method="get">
                                         <input type="hidden" name="tab" value="rental" />
-                                        <button type="submit" class="btn btn-link">Rental</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Customer&#039;s Rentals">Rentals</button>
                                     </form>
                                 </td>
                                 

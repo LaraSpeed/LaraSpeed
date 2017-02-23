@@ -80,7 +80,7 @@
                                                                 <td class="text-md">
                                     <form action="{{url("/language/related/$language->language_id")}}" method="get">
                                         <input type="hidden" name="tab" value="film" />
-                                        <button type="submit" class="btn btn-link">Film</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Films in the Language">Films</button>
                                     </form>
                                 </td>
                               

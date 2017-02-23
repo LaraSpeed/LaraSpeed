@@ -85,8 +85,17 @@ class MCD
 
     /**
      * List of pivot tables
+     *
+     * @var array
      */
     private $pivots;
+
+    /**
+     * Messages to display when hovers relations link for table
+     *
+     * @var array
+     */
+    private $hoversMessages;
 
     /**
      * MCD constructor.
@@ -98,6 +107,8 @@ class MCD
         $this->routes = array();
 
         $this->pivots = [];
+
+        $this->hoversMessages = [];
 
         $this->init();
     }
@@ -401,14 +412,18 @@ class MCD
     /**
      * Function adding new relation hasMany Type of relation to the list of the current table relations
      * @param string $tableName
+     * @param string $hoverMessage
      * @return $this
      */
-    public function hasMany($tableName="table"){
+    public function hasMany($tableName="table", $hoverMessage = ""){
         $this->tables[$this->currentTableName]['relations'][] = new HasManyRelation($this->currentTableName, $tableName);
 
         //Adding Additional Route
         $this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
-        
+
+
+        $this->hoversMessages[$this->currentTableName . $tableName] = $hoverMessage;
+
         return $this;
     }
 
@@ -429,14 +444,16 @@ class MCD
     /**
      * Function adding new relation belongsToMany Type of relation to the list of the current table relations
      * @param string $tableName
+     * @param string $hoverMessage
      * @return $this
      */
-    public function belongsToMany($tableName ="table"){
+    public function belongsToMany($tableName ="table", $hoverMessage = ""){
         $this->tables[$this->currentTableName]['relations'][] = new BelongsToManyRelation($this->currentTableName, $tableName);
 
         //Adding Additional Route
         $this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
 
+        $this->hoversMessages[$this->currentTableName . $tableName] = $hoverMessage;
 
         return $this;
     }
@@ -463,9 +480,18 @@ class MCD
 
     /**
      * Get pivots tables
+     *
+     * @return array
      */
     public function getPivots(){
         return $this->pivots;
+    }
+
+    /**
+     * Get Hovers table relation hovers Messages
+     */
+    public function getHoversMessages(){
+        return $this->hoversMessages;
     }
 
 }

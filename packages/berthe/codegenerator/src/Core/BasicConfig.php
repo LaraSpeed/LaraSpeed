@@ -74,28 +74,21 @@ class BasicConfig implements ConfigInterface
      * Get a table's icon to display in the SideBar
      *
      * @param string $tableName
-     * @return string
-     * @throws \Exception
+     * @return stringss
      */
     function getTableIcon($tableName = ""){
-        if (array_key_exists("sidebarIcons", $this->configs) && array_key_exists($tableName, $this->configs["sidebarIcons"]))
-            return $this->configs["sidebarIcons"][$tableName];
-
-            throw new \Exception("Icon not specified for table : [".$tableName."]");
+        return $this->proccess("sidebarIcons", $tableName);
     }
 
     /**
      * Get the plurial form of a given table
      *
      * @param string $tableName
-     * @throws \Exception
+     * @return string
      */
     function getPluralForm($tableName = "")
     {
-        if (array_key_exists("tablePluralForm", $this->configs) && array_key_exists($tableName, $this->configs["tablePluralForm"]))
-            return $this->configs["tablePluralForm"][$tableName];
-
-        throw new \Exception("Plural form specified for table : [".$tableName."]");
+        return $this->proccess("tablePluralForm", $tableName);
     }
 
     /**
@@ -107,5 +100,32 @@ class BasicConfig implements ConfigInterface
     function isPivot($tableName = "")
     {
         return in_array($tableName, $this->configs["pivots"]);
+    }
+
+    /**
+     * Get related table hover message
+     *
+     * @param string $tableName
+     * @param string $relatedTableName
+     * @return mixed
+     */
+    function getHoverMessage($tableName = "", $relatedTableName = "")
+    {
+        return $this->proccess("hoverMessages", $tableName . $relatedTableName);
+    }
+
+    /**
+     * get configuration data
+     *
+     * @param $key
+     * @param string $tableName
+     * @return mixed
+     * @throws \Exception
+     */
+    private function proccess($key = "", $tableName = ""){
+        if (array_key_exists($key, $this->configs) && array_key_exists($tableName, $this->configs[$key]))
+            return $this->configs[$key][$tableName];
+
+        throw new \Exception($key." form specified for table : [".$tableName."]");
     }
 }

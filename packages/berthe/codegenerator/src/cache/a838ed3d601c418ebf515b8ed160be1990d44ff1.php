@@ -102,7 +102,7 @@
                                 <td class="text-md">
                                     <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="get">
                                         <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />
-                                        <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="<?php echo e($config->getHoverMessage($table['title'].$relation->getOtherTable())); ?>"><?php echo ucfirst($config->getPluralForm($relation->getOtherTable())); ?></button>
                                     </form>
                                 </td>
                             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>

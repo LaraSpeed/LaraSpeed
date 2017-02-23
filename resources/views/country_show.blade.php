@@ -80,7 +80,7 @@
                                                                 <td class="text-md">
                                     <form action="{{url("/country/related/$country->country_id")}}" method="get">
                                         <input type="hidden" name="tab" value="city" />
-                                        <button type="submit" class="btn btn-link">City</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Cities in the Country">Cities</button>
                                     </form>
                                 </td>
                               

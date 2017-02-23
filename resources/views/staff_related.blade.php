@@ -108,7 +108,7 @@
                                                                  <td class="text-md">
                                     <form action="{{url("/rental/related/$rental->rental_id")}}" method="get">
                                         <input type="hidden" name="tab" value="payment" />
-                                        <button type="submit" class="btn btn-link">Payment</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Rental&#039;s Payments">Payments</button>
                                     </form>
                                 </td>
                                   

@@ -65,9 +65,9 @@
                                 Last name
                             </th>   
                                 
+                              
                             <th class="text-md text-primary">Actions</th>
-
-                                                      </tr>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -79,6 +79,7 @@
                                 <td class="text-md">{{$actor->last_name}} </td>
                                
                                    
+                                  
                                 <td nowrap>
                                     <a href="{{url("/actor/$actor->actor_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -91,7 +92,7 @@
                                     </a>
                                 </td>
 
-                                                              </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="4"><label class="text-danger text-md">No actor matching keyword {{session('keyword', 'Keyword')}}.</label></td>

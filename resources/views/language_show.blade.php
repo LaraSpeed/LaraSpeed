@@ -62,12 +62,12 @@
                                 Name
                             </th>   
                                 
-                            <th class="text-md text-primary">Actions</th>
-
                                                             <th class="text-md text-primary">
                                     Film
                                 </th>
-                                                      </tr>
+                              
+                            <th class="text-md text-primary">Actions</th>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -77,6 +77,13 @@
                                 <td class="text-md">{{$language->name}} </td>
                                
                                    
+                                                                <td class="text-md">
+                                    <form action="{{url("/language/related/$language->language_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="film" />
+                                        <button type="submit" class="btn btn-link">Film</button>
+                                    </form>
+                                </td>
+                              
                                 <td nowrap>
                                     <a href="{{url("/language/$language->language_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -89,13 +96,7 @@
                                     </a>
                                 </td>
 
-                                                                <td class="text-md">
-                                    <form action="{{url("/language/related/$language->language_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="film" />
-                                        <button type="submit" class="btn btn-link">Film</button>
-                                    </form>
-                                </td>
-                                                          </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No language matching keyword {{session('keyword', 'Keyword')}}.</label></td>

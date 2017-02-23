@@ -62,9 +62,9 @@
                                 Name
                             </th>   
                                 
+                              
                             <th class="text-md text-primary">Actions</th>
-
-                                                      </tr>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -74,6 +74,7 @@
                                 <td class="text-md">{{$category->name}} </td>
                                
                                    
+                                  
                                 <td nowrap>
                                     <a href="{{url("/category/$category->category_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -86,7 +87,7 @@
                                     </a>
                                 </td>
 
-                                                              </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>

@@ -71,12 +71,12 @@
                                    Customer
                                 </th>
                               
-                            <th class="text-md text-primary">Actions</th>
-
                                                             <th class="text-md text-primary">
                                     Payment
                                 </th>
-                                                        </tr>
+                                
+                            <th class="text-md text-primary">Actions</th>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -102,6 +102,13 @@
                                         @endif
                                     </td>
                                   
+                                                                <td class="text-md">
+                                    <form action="{{url("/rental/related/$rental->rental_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="payment" />
+                                        <button type="submit" class="btn btn-link">Payment</button>
+                                    </form>
+                                </td>
+                                
                                 <td nowrap>
                                     <a href="{{url("/rental/$rental->rental_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -114,13 +121,7 @@
                                     </a>
                                 </td>
 
-                                                                <td class="text-md">
-                                    <form action="{{url("/rental/related/$rental->rental_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="payment" />
-                                        <button type="submit" class="btn btn-link">Payment</button>
-                                    </form>
-                                </td>
-                                                            </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="7"><label class="text-danger text-md">No rental matching keyword {{session('keyword', 'Keyword')}}.</label></td>

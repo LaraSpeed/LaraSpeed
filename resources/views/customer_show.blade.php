@@ -77,15 +77,15 @@
                                    Store
                                 </th>
                               
-                            <th class="text-md text-primary">Actions</th>
-
                                                             <th class="text-md text-primary">
                                     Payment
                                 </th>
                                                              <th class="text-md text-primary">
                                     Rental
                                 </th>
-                                                        </tr>
+                                
+                            <th class="text-md text-primary">Actions</th>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -115,18 +115,6 @@
                                         @endif
                                     </td>
                                   
-                                <td nowrap>
-                                    <a href="{{url("/customer/$customer->customer_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
-                                        <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
-                                    </a>
-                                    <a href="{{url("/customer/$customer->customer_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit">
-                                        <button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button>
-                                    </a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $customer->first_name}} ?', '{{url("/customer/$customer->customer_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete">
-                                        <button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button>
-                                    </a>
-                                </td>
-
                                                                 <td class="text-md">
                                     <form action="{{url("/customer/related/$customer->customer_id")}}" method="get">
                                         <input type="hidden" name="tab" value="payment" />
@@ -139,7 +127,20 @@
                                         <button type="submit" class="btn btn-link">Rental</button>
                                     </form>
                                 </td>
-                                                            </tr>
+                                
+                                <td nowrap>
+                                    <a href="{{url("/customer/$customer->customer_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
+                                        <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
+                                    </a>
+                                    <a href="{{url("/customer/$customer->customer_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button>
+                                    </a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $customer->first_name}} ?', '{{url("/customer/$customer->customer_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button>
+                                    </a>
+                                </td>
+
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="9"><label class="text-danger text-md">No customer matching keyword {{session('keyword', 'Keyword')}}.</label></td>

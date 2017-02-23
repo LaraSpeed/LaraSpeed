@@ -62,12 +62,12 @@
                                 Country
                             </th>   
                                 
-                            <th class="text-md text-primary">Actions</th>
-
                                                             <th class="text-md text-primary">
                                     City
                                 </th>
-                                                      </tr>
+                              
+                            <th class="text-md text-primary">Actions</th>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -77,6 +77,13 @@
                                 <td class="text-md">{{$country->country}} </td>
                                
                                    
+                                                                <td class="text-md">
+                                    <form action="{{url("/country/related/$country->country_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="city" />
+                                        <button type="submit" class="btn btn-link">City</button>
+                                    </form>
+                                </td>
+                              
                                 <td nowrap>
                                     <a href="{{url("/country/$country->country_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -89,13 +96,7 @@
                                     </a>
                                 </td>
 
-                                                                <td class="text-md">
-                                    <form action="{{url("/country/related/$country->country_id")}}" method="get">
-                                        <input type="hidden" name="tab" value="city" />
-                                        <button type="submit" class="btn btn-link">City</button>
-                                    </form>
-                                </td>
-                                                          </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No country matching keyword {{session('keyword', 'Keyword')}}.</label></td>

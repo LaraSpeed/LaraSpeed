@@ -74,9 +74,9 @@
                                    Staff
                                 </th>
                               
+                                
                             <th class="text-md text-primary">Actions</th>
-
-                                                        </tr>
+                        </tr>
                     </thead>
 
                     <tbody>
@@ -109,6 +109,7 @@
                                         @endif
                                     </td>
                                   
+                                    
                                 <td nowrap>
                                     <a href="{{url("/payment/$payment->payment_id")}}" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -121,7 +122,7 @@
                                     </a>
                                 </td>
 
-                                                                </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="5"><label class="text-danger text-md">No payment matching keyword {{session('keyword', 'Keyword')}}.</label></td>

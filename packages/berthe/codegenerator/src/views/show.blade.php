@@ -67,13 +67,13 @@
                                 </th>
                             @endif @endforeach @endif
 
-                            <th class="text-md text-primary">Actions</th>
-
                             @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo() && !$relation->isBelongsToMany())
                                 <th class="text-md text-primary">
                                     {!! ucfirst($relation->getOtherTable())  !!}
                                 </th>
                             @endif @endforeach @endif
+
+                            <th class="text-md text-primary">Actions</th>
                         </tr>
                     </thead>
 
@@ -95,6 +95,15 @@
                                     </td>
                                 @endif @endforeach @endif
 
+                                @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo() && !$relation->isBelongsToMany())
+                                <td class="text-md">
+                                    <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
+                                        <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
+                                        <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
+                                    </form>
+                                </td>
+                            @endif @endforeach @endif
+
                                 <td nowrap>
                                     <a href="S2BOBRACKET{!!"url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -107,14 +116,6 @@
                                     </a>
                                 </td>
 
-                                @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isBelongsTo() && !$relation->isBelongsToMany())
-                                <td class="text-md">
-                                    <form action="S2BOBRACKET{!!"url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"!!}S2BCBRACKET" method="get">
-                                        <input type="hidden" name="tab" value="{!! $relation->getOtherTable()  !!}" />
-                                        <button type="submit" class="btn btn-link">{!! ucfirst($relation->getOtherTable())  !!}</button>
-                                    </form>
-                                </td>
-                            @endif @endforeach @endif
                             </tr>
                         S3Bempty
                             <tr>

@@ -77,13 +77,13 @@
                             </th>
                         @endif @endforeach @endif
 
-                            <th class="text-md text-primary" nowrap>Actions</th>
-
                             @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && !$relation->isBelongsTo() && !$relation->isBelongsToMany())
                                 <th class="text-md text-primary">
                                     {!! ucfirst($relation->getOtherTable())  !!}
                                 </th>
                             @endif @endforeach @endif
+
+                            <th class="text-md text-primary" nowrap>Actions</th>
 
                         </tr>
                     </thead>
@@ -106,11 +106,6 @@
                                     </td>
                                 @endif @endforeach @endif
 
-                                <td nowrap>
-                                    <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
-                                    <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
-                                </td>
 
                                 @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && !$relation->isBelongsTo() && !$relation->isBelongsToMany())
                                 <td class="text-md">
@@ -120,6 +115,12 @@
                                     </form>
                                 </td>
                             @endif @endforeach @endif
+
+                                <td nowrap>
+                                    <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete S2BOBRACKET ${!! $otherTable. "->".$config->displayedAttributes($otherTable)!!}S2BCBRACKET ?', 'S2BOBRACKET{!!"url(\"/".$otherTable."/$".$otherTable.'->'.$tbs[$otherTable]['id']."\")"!!}S2BCBRACKET')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                </td>
                             </tr>
                         S3Bempty
                             <tr>

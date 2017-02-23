@@ -79,9 +79,9 @@
                             <th class="text-md text-primary" nowrap>
                               Name
                             </th>                              
+                               
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                               
                         </tr>
                     </thead>
 
@@ -92,13 +92,14 @@
                                 <td class="text-md">{{$category->name}} </td>
                                    
                                    
+
+                                   
                                 <td nowrap>
                                     <a href="{{url("/category/$category->category_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="{{url("/category/$category->category_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $category->name}} ?', '{{url("/category/$category->category_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
-
-                                                               </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No category matching keyword {{session('keyword', 'Keyword')}}.</label></td>
@@ -187,9 +188,9 @@
                             <th class="text-md text-primary" nowrap>
                               Last name
                             </th>                              
+                               
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                               
                         </tr>
                     </thead>
 
@@ -202,13 +203,14 @@
                                 <td class="text-md">{{$actor->last_name}} </td>
                                    
                                    
+
+                                   
                                 <td nowrap>
                                     <a href="{{url("/actor/$actor->actor_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="{{url("/actor/$actor->actor_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $actor->first_name}} ?', '{{url("/actor/$actor->actor_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
-
-                                                               </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="4"><label class="text-danger text-md">No actor matching keyword {{session('keyword', 'Keyword')}}.</label></td>
@@ -294,8 +296,6 @@
                                 Address
                             </th>
                                 
-                            <th class="text-md text-primary" nowrap>Actions</th>
-
                                                                <th class="text-md text-primary">
                                     Staff
                                 </th>
@@ -303,6 +303,8 @@
                                     Customer
                                 </th>
                               
+                            <th class="text-md text-primary" nowrap>Actions</th>
+
                         </tr>
                     </thead>
 
@@ -318,11 +320,6 @@
                                         @endif
                                     </td>
                                         
-                                <td nowrap>
-                                    <a href="{{url("/store/$store->store_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
-                                    <a href="{{url("/store/$store->store_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $store->address->address}} ?', '{{url("/store/$store->store_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
-                                </td>
 
                                                                    <td class="text-md">
                                     <form action="{{url("/store/related/$store->store_id")}}" method="get">
@@ -336,7 +333,13 @@
                                         <button type="submit" class="btn btn-link">Customer</button>
                                     </form>
                                 </td>
-                                                          </tr>
+                              
+                                <td nowrap>
+                                    <a href="{{url("/store/$store->store_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="{{url("/store/$store->store_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $store->address->address}} ?', '{{url("/store/$store->store_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                </td>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="3"><label class="text-danger text-md">No store matching keyword {{session('keyword', 'Keyword')}}.</label></td>

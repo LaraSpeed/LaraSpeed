@@ -69,14 +69,14 @@
                                 </th>
                             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
-                            <th class="text-md text-primary">Actions</th>
-
                             <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
                                 <th class="text-md text-primary">
                                     <?php echo ucfirst($relation->getOtherTable()); ?>
 
                                 </th>
                             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+
+                            <th class="text-md text-primary">Actions</th>
                         </tr>
                     </thead>
 
@@ -98,6 +98,15 @@
                                     </td>
                                 <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
+                                <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
+                                <td class="text-md">
+                                    <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="get">
+                                        <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />
+                                        <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
+                                    </form>
+                                </td>
+                            <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
+
                                 <td nowrap>
                                     <a href="S2BOBRACKET<?php echo "url(\"/".$table['title']."/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" data-toggle="tooltip" data-placement="top" title="Display">
                                         <button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button>
@@ -110,14 +119,6 @@
                                     </a>
                                 </td>
 
-                                <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
-                                <td class="text-md">
-                                    <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/related/$".$table['title'].'->'.$table['id']."\")"; ?>S2BCBRACKET" method="get">
-                                        <input type="hidden" name="tab" value="<?php echo $relation->getOtherTable(); ?>" />
-                                        <button type="submit" class="btn btn-link"><?php echo ucfirst($relation->getOtherTable()); ?></button>
-                                    </form>
-                                </td>
-                            <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
                             </tr>
                         S3Bempty
                             <tr>

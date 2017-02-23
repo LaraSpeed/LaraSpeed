@@ -73,12 +73,12 @@
                             <th class="text-md text-primary" nowrap>
                               City
                             </th>                                  
-                            <th class="text-md text-primary" nowrap>Actions</th>
-
                                                              <th class="text-md text-primary">
                                     Address
                                 </th>
                                 
+                            <th class="text-md text-primary" nowrap>Actions</th>
+
                         </tr>
                     </thead>
 
@@ -89,11 +89,6 @@
                                 <td class="text-md">{{$city->city}} </td>
                                      
                                      
-                                <td nowrap>
-                                    <a href="{{url("/city/$city->city_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
-                                    <a href="{{url("/city/$city->city_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $city->city}} ?', '{{url("/city/$city->city_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
-                                </td>
 
                                                                  <td class="text-md">
                                     <form action="{{url("/city/related/$city->city_id")}}" method="get">
@@ -101,7 +96,13 @@
                                         <button type="submit" class="btn btn-link">Address</button>
                                     </form>
                                 </td>
-                                                            </tr>
+                                
+                                <td nowrap>
+                                    <a href="{{url("/city/$city->city_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="{{url("/city/$city->city_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $city->city}} ?', '{{url("/city/$city->city_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                </td>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="4"><label class="text-danger text-md">No city matching keyword {{session('keyword', 'Keyword')}}.</label></td>

@@ -82,9 +82,9 @@
                                 Staff
                             </th>
                           
+                                   
                             <th class="text-md text-primary" nowrap>Actions</th>
 
-                                   
                         </tr>
                     </thead>
 
@@ -111,13 +111,14 @@
                                         @endif
                                     </td>
                                   
+
+                                       
                                 <td nowrap>
                                     <a href="{{url("/payment/$payment->payment_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
                                     <a href="{{url("/payment/$payment->payment_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
                                     <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $payment->payment_date}} ?', '{{url("/payment/$payment->payment_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
                                 </td>
-
-                                                                   </tr>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="5"><label class="text-danger text-md">No payment matching keyword {{session('keyword', 'Keyword')}}.</label></td>

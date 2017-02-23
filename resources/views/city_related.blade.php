@@ -85,8 +85,6 @@
                             <th class="text-md text-primary" nowrap>
                               Phone
                             </th>                                    
-                            <th class="text-md text-primary" nowrap>Actions</th>
-
                                                              <th class="text-md text-primary">
                                     Customer
                                 </th>
@@ -97,6 +95,8 @@
                                     Store
                                 </th>
                                 
+                            <th class="text-md text-primary" nowrap>Actions</th>
+
                         </tr>
                     </thead>
 
@@ -115,11 +115,6 @@
                                 <td class="text-md">{{$address->phone}} </td>
                                    
                                          
-                                <td nowrap>
-                                    <a href="{{url("/address/$address->address_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
-                                    <a href="{{url("/address/$address->address_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
-                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $address->address}} ?', '{{url("/address/$address->address_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
-                                </td>
 
                                                                  <td class="text-md">
                                     <form action="{{url("/address/related/$address->address_id")}}" method="get">
@@ -139,7 +134,13 @@
                                         <button type="submit" class="btn btn-link">Store</button>
                                     </form>
                                 </td>
-                                                            </tr>
+                                
+                                <td nowrap>
+                                    <a href="{{url("/address/$address->address_id")}}" data-toggle="tooltip" data-placement="top" title="Display"><button class="btn-sm btn-success"><i class="fa fa-arrows-alt fa-lg"></i></button></a>
+                                    <a href="{{url("/address/$address->address_id")}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-warning"><i class="fa fa-edit fa-lg"></i></button></a>
+                                    <a href="" ng-click="showModal('Delete', 'Do you really want to delete {{ $address->address}} ?', '{{url("/address/$address->address_id")}}')" data-toggle="tooltip" data-placement="top" title="Delete"><button class="btn-sm btn-danger"><i class="fa fa-trash-o fa-lg"></i></button></a>
+                                </td>
+                            </tr>
                         @empty
                             <tr>
                                 <td colspan="8"><label class="text-danger text-md">No address matching keyword {{session('keyword', 'Keyword')}}.</label></td>

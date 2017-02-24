@@ -66,11 +66,11 @@ return view('language_display', compact('language'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Language $language )
+    public function edit( Language $language )
     {
         request()->session()->forget("mutate");
-        $language->load(array("film",));
-return view('language_edit', compact('language'));
+         $language->load(array("film",));
+return view('language_edit', compact('language')); 
     }
 
     /**

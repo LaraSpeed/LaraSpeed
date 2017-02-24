@@ -4527,6 +4527,7 @@ window.theme = {};
 
 				var options = $( 'table', settings.nTableWrapper ).data( 'plugin-options' ) || {};
 
+//==================================== Search Input Deletion =============================================//
 				// search
 				var $search = $('.dataTables_filter input', settings.nTableWrapper);
 
@@ -4539,6 +4540,10 @@ window.theme = {};
 				if ( $.isFunction( $.fn.placeholder ) ) {
 					$search.placeholder();
 				}
+
+				$search.css("display", "none");
+
+//=====================================End Search Input in table ============================//
 			}
 		});
 

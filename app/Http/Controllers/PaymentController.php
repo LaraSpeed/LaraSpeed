@@ -86,11 +86,11 @@ return view('payment_display', compact('payment'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Payment $payment )
+    public function edit( Payment $payment )
     {
         request()->session()->forget("mutate");
-        $payment->load(array("rental","customer","staff",));
-return view('payment_edit', compact('payment'));
+         $payment->load(array("rental","customer","staff",));
+return view('payment_edit', compact('payment')); 
     }
 
     /**

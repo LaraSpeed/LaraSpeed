@@ -69,11 +69,11 @@ return view('category_display', compact('category'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Category $category )
+    public function edit( Category $category )
     {
         request()->session()->forget("mutate");
-        $category->load(array("film",));
-return view('category_edit', compact('category'));
+         $category->load(array("film",));
+return view('category_edit', compact('category')); 
     }
 
     /**

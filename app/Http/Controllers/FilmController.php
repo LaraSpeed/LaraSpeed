@@ -92,11 +92,11 @@ return view('film_display', compact('film'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Film $film )
+    public function edit( Film $film )
     {
         request()->session()->forget("mutate");
-        $film->load(array("language","category","actor","store",));
-return view('film_edit', compact('film'));
+         $film->load(array("language","category","actor","store",));
+return view('film_edit', compact('film')); 
     }
 
     /**

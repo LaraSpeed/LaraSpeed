@@ -2,12 +2,12 @@
 
     <div class="row">
 
-        <div class="col-md-8 col-sm-8">
+        <div class="col-md-12 col-sm-12">
 
             <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."/search\")"; ?>S2BCBRACKET" method="get">
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-1 col-sm-1">
                 </div>
-                <div class="col-md-8 col-sm-8">
+                <div class="col-md-6 col-sm-6">
                     <div class="input-group input-search">
                         <input  type="text" class="form-control" name="keyword" placeholder="S2BOBRACKETsession('keyword', 'Keyword')S2BCBRACKET"/>
                         <span class="input-group-btn">
@@ -18,15 +18,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <button type="submit" class="btn btn-success">Search</button>
                 </div>
-            </form>
-        </div>
 
-        <div class="col-md-2 col-sm-2">
-            <form action="S2BOBRACKET<?php echo "url(\"/".$table['title']."\")"; ?>S2BCBRACKET" method="get">
-                <button type="submit" class="btn btn-danger">Clear Search</button>
+                <div class="col-md-2">
+                    <button type="submit" formmethod="get" formaction="S2BOBRACKET<?php echo "url(\"/".$table['title']."\")"; ?>S2BCBRACKET" class="btn btn-danger">Clear Search</button>
+                </div>
             </form>
         </div>
     </div>

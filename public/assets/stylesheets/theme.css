@@ -13405,9 +13405,16 @@ html.dark .table .actions-hover a {
 	margin-top: 6px;
 }
 
-.dataTables_wrapper .datatables-footer .dataTables_paginate .pagination {
+.dataTables_wrapper .dataTables_paginate .pagination {
 	display: block;
 	margin: 0;
+}
+
+
+
+/* ==================DataTable Footer Hidding ========================================================== */
+.datatables-footer {
+	display: none;  /* Line 1 Performing the Hidding  */
 }
 
 @media only screen and (max-width: 991px) {
@@ -13421,9 +13428,15 @@ html.dark .table .actions-hover a {
 		text-align: center;
 	}
 
-	.dataTables_wrapper .datatables-footer .dataTables_paginate .pagination {
+	.dataTables_wrapper .dataTables_paginate .pagination {
 		display: inline-block;
 	}
+
+
+	.datatables-footer {
+		display: none; /* Line 2 Performing the Hidding */
+	}
+	/* ==================End DataTable Footer Hidding ========================================================== */
 }
 /* Empty Row */
 .dataTables_wrapper .dataTables_empty {

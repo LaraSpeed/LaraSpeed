@@ -81,11 +81,11 @@ return view('address_display', compact('address'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Address $address )
+    public function edit( Address $address )
     {
         request()->session()->forget("mutate");
-        $address->load(array("customer","staff","store","city",));
-return view('address_edit', compact('address'));
+         $address->load(array("customer","staff","store","city",));
+return view('address_edit', compact('address')); 
     }
 
     /**

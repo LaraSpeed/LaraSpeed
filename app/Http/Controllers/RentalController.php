@@ -81,11 +81,11 @@ return view('rental_display', compact('rental'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Rental $rental )
+    public function edit( Rental $rental )
     {
         request()->session()->forget("mutate");
-        $rental->load(array("payment","staff","customer",));
-return view('rental_edit', compact('rental'));
+         $rental->load(array("payment","staff","customer",));
+return view('rental_edit', compact('rental')); 
     }
 
     /**

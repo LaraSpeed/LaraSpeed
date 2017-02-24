@@ -65,10 +65,10 @@ $delivery = Delivery::create([
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Delivery $delivery )
+    public function edit( Delivery $delivery )
     {
         request()->session()->forget("mutate");
-        return view('delivery_edit', compact('delivery'));
+         return view('delivery_edit', compact('delivery')); 
     }
 
     /**

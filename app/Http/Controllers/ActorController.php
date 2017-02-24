@@ -70,11 +70,11 @@ return view('actor_display', compact('actor'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Actor $actor )
+    public function edit( Actor $actor )
     {
         request()->session()->forget("mutate");
-        $actor->load(array("film",));
-return view('actor_edit', compact('actor'));
+         $actor->load(array("film",));
+return view('actor_edit', compact('actor')); 
     }
 
     /**

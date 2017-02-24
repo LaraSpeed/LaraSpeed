@@ -16,24 +16,19 @@
 
 @section('modelCall'){!!ucfirst($table['title']).'::paginate(20)'!!}@endsection
 
-@section('createView') @include("controllers.createAction", ["table" => $table]) @endsection
+@section('createView') @include("controllers.create.createAction", ["table" => $table]) @endsection
 
-@section('storeContent') @include("controllers.storeActionContent", ["table" => $table]) @endsection
+@section('storeContent') @include("controllers.store.storeActionContent", ["table" => $table]) @endsection
 
-@section('store') @include("controllers.storeActionReturnValue", ["table" => $table]) @endsection
+@section('store') @include("controllers.store.storeActionReturnValue", ["table" => $table]) @endsection
 
-@section('object') @include("controllers.showActionParam", ["table" => $table]) @endsection
+@section('object') @include("controllers.show.showActionParam", ["table" => $table]) @endsection
 <?php $tb = array(); ?>
-@section('show') @include("controllers.showActionContent", ["table" => $table]) @endsection
+@section('show') @include("controllers.show.showActionContent", ["table" => $table]) @endsection
 
-@section('editParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
+@section('editParam') @include("controllers.edit.editActionParam", ["table" => $table]) @endsection
 <?php $tb = array(); ?>
-@section('edit')@if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table["relations"] as $relation)<?php $tb[] = $relation->getOtherTable() ?>@endforeach
-@include($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)])
-
-@endif
-@include("showReturnValController", ['tab' => $table["title"], "type" => "edit"])
-@endsection
+@section('edit') @include("controllers.edit.editActionContent", ["table" => $table]) @endsection
 
 @section('updateParam'){{ucfirst($table['title']).' $'.$table['title']}} @endsection
 @section('update')

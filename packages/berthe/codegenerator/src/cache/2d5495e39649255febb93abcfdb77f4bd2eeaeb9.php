@@ -15,24 +15,19 @@
 
 <?php $__env->startSection('modelCall'); ?><?php echo ucfirst($table['title']).'::paginate(20)'; ?><?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('createView'); ?> <?php echo $__env->make("controllers.createAction", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('createView'); ?> <?php echo $__env->make("controllers.create.createAction", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('storeContent'); ?> <?php echo $__env->make("controllers.storeActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('storeContent'); ?> <?php echo $__env->make("controllers.store.storeActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('store'); ?> <?php echo $__env->make("controllers.storeActionReturnValue", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('store'); ?> <?php echo $__env->make("controllers.store.storeActionReturnValue", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('object'); ?> <?php echo $__env->make("controllers.showActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('object'); ?> <?php echo $__env->make("controllers.show.showActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>
-<?php $__env->startSection('show'); ?> <?php echo $__env->make("controllers.showActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('show'); ?> <?php echo $__env->make("controllers.show.showActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('editParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('editParam'); ?> <?php echo $__env->make("controllers.edit.editActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>
-<?php $__env->startSection('edit'); ?><?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-<?php echo $__env->make($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb)], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<?php endif; ?>
-<?php echo $__env->make("showReturnValController", ['tab' => $table["title"], "type" => "edit"], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-<?php $__env->stopSection(); ?>
+<?php $__env->startSection('edit'); ?> <?php echo $__env->make("controllers.edit.editActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('updateParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
 <?php $__env->startSection('update'); ?>

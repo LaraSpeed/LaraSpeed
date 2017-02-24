@@ -87,11 +87,11 @@ return view('staff_display', compact('staff'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Staff $staff )
+    public function edit( Staff $staff )
     {
         request()->session()->forget("mutate");
-        $staff->load(array("rental","payment","address","store",));
-return view('staff_edit', compact('staff'));
+         $staff->load(array("rental","payment","address","store",));
+return view('staff_edit', compact('staff')); 
     }
 
     /**

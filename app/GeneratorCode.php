@@ -42,7 +42,7 @@ class GeneratorCode  extends CallGenerator {
                 ->belongsTo("language")
                 ->belongsToMany("category", "Categories associated to this film")
                 ->belongsToMany("actor", "Actors that played in the Film")
-                ->belongsToMany("store", "Stores where the Film is inventoried") //=> Pivot => inventory
+                ->belongsToMany("store", "Stores where the Film is inventoried")
                 ->end()
 
             ->table("language")

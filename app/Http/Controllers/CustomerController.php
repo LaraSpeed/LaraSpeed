@@ -85,11 +85,11 @@ return view('customer_display', compact('customer'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Customer $customer )
+    public function edit( Customer $customer )
     {
         request()->session()->forget("mutate");
-        $customer->load(array("payment","rental","address","store",));
-return view('customer_edit', compact('customer'));
+         $customer->load(array("payment","rental","address","store",));
+return view('customer_edit', compact('customer')); 
     }
 
     /**

@@ -79,11 +79,11 @@ return view('store_display', compact('store'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(Store $store )
+    public function edit( Store $store )
     {
         request()->session()->forget("mutate");
-        $store->load(array("address","staff","film","customer",));
-return view('store_edit', compact('store'));
+         $store->load(array("address","staff","film","customer",));
+return view('store_edit', compact('store')); 
     }
 
     /**

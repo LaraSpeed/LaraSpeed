@@ -73,11 +73,11 @@ return view('city_display', compact('city'));
     * @param    Mixed
     * @return  Response
     */
-    public function edit(City $city )
+    public function edit( City $city )
     {
         request()->session()->forget("mutate");
-        $city->load(array("address","country",));
-return view('city_edit', compact('city'));
+         $city->load(array("address","country",));
+return view('city_edit', compact('city')); 
     }
 
     /**

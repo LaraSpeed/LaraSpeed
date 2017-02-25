@@ -32,14 +32,15 @@
             @if(isset($address->customer))
         <label class="text-danger text-md">Add Customers</label>
         <select id="customer" name="customer[]" multiple="multiple" size="10">
-            @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
+            @forelse(\App\Customer::paginate(5000)->sortBy('first_name') as  $customer)
                 <option value="{{$customer->customer_id}}" @foreach($address->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
                     {{$customer->first_name}}
                 </option>
             @empty
                 <option value="-1">No customer</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Customer::paginate(5000)->links()!!}
         <script> $('#customer').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Customer',
@@ -48,19 +49,21 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
         @else
                 @endif
             @if(isset($address->staff))
         <label class="text-danger text-md">Add Staffs</label>
         <select id="staff" name="staff[]" multiple="multiple" size="10">
-            @forelse(\App\Staff::all()->sortBy('first_name') as  $staff)
+            @forelse(\App\Staff::paginate(5000)->sortBy('first_name') as  $staff)
                 <option value="{{$staff->staff_id}}" @foreach($address->staff as  $stafftmp) @if($stafftmp->staff_id == $staff->staff_id) selected = "selected" @endif @endforeach>
                     {{$staff->first_name}}
                 </option>
             @empty
                 <option value="-1">No staff</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Staff::paginate(5000)->links()!!}
         <script> $('#staff').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Staff',
@@ -69,19 +72,21 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
         @else
                 @endif
             @if(isset($address->store))
         <label class="text-danger text-md">Add Stores</label>
         <select id="store" name="store[]" multiple="multiple" size="10">
-            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
+            @forelse(\App\Store::paginate(5000)->sortBy('address->address') as  $store)
                 <option value="{{$store->store_id}}" @foreach($address->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
                     {{$store->address->address}}
                 </option>
             @empty
                 <option value="-1">No store</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Store::paginate(5000)->links()!!}
         <script> $('#store').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Store',
@@ -90,6 +95,7 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
         @else
                 @endif
             @if(isset($address->city))

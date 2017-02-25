@@ -100,8 +100,8 @@ return view('rental_edit', compact('rental'));
 
     $updateFields = array();
              $updateFields["rental_date"] = $data["rental_date"];
-               $updateFields["return_date"] = $data["return_date"];
-       
+                    $updateFields["return_date"] = $data["return_date"];
+            
     $rental->update($updateFields);
 
             if(request()->exists('payment')){

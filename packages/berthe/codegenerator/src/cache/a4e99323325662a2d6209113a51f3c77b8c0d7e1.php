@@ -11,7 +11,7 @@
             <?php if($attrType->hasUnit()): ?>
                 <div class="input-group mb-md">
                     <span class="input-group-addon"><?php echo e($attrType->getUnit()); ?></span>
-                    <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", false); ?>
+                    <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", true); ?>
 
                 </div>
             <?php else: ?> <?php echo $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET"); ?> <?php endif; ?>

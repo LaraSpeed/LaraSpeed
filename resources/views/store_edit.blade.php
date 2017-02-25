@@ -30,14 +30,15 @@
         @if(isset($store->staff))
         <label class="text-danger text-md">Add Staffs</label>
         <select id="staff" name="staff[]" multiple="multiple" size="10">
-            @forelse(\App\Staff::all()->sortBy('first_name') as  $staff)
+            @forelse(\App\Staff::paginate(5000)->sortBy('first_name') as  $staff)
                 <option value="{{$staff->staff_id}}" @foreach($store->staff as  $stafftmp) @if($stafftmp->staff_id == $staff->staff_id) selected = "selected" @endif @endforeach>
                     {{$staff->first_name}}
                 </option>
             @empty
                 <option value="-1">No staff</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Staff::paginate(5000)->links()!!}
         <script> $('#staff').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Staff',
@@ -46,22 +47,23 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
     @else
             @endif
         @if(isset($store->film))
         <label class="text-danger text-md">Associate Films</label>
 
         <select id="film" name="film[]"  multiple="multiple" size="10" >
-            @forelse(\App\Film::all()->sortBy('title') as  $film)
-                <option value="{{$film->film_id}}" @foreach($store->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
+             @forelse(\App\Film::paginate(5000)->sortBy('title') as  $film)                 <option value="{{$film->film_id}}" @foreach($store->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
                     {{$film->title}}
                 </option>
             @empty
                 <option value="-1">No film</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
+                    {!!\App\Film::paginate(5000)->links()!!}
             <script> $('#film').bootstrapDualListbox(
                 {
                     nonSelectedListLabel: 'Non-selected film',
@@ -69,8 +71,10 @@
                     moveOnSelect: true,
                     nonSelectedFilter: ''
                 }
-        ); </script>
-    
+            ); </script>
+                <br/>
+
+
     @else
                     <label class="text-danger text-md">Associate Films</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one film"  name="film[]">
@@ -85,14 +89,15 @@
         @if(isset($store->customer))
         <label class="text-danger text-md">Add Customers</label>
         <select id="customer" name="customer[]" multiple="multiple" size="10">
-            @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
+            @forelse(\App\Customer::paginate(5000)->sortBy('first_name') as  $customer)
                 <option value="{{$customer->customer_id}}" @foreach($store->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
                     {{$customer->first_name}}
                 </option>
             @empty
                 <option value="-1">No customer</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Customer::paginate(5000)->links()!!}
         <script> $('#customer').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Customer',
@@ -101,6 +106,7 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
     @else
             @endif
      

@@ -92,7 +92,7 @@ return view('city_edit', compact('city'));
 
     $updateFields = array();
              $updateFields["city"] = $data["city"];
-       
+            
     $city->update($updateFields);
 
             if(request()->exists('address')){

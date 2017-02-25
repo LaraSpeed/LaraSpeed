@@ -106,12 +106,12 @@ return view('staff_edit', compact('staff'));
 
     $updateFields = array();
              $updateFields["first_name"] = $data["first_name"];
-             $updateFields["last_name"] = $data["last_name"];
-              $updateFields["email"] = $data["email"];
-              $updateFields["active"] = $data["active"];
-             $updateFields["username"] = $data["username"];
-             $updateFields["password"] = $data["password"];
-      
+                  $updateFields["last_name"] = $data["last_name"];
+                   $updateFields["email"] = $data["email"];
+                   $updateFields["active"] = $data["active"];
+                  $updateFields["username"] = $data["username"];
+                  $updateFields["password"] = $data["password"];
+           
     $staff->update($updateFields);
 
             if(request()->exists('rental')){

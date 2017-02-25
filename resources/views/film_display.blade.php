@@ -79,17 +79,18 @@
         <label class="text-danger text-md">Associate Categories</label>
 
         <select id="category" name="category[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
-            @forelse(\App\Category::all()->sortBy('name') as  $category)
-                <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
+            @forelse(\App\Category::all()->sortBy('name') as  $category)                 <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
                     {{$category->name}}
                 </option>
             @empty
                 <option value="-1">No category</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
-    
+                <br/>
+
+
         @else
                     <label class="text-danger text-md">Associate Categories</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
@@ -105,17 +106,18 @@
         <label class="text-danger text-md">Associate Actors</label>
 
         <select id="actor" name="actor[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
-            @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)
-                <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected" @endif @endforeach>
+            @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)                 <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected" @endif @endforeach>
                     {{$actor->first_name}}
                 </option>
             @empty
                 <option value="-1">No actor</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
-    
+                <br/>
+
+
         @else
                     <label class="text-danger text-md">Associate Actors</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one actor"  name="actor[]">
@@ -131,17 +133,18 @@
         <label class="text-danger text-md">Associate Stores</label>
 
         <select id="store" name="store[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
-            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
-                <option value="{{$store->store_id}}" @foreach($film->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
+            @forelse(\App\Store::all()->sortBy('address->address') as  $store)                 <option value="{{$store->store_id}}" @foreach($film->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
                     {{$store->address->address}}
                 </option>
             @empty
                 <option value="-1">No store</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
-    
+                <br/>
+
+
         @else
                     <label class="text-danger text-md">Associate Stores</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one store"  name="store[]">

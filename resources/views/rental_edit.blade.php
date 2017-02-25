@@ -16,14 +16,15 @@
             @if(isset($rental->payment))
         <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
-            @forelse(\App\Payment::all()->sortBy('payment_date') as  $payment)
+            @forelse(\App\Payment::paginate(5000)->sortBy('payment_date') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($rental->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
                     {{$payment->payment_date}}
                 </option>
             @empty
                 <option value="-1">No payment</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Payment::paginate(5000)->links()!!}
         <script> $('#payment').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Payment',
@@ -32,6 +33,7 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
     @else
             @endif
         @if(isset($rental->staff))

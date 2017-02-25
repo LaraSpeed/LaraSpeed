@@ -100,11 +100,11 @@ return view('address_edit', compact('address'));
 
     $updateFields = array();
              $updateFields["address"] = $data["address"];
-             $updateFields["address2"] = $data["address2"];
-             $updateFields["district"] = $data["district"];
-              $updateFields["postal_code"] = $data["postal_code"];
-             $updateFields["phone"] = $data["phone"];
-      
+                  $updateFields["address2"] = $data["address2"];
+                  $updateFields["district"] = $data["district"];
+                   $updateFields["postal_code"] = $data["postal_code"];
+                  $updateFields["phone"] = $data["phone"];
+           
     $address->update($updateFields);
 
             if(request()->exists('customer')){

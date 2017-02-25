@@ -89,8 +89,8 @@ return view('actor_edit', compact('actor'));
 
     $updateFields = array();
              $updateFields["first_name"] = $data["first_name"];
-             $updateFields["last_name"] = $data["last_name"];
-      
+                  $updateFields["last_name"] = $data["last_name"];
+           
     $actor->update($updateFields);
 
             if(request()->exists('film')){

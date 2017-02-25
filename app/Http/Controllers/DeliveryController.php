@@ -83,9 +83,9 @@ $delivery = Delivery::create([
 
     $updateFields = array();
              $updateFields["identifiant"] = $data["identifiant"];
-             $updateFields["date"] = $data["date"];
-             $updateFields["articles"] = $data["articles"];
-     
+                  $updateFields["date"] = $data["date"];
+                  $updateFields["articles"] = $data["articles"];
+          
     $delivery->update($updateFields);
 
     

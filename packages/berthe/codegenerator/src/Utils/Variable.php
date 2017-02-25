@@ -132,5 +132,10 @@ class Variable
      */
     public static $EDIT_VIEW = "edit_view";
 
+    /**
+     * Multiple View Edit Pagination amount
+     */
+    public static $EDIT_VIEW_PAGINATION = 5000;
+
 
 }

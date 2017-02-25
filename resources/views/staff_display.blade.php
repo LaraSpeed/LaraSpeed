@@ -36,14 +36,15 @@
             @if(isset($staff->rental))
         <label class="text-danger text-md">Add Rentals</label>
         <select id="rental" name="rental[]" multiple="multiple" size="10">
-            @forelse(\App\Rental::all()->sortBy('rental_date') as  $rental)
+            @forelse(\App\Rental::paginate(5000)->sortBy('rental_date') as  $rental)
                 <option value="{{$rental->rental_id}}" @foreach($staff->rental as  $rentaltmp) @if($rentaltmp->rental_id == $rental->rental_id) selected = "selected" @endif @endforeach>
                     {{$rental->rental_date}}
                 </option>
             @empty
                 <option value="-1">No rental</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Rental::paginate(5000)->links()!!}
         <script> $('#rental').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Rental',
@@ -52,19 +53,21 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
         @else
                 @endif
             @if(isset($staff->payment))
         <label class="text-danger text-md">Add Payments</label>
         <select id="payment" name="payment[]" multiple="multiple" size="10">
-            @forelse(\App\Payment::all()->sortBy('payment_date') as  $payment)
+            @forelse(\App\Payment::paginate(5000)->sortBy('payment_date') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($staff->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
                     {{$payment->payment_date}}
                 </option>
             @empty
                 <option value="-1">No payment</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Payment::paginate(5000)->links()!!}
         <script> $('#payment').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Payment',
@@ -73,6 +76,7 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
         @else
                 @endif
             @if(isset($staff->address))

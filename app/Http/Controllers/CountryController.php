@@ -85,7 +85,7 @@ return view('country_edit', compact('country'));
 
     $updateFields = array();
              $updateFields["country"] = $data["country"];
-      
+           
     $country->update($updateFields);
 
             if(request()->exists('city')){

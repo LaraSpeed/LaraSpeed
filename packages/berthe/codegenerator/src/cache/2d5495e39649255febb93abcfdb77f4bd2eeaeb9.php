@@ -36,10 +36,13 @@
 
     $<?php echo "updateFields = array();"; ?>
 
-    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>
+    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?><?php if(!$attrType->isBoolean()): ?>
         $<?php echo "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"];"; ?>
 
-    <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
+        <?php else: ?>
+        $<?php echo "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"] == \"on\"?1:0;"; ?>
+
+    <?php endif; ?> <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
     $<?php echo $table['title']."->update($"."updateFields);"; ?>
 

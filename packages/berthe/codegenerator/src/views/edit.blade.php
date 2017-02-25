@@ -10,7 +10,7 @@
             @if($attrType->hasUnit())
                 <div class="input-group mb-md">
                     <span class="input-group-addon">{{$attrType->getUnit()}}</span>
-                    {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", false)!!}
+                    {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET", true)!!}
                 </div>
             @else {!! $attrType->getForm("S2BOBRACKET$".$table['title'].'->'.$attrName."S2BCBRACKET")!!} @endif
         </div>

@@ -88,7 +88,7 @@ return view('category_edit', compact('category'));
 
     $updateFields = array();
              $updateFields["name"] = $data["name"];
-      
+           
     $category->update($updateFields);
 
             if(request()->exists('film')){

@@ -104,11 +104,11 @@ return view('customer_edit', compact('customer'));
 
     $updateFields = array();
               $updateFields["first_name"] = $data["first_name"];
-             $updateFields["last_name"] = $data["last_name"];
-             $updateFields["email"] = $data["email"];
-              $updateFields["active"] = $data["active"];
-             $updateFields["create_date"] = $data["create_date"];
-      
+                  $updateFields["last_name"] = $data["last_name"];
+                  $updateFields["email"] = $data["email"];
+                   $updateFields["active"] = $data["active"] == "on"?1:0;
+              $updateFields["create_date"] = $data["create_date"];
+           
     $customer->update($updateFields);
 
             if(request()->exists('payment')){

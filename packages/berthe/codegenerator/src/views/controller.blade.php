@@ -35,9 +35,11 @@
     ${!! "data = request()->all();" !!}
 
     ${!! "updateFields = array();" !!}
-    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())
+    @foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@if(!$attrType->isBoolean())
         ${!! "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"];" !!}
-    @endif @endforeach
+        @else
+        ${!! "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"] == \"on\"?1:0;" !!}
+    @endif @endif @endforeach
 
     ${!! $table['title']."->update($"."updateFields);" !!}
 

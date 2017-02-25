@@ -21,7 +21,7 @@
             <label class="text-danger text-md">Rental duration : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">days</span>
-                    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration" readonly required />
+                    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration"  required />
                 </div>
                     </div>
           
@@ -29,7 +29,7 @@
             <label class="text-danger text-md">Rental rate : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">$</span>
-                    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate" readonly required />
+                    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate"  required />
                 </div>
                     </div>
           
@@ -37,7 +37,7 @@
             <label class="text-danger text-md">Length : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">minutes</span>
-                    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"value = "{{$film->length}}"placeholder="Length" readonly required />
+                    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"value = "{{$film->length}}"placeholder="Length"  required />
                 </div>
                     </div>
           
@@ -45,7 +45,7 @@
             <label class="text-danger text-md">Replacement cost : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">$</span>
-                    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost" readonly required />
+                    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost"  required />
                 </div>
                     </div>
                
@@ -75,16 +75,16 @@
         <label class="text-danger text-md">Associate Categories</label>
 
         <select id="category" name="category[]"  multiple="multiple" size="10" >
-            @forelse(\App\Category::all()->sortBy('name') as  $category)
-                <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
+             @forelse(\App\Category::paginate(5000)->sortBy('name') as  $category)                 <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
                     {{$category->name}}
                 </option>
             @empty
                 <option value="-1">No category</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
+                    {!!\App\Category::paginate(5000)->links()!!}
             <script> $('#category').bootstrapDualListbox(
                 {
                     nonSelectedListLabel: 'Non-selected category',
@@ -92,8 +92,10 @@
                     moveOnSelect: true,
                     nonSelectedFilter: ''
                 }
-        ); </script>
-    
+            ); </script>
+                <br/>
+
+
     @else
                     <label class="text-danger text-md">Associate Categories</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one category"  name="category[]">
@@ -109,16 +111,16 @@
         <label class="text-danger text-md">Associate Actors</label>
 
         <select id="actor" name="actor[]"  multiple="multiple" size="10" >
-            @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)
-                <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected" @endif @endforeach>
+             @forelse(\App\Actor::paginate(5000)->sortBy('first_name') as  $actor)                 <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected" @endif @endforeach>
                     {{$actor->first_name}}
                 </option>
             @empty
                 <option value="-1">No actor</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
+                    {!!\App\Actor::paginate(5000)->links()!!}
             <script> $('#actor').bootstrapDualListbox(
                 {
                     nonSelectedListLabel: 'Non-selected actor',
@@ -126,8 +128,10 @@
                     moveOnSelect: true,
                     nonSelectedFilter: ''
                 }
-        ); </script>
-    
+            ); </script>
+                <br/>
+
+
     @else
                     <label class="text-danger text-md">Associate Actors</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one actor"  name="actor[]">
@@ -143,16 +147,16 @@
         <label class="text-danger text-md">Associate Stores</label>
 
         <select id="store" name="store[]"  multiple="multiple" size="10" >
-            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
-                <option value="{{$store->store_id}}" @foreach($film->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
+             @forelse(\App\Store::paginate(5000)->sortBy('address->address') as  $store)                 <option value="{{$store->store_id}}" @foreach($film->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
                     {{$store->address->address}}
                 </option>
             @empty
                 <option value="-1">No store</option>
             @endforelse
 
-        </select><br/>
+        </select>
 
+                    {!!\App\Store::paginate(5000)->links()!!}
             <script> $('#store').bootstrapDualListbox(
                 {
                     nonSelectedListLabel: 'Non-selected store',
@@ -160,8 +164,10 @@
                     moveOnSelect: true,
                     nonSelectedFilter: ''
                 }
-        ); </script>
-    
+            ); </script>
+                <br/>
+
+
     @else
                     <label class="text-danger text-md">Associate Stores</label>
         <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one store"  name="store[]">

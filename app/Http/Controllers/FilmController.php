@@ -111,13 +111,13 @@ return view('film_edit', compact('film'));
 
     $updateFields = array();
               $updateFields["title"] = $data["title"];
-             $updateFields["description"] = $data["description"];
-             $updateFields["release_year"] = $data["release_year"];
-              $updateFields["rental_duration"] = $data["rental_duration"];
-             $updateFields["rental_rate"] = $data["rental_rate"];
-             $updateFields["length"] = $data["length"];
-             $updateFields["replacement_cost"] = $data["replacement_cost"];
-        
+                  $updateFields["description"] = $data["description"];
+                  $updateFields["release_year"] = $data["release_year"];
+                   $updateFields["rental_duration"] = $data["rental_duration"];
+                  $updateFields["rental_rate"] = $data["rental_rate"];
+                  $updateFields["length"] = $data["length"];
+                  $updateFields["replacement_cost"] = $data["replacement_cost"];
+             
     $film->update($updateFields);
 
             if(request()->exists('language')){

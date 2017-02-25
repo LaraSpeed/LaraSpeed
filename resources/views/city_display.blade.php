@@ -16,14 +16,15 @@
             @if(isset($city->address))
         <label class="text-danger text-md">Add Addresses</label>
         <select id="address" name="address[]" multiple="multiple" size="10">
-            @forelse(\App\Address::all()->sortBy('address') as  $address)
+            @forelse(\App\Address::paginate(5000)->sortBy('address') as  $address)
                 <option value="{{$address->address_id}}" @foreach($city->address as  $addresstmp) @if($addresstmp->address_id == $address->address_id) selected = "selected" @endif @endforeach>
                     {{$address->address}}
                 </option>
             @empty
                 <option value="-1">No address</option>
             @endforelse
-        </select><br/>
+        </select>
+        {!!\App\Address::paginate(5000)->links()!!}
         <script> $('#address').bootstrapDualListbox(
             {
                 nonSelectedListLabel: 'Non-selected Address',
@@ -32,6 +33,7 @@
                 nonSelectedFilter: ''
             }
         ); </script>
+        <br/>
         @else
                 @endif
             @if(isset($city->country))

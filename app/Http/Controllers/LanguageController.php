@@ -85,7 +85,7 @@ return view('language_edit', compact('language'));
 
     $updateFields = array();
              $updateFields["name"] = $data["name"];
-      
+           
     $language->update($updateFields);
 
             if(request()->exists('film')){

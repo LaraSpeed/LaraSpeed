@@ -237,7 +237,10 @@
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Release year
-                            </th>                              <!--class="{$attrType->formClass("table")}}"-->
+                            </th>                            <!--class="{$attrType->formClass("table")}}"-->
+                            <th class="text-md text-primary" nowrap>
+                              Rental duration
+                            </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Rental rate
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
@@ -262,7 +265,9 @@
                                 <td class="text-md">{{$film->description}} </td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->release_year}} </td>
-                                                                  <!-- class="{$attrType->formClass("table")}}" -->
+                                                                <!-- class="{$attrType->formClass("table")}}" -->
+                                <td class="text-md">{{$film->rental_duration}} days</td>
+                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->rental_rate}} $</td>
                                                               <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->length}} minutes</td>
@@ -422,7 +427,7 @@
                                                               <td class="text-md">
                                     <form action="{{url("/customer/related/$customer->customer_id")}}" method="get">
                                         <input type="hidden" name="tab" value="rental" />
-                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Customer&#039;s Rentals">Rentals</button>
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Customer&#039;s Payments">Rentals</button>
                                     </form>
                                 </td>
                                   

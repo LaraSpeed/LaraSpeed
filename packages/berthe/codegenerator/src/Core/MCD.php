@@ -8,6 +8,8 @@
 
 namespace Berthe\Codegenerator\Core;
 
+use Berthe\Codegenerator\Contrats\MCDConstraintInterface;
+use Berthe\Codegenerator\Contrats\MCDRelationConstraintInterface;
 use Berthe\Codegenerator\MCDType\BigIncrementsType;
 use Berthe\Codegenerator\MCDType\BigIntegerType;
 use Berthe\Codegenerator\MCDType\BooleanType;
@@ -32,7 +34,7 @@ use Berthe\Codegenerator\Relation\HasManyRelation;
 use Berthe\Codegenerator\Relation\HasOneRelation;
 
 
-class MCD
+class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
 {
     /**
      * Tables informations and relation
@@ -96,6 +98,27 @@ class MCD
      * @var array
      */
     private $hoversMessages;
+
+    /**
+     * Hold current defined MCD Attribute class
+     *
+     * @var mixed
+     */
+    private $currentAttribut;
+
+    /**
+     * Hold current attribute name
+     *
+     * @var string
+     */
+    private $currentAttributeName;
+
+    /**
+     * Hold current relation (belongTo, hasOne, belongToMany) table name
+     *
+     * @var string
+     */
+    private $currentRelationTableName;
 
     /**
      * MCD constructor.
@@ -177,6 +200,7 @@ class MCD
      * @return $this
      */
     public function string($attrName = "string", $nb_characters = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new StringType($attrName, $required, $nb_characters, $displayed, $unit);
         return $this;
     }
@@ -190,6 +214,7 @@ class MCD
      * @return $this
      */
     public function integer($attrName="integer", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new IntegerType($attrName, $required, $displayed, $unit);
         return $this;
     }
@@ -199,6 +224,7 @@ class MCD
      * @return $this
      */
     public function bigIncrements($attrName="biginc"){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new BigIncrementsType($attrName);
 
         //Create an ID for the current Table if not exist
@@ -215,6 +241,7 @@ class MCD
      * @return $this
      */
     public function bigInteger($attrName = "bigint", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new BigIntegerType($attrName, $required, $displayed, $unit);
         return $this;
     }
@@ -227,6 +254,7 @@ class MCD
      * @return $this
      */
     public function boolean($attrName = "bool", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new BooleanType($attrName, $required, $displayed, $unit);
         return $this;
     }
@@ -240,6 +268,7 @@ class MCD
      * @return $this
      */
     public function char($attrName= "char", $nb_character = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new CharType($attrName, $required, $nb_character, $displayed, $unit);
         return $this;
     }
@@ -254,6 +283,7 @@ class MCD
      * @return $this
      */
     public function decimal($attrName = "decimal", $precision = 0, $scale = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new DecimalType($attrName, $required, $precision, $scale, $displayed, $unit);
         return $this;
     }
@@ -268,6 +298,7 @@ class MCD
      * @return $this
      */
     public function double($attrName = "double", $digit = 0, $after = 0, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new DoubleType($attrName, $required, $digit, $after, $displayed, $unit);
         return $this;
     }
@@ -278,6 +309,7 @@ class MCD
      * @return $this
      */
     public function enum($attrName = "enum", $elements = array()){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new EnumType($attrName,$elements);
         return $this;
     }
@@ -292,6 +324,7 @@ class MCD
      * @return $this
      */
     public function float($attrName = "float", $precision, $scale, $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new FloatType($attrName, $required, $precision, $scale, $displayed, $unit);
         return $this;
     }
@@ -301,6 +334,7 @@ class MCD
      * @return $this
      */
     public function increments($attrName = "inc"){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new IncrementsType($attrName);
 
         //Create an ID for the current Table if not exist
@@ -317,6 +351,7 @@ class MCD
      * @return $this
      */
     public function longText($attrName = "longtext", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new LongTextType($attrName, $required, $displayed, $unit);
         return $this;
     }
@@ -328,6 +363,7 @@ class MCD
      * @return $this
      */
     public function smallInteger($attrName = "smallint", $autoIncrements = false){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new SmallIntegerType($attrName, $autoIncrements);
 
         //Create an ID for the current Table if not exist
@@ -344,6 +380,7 @@ class MCD
      * @return $this
      */
     public function text($attrName = "text", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new TextType($attrName, $required, $displayed, $unit);
         return $this;
     }
@@ -353,6 +390,7 @@ class MCD
      * @return $this
      */
     public function timeStamp($attrName = "timestamps"){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new TimeStampType($attrName);
         return $this;
     }
@@ -365,6 +403,7 @@ class MCD
      * @return $this
      */
     public function tinyInteger($attrName = "tinyInteger", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new TinyIntegerType($attrName, $required, $displayed, $unit);
 
         //Create an ID for the current Table if not exist
@@ -379,6 +418,7 @@ class MCD
      * @return $this
      */
     public function set($attrName = "set", $allowed = array()){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new SetType($attrName, $allowed);
         return $this;
     }
@@ -388,9 +428,10 @@ class MCD
      * @param bool $required
      * @param bool $displayed
      * @param $unit
-     * @return $this
+     * @return MCD
      */
     public function date($attrName = "date", $required = false, $displayed = true, $unit = ""){
+        $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new DateType($attrName, $required, $displayed, $unit);
         return $this;
     }
@@ -401,6 +442,9 @@ class MCD
      * @return $this
      */
     public function hasOne($tableName="table"){
+
+        $this->setCurrentRelationTableName($tableName);
+
         $this->tables[$this->currentTableName]['relations'][] = new HasOneRelation($this->currentTableName, $tableName);
 
         //Adding Additional Route
@@ -413,9 +457,12 @@ class MCD
      * Function adding new relation hasMany Type of relation to the list of the current table relations
      * @param string $tableName
      * @param string $hoverMessage
-     * @return $this
+     * @return MCD
      */
     public function hasMany($tableName="table", $hoverMessage = ""){
+
+        $this->setCurrentRelationTableName($tableName);
+
         $this->tables[$this->currentTableName]['relations'][] = new HasManyRelation($this->currentTableName, $tableName);
 
         //Adding Additional Route
@@ -430,9 +477,12 @@ class MCD
     /**
      * Function adding new relation belongsTo Type of relation to the list of the current table relations
      * @param string $tableName
-     * @return $this
+     * @return MCD
      */
     public function belongsTo($tableName ="table"){
+
+        $this->setCurrentRelationTableName($tableName);
+
         $this->tables[$this->currentTableName]['relations'][] = new BelongsToRelation($this->currentTableName, $tableName);
 
         //Adding Additional Route
@@ -445,9 +495,12 @@ class MCD
      * Function adding new relation belongsToMany Type of relation to the list of the current table relations
      * @param string $tableName
      * @param string $hoverMessage
-     * @return $this
+     * @return MCD
      */
     public function belongsToMany($tableName ="table", $hoverMessage = ""){
+
+        $this->setCurrentRelationTableName($tableName);
+
         $this->tables[$this->currentTableName]['relations'][] = new BelongsToManyRelation($this->currentTableName, $tableName);
 
         //Adding Additional Route
@@ -494,4 +547,85 @@ class MCD
         return $this->hoversMessages;
     }
 
+    /**
+     * Set Current Attribute Name
+     *
+     * @param $attrName
+     */
+    public function setCurrentAttributeName($attrName){
+        $this->currentAttributeName = $attrName;
+    }
+
+    /**
+     * Set current relation table name
+     *
+     * @param string $tableName
+     */
+    public function setCurrentRelationTableName($tableName = ""){
+        $this->currentRelationTableName = $tableName;
+    }
+
+    /**
+     * Get Current Relation Table name
+     *
+     * @return string
+     */
+    public function getCurrentRelationTableName(){
+        return $this->currentRelationTableName;
+    }
+
+    /**
+     * Allowed current attribute to be displayed in the list
+     *
+     * @param $inList bool
+     *
+     * @return MCD
+     */
+    public function inList($inList = true)
+    {
+        $this->currentAttributes[$this->currentAttributeName]->setInList($inList);
+        return $this;
+    }
+
+    /**
+     * Set current attribute to be Mandatory field
+     *
+     * @param $mandatory bool
+     *
+     * @return MCD
+     */
+    public function mandatory($mandatory = true)
+    {
+        $this->currentAttributes[$this->currentAttributeName]->mandatory($mandatory);
+        return $this;
+    }
+
+    /**
+     * Set a unit for the current attribute ($, Days, minutes...)
+     *
+     * @param string $unit
+     * @return MCD
+     */
+    public function unit($unit = "")
+    {
+        $this->currentAttributes[$this->currentAttributeName]->setUnit($unit);
+        return $this;
+    }
+
+    /**
+     * Set the current table to be an intermediate table (So it will not be displayed in the list)
+     *
+     * @return MCD
+     */
+    public function pivot()
+    {
+        $this->pivots[] = $this->currentTableName;
+        return $this;
+    }
+
+    public function doc($doc = "")
+    {
+        $this->hoversMessages[$this->currentTableName . $this->getCurrentRelationTableName()] = $doc;
+        return $this;
+    }
 }

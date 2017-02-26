@@ -19,6 +19,33 @@ class TypeBaseClass
 
     public $unit;
 
+    /**
+     * Allow the type to be list when display the table
+     *
+     * @param $inList bool
+     */
+    public function setInList($inList = true){
+        $this->displayed = $inList;
+    }
+
+    /**
+     * Set current type's unit
+     *
+     * @param string $unit
+     */
+    public function setUnit($unit = ""){
+        $this->unit = $unit;
+    }
+
+    /**
+     * Set type to be mandatory in form
+     *
+     * @param bool $mandatory
+     */
+    public function mandatory($mandatory = true){
+        $this->required = $mandatory;
+    }
+
     function getDBFunction()
     {
         return "$this->functionName('".$this->attrName."')";

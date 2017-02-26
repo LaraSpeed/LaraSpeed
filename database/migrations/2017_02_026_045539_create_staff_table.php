@@ -13,7 +13,7 @@ class CreateStaffTable extends Migration
     {
         Schema::create('staff', function (Blueprint $table) {
 
-                        $table->smallInteger('staff_id', 1);
+                        $table->increments('staff_id');
             $table->string('first_name', 45);
             $table->string('last_name', 15);
             $table->smallInteger('address_id');

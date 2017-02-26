@@ -14,8 +14,8 @@ class CreateStoreTable extends Migration
         Schema::create('store', function (Blueprint $table) {
 
                         $table->increments('store_id');
-            $table->smallInteger('manager_staff_id', 1);
-            $table->smallInteger('address_id', 1);
+            $table->smallInteger('manager_staff_id');
+            $table->smallInteger('address_id');
             $table->timestamps();
         });
     }

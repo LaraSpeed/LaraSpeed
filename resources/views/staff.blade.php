@@ -19,7 +19,7 @@
 			 <input type ="text" class="form-control" name="email" placeholder="Email"  required /> 		</div> <br/>
 		    
         <div class="form-group">
-			<label class="text-danger text-md" id="active"> Active : </label>
+			<label class="text-danger text-md" id="active">Active * : </label>
 			 <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"placeholder="Active"  required /> 		</div> <br/>
 		  
         <div class="form-group">

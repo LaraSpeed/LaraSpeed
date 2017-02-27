@@ -10,7 +10,7 @@
 			<label class="text-danger text-md" id="country">Country * : </label>
 			 <input type ="text" class="form-control" name="country" placeholder="Country"  required /> 		</div> <br/>
 		    
-	  
+	   
 		<div class="row">
 
 			<div class="col-md-3">

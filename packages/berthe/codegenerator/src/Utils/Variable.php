@@ -137,5 +137,10 @@ class Variable
      */
     public static $EDIT_VIEW_PAGINATION = 5000;
 
+    /**
+     * Normal show view pagination
+     */
+    public static $SHOW_VIEW_PAGINATION = 20;
+
 
 }

@@ -13,7 +13,7 @@ class Customer extends Model
     protected $fillable = ["customer_id", "store_id", "first_name", "last_name", "email", "address_id", "active", "create_date", "last_update",  ];
 
         function payment(){ 
-        return $this->hasMany('App\Payment');
+        return $this->hasManyThrough('App\Payment', 'App\Rental');
     }
 
     function rental(){ 

@@ -86,7 +86,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($film->category as  $category)
+                        @forelse($film->category_paginated as  $category)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$category->name}} </td>
@@ -107,6 +107,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$film->category_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -195,7 +199,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($film->actor as  $actor)
+                        @forelse($film->actor_paginated as  $actor)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$actor->first_name}} </td>
@@ -218,6 +222,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$film->actor_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -309,7 +317,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($film->store as  $store)
+                        @forelse($film->store_paginated as  $store)
                             <tr>
                                   
                                                                      <td class="text-md">
@@ -347,6 +355,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$film->store_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

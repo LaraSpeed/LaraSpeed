@@ -105,7 +105,7 @@ class GeneratorCode  extends CallGenerator {
                     ->inList()
                     ->mandatory()
                 ->timeStamp("last_update")
-                ->hasMany("payment")
+                ->hasManyThrough("payment", "rental")
                     ->doc("Customer's Payments")
                 ->hasMany("rental")
                     ->doc("Customer's Payments")
@@ -185,6 +185,8 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->hasMany("city")
                     ->doc("Cities in the Country")
+                ->hasManyThrough("address", "city")
+                    ->doc("Country's Address")
                 ->end()
 
             ->table("store")

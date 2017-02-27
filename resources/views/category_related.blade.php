@@ -98,7 +98,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($category->film as  $film)
+                        @forelse($category->film_paginated as  $film)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->title}} </td>
@@ -136,6 +136,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$category->film_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

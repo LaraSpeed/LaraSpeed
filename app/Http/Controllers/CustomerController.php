@@ -111,15 +111,6 @@ return view('customer_edit', compact('customer'));
            
     $customer->update($updateFields);
 
-            if(request()->exists('payment')){
-
-            $newOnes = \App\Payment::find(request()->get('payment'));
-
-            foreach ($newOnes as $newOne){
-                $customer->payment()->save($newOne);
-            }
-
-        }
              if(request()->exists('rental')){
 
             $newOnes = \App\Rental::find(request()->get('rental'));
@@ -360,15 +351,7 @@ return view('customer_edit', compact('customer'));
         return back();
     }
 
-    function addPayment(Customer $customer ){
-        $newOnes = Payment::find(request()->get('film'));
-
-        foreach ($newOnes as $newOne){
-            $customer->payment()->save($newOne);
-        }
-
-        return back();
-    }
+    //Define the controller action logic
 function addRental(Customer $customer ){
         $newOnes = Rental::find(request()->get('film'));
 

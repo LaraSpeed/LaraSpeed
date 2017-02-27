@@ -36,11 +36,20 @@
         <br/>
         @else
                 @endif
+            @if(isset($country->address))
+        
+        @else
+                @endif
      
 
     
     @if(isset($country->city))
             @else
         <label class="text-danger text-md">No city related to this country.</label>
+    @endif
+    
+    @if(isset($country->address))
+            @else
+        <label class="text-danger text-md">No address related to this country.</label>
     @endif
      @endsection

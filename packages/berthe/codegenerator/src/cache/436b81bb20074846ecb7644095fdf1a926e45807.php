@@ -92,7 +92,7 @@
                     </thead>
 
                     <tbody>
-                        S3Bforelse($<?php echo "$tab->$otherTable"." as "; ?> $<?php echo "$otherTable"; ?>)
+                        S3Bforelse($<?php echo "$tab->$otherTable"."_paginated as "; ?> $<?php echo "$otherTable"; ?>)
                             <tr>
                             <?php $__currentLoopData = $tbs[$otherTable]["attributs"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isDisplayed()): ?>
                             <!-- class="{$attrType->formClass("table")}}" -->
@@ -132,6 +132,10 @@
                         S3Bendforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    S2CBOBRACKET$<?php echo "$tab->$otherTable"."_paginated->links()"; ?>S2CBCBRACKET
+                </div>
             </div>
         </div>
     </section>

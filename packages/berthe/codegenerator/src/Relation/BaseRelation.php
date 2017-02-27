@@ -16,18 +16,21 @@ class BaseRelation implements RelationSpecificationInterface
     public $type;
     public $table;
     public $otherTable;
+    public $intermediate;
 
     /**
      * BaseRelation constructor.
      * @param $type : Type of relation (hasMany, hasOne, BelongsTo....).
      * @param $table : current concern table
      * @param $other : other table concerned.
+     * @param $intermediate : intermediate table for hasManyThrough relation
      */
-    public function __construct($type = "hasMany", $table = "table", $other = "concernTable")
+    public function __construct($type = "hasMany", $table = "table", $other = "concernTable", $intermediate = "intermediate")
     {
         $this->type = $type;
         $this->table = $table;
         $this->otherTable = $other;
+        $this->intermediate = $intermediate;
     }
 
     function getType(){
@@ -40,6 +43,10 @@ class BaseRelation implements RelationSpecificationInterface
 
     function getOtherTable(){
         return $this->otherTable;
+    }
+
+    function getIntermediateTable(){
+        return $this->intermediate;
     }
 
     function hasConstraint(){
@@ -65,6 +72,10 @@ class BaseRelation implements RelationSpecificationInterface
     }
 
     function isHasMany(){
+        return false;
+    }
+
+    function isHasManyThrough(){
         return false;
     }
     

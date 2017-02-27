@@ -101,7 +101,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($city->address as  $address)
+                        @forelse($city->address_paginated as  $address)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$address->address}} </td>
@@ -148,6 +148,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$city->address_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

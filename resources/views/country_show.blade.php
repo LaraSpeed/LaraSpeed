@@ -59,9 +59,12 @@
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Country
                             </th>   
-                                
+                                  
                                                             <th class="text-md text-primary">
                                     City
+                                </th>
+                                                             <th class="text-md text-primary">
+                                    Address
                                 </th>
                               
                             <th class="text-md text-primary">Actions</th>
@@ -74,11 +77,17 @@
                                                                <!--class="{$attrType->formClass("table")}}"-->
                                 <td class="text-md">{{$country->country}} </td>
                                
-                                   
+                                     
                                                                 <td class="text-md">
                                     <form action="{{url("/country/related/$country->country_id")}}" method="get">
                                         <input type="hidden" name="tab" value="city" />
                                         <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Cities in the Country">Cities</button>
+                                    </form>
+                                </td>
+                                                             <td class="text-md">
+                                    <form action="{{url("/country/related/$country->country_id")}}" method="get">
+                                        <input type="hidden" name="tab" value="address" />
+                                        <button type="submit" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Country&#039;s Address">Addresses</button>
                                     </form>
                                 </td>
                               

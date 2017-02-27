@@ -98,7 +98,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($address->customer as  $customer)
+                        @forelse($address->customer_paginated as  $customer)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$customer->first_name}} </td>
@@ -144,6 +144,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$address->customer_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -247,7 +251,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($address->staff as  $staff)
+                        @forelse($address->staff_paginated as  $staff)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$staff->first_name}} </td>
@@ -293,6 +297,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$address->staff_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -381,7 +389,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($address->store as  $store)
+                        @forelse($address->store_paginated as  $store)
                             <tr>
                                   
                                          
@@ -412,6 +420,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$address->store_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

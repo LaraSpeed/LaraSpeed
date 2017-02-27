@@ -89,7 +89,7 @@
                     </thead>
 
                     <tbody>
-                        S3Bforelse(${!!"$tab->$otherTable"." as "!!} ${!! "$otherTable" !!})
+                        S3Bforelse(${!!"$tab->$otherTable"."_paginated as "!!} ${!! "$otherTable" !!})
                             <tr>
                             @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isDisplayed())
                             <!-- class="{$attrType->formClass("table")}}" -->
@@ -129,6 +129,10 @@
                         S3Bendforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    S2CBOBRACKET${!! "$tab->$otherTable"."_paginated->links()" !!}S2CBCBRACKET
+                </div>
             </div>
         </div>
     </section>

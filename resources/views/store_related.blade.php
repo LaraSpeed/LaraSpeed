@@ -108,7 +108,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($store->staff as  $staff)
+                        @forelse($store->staff_paginated as  $staff)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$staff->first_name}} </td>
@@ -154,6 +154,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$store->staff_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -257,7 +261,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($store->film as  $film)
+                        @forelse($store->film_paginated as  $film)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$film->title}} </td>
@@ -295,6 +299,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$store->film_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -398,7 +406,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($store->customer as  $customer)
+                        @forelse($store->customer_paginated as  $customer)
                             <tr>
                                                              <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$customer->first_name}} </td>
@@ -444,6 +452,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$store->customer_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

@@ -128,6 +128,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\Relation\BelongsToManyRelation');
         $this->app->make('Berthe\Codegenerator\Relation\HasManyRelation');
         $this->app->make('Berthe\Codegenerator\Relation\HasOneRelation');
+        $this->app->make('Berthe\Codegenerator\Relation\HasManyThroughRelation');
 
 
 

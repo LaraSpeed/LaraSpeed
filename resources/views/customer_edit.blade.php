@@ -26,26 +26,7 @@
              <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="create_date" value="{{$customer->create_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
            
             @if(isset($customer->payment))
-        <label class="text-danger text-md">Add Payments</label>
-        <select id="payment" name="payment[]" multiple="multiple" size="10">
-            @forelse(\App\Payment::paginate(5000)->sortBy('payment_date') as  $payment)
-                <option value="{{$payment->payment_id}}" @foreach($customer->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
-                    {{$payment->payment_date}}
-                </option>
-            @empty
-                <option value="-1">No payment</option>
-            @endforelse
-        </select>
-        {!!\App\Payment::paginate(5000)->links()!!}
-        <script> $('#payment').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Payment',
-                selectedListLabel: 'Selected Payment',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+        
     @else
             @endif
         @if(isset($customer->rental))

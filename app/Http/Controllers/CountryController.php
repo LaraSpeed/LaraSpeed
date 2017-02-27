@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Country;
     use App\City;
 
+    use App\Address;
+
      
 class CountryController extends Controller {
 
@@ -44,7 +46,7 @@ $country = Country::create([
      "country" => $data["country"],
   ]);
 
-   
+    
         return  isset($data['carl'])?redirect('/country'):back();     }
 
     /**
@@ -56,7 +58,7 @@ $country = Country::create([
     public function show( Country $country )
     {
         request()->session()->forget("mutate");
-         $country->load(array("city",));
+         $country->load(array("city","address",));
 return view('country_display', compact('country')); 
     }
 
@@ -69,7 +71,7 @@ return view('country_display', compact('country'));
     public function edit( Country $country )
     {
         request()->session()->forget("mutate");
-         $country->load(array("city",));
+         $country->load(array("city","address",));
 return view('country_edit', compact('country')); 
     }
 
@@ -97,7 +99,7 @@ return view('country_edit', compact('country'));
             }
 
         }
-      
+       
 
 
 
@@ -134,7 +136,7 @@ return view('country_edit', compact('country'));
         }
 
         $table = request()->get('tab');
-        $country->load(array("city",));
+        $country->load(array("city","address",));
         return view('country_related', compact(['country', 'table']));
     }
 
@@ -201,6 +203,45 @@ return view('country_edit', compact('country'));
 
            
       }
+      if(request()->exists('tab') == 'address'){
+
+         if(request()->exists('address')){
+             session(['sortOrder' => $this->getOrder('address')]);
+             session(['sortKey' => 'address']);
+        }else{
+            request()->session()->forget("address");
+        }
+
+         if(request()->exists('address2')){
+             session(['sortOrder' => $this->getOrder('address2')]);
+             session(['sortKey' => 'address2']);
+        }else{
+            request()->session()->forget("address2");
+        }
+
+         if(request()->exists('district')){
+             session(['sortOrder' => $this->getOrder('district')]);
+             session(['sortKey' => 'district']);
+        }else{
+            request()->session()->forget("district");
+        }
+
+          if(request()->exists('postal_code')){
+             session(['sortOrder' => $this->getOrder('postal_code')]);
+             session(['sortKey' => 'postal_code']);
+        }else{
+            request()->session()->forget("postal_code");
+        }
+
+         if(request()->exists('phone')){
+             session(['sortOrder' => $this->getOrder('phone')]);
+             session(['sortKey' => 'phone']);
+        }else{
+            request()->session()->forget("phone");
+        }
+
+          
+      }
          return back();
     }
     }
@@ -223,6 +264,7 @@ return view('country_edit', compact('country'));
 
         return back();
     }
+//Define the controller action logic
  
     private function getOrder($param){
         if(session($param, "none") != "none"){

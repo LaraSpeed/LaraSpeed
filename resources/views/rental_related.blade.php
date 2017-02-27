@@ -89,7 +89,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($rental->payment as  $payment)
+                        @forelse($rental->payment_paginated as  $payment)
                             <tr>
                                                                <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$payment->amount}} $</td>
@@ -126,6 +126,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$rental->payment_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

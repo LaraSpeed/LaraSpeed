@@ -16,6 +16,10 @@ class Country extends Model
         return $this->hasMany('App\City');
     }
 
+    function address(){ 
+        return $this->hasManyThrough('App\Address', 'App\City');
+    }
+
  
     function getCountryAttribute($value){
 
@@ -38,6 +42,26 @@ class Country extends Model
             return $city->paginate(20)->appends(array("tab" => "city"));
 
         return $city->orderBy(session("sortKey", "city"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "city"));
+
+    }
+
+    function getAddressPaginatedAttribute(){
+        $address = $this->address();
+        if(session("keyword", "none") != "none"){
+            $key = "%".session('keyword','')."%";
+            $address->where('address', 'like', $key)
+              ->orWhere('address2', 'like', $key)
+          ->orWhere('district', 'like', $key)
+           ->orWhere('postal_code', 'like', $key)
+          ->orWhere('phone', 'like', $key)
+         ;
+
+        }
+
+        if(session("sortKey", "none") == "none" or !Schema::hasColumn("address", session("sortKey", "none")))
+            return $address->paginate(20)->appends(array("tab" => "address"));
+
+        return $address->orderBy(session("sortKey", "address"), session("sortOrder", "asc"))->paginate(20)->appends(array("tab" => "address"));
 
     }
 

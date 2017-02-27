@@ -89,7 +89,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($staff->rental as  $rental)
+                        @forelse($staff->rental_paginated as  $rental)
                             <tr>
                                                            <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$rental->rental_date}} </td>
@@ -125,6 +125,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$staff->rental_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else
@@ -219,7 +223,7 @@
                     </thead>
 
                     <tbody>
-                        @forelse($staff->payment as  $payment)
+                        @forelse($staff->payment_paginated as  $payment)
                             <tr>
                                                                <!-- class="{$attrType->formClass("table")}}" -->
                                 <td class="text-md">{{$payment->amount}} $</td>
@@ -256,6 +260,10 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <div class="col-md-12">
+                    {!!$staff->payment_paginated->links()!!}
+                </div>
             </div>
         </div>
     </section>        @else

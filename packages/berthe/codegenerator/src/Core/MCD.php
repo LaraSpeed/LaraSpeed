@@ -31,6 +31,7 @@ use Berthe\Codegenerator\MCDType\TimeStampType;
 use Berthe\Codegenerator\Relation\BelongsToManyRelation;
 use Berthe\Codegenerator\Relation\BelongsToRelation;
 use Berthe\Codegenerator\Relation\HasManyRelation;
+use Berthe\Codegenerator\Relation\HasManyThroughRelation;
 use Berthe\Codegenerator\Relation\HasOneRelation;
 
 
@@ -512,6 +513,26 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     }
 
     /**
+     * Function adding new relation hasManyThrough Type of relation to the list of the current table relations
+     * @param string $tableName
+     * @param string $intermediate
+     * @return MCD
+     */
+    public function hasManyThrough($tableName ="table", $intermediate = ""){
+
+        $this->setCurrentRelationTableName($tableName);
+
+        $this->tables[$this->currentTableName]['relations'][] = new HasManyThroughRelation($this->currentTableName, $tableName, $intermediate);
+
+        //Adding Additional Route
+        //$this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
+
+        $this->hoversMessages[$this->currentTableName . $tableName] = "";
+
+        return $this;
+    }
+
+    /**
      * Function committing add new Table to the MCD.
      * @return $this
      */
@@ -528,6 +549,7 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
      * @return array
      */
     public function getSite(){
+        //var_dump($this->tables["country"]);
         return $this->tables;
     }
 

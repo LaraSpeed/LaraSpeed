@@ -25,77 +25,8 @@
             <label class="text-danger text-md">Phone : </label>
              <input type ="text" class="form-control" name="phone" value = "{{$address->phone}}"placeholder="Phone"  required />         </div>
            
-            @if(isset($address->customer))
-        <label class="text-danger text-md">Add Customers</label>
-        <select id="customer" name="customer[]" multiple="multiple" size="10">
-            @forelse(\App\Customer::paginate(5000)->sortBy('first_name') as  $customer)
-                <option value="{{$customer->customer_id}}" @foreach($address->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
-                    {{$customer->first_name}}
-                </option>
-            @empty
-                <option value="-1">No customer</option>
-            @endforelse
-        </select>
-        {!!\App\Customer::paginate(5000)->links()!!}
-        <script> $('#customer').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Customer',
-                selectedListLabel: 'Selected Customer',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
-    @else
-            @endif
-        @if(isset($address->staff))
-        <label class="text-danger text-md">Add Staffs</label>
-        <select id="staff" name="staff[]" multiple="multiple" size="10">
-            @forelse(\App\Staff::paginate(5000)->sortBy('first_name') as  $staff)
-                <option value="{{$staff->staff_id}}" @foreach($address->staff as  $stafftmp) @if($stafftmp->staff_id == $staff->staff_id) selected = "selected" @endif @endforeach>
-                    {{$staff->first_name}}
-                </option>
-            @empty
-                <option value="-1">No staff</option>
-            @endforelse
-        </select>
-        {!!\App\Staff::paginate(5000)->links()!!}
-        <script> $('#staff').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Staff',
-                selectedListLabel: 'Selected Staff',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
-    @else
-            @endif
-        @if(isset($address->store))
-        <label class="text-danger text-md">Add Stores</label>
-        <select id="store" name="store[]" multiple="multiple" size="10">
-            @forelse(\App\Store::paginate(5000)->sortBy('address->address') as  $store)
-                <option value="{{$store->store_id}}" @foreach($address->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
-                    {{$store->address->address}}
-                </option>
-            @empty
-                <option value="-1">No store</option>
-            @endforelse
-        </select>
-        {!!\App\Store::paginate(5000)->links()!!}
-        <script> $('#store').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Store',
-                selectedListLabel: 'Selected Store',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
-    @else
-            @endif
-        @if(isset($address->city))
-        <label class="text-danger text-md">Update City</label>
+               @if(isset($address->city))
+        <label class="text-danger text-md"> Update City</label>
     <select class="form-control" name="city" >
         @forelse(\App\City::all() as  $city)
         <option value="{{$city->city_id}}" @if($city->city_id == $address->city->city_id) selected = "selected" @endif>
@@ -116,7 +47,7 @@
                 <option value="-1">No city</option>
             @endforelse
         </select><br/>            @endif
-     
+      
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Update" />
         </div>

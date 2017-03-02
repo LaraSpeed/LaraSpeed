@@ -9,34 +9,11 @@
             <label class="text-danger text-md">Country : </label>
              <input type ="text" class="form-control" name="country" value = "{{$country->country}}"placeholder="Country"  required />         </div>
            
-            @if(isset($country->city))
-        <label class="text-danger text-md">Add Cities</label>
-        <select id="city" name="city[]" multiple="multiple" size="10">
-            @forelse(\App\City::paginate(5000)->sortBy('city') as  $city)
-                <option value="{{$city->city_id}}" @foreach($country->city as  $citytmp) @if($citytmp->city_id == $city->city_id) selected = "selected" @endif @endforeach>
-                    {{$city->city}}
-                </option>
-            @empty
-                <option value="-1">No city</option>
-            @endforelse
-        </select>
-        {!!\App\City::paginate(5000)->links()!!}
-        <script> $('#city').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected City',
-                selectedListLabel: 'Selected City',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
-    @else
-            @endif
-        @if(isset($country->address))
+             @if(isset($country->address))
         
     @else
             @endif
-     
+      
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Update" />
         </div>

@@ -18,7 +18,7 @@
        
 
             @if(isset($actor->film))
-        <label class="text-danger text-md">Associate Films</label>
+        <label class="text-danger text-md"> Films</label>
 
         <select id="film" name="film[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Film::all()->sortBy('title') as  $film)                 <option value="{{$film->film_id}}" @foreach($actor->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>

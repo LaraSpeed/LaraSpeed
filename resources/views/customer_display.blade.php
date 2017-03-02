@@ -34,9 +34,9 @@
         @else
                 @endif
             @if(isset($customer->rental))
-        <label class="text-danger text-md">Add Rentals</label>
-        <select id="rental" name="rental[]" multiple="multiple" size="10">
-            @forelse(\App\Rental::paginate(5000)->sortBy('rental_date') as  $rental)
+        <label class="text-danger text-md"> Rentals</label>
+        <select id="rental" name="rental[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\Rental::all()->sortBy('rental_date') as  $rental)
                 <option value="{{$rental->rental_id}}" @foreach($customer->rental as  $rentaltmp) @if($rentaltmp->rental_id == $rental->rental_id) selected = "selected" @endif @endforeach>
                     {{$rental->rental_date}}
                 </option>
@@ -44,20 +44,13 @@
                 <option value="-1">No rental</option>
             @endforelse
         </select>
-        {!!\App\Rental::paginate(5000)->links()!!}
-        <script> $('#rental').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Rental',
-                selectedListLabel: 'Selected Rental',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+
+    
+    <br/>
         @else
                 @endif
             @if(isset($customer->address))
-        <label class="text-danger text-md">Update Address</label>
+        <label class="text-danger text-md">Address</label>
     <select class="form-control" name="address"  disabled >
         @forelse(\App\Address::all() as  $address)
         <option value="{{$address->address_id}}" @if($address->address_id == $customer->address->address_id) selected = "selected" @endif>
@@ -79,7 +72,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($customer->store))
-        <label class="text-danger text-md">Update Store</label>
+        <label class="text-danger text-md">Store</label>
     <select class="form-control" name="store"  disabled >
         @forelse(\App\Store::all() as  $store)
         <option value="{{$store->store_id}}" @if($store->store_id == $customer->store->store_id) selected = "selected" @endif>

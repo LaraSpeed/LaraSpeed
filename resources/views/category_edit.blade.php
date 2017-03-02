@@ -10,7 +10,7 @@
              <input type ="text" class="form-control" name="name" value = "{{$category->name}}"placeholder="Name"  required />         </div>
            
             @if(isset($category->film))
-        <label class="text-danger text-md">Associate Films</label>
+        <label class="text-danger text-md"> Associate  Films</label>
 
         <select id="film" name="film[]"  multiple="multiple" size="10" >
              @forelse(\App\Film::paginate(5000)->sortBy('title') as  $film)                 <option value="{{$film->film_id}}" @foreach($category->film as  $filmtmp) @if($filmtmp->film_id == $film->film_id) selected = "selected" @endif @endforeach>
@@ -45,7 +45,7 @@
                 <option value="-1">No film</option>
             @endforelse
         </select><br/>            @endif
-     
+      
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Update" />
         </div>

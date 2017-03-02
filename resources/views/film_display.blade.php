@@ -54,7 +54,7 @@
            
 
             @if(isset($film->language))
-        <label class="text-danger text-md">Update Language</label>
+        <label class="text-danger text-md">Language</label>
     <select class="form-control" name="language"  disabled >
         @forelse(\App\Language::all() as  $language)
         <option value="{{$language->language_id}}" @if($language->language_id == $film->language->language_id) selected = "selected" @endif>
@@ -76,7 +76,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($film->category))
-        <label class="text-danger text-md">Associate Categories</label>
+        <label class="text-danger text-md"> Categories</label>
 
         <select id="category" name="category[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Category::all()->sortBy('name') as  $category)                 <option value="{{$category->category_id}}" @foreach($film->category as  $categorytmp) @if($categorytmp->category_id == $category->category_id) selected = "selected" @endif @endforeach>
@@ -103,7 +103,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($film->actor))
-        <label class="text-danger text-md">Associate Actors</label>
+        <label class="text-danger text-md"> Actors</label>
 
         <select id="actor" name="actor[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Actor::all()->sortBy('first_name') as  $actor)                 <option value="{{$actor->actor_id}}" @foreach($film->actor as  $actortmp) @if($actortmp->actor_id == $actor->actor_id) selected = "selected" @endif @endforeach>
@@ -130,7 +130,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($film->store))
-        <label class="text-danger text-md">Associate Stores</label>
+        <label class="text-danger text-md"> Stores</label>
 
         <select id="store" name="store[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
             @forelse(\App\Store::all()->sortBy('address->address') as  $store)                 <option value="{{$store->store_id}}" @foreach($film->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>

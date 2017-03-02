@@ -30,9 +30,9 @@
        
 
             @if(isset($address->customer))
-        <label class="text-danger text-md">Add Customers</label>
-        <select id="customer" name="customer[]" multiple="multiple" size="10">
-            @forelse(\App\Customer::paginate(5000)->sortBy('first_name') as  $customer)
+        <label class="text-danger text-md"> Customers</label>
+        <select id="customer" name="customer[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\Customer::all()->sortBy('first_name') as  $customer)
                 <option value="{{$customer->customer_id}}" @foreach($address->customer as  $customertmp) @if($customertmp->customer_id == $customer->customer_id) selected = "selected" @endif @endforeach>
                     {{$customer->first_name}}
                 </option>
@@ -40,22 +40,15 @@
                 <option value="-1">No customer</option>
             @endforelse
         </select>
-        {!!\App\Customer::paginate(5000)->links()!!}
-        <script> $('#customer').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Customer',
-                selectedListLabel: 'Selected Customer',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+
+    
+    <br/>
         @else
                 @endif
             @if(isset($address->staff))
-        <label class="text-danger text-md">Add Staffs</label>
-        <select id="staff" name="staff[]" multiple="multiple" size="10">
-            @forelse(\App\Staff::paginate(5000)->sortBy('first_name') as  $staff)
+        <label class="text-danger text-md"> Staffs</label>
+        <select id="staff" name="staff[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\Staff::all()->sortBy('first_name') as  $staff)
                 <option value="{{$staff->staff_id}}" @foreach($address->staff as  $stafftmp) @if($stafftmp->staff_id == $staff->staff_id) selected = "selected" @endif @endforeach>
                     {{$staff->first_name}}
                 </option>
@@ -63,22 +56,15 @@
                 <option value="-1">No staff</option>
             @endforelse
         </select>
-        {!!\App\Staff::paginate(5000)->links()!!}
-        <script> $('#staff').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Staff',
-                selectedListLabel: 'Selected Staff',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+
+    
+    <br/>
         @else
                 @endif
             @if(isset($address->store))
-        <label class="text-danger text-md">Add Stores</label>
-        <select id="store" name="store[]" multiple="multiple" size="10">
-            @forelse(\App\Store::paginate(5000)->sortBy('address->address') as  $store)
+        <label class="text-danger text-md"> Stores</label>
+        <select id="store" name="store[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\Store::all()->sortBy('address->address') as  $store)
                 <option value="{{$store->store_id}}" @foreach($address->store as  $storetmp) @if($storetmp->store_id == $store->store_id) selected = "selected" @endif @endforeach>
                     {{$store->address->address}}
                 </option>
@@ -86,20 +72,13 @@
                 <option value="-1">No store</option>
             @endforelse
         </select>
-        {!!\App\Store::paginate(5000)->links()!!}
-        <script> $('#store').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Store',
-                selectedListLabel: 'Selected Store',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+
+    
+    <br/>
         @else
                 @endif
             @if(isset($address->city))
-        <label class="text-danger text-md">Update City</label>
+        <label class="text-danger text-md">City</label>
     <select class="form-control" name="city"  disabled >
         @forelse(\App\City::all() as  $city)
         <option value="{{$city->city_id}}" @if($city->city_id == $address->city->city_id) selected = "selected" @endif>

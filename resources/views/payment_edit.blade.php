@@ -18,7 +18,7 @@
              <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="payment_date" value="{{$payment->payment_date}}" placeholder="MM/DD/-YYYY" type="text"/></div>         </div>
          
             @if(isset($payment->rental))
-        <label class="text-danger text-md">Update Rental</label>
+        <label class="text-danger text-md"> Update Rental</label>
     <select class="form-control" name="rental" >
         @forelse(\App\Rental::all() as  $rental)
         <option value="{{$rental->rental_id}}" @if($rental->rental_id == $payment->rental->rental_id) selected = "selected" @endif>
@@ -39,8 +39,8 @@
                 <option value="-1">No rental</option>
             @endforelse
         </select><br/>            @endif
-        @if(isset($payment->customer))
-        <label class="text-danger text-md">Update Customer</label>
+         @if(isset($payment->customer))
+        <label class="text-danger text-md"> Update Customer</label>
     <select class="form-control" name="customer" >
         @forelse(\App\Customer::all() as  $customer)
         <option value="{{$customer->customer_id}}" @if($customer->customer_id == $payment->customer->customer_id) selected = "selected" @endif>
@@ -61,8 +61,8 @@
                 <option value="-1">No customer</option>
             @endforelse
         </select><br/>            @endif
-        @if(isset($payment->staff))
-        <label class="text-danger text-md">Update Staff</label>
+         @if(isset($payment->staff))
+        <label class="text-danger text-md"> Update Staff</label>
     <select class="form-control" name="staff" >
         @forelse(\App\Staff::all() as  $staff)
         <option value="{{$staff->staff_id}}" @if($staff->staff_id == $payment->staff->staff_id) selected = "selected" @endif>
@@ -83,7 +83,7 @@
                 <option value="-1">No staff</option>
             @endforelse
         </select><br/>            @endif
-     
+      
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Update" />
         </div>

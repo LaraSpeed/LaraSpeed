@@ -14,9 +14,9 @@
        
 
             @if(isset($country->city))
-        <label class="text-danger text-md">Add Cities</label>
-        <select id="city" name="city[]" multiple="multiple" size="10">
-            @forelse(\App\City::paginate(5000)->sortBy('city') as  $city)
+        <label class="text-danger text-md"> Cities</label>
+        <select id="city" name="city[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\City::all()->sortBy('city') as  $city)
                 <option value="{{$city->city_id}}" @foreach($country->city as  $citytmp) @if($citytmp->city_id == $city->city_id) selected = "selected" @endif @endforeach>
                     {{$city->city}}
                 </option>
@@ -24,16 +24,9 @@
                 <option value="-1">No city</option>
             @endforelse
         </select>
-        {!!\App\City::paginate(5000)->links()!!}
-        <script> $('#city').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected City',
-                selectedListLabel: 'Selected City',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+
+    
+    <br/>
         @else
                 @endif
             @if(isset($country->address))

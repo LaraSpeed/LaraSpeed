@@ -18,9 +18,9 @@
          
 
             @if(isset($rental->payment))
-        <label class="text-danger text-md">Add Payments</label>
-        <select id="payment" name="payment[]" multiple="multiple" size="10">
-            @forelse(\App\Payment::paginate(5000)->sortBy('payment_date') as  $payment)
+        <label class="text-danger text-md"> Payments</label>
+        <select id="payment" name="payment[]"  multiple data-plugin-selectTwo class="form-control populate" disabled >
+            @forelse(\App\Payment::all()->sortBy('payment_date') as  $payment)
                 <option value="{{$payment->payment_id}}" @foreach($rental->payment as  $paymenttmp) @if($paymenttmp->payment_id == $payment->payment_id) selected = "selected" @endif @endforeach>
                     {{$payment->payment_date}}
                 </option>
@@ -28,20 +28,13 @@
                 <option value="-1">No payment</option>
             @endforelse
         </select>
-        {!!\App\Payment::paginate(5000)->links()!!}
-        <script> $('#payment').bootstrapDualListbox(
-            {
-                nonSelectedListLabel: 'Non-selected Payment',
-                selectedListLabel: 'Selected Payment',
-                moveOnSelect: true,
-                nonSelectedFilter: ''
-            }
-        ); </script>
-        <br/>
+
+    
+    <br/>
         @else
                 @endif
             @if(isset($rental->staff))
-        <label class="text-danger text-md">Update Staff</label>
+        <label class="text-danger text-md">Staff</label>
     <select class="form-control" name="staff"  disabled >
         @forelse(\App\Staff::all() as  $staff)
         <option value="{{$staff->staff_id}}" @if($staff->staff_id == $rental->staff->staff_id) selected = "selected" @endif>
@@ -63,7 +56,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($rental->customer))
-        <label class="text-danger text-md">Update Customer</label>
+        <label class="text-danger text-md">Customer</label>
     <select class="form-control" name="customer"  disabled >
         @forelse(\App\Customer::all() as  $customer)
         <option value="{{$customer->customer_id}}" @if($customer->customer_id == $rental->customer->customer_id) selected = "selected" @endif>

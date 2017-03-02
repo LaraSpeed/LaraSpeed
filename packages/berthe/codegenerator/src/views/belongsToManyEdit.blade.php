@@ -1,4 +1,4 @@
-    <label class="text-danger text-md">Associate {{ucfirst($config->getPluralForm($otherTable))}}</label>
+    <label class="text-danger text-md">@if($type == \Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW) Associate @endif {{ucfirst($config->getPluralForm($otherTable))}}</label>
 
         <select id="{{$otherTable}}" name="{!! $otherTable !!}[]" @if($type == \Berthe\Codegenerator\Utils\Variable::$DISPLAY_VIEW) multiple data-plugin-selectTwo class="form-control populate" disabled @else multiple="multiple" size="10" @endif>
             @if($type == \Berthe\Codegenerator\Utils\Variable::$DISPLAY_VIEW)S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all()->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!}) @else S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::paginate(".\Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW_PAGINATION.")->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!}) @endif

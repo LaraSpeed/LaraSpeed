@@ -16,7 +16,7 @@
         </div>
         @endif @endforeach
 
-        @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)
+        @if(key_exists("relations", $table) && !empty($table["relations"]))@foreach($table['relations'] as $relation)@if(!$relation->isHasMany())
     S3Bif(isset(${!! $relation->getTable()."->".$relation->getOtherTable()!!}))
         @include($relation->getEditView(), ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config, "type" => \Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW])
 
@@ -27,7 +27,7 @@
             @include("simpleBelongToMany", ["tab" => $relation->getTable(), "otherTable" => $relation->getOtherTable(), "tbs" => $tbs, "config" => $config])
         @endif
     S3Bendif
-    @endforeach @endif
+    @endif @endforeach @endif
 
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Update" />

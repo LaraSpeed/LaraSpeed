@@ -1,4 +1,4 @@
-    <label class="text-danger text-md">Associate <?php echo e(ucfirst($config->getPluralForm($otherTable))); ?></label>
+    <label class="text-danger text-md"><?php if($type == \Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW): ?> Associate <?php endif; ?> <?php echo e(ucfirst($config->getPluralForm($otherTable))); ?></label>
 
         <select id="<?php echo e($otherTable); ?>" name="<?php echo $otherTable; ?>[]" <?php if($type == \Berthe\Codegenerator\Utils\Variable::$DISPLAY_VIEW): ?> multiple data-plugin-selectTwo class="form-control populate" disabled <?php else: ?> multiple="multiple" size="10" <?php endif; ?>>
             <?php if($type == \Berthe\Codegenerator\Utils\Variable::$DISPLAY_VIEW): ?>S3Bforelse(<?php echo "\\App\\".ucfirst($otherTable)."::all()->sortBy('".$config->displayedAttributes($otherTable)."') as "; ?> $<?php echo "$otherTable"; ?>) <?php else: ?> S3Bforelse(<?php echo "\\App\\".ucfirst($otherTable)."::paginate(".\Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW_PAGINATION.")->sortBy('".$config->displayedAttributes($otherTable)."') as "; ?> $<?php echo "$otherTable"; ?>) <?php endif; ?>

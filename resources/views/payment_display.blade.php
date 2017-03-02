@@ -22,7 +22,7 @@
      
 
             @if(isset($payment->rental))
-        <label class="text-danger text-md">Update Rental</label>
+        <label class="text-danger text-md">Rental</label>
     <select class="form-control" name="rental"  disabled >
         @forelse(\App\Rental::all() as  $rental)
         <option value="{{$rental->rental_id}}" @if($rental->rental_id == $payment->rental->rental_id) selected = "selected" @endif>
@@ -44,7 +44,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($payment->customer))
-        <label class="text-danger text-md">Update Customer</label>
+        <label class="text-danger text-md">Customer</label>
     <select class="form-control" name="customer"  disabled >
         @forelse(\App\Customer::all() as  $customer)
         <option value="{{$customer->customer_id}}" @if($customer->customer_id == $payment->customer->customer_id) selected = "selected" @endif>
@@ -66,7 +66,7 @@
             @endforelse
         </select><br/>                @endif
             @if(isset($payment->staff))
-        <label class="text-danger text-md">Update Staff</label>
+        <label class="text-danger text-md">Staff</label>
     <select class="form-control" name="staff"  disabled >
         @forelse(\App\Staff::all() as  $staff)
         <option value="{{$staff->staff_id}}" @if($staff->staff_id == $payment->staff->staff_id) selected = "selected" @endif>

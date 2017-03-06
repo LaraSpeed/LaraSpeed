@@ -1,0 +1,1 @@
+{{ucfirst($table['title']).' $'.$table['title']}} 

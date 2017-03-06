@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 03/10/16
  * Time: 10:55 ص
+ *
+ * This Class is used to create HTML elements using function.
  */
 
 namespace Berthe\Codegenerator\Utils;
@@ -20,9 +22,10 @@ class FormTemplateProvider
      * @param string $value
      * @param string $name
      * @param bool $hasPlaceHolder
+     * @param bool $editable
      * @return string
      */
-    public static function input($type="", $name="", $class="form-control", $value = "", $hasPlaceHolder = false){
+    public static function input($type="", $name="", $class="form-control", $value = "", $hasPlaceHolder = false, $editable = true){
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
         if($type == "number")
@@ -37,6 +40,9 @@ class FormTemplateProvider
 
         if($hasPlaceHolder)
             $form .= 'placeholder="'.ucfirst(str_replace("_", " ", $name)).'" ';
+
+        if(!$editable)
+            $form .= 'readonly';
 
         return $form. ' required />';
     }
@@ -58,12 +64,20 @@ class FormTemplateProvider
      * @param int $rows
      * @param string $class
      * @param string $value
+     * @param boolean $editable
      * @return string
      */
-    public static function textarea($name="", $cols = 20, $rows = 4, $class = "form-control", $value = ""){
+    public static function textarea($name="", $cols = 20, $rows = 4, $class = "form-control", $value = "", $editable=true){
+
+        $form = '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'""';
+
+        if(!$editable)
+            $form .= ' readonly ';
+
         if($value != "")
-            return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'" required>'.$value.'</textarea>';
-        return '<textarea name="'.$name.'" rows="'.$rows.'" cols="'.$cols.'" class="'.$class.'" required></textarea>';
+            return $form.'>'.$value.'</textarea>';
+
+        return $form.' required></textarea>';
     }
 
     /**

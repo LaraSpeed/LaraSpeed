@@ -1,4 +1,10 @@
 <?php
+/**
+ *
+ * This Class represent the intermediate between This package and the Laravel project,
+ *
+ * Declare classes in package level in oder to let them been usable in project level
+ */
 
 namespace Berthe\Codegenerator;
 
@@ -29,7 +35,19 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         ));
 
         //Event
-        Event::listen('launch', 'App\in\GeneratorCode@index');
+        Event::listen('launch', 'App\GeneratorCode@index');
+
+        //publishing path
+
+        $this->publishes([
+            __DIR__ . '/assets/asset1/' => public_path('/assets'),
+            __DIR__ . '/assets/fonts/' => public_path('/fonts')
+        ], "assets");
+
+        $this->publishes([
+            __DIR__ . '/assets/GeneratorCode.php' => app_path()
+        ], "code");
+
 
     }
 
@@ -110,6 +128,7 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         $this->app->make('Berthe\Codegenerator\Relation\BelongsToManyRelation');
         $this->app->make('Berthe\Codegenerator\Relation\HasManyRelation');
         $this->app->make('Berthe\Codegenerator\Relation\HasOneRelation');
+        $this->app->make('Berthe\Codegenerator\Relation\HasManyThroughRelation');
 
 
 

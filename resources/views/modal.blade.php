@@ -9,10 +9,11 @@
                 <h4 class="modal-title">@{{ title }}</h4>
             </div>
             <div class="modal-body">
-                <h3>@{{ description }}</h3>
-
-                <button type="button" ng-click="delete();" class="btn btn-primary">YES</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
+                <div class="row" style="padding-left: 50px; padding-right: 50px;">
+                     <h3>@{{ description }}</h3>
+                     <button type="button" ng-click="delete();" class="btn btn-lg btn-primary pull-left">YES</button>
+                     <button type="button" class="btn btn-lg btn-danger pull-right" data-dismiss="modal">NO</button>
+                </div>
 
             </div>
 

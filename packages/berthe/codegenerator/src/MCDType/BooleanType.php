@@ -21,10 +21,12 @@ class BooleanType extends TypeBaseClass implements FormableType
     public $displayable = true;
     public $mutator = "booleanMutator";
 
-    public function __construct($attrName = "", $required = false)
+    public function __construct($attrName = "", $required = false, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
         $this->required = $required;
+        $this->displayed = $displayed;
+        $this->unit = $unit;
     }
 
     function getFormType()
@@ -32,7 +34,7 @@ class BooleanType extends TypeBaseClass implements FormableType
         return $this->formType;
     }
 
-    function getForm($value = "")
+    function getForm($value = "", $editable = true)
     {
         return FormTemplateProvider::checkBox($this->attrName, $value);
     }

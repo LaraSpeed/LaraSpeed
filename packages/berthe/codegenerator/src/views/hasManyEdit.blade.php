@@ -1,10 +1,25 @@
-    <h3 class="text-danger">Add {{ucfirst($otherTable)}}</h3>
-        <select multiple data-plugin-selectTwo class="form-control populate" title="Please select at least one {!! $otherTable !!}"  name="{!! $otherTable !!}[]">
-            S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all() as "!!} ${!! "$otherTable" !!})
+    <label class="text-danger text-md">@if($type == \Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW) Add @endif {{ucfirst($config->getPluralForm($otherTable))}}</label>
+        <select id="{{$otherTable}}" name="{!! $otherTable !!}[]" @if($type == \Berthe\Codegenerator\Utils\Variable::$DISPLAY_VIEW) multiple data-plugin-selectTwo class="form-control populate" disabled @else multiple="multiple" size="10" @endif>
+            S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::all()->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!})
                 <option value="S2BOBRACKET${!! "$otherTable->".$tbs[$otherTable]["id"] !!}S2BCBRACKET" S3Bforeach(${!! "$tab->".$otherTable." as "!!} ${!! "$otherTable"."tmp" !!}) S3Bif(${!! "$otherTable"."tmp->".$tbs[$otherTable]['id']." == $"."$otherTable->".$tbs[$otherTable]["id"] !!}) selected = "selected" S3Bendif S3Bendforeach>
                     S2BOBRACKET${!! "$otherTable->".$config->displayedAttributes($otherTable) !!}S2BCBRACKET
                 </option>
             S3Bempty
                 <option value="-1">No {{$otherTable}}</option>
             S3Bendforelse
-        </select><br/>
+        </select>
+
+    @if($type == \Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW)
+
+        <script> $('#{{$otherTable}}').bootstrapDualListbox(
+            {
+                nonSelectedListLabel: 'Non-selected {{ucfirst($otherTable)}}',
+                selectedListLabel: 'Selected {{ucfirst($otherTable)}}',
+                moveOnSelect: true,
+                nonSelectedFilter: ''
+            }
+        ); </script>
+
+    @endif
+
+    <br/>

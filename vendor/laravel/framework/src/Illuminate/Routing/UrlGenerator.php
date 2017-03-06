@@ -201,7 +201,7 @@ class UrlGenerator implements UrlGeneratorContract
     }
 
     /**
-     * Generate a URL to an application asset.
+     * Generate a URL to an application assets.
      *
      * @param  string  $path
      * @param  bool|null  $secure
@@ -215,14 +215,14 @@ class UrlGenerator implements UrlGeneratorContract
 
         // Once we get the root URL, we will check to see if it contains an index.php
         // file in the paths. If it does, we will remove it since it is not needed
-        // for asset paths, but only for routes to endpoints in the application.
+        // for assets paths, but only for routes to endpoints in the application.
         $root = $this->getRootUrl($this->getScheme($secure));
 
         return $this->removeIndex($root).'/'.trim($path, '/');
     }
 
     /**
-     * Generate a URL to an asset from a custom root domain such as CDN, etc.
+     * Generate a URL to an assets from a custom root domain such as CDN, etc.
      *
      * @param  string  $root
      * @param  string  $path
@@ -233,7 +233,7 @@ class UrlGenerator implements UrlGeneratorContract
     {
         // Once we get the root URL, we will check to see if it contains an index.php
         // file in the paths. If it does, we will remove it since it is not needed
-        // for asset paths, but only for routes to endpoints in the application.
+        // for assets paths, but only for routes to endpoints in the application.
         $root = $this->getRootUrl($this->getScheme($secure), $root);
 
         return $this->removeIndex($root).'/'.trim($path, '/');
@@ -253,7 +253,7 @@ class UrlGenerator implements UrlGeneratorContract
     }
 
     /**
-     * Generate a URL to a secure asset.
+     * Generate a URL to a secure assets.
      *
      * @param  string  $path
      * @return string

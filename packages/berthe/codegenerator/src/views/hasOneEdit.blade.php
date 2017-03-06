@@ -1,4 +1,4 @@
-<h3>Update {{ucfirst($otherTable)}}</h3>
+<label class="text-danger text-md">Update {{ucfirst($otherTable)}}</label>
 <form action="S2BOBRACKET{!! "url(\"/".$tab."/update".ucfirst($otherTable)."/$".$tab."->".$tbs[$tab]['id']."\")" !!}S2BCBRACKET" method="post">
     <input type="hidden" name="_token" value="S2BOBRACKET csrf_token() S2BCBRACKET" />
     <select class="form-control" name="{{$otherTable}}">

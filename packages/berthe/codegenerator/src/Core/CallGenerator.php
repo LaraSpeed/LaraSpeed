@@ -4,6 +4,11 @@
  * User: seydou
  * Date: 01/09/16
  * Time: 05:40 م
+ *
+ * This Class is use by "app/in/GeneratorCode.php" to handle generation of code when type on command line "php artisan code:generate",
+ * It use AdvancedGenerator Cass to generate different components of the project such as :
+ *  (Table insert and update Forms, display, schema, model, controller)
+ * .
  */
 
 namespace Berthe\Codegenerator\Core;
@@ -12,26 +17,84 @@ use Berthe\Codegenerator\Templates\SideBarTemplate;
 
 class CallGenerator
 {
-    public $routes;
+    /**
+     * Use to get routes for relation between tables
+     *
+     * @var array
+     */
+    private $routes;
 
+    /**
+     * List of pivots tables
+     *
+     * @var array
+     */
+    private $pivots;
+
+    /**
+     * Table relations Hovers Messages
+     *
+     * @var array
+     */
+    private $hoverMessages;
+
+    /**
+     * Get the "Conceptual Data Model" as an array.
+     * It's actually the one overrided in "app/in/GeneratorCode.php" file to define "Conceptual Data Model".
+     *
+     * @return array
+     */
     public function getSite(){
         return array();
     }
 
+    /**
+     * Set $route variable
+     *
+     * @param array $routes
+     */
     public function setRoutes($routes = array()){
         $this->routes = $routes;
     }
 
+    /**
+     * Set the list of pivots tables
+     *
+     * @param array $pivots
+     */
+    public function setPivots($pivots = []){
+        $this->pivots = $pivots;
+    }
+
+    /**
+     * Set Hovers Message
+     *
+     * @param array $hoverMessages
+     */
+    public function setHoverMessages($hoverMessages = []){
+        $this->hoverMessages = $hoverMessages;
+    }
+
+    /**
+     * Generate different component (Controllers, Schemas, Models and forms).
+     * It's fired when "php artisan code:generate" is called.
+     *
+     * @return void
+     */
     public function index()
     {
-        $laravelGenerator = new AdvancedGenerator($this->getSite(), $this->configs, $this->routes);
+        $mcd = $this->getSite();
+        $this->configs["pivots"] = $this->pivots;
+        $this->configs["hoverMessages"] = $this->hoverMessages;
+
+        $laravelGenerator = new AdvancedGenerator($mcd, $this->configs, $this->routes);
             //new LaravelCodeGenerator($this->getSite());
         $laravelGenerator->generate();
         $laravelGenerator->generate('ShowForm');
         $laravelGenerator->generate('DisplaySingleElement');
         $laravelGenerator->generate('EditForm');
         $laravelGenerator->generate('RelatedForm');
-        $laravelGenerator->generate('Schema');
+        //$laravelGenerator->generate('Schema');
         $laravelGenerator->generate('Model');
         $laravelGenerator->generate('Controller');
         $laravelGenerator->generate('Schema');

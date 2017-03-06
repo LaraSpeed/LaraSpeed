@@ -122,7 +122,7 @@ if (! function_exists('app_path')) {
 
 if (! function_exists('asset')) {
     /**
-     * Generate an asset path for the application.
+     * Generate an assets path for the application.
      *
      * @param  string  $path
      * @param  bool    $secure
@@ -407,7 +407,7 @@ if (! function_exists('elixir')) {
             return '/'.trim($file, '/');
         }
 
-        throw new InvalidArgumentException("File {$file} not defined in asset manifest.");
+        throw new InvalidArgumentException("File {$file} not defined in assets manifest.");
     }
 }
 
@@ -695,7 +695,7 @@ if (! function_exists('route')) {
 
 if (! function_exists('secure_asset')) {
     /**
-     * Generate an asset path for the application.
+     * Generate an assets path for the application.
      *
      * @param  string  $path
      * @return string

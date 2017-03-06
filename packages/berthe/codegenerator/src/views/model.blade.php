@@ -1,28 +1,16 @@
 @section('typeFichier')  @endsection
 @extends('modelMaster')
 
-@section('namespace'){{'App'}}@endsection
+@section('namespace') @include("models.namespaces") @endsection
 
-@section('modelName'){{ucfirst($table['title'])}}@endsection
+@section('modelName') @include("models.name", ["table" => $table]) @endsection
 
-@section('col_id'){{$table['id']}}@endsection
+@section('col_id') @include("models.id", ["table" => $table]) @endsection
 
-@section('tableName'){{$table['title']}}@endsection
+@section('tableName') @include("models.table", ["table" => $table]) @endsection
 
-@section('attributs')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrVal){!! "\"$attrName\", "!!}@endforeach @endif
-@endsection
+@section('attributs') @include("models.attributs", ["table" => $table]) @endsection
 
-@section('relations')@if(array_key_exists('relations', $table) && !empty($table["relations"]))@foreach($table['relations'] as $relationType)
-    @include($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable(), "table" => $relationType->getTable()])
+@section('relations') @include("models.relations", ["table" => $table]) @endsection
 
-@endforeach @endif
-@endsection
-
-@section('accessors')@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrType)@if($attrType->isDisplayable())@include($attrType->mutator(), ['attrName' => $attrName, 'length' => 40]) @endif
-@endforeach @endif
-
-@if(array_key_exists('relations', $table) && !empty($table["relations"]))@foreach($table['relations'] as $relationType)
-    @include($relationType->getRelationAccessor(), ["table" => $relationType->getTable(), "otherTable" => $relationType->getOtherTable(), "config" => $config, "tbs" => $tbs])
-
-@endforeach @endif
-@endsection
+@section('accessors') @include("models.accessors", ["table" => $table, "config" => $config]) @endsection

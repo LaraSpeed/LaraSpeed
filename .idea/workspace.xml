@@ -2,93 +2,261 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ac1c198-5280-48bd-b7d5-45fda026c931" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Category.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Delivery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Director.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/Film.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/DeliveryController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/DirectorController.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/FilmController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/Controllers/LanguageController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Language.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/User.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_031_072759_create_category_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_031_072759_create_delivery_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_031_072759_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_031_072759_create_foreign_keys.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_031_072759_create_language_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/controller/acteur.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/controller/film.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/form/acteur.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/form/film.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/model/acteur.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/model/film.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/1_09_16_05_12_46_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/1_09_16_05_12_46_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_29_11_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_29_11_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_30_27_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_30_27_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_30_48_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_30_48_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_31_28_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_31_28_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_31_51_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_31_51_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_33_35_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_33_36_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_34_19_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_34_19_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_37_13_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_37_13_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_37_49_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_37_49_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_38_16_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_38_16_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_38_31_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_08_38_31_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_09_23_12_create_acteur_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/schema/2_09_16_09_23_12_create_film_table.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_display.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_related.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/category_show.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/delivery.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/delivery_display.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/delivery_edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/delivery_related.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/delivery_show.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/in/GeneratorCode.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/controller.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2017_02_06_034451_create_director_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2017_02_06_034451_create_film_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2017_02_06_034451_create_foreign_keys.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/language.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/language_display.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/model.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/013571d6b43b5bf00105f56de39dcd803258964d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0227417fc4249878f935e2c4f9a90ffe978e12ec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/05e8541542578f943eced6d7862c4a4281930005.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0a1fc44867ab3b64cfe882a709e76b8e592d5a3e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0aa20f2cb2815d63295df2b9892cac8ffff1c550.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0b14c366299082280545a6b671c8ec7df846811f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0cec5e61d4aa8f0133d25334f72c5706b8c5059a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0d5358bc1ee4170fe60a2b8baf2ec319cd3ec612.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/0e18f9ddaf9a3fb9a9bd9da9a051b293b72b0e25.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/10bd8bd81373043d9084eee8e5565a434c3221fa.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/1235486468453d11ad465c0aa3c3193b4b3f20df.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/12cae409588a4dbc45873303476558c5bca417c0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/1440d3ae78147b28ea4f4988e303c0450a575ca7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/17566ce76e1d3484ac360e6d61bc84196dcefa75.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/189bb8bc4e2d441010b1d8d1f640e1342a8b9706.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/1f1e170f0a4e279d1c7263321a8c2ff3d508c856.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/1f9b1506d3200a7b5f20fee69ba27c556ce95d72.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/222b62d9abbc02599faa82eff1a73884d4177c4f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/24de0fdebac0fd2d99b64f54308d2c8e629820f5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/269d9250a3734efd9c5a41d5263a24ff2a71a857.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/26dd439b1d5fa321a705e8c7e1bebce671f43335.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/28dafbf4e5e02a83ba4bafba30d309312e460ebe.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/29337b54003d53c19edd479df4e8a79607b47d8c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2be9a63a3e902fe76e138d5daa9faf147d536803.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2cf2a90929040973a68887903b078ca93579f5db.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2d5495e39649255febb93abcfdb77f4bd2eeaeb9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2f40036459a3e7eaddacbc1ec4898df1dfea438b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/2f7e2d441a61c4c67f4989f7b0703fdb367d6b0f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/3047ce87f6e9aa04f7f8206725a3c772893e57b5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/31d08dd2c8b62e14220484d1ffd4b667fadb818d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/324cf72245d1a642a546939e7db124b515a69ce3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/326665b10c01c16a2b52ded5d8999e6324429a26.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/410b92d7f5ae2b881096307d808f792db3c41b8b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/436b81bb20074846ecb7644095fdf1a926e45807.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/43a0f6227d6db80d46b6aae1b72014cf954e9aec.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/449cf8ca312a85803e12362b250461f159821aa7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/44f886da3671d9b8ad2a5466ea19d6be938c9a4d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4558205b3e3d1cb7d9b5dfee8dcd75b8c9819d67.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/480080b655694a6be88a32db87d80be6ae2d2e97.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/48a6c9ac413f200c56a977ffa33fab98132344a7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/49a6ee1654088123e616ca77cecefb51d97fa1ed.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/49fed76abe82b1744ef3329f19c4fd8cf74d6e61.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4df6093f4f18efa91ef0714cbde7954cbfcd5651.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4e9490287eb55c3220bcc2c921e6971171496b80.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/4ff967dfd097f8e0734986f88a637c82f1486e34.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/542562aaed6413dbdef767c6d67fea23c4b8d2fe.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5460e7f19d3f881b85411eedc8988217af1656d8.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/55981c956a4e3844f44dc938bc60af3f1b9fcd74.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/564d9fc5b900755b2da1994f3092520798600f09.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/56eb47ca7ec055bbc8a80845da0d04e8d6c38e53.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/5f74362145011a68437a0cc231386694591b3980.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/637207760641686db5f8ded27c062cf4864e4aef.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6900807c277ace0d8933e53662e353e20c4321b2.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6a640207ff65a8eff0eaad788b9636e829420946.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6b3052486ac873720157e86acb25654f5746354a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6c6b403d2759101ae770463212f7ae1415d93c67.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/6f1b27eb7f73447cf1169815893c95863b16c697.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/71a7f4addcfc1bf823235cf7a3d7f009d696336c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/72c1bcdef3ae153140b1db1cfd5f9462db6b90e7.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/736a1160a128bfb59820c3e8e51a16b66aab2c8f.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/73fa991952bcc53169e4f2c7141c6dd3a0b6aba4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/78a040aa4e669a6d80656e996eadf58980c1de89.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/79386f92a5def7128aad5dd6bb70b1dc5d4a9bb9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/79ab3a8889a754cdde1b9bc734a247cb88ea4f0c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/7ad679edb3031268204387e9ee885718727356b1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/7f2d5518a5b65790f60f5155921abcc4693e2c56.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/8340c0f0ede94e45ab1a4cc3cc2ec8b196ef38ba.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/88860fae67046234de0c2d0b9f6909b7e2a70173.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/88c81e229c517ae0fa9ed5dabf8e8d691723f6bb.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/8a749aca73b49e58b9354e6a8edc7edb888ce323.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/8e3279a2a579a0b7a835557a27bfe42ef32d3a0b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/8ea6bd08a5def0cbc66e282d5a14d950900347f3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/8f2cd9859a52ebc210aac38feeba88262c055357.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/91a4d2d51e3c5e94605309745ea0df128a18b0ae.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/93331e6c3c1e593b065aa31bf66bf513044ee574.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/936e42023b8bdf90f5af2833af5ca88281cfa5da.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/93c108864046b5780587485a07b92a4953d15294.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/95a997be5d7361c23ee9bd28476d42546e7124ca.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/95b0b1365766c45af5b7a5fcfc6ebe954fe68890.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/961b512c0d615272e0ac2a093ba34cde588b44a6.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/978665c9c85b031260c15626de125df2dd595f32.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/9a57ef8ae4d3d1191795cdaee768852249cf5d3e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/9a6bec4d7b31a2e1c86fd808de94474390b9d598.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a027463e4d33eb155cc18f8a31eb950466b275bf.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a02e6b0c7cab6fa46593d31dd306aa3175f7b254.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a0ef2704fc0f6a75fb7579482a328e5b5e333088.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a20c3d985b4220a461010a828c511b7d1c810345.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a313330db283fd66e4ea812c719f5e46b81df2dc.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a43f300c2df229981d8b0c855fe142365ae347f8.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a4e99323325662a2d6209113a51f3c77b8c0d7e1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a6708c6e2a1c0c499b22330178482aadd30ba72d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/a838ed3d601c418ebf515b8ed160be1990d44ff1.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/aa40281951342e66d44dc9693e6677be6d202038.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/aab1adfa65f5a056897b11f0eedf588ea719cf9a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/ae45e0aba79f11a4b52490cb2024d746f571acca.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/afe6118f1937cab3036bb40c0cb43d5737f578f5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b117170988330ad234b2a42049dbf572a90b451d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b27390c92c93a34c68872ae6cd6a55250a6a2607.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b34cf2be3a0f4b8a925b7df3eefa55493815b301.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b56fa0e342bb51b157b3ccb4d0ae9540ee993ae9.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b7fea0962a82778cfebb8c37c3e7edd2bb487f8b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/b91908331a216462d8428f909a20d7906ae72498.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/bc374a32242b44292cf848d53fd65783fef1d442.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/bcb2a788db62c4eb194625fd45db82376b960fa3.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c261f25c056d2bb2e8e4c4ebfb19238c5209e59d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c3a357db45b86e93a4c93d392a093353ba4e5f10.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c55f1220e1e1dea783c3c2824f0ea283eb2a0e47.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c5f6bd9427d45d42d172baf663e4c22481765138.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/c6af5330cfaadd28a0474d42250e47a089b97f6c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/ca5ac83b0fe46ead4bd5f6f4ba3df57bc66b108d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/ca783d390e1c103dec86d4a51a6503d85a913841.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/caf8d92e0ab871a2ac032dd31f362f9e1e1bb00b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/cc3bfd6b916220a630df68e5d351755060f6dbc0.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/d3e58e441d4a2c5c64beffe3ed1e270fb953c89a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/daaba03ec7ff4a857c9305d4137561f300392376.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/db545ce7ac2fd6892f9420be8807b1bca93b6421.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/dd5829beabb816e18c740f7fe9a56e421cc69f21.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/e0c08d3ce5670eb3bb3840dd056e88b2f9fa1ccc.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/e96477a69b785ccb0605029d8180a7eeac13f881.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/e9e0b2b9a837f64a7f8e8ba741a7d277dbfd6398.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/eb645d3b7e0528454304ae3e478fc8fd31032612.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/ee1c9543b6204fc2e9da9fb71f487cbb9fad799a.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/f0eca98396dc050d979c18fc88a924deaea20abf.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/f153f27d676858c30b356e503188f68a608f1627.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/f17cf322c276297746afeaa157ed5895537d724b.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/f474a9f7226e097fb78dfc22469e99cdeba1ec01.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/f58982d2213c01a5aa7140d0f6315883e0f767ee.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/fe79e3cec2622f844dcb65219237f32dd5d21e9c.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/cache/fff516b0b6b903d90ce188a2d82681d66d3ca4ac.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/asc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/desc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/none.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/director.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/director_display.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/director_edit.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/director_related.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/director_show.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_display.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_edit.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_related.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/film_show.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_display.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_related.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/language_show.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/master.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/modal.blade.php" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/sidebar.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/CategoryTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/FilmTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/LanguageTest.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/LaraSpeed.iml" afterPath="$PROJECT_DIR$/.idea/LaraSpeed.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/view.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/in/GeneratorCode.php" afterPath="$PROJECT_DIR$/app/in/GeneratorCode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/composer.json" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/CodeGeneratorServiceProvider.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/CodeGeneratorServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConfigInterface.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConstraintRelationInterface.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Contrats/ConstraintRelationInterface.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/AdvancedGenerator.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/AdvancedGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/BasicConfig.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/BasicConfig.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/CallGenerator.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/CallGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/MCD.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/ResourcesLoader.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Core/ResourcesLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/GenerateCodeCmd.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/GenerateCodeCmd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIncrementsType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIncrementsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BigIntegerType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BooleanType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/BooleanType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/CharType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/CharType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DateType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DateType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DecimalType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DecimalType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DoubleType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DoubleType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/EnumType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/EnumType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/FloatType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/FloatType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IncrementsType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IncrementsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/IntegerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/LongTextType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/LongTextType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SetType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SetType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SmallIntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/SmallIntegerType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/StringType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/StringType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TextType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TextType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TimeStampType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TimeStampType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TinyIntegerType.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TinyIntegerType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TypeBaseClass.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/TypeBaseClass.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/BasicNormalization.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/BasicNormalization.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/InheritMaster.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Normalizer/InheritMaster.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BaseRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BaseRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToManyRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToManyRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/BelongsToRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasManyRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasOneRelation.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Relation/HasOneRelation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel512Route.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel512Route.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Routess/Laravel53Route.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ControllerTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ControllerTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/DisplayTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/DisplayTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/EditTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/EditTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/FormTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/FormTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ModelTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/ModelTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/RelatedTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/RelatedTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SchemaTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SchemaTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SideBarTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SideBarTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SingleDisplayTemplate.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/SingleDisplayTemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/Templater.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Templates/Templater.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FileUtils.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FileUtils.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FormTemplateProvider.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/FormTemplateProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Helper.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Helper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/TemplateProvider.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/TemplateProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Variable.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/Utils/Variable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyEdit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/foreignConstraintView.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/foreignConstraintView.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/schemaMaster.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/schemaMaster.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/custom.css" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/display.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/form.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/form.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/formMaster.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/formMaster.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyDisplay.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyEdit.blade.php.backup" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyEdit.blade.php.backup" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasManyRelatedDisplay.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneEdit.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/hasOneEdit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modal.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/modal.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/model.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/show.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/sidebar.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/sidebar.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongTo.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongTo.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongToMany.blade.php" afterPath="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/simpleBelongToMany.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/javascripts/theme.custom.js" afterPath="$PROJECT_DIR$/public/assets/javascripts/theme.custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/javascripts/theme.js" afterPath="$PROJECT_DIR$/public/assets/javascripts/theme.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/stylesheets/theme.css" afterPath="$PROJECT_DIR$/public/assets/stylesheets/theme.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/custom.css" afterPath="$PROJECT_DIR$/public/css/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/AbstractClassAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/AbstractClassAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/ArrayObjectAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/ArrayObjectAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/ExceptionAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/ExceptionAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/FinalExceptionAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/FinalExceptionAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/PharAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/PharAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/PharExceptionAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/PharExceptionAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SerializableArrayObjectAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SerializableArrayObjectAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SimpleSerializableAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/SimpleSerializableAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/UnCloneableAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/UnCloneableAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/UnserializeExceptionArrayObjectAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/UnserializeExceptionArrayObjectAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/WakeUpNoticesAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/WakeUpNoticesAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/XMLReaderAsset.php" afterPath="$PROJECT_DIR$/vendor/doctrine/instantiator/tests/DoctrineTest/InstantiatorTestAsset/XMLReaderAsset.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Routing/UrlGenerator.php" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Contracts/Routing/UrlGenerator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php" />
     </list>
     <ignored path="LaraSpeed.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,10 +282,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="GeneratorCode.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/in/GeneratorCode.php">
+        <entry file="file://$PROJECT_DIR$/app/GeneratorCode.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="360">
+              <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -139,7 +307,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controllerMaster.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToManyAction.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/belongsToAction.blade.php" />
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/BelongToManyModelMethod.blade.php" />
@@ -190,6 +357,7 @@
         <option value="$PROJECT_DIR$/packages/berthe/codegenerator/src/views/foreignConstraintView.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/in/GeneratorCode.php" />
+        <option value="$PROJECT_DIR$/app/GeneratorCode.php" />
       </list>
     </option>
   </component>
@@ -230,172 +398,50 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemId" value="starter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemId" value="starter" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemId" value="starter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemId" value="starter" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemId" value="starter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
+              <option name="myItemId" value="starter" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="in" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LaraSpeed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Http" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -572,23 +618,23 @@
       <workItem from="1483189109807" duration="5000" />
       <workItem from="1483199216217" duration="13241000" />
       <workItem from="1486390505210" duration="262000" />
-      <workItem from="1486390796246" duration="4573000" />
+      <workItem from="1486390796246" duration="4964000" />
+      <workItem from="1488831589521" duration="412000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426560000" />
+    <option name="totallyTimeSpent" value="427363000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20902778" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20902778" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2533532" sideWeight="0.24047619" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711443" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -600,6 +646,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2534992" sideWeight="0.7677497" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711443" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
@@ -623,8 +670,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_12_031_063209_create_delivery_table.php" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_12_031_063209_create_film_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_12_031_063209_create_language_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_12_031_063358_create_category_table.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_12_031_063358_create_delivery_table.php" />
@@ -650,13 +695,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeliveryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="31" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeliveryController.php" />
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/MCDType/DateType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -722,7 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -730,7 +768,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -748,7 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,43 +804,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_024314_create_foreign_keys.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_024314_create_user_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_024955_create_user_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_024314_create_foreign_keys.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_024314_create_user_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_024955_create_user_table.php" />
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/schemaMaster.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="47" column="20" lean-forward="false" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,26 +840,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="677">
           <caret line="56" column="22" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_030954_create_foreign_keys.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2017_02_06_030954_create_foreign_keys.php" />
     <entry file="file://$PROJECT_DIR$/packages/berthe/codegenerator/src/views/controller.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="26" column="88" lean-forward="false" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
-          <folding>
-            <marker date="1486394522000" expanded="true" signature="914:974" ph="..." />
-            <marker date="1486394522000" expanded="true" signature="5337:5531" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -863,7 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="81" lean-forward="false" selection-start-line="0" selection-start-column="81" selection-end-line="0" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,7 +870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,14 +877,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/in/GeneratorCode.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="527">
+          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Console/Commands/GenerateCodeCmd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/GeneratorCode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="25" column="60" lean-forward="true" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
           <folding />
         </state>
       </provider>

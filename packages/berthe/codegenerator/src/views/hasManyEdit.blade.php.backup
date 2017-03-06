@@ -14,3 +14,7 @@
 
         <input type="submit"  class="btn btn-primary" value="Associate"/>
     </form>
+
+    S3Bforelse({!! "\\App\\".ucfirst($otherTable)."::paginate(".\Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW_PAGINATION.")->sortBy('".$config->displayedAttributes($otherTable)."') as "!!} ${!! "$otherTable" !!})
+
+    S2CBOBRACKET{!! "\\App\\".ucfirst($otherTable)."::paginate(".\Berthe\Codegenerator\Utils\Variable::$EDIT_VIEW_PAGINATION.")"."->links()" !!}S2CBCBRACKET

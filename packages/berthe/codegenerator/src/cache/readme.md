@@ -1,0 +1,1 @@
+This folder is used to cache generated files in order to be reused next time.

@@ -23,7 +23,7 @@ use BadMethodCallException;
 use Phar;
 
 /**
- * Test asset that extends an internal PHP class
+ * Test assets that extends an internal PHP class
  *
  * @author Marco Pivetta <ocramius@gmail.com>
  */

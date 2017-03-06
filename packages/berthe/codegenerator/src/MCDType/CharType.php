@@ -4,6 +4,8 @@
  * User: seydou
  * Date: 03/10/16
  * Time: 11:28 ص
+ *
+ * Class Defining Char Attribute Type when Specify "Concptual Data Model"
  */
 
 namespace Berthe\Codegenerator\MCDType;
@@ -15,14 +17,55 @@ use Berthe\Codegenerator\Utils\Variable;
 
 class CharType extends TypeBaseClass implements FormableType
 {
+    /**
+     * The name of the attribute of this Type.
+     *
+     * @var string
+     */
     public $attrName;
+
+    /**
+     * Number of character allowed for the Type
+     * @var int
+     */
     public $nb_character;
+
+    /**
+     * Equivalent form element (Typographic "label, span, h1..." or form element "input, checkbox, ...")  (Used for Generation purpose)
+     *
+     * @var string
+     */
     public $formType = "text";
+
+    /**
+     * Equivalent function name for in Laravel (Used for Generation purpose)
+     *
+     * @var string
+     */
     public $functionName = "char";
+
+    /**
+     * Specify if the attributes is displayable in form
+     * @var bool
+     */
     public $displayable;
+
+    /**
+     * This Model Accessor definition view file name
+     *
+     * @var string
+     */
     public $mutator = "charMutator";
 
-    public function __construct($attrName = "", $required = false, $nb_character=0)
+    /**
+     * CharType constructor.
+     * @param string $attrName
+     * @param bool $required
+     * @param int $nb_character
+     * @param bool $displayed
+     * @param $unit
+     */
+    public function __construct($attrName = "", $required = false, $nb_character=0, $displayed = true, $unit = "")
     {
         $this->attrName = $attrName;
         $this->nb_character = $nb_character;
@@ -34,8 +77,16 @@ class CharType extends TypeBaseClass implements FormableType
         }
 
         $this->required = $required;
+
+        $this->displayed = $displayed;
+
+        $this->unit = $unit;
     }
 
+    /**
+     * Get the necessary line of code for specifying Schema attributes for this Type
+     * @return string
+     */
     public function getDBFunction()
     {
         if($this->nb_character == 0)
@@ -44,16 +95,34 @@ class CharType extends TypeBaseClass implements FormableType
         return "$this->functionName('".$this->attrName."', $this->nb_character)";
     }
 
+    /**
+     * Return the type for form (Typographic "label, span, h1..." or form element "input, checkbox, ...")
+     *
+     * @return string
+     */
     function getFormType()
     {
         return $this->formType;
     }
 
-    function getForm($value = "")
+    /**
+     * Get HTML Code associated with the Type
+     *
+     * @param string $value
+     * @param bool $editable
+     * @return string
+     */
+    function getForm($value = "", $editable = true)
     {
-        FormTemplateProvider::input("text", $this->attrName, "form-control", $value, true);
+        FormTemplateProvider::input("text", $this->attrName, "form-control", $value, true, $editable);
     }
 
+    /**
+     * Get HTML "Div" tag variable Size for this Type
+     *
+     * @param string $type
+     * @return string
+     */
     function formClass($type = "form"){
         if($type == "form")
             return Variable::$F_CHAR;

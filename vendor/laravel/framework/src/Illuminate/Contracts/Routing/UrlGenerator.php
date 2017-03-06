@@ -31,7 +31,7 @@ interface UrlGenerator
     public function secure($path, $parameters = []);
 
     /**
-     * Generate a URL to an application asset.
+     * Generate a URL to an application assets.
      *
      * @param  string  $path
      * @param  bool    $secure

@@ -29,158 +29,20 @@
 <?php $tb = array(); ?>
 <?php $__env->startSection('edit'); ?> <?php echo $__env->make("controllers.edit.editActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('updateParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
-<?php $__env->startSection('update'); ?>
-    $<?php echo "data = request()->all();"; ?>
+<?php $__env->startSection('updateParam'); ?> <?php echo $__env->make("controllers.update.updateActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('update'); ?> <?php echo $__env->make("controllers.update.updateActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
+<?php $__env->startSection('deleteParam'); ?> <?php echo $__env->make("controllers.delete.deleteActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('delete'); ?> <?php echo $__env->make("controllers.delete.deleteActionContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-    $<?php echo "updateFields = array();"; ?>
-
-    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?><?php if(!$attrType->isBoolean()): ?>
-        $<?php echo "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"];"; ?>
-
-        <?php else: ?>
-        $<?php echo "updateFields["."\"$attrName\"] = $"."data[\"$attrName\"] == \"on\"?1:0;"; ?>
-
-    <?php endif; ?> <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-
-    $<?php echo $table['title']."->update($"."updateFields);"; ?>
-
-
-    <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($relation->isBelongsTo()): ?>
-        <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
-
-            $<?php echo $relation->getOtherTable()." = "; ?><?php echo "\\App\\".ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));"; ?>
-
-            $<?php echo $table["title"]."->".$relation->getOtherTable()."()->associate($".$relation->getOtherTable().")->save();"; ?>
-
-        <?php echo "}"; ?>
-
-
-    <?php elseif($relation->isBelongsToMany()): ?>
-        <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
-
-            $<?php echo $table["title"]."->".$relation->getOtherTable()."()->sync(request()->get('".$relation->getOtherTable()."'));"; ?>
-
-        <?php echo "}"; ?>
-
-
-    <?php elseif($relation->isHasMany()): ?>
-        <?php echo "if(request()->exists('".$relation->getOtherTable()."')){"; ?>
-
-
-            $<?php echo "newOnes = \\App\\".ucfirst($relation->getOtherTable())."::find(request()->get('".$relation->getOtherTable()."'));"; ?>
-
-
-            <?php echo "foreach ($"."newOnes as $"."newOne){"; ?>
-
-                $<?php echo $table["title"]."->".$relation->getOtherTable()."()->save($"."newOne);"; ?>
-
-            <?php echo "}"; ?>
-
-
-        <?php echo "}"; ?>
-
-    <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
-
-
-
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('deleteParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
-<?php $__env->startSection('delete'); ?>$<?php echo $table['title']."->delete();"; ?> <?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('relatedParam'); ?><?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> <?php $__env->stopSection(); ?>
+<?php $__env->startSection('relatedParam'); ?> <?php echo $__env->make("controllers.related.relatedActionParam", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 <?php $tb = array(); ?>
-<?php $__env->startSection('related'); ?><?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php $tb[] = $relation->getOtherTable() ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-<?php echo $__env->make($relation->getActionView(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'args' => Berthe\Codegenerator\Utils\Helper::createStringArray($tb), 'config' => $config], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->startSection('related'); ?> <?php echo $__env->make("controllers.related.relatedActionContent", ["table" => $table, "config" => $config], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-        <?php echo "return view('".$relation->getTable()."_related', compact(['".$relation->getTable()."', 'table']));"; ?>
+<?php $__env->startSection('search'); ?> <?php echo $__env->make("controllers.search.searchContent", ["table" => $table], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php endif; ?>
-<?php $__env->stopSection(); ?>
+<?php $__env->startSection('sort'); ?> <?php echo $__env->make("controllers.sort.sortActionContent", ["table" => $table, "config" => $config], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('search'); ?>
-$<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::where('".$table['id']."', 'like', $"."keyword)"; ?>
-
-    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>     <?php echo "->orWhere('$attrName', 'like', $"."keyword)"; ?>
-
-
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-    <?php echo '->paginate(20);'; ?>
-
-
-        $<?php echo $table['title']."s->setPath(\"search?keyword=$"."keyword\");"; ?>
-
-        <?php echo "return view('".$table['title']."_show', compact('".$table['title']."s'));"; ?>
-
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('sort'); ?>
-<?php echo "request()->session()->forget(\"sortKey\");"; ?>
-
-        <?php echo "request()->session()->forget(\"sortOrder\");"; ?>
-
-    <?php echo "if(!request()->exists('tab')){"; ?>
-
-        $<?php echo $table['title'].'s = '; ?><?php echo ucfirst($table['title'])."::query();"; ?>
-
-    <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>
-   <?php echo "if(request()->exists('$attrName')){"; ?>
-
-            $<?php echo $table['title'].'s = '; ?>$<?php echo $table['title']."s->orderBy('$attrName', $"."this->getOrder('$attrName'));"; ?>
-
-            $<?php echo 'path = '; ?><?php echo "\"$attrName\";"; ?>
-
-        <?php echo "}else{"; ?>
-
-            <?php echo "request()->session()->forget(\"$attrName\");"; ?>
-
-        <?php echo "}"; ?>
-
-    <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-    $<?php echo $table['title'].'s = '; ?>$<?php echo $table['title'].'s->paginate(20);'; ?>
-
-        $<?php echo $table['title']."s->setPath(\"sort?$"."path\");"; ?>
-
-        <?php echo "return view('".$table['title']."_show', compact('".$table['title']."s'));"; ?>
-
-
-    <?php echo "}else{"; ?>
-
-
-    <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>  <?php echo "if(request()->exists('tab') == '".$relation->getOtherTable()."'){"; ?>
-
-
-        <?php $__currentLoopData = $tbs[$relation->getOtherTable()]['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if($attrType->isDisplayable()): ?>
-<?php echo "if(request()->exists('$attrName')){"; ?>
-
-             <?php echo "session(['sortOrder' => $"."this->getOrder('$attrName')]);"; ?>
-
-             <?php echo "session(['sortKey' => '$attrName']);"; ?>
-
-        <?php echo "}else{"; ?>
-
-            <?php echo "request()->session()->forget(\"$attrName\");"; ?>
-
-        <?php echo "}"; ?>
-
-
-        <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
-
-      <?php echo "}"; ?>
-
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
-    <?php echo "return back();"; ?>
-
-    <?php echo "}"; ?>
-
-<?php $__env->stopSection(); ?>
-
-<?php $__env->startSection('relations'); ?><?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table["relations"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
-<?php echo $__env->make($relation->getAction(), ['tab' => $relation->getTable(), 'otherTable' => $relation->getOtherTable(), 'tbs' => $tbs], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
-<?php $__env->stopSection(); ?>
+<?php $__env->startSection('relations'); ?> <?php echo $__env->make("controllers.relations.relationActionsContent", ["table" => $table, "config" => $config], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('controllerMaster', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

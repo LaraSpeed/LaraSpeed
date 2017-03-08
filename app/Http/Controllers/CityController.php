@@ -86,33 +86,32 @@ return view('city_edit', compact('city'));
     * @param    Mixed
     * @return  Response
     */
-    public function update(City $city )
+    public function update( City $city  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-             $updateFields["city"] = $data["city"];
-            
-    $city->update($updateFields);
+$updateFields = array();
+     $updateFields["city"] = $data["city"];
+    
+$city->update($updateFields);
 
-            if(request()->exists('address')){
+    if(request()->exists('address')){
 
-            $newOnes = \App\Address::find(request()->get('address'));
+    $newOnes = \App\Address::find(request()->get('address'));
 
-            foreach ($newOnes as $newOne){
-                $city->address()->save($newOne);
-            }
+    foreach ($newOnes as $newOne){
+    $city->address()->save($newOne);
+    }
 
-        }
-             if(request()->exists('country')){
-            $country = \App\Country::find(request()->get('country'));
-            $city->country()->associate($country)->save();
-        }
+    }
+     if(request()->exists('country')){
+    $country = \App\Country::find(request()->get('country'));
+    $city->country()->associate($country)->save();
+    }
 
-      
+  
 
-
-
+ 
         return back();
     }
 
@@ -122,9 +121,9 @@ return view('city_edit', compact('city'));
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(City $city )
+    public function destroy( City $city )
     {
-        $city->delete();         return back();
+         $city->delete();         return back();
     }
 
     /**
@@ -132,7 +131,7 @@ return view('city_edit', compact('city'));
     * @param    Mixed
     * @return  Response
     */
-    public function related(City $city ){
+    public function related( City $city ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -146,9 +145,9 @@ return view('city_edit', compact('city'));
         }
 
         $table = request()->get('tab');
-        $city->load(array("address","country",));
-        return view('city_related', compact(['city', 'table']));
-    }
+         $city->load(array("address","country",));
+return view('city_related', compact(['city', 'table']));
+     }
 
     /**
     * Search Table element By keyword
@@ -166,20 +165,19 @@ return view('city_edit', compact('city'));
 
         $keyword = '%'.$keyword.'%';
 
-        $citys = City::where('city_id', 'like', $keyword)
-         ->orWhere('city_id', 'like', $keyword)
+         $citys = City::where('city_id', 'like', $keyword)
+     ->orWhere('city_id', 'like', $keyword)
 
-         ->orWhere('city', 'like', $keyword)
+     ->orWhere('city', 'like', $keyword)
 
-         ->orWhere('country_id', 'like', $keyword)
+     ->orWhere('country_id', 'like', $keyword)
 
-         ->orWhere('last_update', 'like', $keyword)
+     ->orWhere('last_update', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $citys->setPath("search?keyword=$keyword");
-        return view('city_show', compact('citys'));
-    }
+$citys->setPath("search?keyword=$keyword");
+return view('city_show', compact('citys'));     }
 
     /**
     * Sort Table element
@@ -188,75 +186,74 @@ return view('city_edit', compact('city'));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $citys = City::query();
-        if(request()->exists('city')){
-            $citys = $citys->orderBy('city', $this->getOrder('city'));
-            $path = "city";
-        }else{
-            request()->session()->forget("city");
-        }
-           $citys = $citys->paginate(20);
-        $citys->setPath("sort?$path");
-        return view('city_show', compact('citys'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$citys = City::query();
+     if(request()->exists('city')){
+    $citys = $citys->orderBy('city', $this->getOrder('city'));
+    $path = "city";
     }else{
-
-      if(request()->exists('tab') == 'address'){
-
-         if(request()->exists('address')){
-             session(['sortOrder' => $this->getOrder('address')]);
-             session(['sortKey' => 'address']);
-        }else{
-            request()->session()->forget("address");
-        }
-
-         if(request()->exists('address2')){
-             session(['sortOrder' => $this->getOrder('address2')]);
-             session(['sortKey' => 'address2']);
-        }else{
-            request()->session()->forget("address2");
-        }
-
-         if(request()->exists('district')){
-             session(['sortOrder' => $this->getOrder('district')]);
-             session(['sortKey' => 'district']);
-        }else{
-            request()->session()->forget("district");
-        }
-
-          if(request()->exists('postal_code')){
-             session(['sortOrder' => $this->getOrder('postal_code')]);
-             session(['sortKey' => 'postal_code']);
-        }else{
-            request()->session()->forget("postal_code");
-        }
-
-         if(request()->exists('phone')){
-             session(['sortOrder' => $this->getOrder('phone')]);
-             session(['sortKey' => 'phone']);
-        }else{
-            request()->session()->forget("phone");
-        }
-
-          
-      }
-      if(request()->exists('tab') == 'country'){
-
-         if(request()->exists('country')){
-             session(['sortOrder' => $this->getOrder('country')]);
-             session(['sortKey' => 'country']);
-        }else{
-            request()->session()->forget("country");
-        }
-
-          
-      }
-         return back();
+    request()->session()->forget("city");
     }
+   $citys = $citys->paginate(20);
+$citys->setPath("sort?$path");
+return view('city_show', compact('citys'));
+
+}else{
+
+  if(request()->exists('tab') == 'address'){
+
+     if(request()->exists('address')){
+    session(['sortOrder' => $this->getOrder('address')]);
+    session(['sortKey' => 'address']);
+    }else{
+    request()->session()->forget("address");
     }
+
+     if(request()->exists('address2')){
+    session(['sortOrder' => $this->getOrder('address2')]);
+    session(['sortKey' => 'address2']);
+    }else{
+    request()->session()->forget("address2");
+    }
+
+     if(request()->exists('district')){
+    session(['sortOrder' => $this->getOrder('district')]);
+    session(['sortKey' => 'district']);
+    }else{
+    request()->session()->forget("district");
+    }
+
+      if(request()->exists('postal_code')){
+    session(['sortOrder' => $this->getOrder('postal_code')]);
+    session(['sortKey' => 'postal_code']);
+    }else{
+    request()->session()->forget("postal_code");
+    }
+
+     if(request()->exists('phone')){
+    session(['sortOrder' => $this->getOrder('phone')]);
+    session(['sortKey' => 'phone']);
+    }else{
+    request()->session()->forget("phone");
+    }
+
+  
+}
+  if(request()->exists('tab') == 'country'){
+
+     if(request()->exists('country')){
+    session(['sortOrder' => $this->getOrder('country')]);
+    session(['sortKey' => 'country']);
+    }else{
+    request()->session()->forget("country");
+    }
+
+  
+}
+ return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -267,7 +264,7 @@ return view('city_edit', compact('city'));
         return back();
     }
 
-    function addAddress(City $city ){
+     function addAddress(City $city ){
         $newOnes = Address::find(request()->get('film'));
 
         foreach ($newOnes as $newOne){
@@ -276,12 +273,12 @@ return view('city_edit', compact('city'));
 
         return back();
     }
-function updateCountry(City $city ){
+    function updateCountry(City $city ){
         $country = \App\Country::find(request()->get('country'));
         $city->country()->associate($country)->save();
         return back();
     }
- 
+  
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

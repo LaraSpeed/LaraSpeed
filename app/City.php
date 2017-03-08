@@ -1,27 +1,27 @@
 <?php 
-namespace App;
+namespace  App ;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class City extends Model
+class  City  extends Model
 {
     protected $primaryKey = "city_id";
 
     protected $table = "city";
 
-    protected $fillable = ["city_id", "city", "country_id", "last_update",  ];
+    protected $fillable = [ "city_id", "city", "country_id", "last_update",   ];
 
-        function address(){ 
-        return $this->hasMany('App\Address');
-    }
+     function address(){ 
+    return $this->hasMany('App\Address');
+}
 
     function country(){ 
-        return $this->belongsTo('App\Country');
-    }
+    return $this->belongsTo('App\Country');
+}
 
- 
-    function getCityAttribute($value){
+  
+     function getCityAttribute($value){
 
         if(strlen($value) > 40 && session('mutate', 'none') == '1') {
             return substr($value, 0, 40)."...";
@@ -50,7 +50,7 @@ class City extends Model
     }
 
     
- 
+  
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);

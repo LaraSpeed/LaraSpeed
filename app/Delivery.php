@@ -1,19 +1,19 @@
 <?php 
-namespace App;
+namespace  App ;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class Delivery extends Model
+class  Delivery  extends Model
 {
     protected $primaryKey = "id";
 
     protected $table = "delivery";
 
-    protected $fillable = ["id", "identifiant", "date", "articles",  ];
+    protected $fillable = [ "id", "identifiant", "date", "articles",   ];
 
-    
-    function getIdentifiantAttribute($value){
+      
+     function getIdentifiantAttribute($value){
 
         if(strlen($value) > 40 && session('mutate', 'none') == '1') {
             return substr($value, 0, 40)."...";
@@ -44,7 +44,7 @@ class Delivery extends Model
 
         return $value;
     }  
-
+ 
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);

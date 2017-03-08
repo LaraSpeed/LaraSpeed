@@ -1,35 +1,35 @@
 <?php 
-namespace App;
+namespace  App ;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class Customer extends Model
+class  Customer  extends Model
 {
     protected $primaryKey = "customer_id";
 
     protected $table = "customer";
 
-    protected $fillable = ["customer_id", "store_id", "first_name", "last_name", "email", "address_id", "active", "create_date", "last_update",  ];
+    protected $fillable = [ "customer_id", "store_id", "first_name", "last_name", "email", "address_id", "active", "create_date", "last_update",   ];
 
-        function payment(){ 
+     function payment(){ 
         return $this->hasManyThrough('App\Payment', 'App\Rental');
     }
 
     function rental(){ 
-        return $this->hasMany('App\Rental');
-    }
+    return $this->hasMany('App\Rental');
+}
 
     function address(){ 
-        return $this->belongsTo('App\Address');
-    }
+    return $this->belongsTo('App\Address');
+}
 
     function store(){ 
-        return $this->belongsTo('App\Store');
-    }
+    return $this->belongsTo('App\Store');
+}
 
- 
-    function getFirstNameAttribute($value){
+  
+     function getFirstNameAttribute($value){
 
         if(strlen($value) > 40 && session('mutate', 'none') == '1') {
             return substr($value, 0, 40)."...";
@@ -103,7 +103,7 @@ class Customer extends Model
 
     
     
- 
+  
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);

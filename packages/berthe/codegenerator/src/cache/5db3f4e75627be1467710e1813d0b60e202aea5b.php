@@ -1,0 +1,1 @@
+<?php echo e(ucfirst($table['title']).' $'.$table['title']); ?> 

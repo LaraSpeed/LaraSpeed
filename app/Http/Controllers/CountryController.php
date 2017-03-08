@@ -81,28 +81,27 @@ return view('country_edit', compact('country'));
     * @param    Mixed
     * @return  Response
     */
-    public function update(Country $country )
+    public function update( Country $country  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-             $updateFields["country"] = $data["country"];
-           
-    $country->update($updateFields);
+$updateFields = array();
+     $updateFields["country"] = $data["country"];
+   
+$country->update($updateFields);
 
-            if(request()->exists('city')){
+    if(request()->exists('city')){
 
-            $newOnes = \App\City::find(request()->get('city'));
+    $newOnes = \App\City::find(request()->get('city'));
 
-            foreach ($newOnes as $newOne){
-                $country->city()->save($newOne);
-            }
+    foreach ($newOnes as $newOne){
+    $country->city()->save($newOne);
+    }
 
-        }
-       
+    }
+   
 
-
-
+ 
         return back();
     }
 
@@ -112,9 +111,9 @@ return view('country_edit', compact('country'));
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(Country $country )
+    public function destroy( Country $country )
     {
-        $country->delete();         return back();
+         $country->delete();         return back();
     }
 
     /**
@@ -122,7 +121,7 @@ return view('country_edit', compact('country'));
     * @param    Mixed
     * @return  Response
     */
-    public function related(Country $country ){
+    public function related( Country $country ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -136,9 +135,9 @@ return view('country_edit', compact('country'));
         }
 
         $table = request()->get('tab');
-        $country->load(array("city","address",));
-        return view('country_related', compact(['country', 'table']));
-    }
+         $country->load(array("city","address",));
+return view('country_related', compact(['country', 'table']));
+     }
 
     /**
     * Search Table element By keyword
@@ -156,18 +155,17 @@ return view('country_edit', compact('country'));
 
         $keyword = '%'.$keyword.'%';
 
-        $countrys = Country::where('country_id', 'like', $keyword)
-         ->orWhere('country_id', 'like', $keyword)
+         $countrys = Country::where('country_id', 'like', $keyword)
+     ->orWhere('country_id', 'like', $keyword)
 
-         ->orWhere('country', 'like', $keyword)
+     ->orWhere('country', 'like', $keyword)
 
-         ->orWhere('last_update', 'like', $keyword)
+     ->orWhere('last_update', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $countrys->setPath("search?keyword=$keyword");
-        return view('country_show', compact('countrys'));
-    }
+$countrys->setPath("search?keyword=$keyword");
+return view('country_show', compact('countrys'));     }
 
     /**
     * Sort Table element
@@ -176,75 +174,74 @@ return view('country_edit', compact('country'));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $countrys = Country::query();
-        if(request()->exists('country')){
-            $countrys = $countrys->orderBy('country', $this->getOrder('country'));
-            $path = "country";
-        }else{
-            request()->session()->forget("country");
-        }
-          $countrys = $countrys->paginate(20);
-        $countrys->setPath("sort?$path");
-        return view('country_show', compact('countrys'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$countrys = Country::query();
+     if(request()->exists('country')){
+    $countrys = $countrys->orderBy('country', $this->getOrder('country'));
+    $path = "country";
     }else{
-
-      if(request()->exists('tab') == 'city'){
-
-         if(request()->exists('city')){
-             session(['sortOrder' => $this->getOrder('city')]);
-             session(['sortKey' => 'city']);
-        }else{
-            request()->session()->forget("city");
-        }
-
-           
-      }
-      if(request()->exists('tab') == 'address'){
-
-         if(request()->exists('address')){
-             session(['sortOrder' => $this->getOrder('address')]);
-             session(['sortKey' => 'address']);
-        }else{
-            request()->session()->forget("address");
-        }
-
-         if(request()->exists('address2')){
-             session(['sortOrder' => $this->getOrder('address2')]);
-             session(['sortKey' => 'address2']);
-        }else{
-            request()->session()->forget("address2");
-        }
-
-         if(request()->exists('district')){
-             session(['sortOrder' => $this->getOrder('district')]);
-             session(['sortKey' => 'district']);
-        }else{
-            request()->session()->forget("district");
-        }
-
-          if(request()->exists('postal_code')){
-             session(['sortOrder' => $this->getOrder('postal_code')]);
-             session(['sortKey' => 'postal_code']);
-        }else{
-            request()->session()->forget("postal_code");
-        }
-
-         if(request()->exists('phone')){
-             session(['sortOrder' => $this->getOrder('phone')]);
-             session(['sortKey' => 'phone']);
-        }else{
-            request()->session()->forget("phone");
-        }
-
-          
-      }
-         return back();
+    request()->session()->forget("country");
     }
+  $countrys = $countrys->paginate(20);
+$countrys->setPath("sort?$path");
+return view('country_show', compact('countrys'));
+
+}else{
+
+  if(request()->exists('tab') == 'city'){
+
+     if(request()->exists('city')){
+    session(['sortOrder' => $this->getOrder('city')]);
+    session(['sortKey' => 'city']);
+    }else{
+    request()->session()->forget("city");
     }
+
+   
+}
+  if(request()->exists('tab') == 'address'){
+
+     if(request()->exists('address')){
+    session(['sortOrder' => $this->getOrder('address')]);
+    session(['sortKey' => 'address']);
+    }else{
+    request()->session()->forget("address");
+    }
+
+     if(request()->exists('address2')){
+    session(['sortOrder' => $this->getOrder('address2')]);
+    session(['sortKey' => 'address2']);
+    }else{
+    request()->session()->forget("address2");
+    }
+
+     if(request()->exists('district')){
+    session(['sortOrder' => $this->getOrder('district')]);
+    session(['sortKey' => 'district']);
+    }else{
+    request()->session()->forget("district");
+    }
+
+      if(request()->exists('postal_code')){
+    session(['sortOrder' => $this->getOrder('postal_code')]);
+    session(['sortKey' => 'postal_code']);
+    }else{
+    request()->session()->forget("postal_code");
+    }
+
+     if(request()->exists('phone')){
+    session(['sortOrder' => $this->getOrder('phone')]);
+    session(['sortKey' => 'phone']);
+    }else{
+    request()->session()->forget("phone");
+    }
+
+  
+}
+ return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -255,7 +252,7 @@ return view('country_edit', compact('country'));
         return back();
     }
 
-    function addCity(Country $country ){
+     function addCity(Country $country ){
         $newOnes = City::find(request()->get('film'));
 
         foreach ($newOnes as $newOne){
@@ -264,8 +261,8 @@ return view('country_edit', compact('country'));
 
         return back();
     }
-//Define the controller action logic
- 
+    //Define the controller action logic
+  
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

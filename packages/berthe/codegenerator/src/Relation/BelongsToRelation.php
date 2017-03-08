@@ -40,7 +40,7 @@ class BelongsToRelation extends BaseRelation implements FormRelationInterface,
      *
      * @var string
      */
-    public $modelView = "singleArgModelRelation";
+    public $modelView = "doubleArgsModel"; //"singleArgModelRelation";
 
     /**
      * View name representing the code to add in table's Controller
@@ -81,10 +81,15 @@ class BelongsToRelation extends BaseRelation implements FormRelationInterface,
      * BelongsToRelation constructor.
      * @param string $table
      * @param string $other
+     * @param string $foreignKey
+     * @param string $parentKey
      */
-    public function __construct($table="table", $other="otherTable")
+    public function __construct($table="table", $other="otherTable", $foreignKey = "", $parentKey = "")
     {
         parent::__construct("belongsTo", $table, $other);
+
+        $this->setForeignKey($foreignKey);
+        $this->setParentKey($parentKey);
     }
 
     /**

@@ -1,35 +1,35 @@
 <?php 
-namespace App;
+namespace  App ;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class Address extends Model
+class  Address  extends Model
 {
     protected $primaryKey = "address_id";
 
     protected $table = "address";
 
-    protected $fillable = ["address_id", "address", "address2", "district", "city_id", "postal_code", "phone", "last_update",  ];
+    protected $fillable = [ "address_id", "address", "address2", "district", "city_id", "postal_code", "phone", "last_update",   ];
 
-        function customer(){ 
-        return $this->hasMany('App\Customer');
-    }
+     function customer(){ 
+    return $this->hasMany('App\Customer');
+}
 
     function staff(){ 
-        return $this->hasMany('App\Staff');
-    }
+    return $this->hasMany('App\Staff');
+}
 
     function store(){ 
-        return $this->hasMany('App\Store');
-    }
+    return $this->hasMany('App\Store');
+}
 
     function city(){ 
-        return $this->belongsTo('App\City');
-    }
+    return $this->belongsTo('App\City');
+}
 
- 
-    function getAddressAttribute($value){
+  
+     function getAddressAttribute($value){
 
         if(strlen($value) > 40 && session('mutate', 'none') == '1') {
             return substr($value, 0, 40)."...";
@@ -123,7 +123,7 @@ class Address extends Model
     }
 
     
- 
+  
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);

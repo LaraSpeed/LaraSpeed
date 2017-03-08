@@ -17,6 +17,8 @@ class BaseRelation implements RelationSpecificationInterface
     public $table;
     public $otherTable;
     public $intermediate;
+    public $foreignKey;
+    public $parentKey;
 
     /**
      * BaseRelation constructor.
@@ -31,6 +33,24 @@ class BaseRelation implements RelationSpecificationInterface
         $this->table = $table;
         $this->otherTable = $other;
         $this->intermediate = $intermediate;
+        $this->foreignKey = "";
+        $this->parentKey = "";
+    }
+
+    function getForeignKey(){
+        return $this->foreignKey;
+    }
+
+    function setForeignKey($foreignKey = ""){
+        $this->foreignKey = $foreignKey;
+    }
+
+    function getParentKey(){
+        return $this->parentKey;
+    }
+
+    function setParentKey($parentKey = ""){
+        $this->parentKey = $parentKey;
     }
 
     function getType(){

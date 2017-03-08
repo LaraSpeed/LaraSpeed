@@ -83,24 +83,23 @@ return view('actor_edit', compact('actor'));
     * @param    Mixed
     * @return  Response
     */
-    public function update(Actor $actor )
+    public function update( Actor $actor  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-             $updateFields["first_name"] = $data["first_name"];
-                  $updateFields["last_name"] = $data["last_name"];
-           
-    $actor->update($updateFields);
+$updateFields = array();
+     $updateFields["first_name"] = $data["first_name"];
+      $updateFields["last_name"] = $data["last_name"];
+   
+$actor->update($updateFields);
 
-            if(request()->exists('film')){
-            $actor->film()->sync(request()->get('film'));
-        }
+    if(request()->exists('film')){
+    $actor->film()->sync(request()->get('film'));
+    }
 
-      
+  
 
-
-
+ 
         return back();
     }
 
@@ -110,9 +109,9 @@ return view('actor_edit', compact('actor'));
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(Actor $actor )
+    public function destroy( Actor $actor )
     {
-        $actor->delete();         return back();
+         $actor->delete();         return back();
     }
 
     /**
@@ -120,7 +119,7 @@ return view('actor_edit', compact('actor'));
     * @param    Mixed
     * @return  Response
     */
-    public function related(Actor $actor ){
+    public function related( Actor $actor ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -134,9 +133,9 @@ return view('actor_edit', compact('actor'));
         }
 
         $table = request()->get('tab');
-        $actor->load(array("film",));
-        return view('actor_related', compact(['actor', 'table']));
-    }
+         $actor->load(array("film",));
+return view('actor_related', compact(['actor', 'table']));
+     }
 
     /**
     * Search Table element By keyword
@@ -154,20 +153,19 @@ return view('actor_edit', compact('actor'));
 
         $keyword = '%'.$keyword.'%';
 
-        $actors = Actor::where('actor_id', 'like', $keyword)
-         ->orWhere('actor_id', 'like', $keyword)
+         $actors = Actor::where('actor_id', 'like', $keyword)
+     ->orWhere('actor_id', 'like', $keyword)
 
-         ->orWhere('first_name', 'like', $keyword)
+     ->orWhere('first_name', 'like', $keyword)
 
-         ->orWhere('last_name', 'like', $keyword)
+     ->orWhere('last_name', 'like', $keyword)
 
-         ->orWhere('last_update', 'like', $keyword)
+     ->orWhere('last_update', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $actors->setPath("search?keyword=$keyword");
-        return view('actor_show', compact('actors'));
-    }
+$actors->setPath("search?keyword=$keyword");
+return view('actor_show', compact('actors'));     }
 
     /**
     * Sort Table element
@@ -176,84 +174,83 @@ return view('actor_edit', compact('actor'));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $actors = Actor::query();
-        if(request()->exists('first_name')){
-            $actors = $actors->orderBy('first_name', $this->getOrder('first_name'));
-            $path = "first_name";
-        }else{
-            request()->session()->forget("first_name");
-        }
-        if(request()->exists('last_name')){
-            $actors = $actors->orderBy('last_name', $this->getOrder('last_name'));
-            $path = "last_name";
-        }else{
-            request()->session()->forget("last_name");
-        }
-          $actors = $actors->paginate(20);
-        $actors->setPath("sort?$path");
-        return view('actor_show', compact('actors'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$actors = Actor::query();
+     if(request()->exists('first_name')){
+    $actors = $actors->orderBy('first_name', $this->getOrder('first_name'));
+    $path = "first_name";
     }else{
-
-      if(request()->exists('tab') == 'film'){
-
-          if(request()->exists('title')){
-             session(['sortOrder' => $this->getOrder('title')]);
-             session(['sortKey' => 'title']);
-        }else{
-            request()->session()->forget("title");
-        }
-
-         if(request()->exists('description')){
-             session(['sortOrder' => $this->getOrder('description')]);
-             session(['sortKey' => 'description']);
-        }else{
-            request()->session()->forget("description");
-        }
-
-         if(request()->exists('release_year')){
-             session(['sortOrder' => $this->getOrder('release_year')]);
-             session(['sortKey' => 'release_year']);
-        }else{
-            request()->session()->forget("release_year");
-        }
-
-          if(request()->exists('rental_duration')){
-             session(['sortOrder' => $this->getOrder('rental_duration')]);
-             session(['sortKey' => 'rental_duration']);
-        }else{
-            request()->session()->forget("rental_duration");
-        }
-
-         if(request()->exists('rental_rate')){
-             session(['sortOrder' => $this->getOrder('rental_rate')]);
-             session(['sortKey' => 'rental_rate']);
-        }else{
-            request()->session()->forget("rental_rate");
-        }
-
-         if(request()->exists('length')){
-             session(['sortOrder' => $this->getOrder('length')]);
-             session(['sortKey' => 'length']);
-        }else{
-            request()->session()->forget("length");
-        }
-
-         if(request()->exists('replacement_cost')){
-             session(['sortOrder' => $this->getOrder('replacement_cost')]);
-             session(['sortKey' => 'replacement_cost']);
-        }else{
-            request()->session()->forget("replacement_cost");
-        }
-
-            
-      }
-         return back();
+    request()->session()->forget("first_name");
     }
+     if(request()->exists('last_name')){
+    $actors = $actors->orderBy('last_name', $this->getOrder('last_name'));
+    $path = "last_name";
+    }else{
+    request()->session()->forget("last_name");
     }
+  $actors = $actors->paginate(20);
+$actors->setPath("sort?$path");
+return view('actor_show', compact('actors'));
+
+}else{
+
+  if(request()->exists('tab') == 'film'){
+
+      if(request()->exists('title')){
+    session(['sortOrder' => $this->getOrder('title')]);
+    session(['sortKey' => 'title']);
+    }else{
+    request()->session()->forget("title");
+    }
+
+     if(request()->exists('description')){
+    session(['sortOrder' => $this->getOrder('description')]);
+    session(['sortKey' => 'description']);
+    }else{
+    request()->session()->forget("description");
+    }
+
+     if(request()->exists('release_year')){
+    session(['sortOrder' => $this->getOrder('release_year')]);
+    session(['sortKey' => 'release_year']);
+    }else{
+    request()->session()->forget("release_year");
+    }
+
+      if(request()->exists('rental_duration')){
+    session(['sortOrder' => $this->getOrder('rental_duration')]);
+    session(['sortKey' => 'rental_duration']);
+    }else{
+    request()->session()->forget("rental_duration");
+    }
+
+     if(request()->exists('rental_rate')){
+    session(['sortOrder' => $this->getOrder('rental_rate')]);
+    session(['sortKey' => 'rental_rate']);
+    }else{
+    request()->session()->forget("rental_rate");
+    }
+
+     if(request()->exists('length')){
+    session(['sortOrder' => $this->getOrder('length')]);
+    session(['sortKey' => 'length']);
+    }else{
+    request()->session()->forget("length");
+    }
+
+     if(request()->exists('replacement_cost')){
+    session(['sortOrder' => $this->getOrder('replacement_cost')]);
+    session(['sortKey' => 'replacement_cost']);
+    }else{
+    request()->session()->forget("replacement_cost");
+    }
+
+    
+}
+ return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -264,11 +261,11 @@ return view('actor_edit', compact('actor'));
         return back();
     }
 
-    function addFilm(Actor $actor ){
+     function addFilm(Actor $actor ){
         $actor->film()->sync(request()->get('film'));
         return back();
     }
- 
+  
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

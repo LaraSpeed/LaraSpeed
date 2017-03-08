@@ -82,23 +82,22 @@ return view('category_edit', compact('category'));
     * @param    Mixed
     * @return  Response
     */
-    public function update(Category $category )
+    public function update( Category $category  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-             $updateFields["name"] = $data["name"];
-           
-    $category->update($updateFields);
+$updateFields = array();
+     $updateFields["name"] = $data["name"];
+   
+$category->update($updateFields);
 
-            if(request()->exists('film')){
-            $category->film()->sync(request()->get('film'));
-        }
+    if(request()->exists('film')){
+    $category->film()->sync(request()->get('film'));
+    }
 
-      
+  
 
-
-
+ 
         return back();
     }
 
@@ -108,9 +107,9 @@ return view('category_edit', compact('category'));
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(Category $category )
+    public function destroy( Category $category )
     {
-        $category->delete();         return back();
+         $category->delete();         return back();
     }
 
     /**
@@ -118,7 +117,7 @@ return view('category_edit', compact('category'));
     * @param    Mixed
     * @return  Response
     */
-    public function related(Category $category ){
+    public function related( Category $category ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -132,9 +131,9 @@ return view('category_edit', compact('category'));
         }
 
         $table = request()->get('tab');
-        $category->load(array("film",));
-        return view('category_related', compact(['category', 'table']));
-    }
+         $category->load(array("film",));
+return view('category_related', compact(['category', 'table']));
+     }
 
     /**
     * Search Table element By keyword
@@ -152,18 +151,17 @@ return view('category_edit', compact('category'));
 
         $keyword = '%'.$keyword.'%';
 
-        $categorys = Category::where('category_id', 'like', $keyword)
-         ->orWhere('category_id', 'like', $keyword)
+         $categorys = Category::where('category_id', 'like', $keyword)
+     ->orWhere('category_id', 'like', $keyword)
 
-         ->orWhere('name', 'like', $keyword)
+     ->orWhere('name', 'like', $keyword)
 
-         ->orWhere('last_update', 'like', $keyword)
+     ->orWhere('last_update', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $categorys->setPath("search?keyword=$keyword");
-        return view('category_show', compact('categorys'));
-    }
+$categorys->setPath("search?keyword=$keyword");
+return view('category_show', compact('categorys'));     }
 
     /**
     * Sort Table element
@@ -172,78 +170,77 @@ return view('category_edit', compact('category'));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $categorys = Category::query();
-        if(request()->exists('name')){
-            $categorys = $categorys->orderBy('name', $this->getOrder('name'));
-            $path = "name";
-        }else{
-            request()->session()->forget("name");
-        }
-          $categorys = $categorys->paginate(20);
-        $categorys->setPath("sort?$path");
-        return view('category_show', compact('categorys'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$categorys = Category::query();
+     if(request()->exists('name')){
+    $categorys = $categorys->orderBy('name', $this->getOrder('name'));
+    $path = "name";
     }else{
-
-      if(request()->exists('tab') == 'film'){
-
-          if(request()->exists('title')){
-             session(['sortOrder' => $this->getOrder('title')]);
-             session(['sortKey' => 'title']);
-        }else{
-            request()->session()->forget("title");
-        }
-
-         if(request()->exists('description')){
-             session(['sortOrder' => $this->getOrder('description')]);
-             session(['sortKey' => 'description']);
-        }else{
-            request()->session()->forget("description");
-        }
-
-         if(request()->exists('release_year')){
-             session(['sortOrder' => $this->getOrder('release_year')]);
-             session(['sortKey' => 'release_year']);
-        }else{
-            request()->session()->forget("release_year");
-        }
-
-          if(request()->exists('rental_duration')){
-             session(['sortOrder' => $this->getOrder('rental_duration')]);
-             session(['sortKey' => 'rental_duration']);
-        }else{
-            request()->session()->forget("rental_duration");
-        }
-
-         if(request()->exists('rental_rate')){
-             session(['sortOrder' => $this->getOrder('rental_rate')]);
-             session(['sortKey' => 'rental_rate']);
-        }else{
-            request()->session()->forget("rental_rate");
-        }
-
-         if(request()->exists('length')){
-             session(['sortOrder' => $this->getOrder('length')]);
-             session(['sortKey' => 'length']);
-        }else{
-            request()->session()->forget("length");
-        }
-
-         if(request()->exists('replacement_cost')){
-             session(['sortOrder' => $this->getOrder('replacement_cost')]);
-             session(['sortKey' => 'replacement_cost']);
-        }else{
-            request()->session()->forget("replacement_cost");
-        }
-
-            
-      }
-         return back();
+    request()->session()->forget("name");
     }
+  $categorys = $categorys->paginate(20);
+$categorys->setPath("sort?$path");
+return view('category_show', compact('categorys'));
+
+}else{
+
+  if(request()->exists('tab') == 'film'){
+
+      if(request()->exists('title')){
+    session(['sortOrder' => $this->getOrder('title')]);
+    session(['sortKey' => 'title']);
+    }else{
+    request()->session()->forget("title");
     }
+
+     if(request()->exists('description')){
+    session(['sortOrder' => $this->getOrder('description')]);
+    session(['sortKey' => 'description']);
+    }else{
+    request()->session()->forget("description");
+    }
+
+     if(request()->exists('release_year')){
+    session(['sortOrder' => $this->getOrder('release_year')]);
+    session(['sortKey' => 'release_year']);
+    }else{
+    request()->session()->forget("release_year");
+    }
+
+      if(request()->exists('rental_duration')){
+    session(['sortOrder' => $this->getOrder('rental_duration')]);
+    session(['sortKey' => 'rental_duration']);
+    }else{
+    request()->session()->forget("rental_duration");
+    }
+
+     if(request()->exists('rental_rate')){
+    session(['sortOrder' => $this->getOrder('rental_rate')]);
+    session(['sortKey' => 'rental_rate']);
+    }else{
+    request()->session()->forget("rental_rate");
+    }
+
+     if(request()->exists('length')){
+    session(['sortOrder' => $this->getOrder('length')]);
+    session(['sortKey' => 'length']);
+    }else{
+    request()->session()->forget("length");
+    }
+
+     if(request()->exists('replacement_cost')){
+    session(['sortOrder' => $this->getOrder('replacement_cost')]);
+    session(['sortKey' => 'replacement_cost']);
+    }else{
+    request()->session()->forget("replacement_cost");
+    }
+
+    
+}
+ return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -254,11 +251,11 @@ return view('category_edit', compact('category'));
         return back();
     }
 
-    function addFilm(Category $category ){
+     function addFilm(Category $category ){
         $category->film()->sync(request()->get('film'));
         return back();
     }
- 
+  
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

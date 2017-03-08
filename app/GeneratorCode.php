@@ -30,7 +30,7 @@ class GeneratorCode  extends CallGenerator {
 
             ->table("film")
                 ->increments("film_id")
-                ->smallInteger("language_id")
+                ->smallInteger("id_language")
                 ->string("title", 255)
                     ->inList()
                     ->mandatory()
@@ -61,7 +61,7 @@ class GeneratorCode  extends CallGenerator {
                 //This May be Set
                 ->set("special_features", array('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind The Scenes'))
                 ->timeStamp("last_update")
-                ->belongsTo("language")
+                ->belongsTo("language" , "id_language", "language_id")
                 ->belongsToMany("category")
                     ->doc("Categories associated to this film")
                 ->belongsToMany("actor")
@@ -75,7 +75,7 @@ class GeneratorCode  extends CallGenerator {
                 ->string("name", 20)
                     ->mandatory()
                 ->timeStamp("last_update")
-                ->hasMany("film")
+                ->hasMany("film" ,"id_language")
                     ->doc("Films in the Language")
                 ->end()
 

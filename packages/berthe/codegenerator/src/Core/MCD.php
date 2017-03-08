@@ -457,14 +457,15 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     /**
      * Function adding new relation hasMany Type of relation to the list of the current table relations
      * @param string $tableName
+     * @param string $foreignKey
      * @param string $hoverMessage
      * @return MCD
      */
-    public function hasMany($tableName="table", $hoverMessage = ""){
+    public function hasMany($tableName="table", $foreignKey = "", $hoverMessage = ""){
 
         $this->setCurrentRelationTableName($tableName);
 
-        $this->tables[$this->currentTableName]['relations'][] = new HasManyRelation($this->currentTableName, $tableName);
+        $this->tables[$this->currentTableName]['relations'][] = new HasManyRelation($this->currentTableName, $tableName, $foreignKey);
 
         //Adding Additional Route
         $this->routes[$this->currentTableName."/add".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@add".ucfirst($tableName);
@@ -478,13 +479,15 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     /**
      * Function adding new relation belongsTo Type of relation to the list of the current table relations
      * @param string $tableName
+     * @param string $foreignKey
+     * @param string $parentKey
      * @return MCD
      */
-    public function belongsTo($tableName ="table"){
+    public function belongsTo($tableName ="table", $foreignKey = "", $parentKey = ""){
 
         $this->setCurrentRelationTableName($tableName);
 
-        $this->tables[$this->currentTableName]['relations'][] = new BelongsToRelation($this->currentTableName, $tableName);
+        $this->tables[$this->currentTableName]['relations'][] = new BelongsToRelation($this->currentTableName, $tableName, $foreignKey, $parentKey);
 
         //Adding Additional Route
         $this->routes[$this->currentTableName."/update".ucfirst($tableName)."/{"."$this->currentTableName}"] = ucfirst($this->currentTableName)."Controller@update".ucfirst($tableName);

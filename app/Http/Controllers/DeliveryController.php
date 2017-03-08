@@ -77,21 +77,20 @@ $delivery = Delivery::create([
     * @param    Mixed
     * @return  Response
     */
-    public function update(Delivery $delivery )
+    public function update( Delivery $delivery  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-             $updateFields["identifiant"] = $data["identifiant"];
-                  $updateFields["date"] = $data["date"];
-                  $updateFields["articles"] = $data["articles"];
-          
-    $delivery->update($updateFields);
-
-    
+$updateFields = array();
+     $updateFields["identifiant"] = $data["identifiant"];
+      $updateFields["date"] = $data["date"];
+      $updateFields["articles"] = $data["articles"];
+  
+$delivery->update($updateFields);
 
 
 
+ 
         return back();
     }
 
@@ -101,9 +100,9 @@ $delivery = Delivery::create([
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(Delivery $delivery )
+    public function destroy( Delivery $delivery )
     {
-        $delivery->delete();         return back();
+         $delivery->delete();         return back();
     }
 
     /**
@@ -111,7 +110,7 @@ $delivery = Delivery::create([
     * @param    Mixed
     * @return  Response
     */
-    public function related(Delivery $delivery ){
+    public function related( Delivery $delivery ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -125,7 +124,7 @@ $delivery = Delivery::create([
         }
 
         $table = request()->get('tab');
-            }
+              }
 
     /**
     * Search Table element By keyword
@@ -143,20 +142,19 @@ $delivery = Delivery::create([
 
         $keyword = '%'.$keyword.'%';
 
-        $deliverys = Delivery::where('id', 'like', $keyword)
-         ->orWhere('id', 'like', $keyword)
+         $deliverys = Delivery::where('id', 'like', $keyword)
+     ->orWhere('id', 'like', $keyword)
 
-         ->orWhere('identifiant', 'like', $keyword)
+     ->orWhere('identifiant', 'like', $keyword)
 
-         ->orWhere('date', 'like', $keyword)
+     ->orWhere('date', 'like', $keyword)
 
-         ->orWhere('articles', 'like', $keyword)
+     ->orWhere('articles', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $deliverys->setPath("search?keyword=$keyword");
-        return view('delivery_show', compact('deliverys'));
-    }
+$deliverys->setPath("search?keyword=$keyword");
+return view('delivery_show', compact('deliverys'));     }
 
     /**
     * Sort Table element
@@ -165,37 +163,36 @@ $delivery = Delivery::create([
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $deliverys = Delivery::query();
-        if(request()->exists('identifiant')){
-            $deliverys = $deliverys->orderBy('identifiant', $this->getOrder('identifiant'));
-            $path = "identifiant";
-        }else{
-            request()->session()->forget("identifiant");
-        }
-        if(request()->exists('date')){
-            $deliverys = $deliverys->orderBy('date', $this->getOrder('date'));
-            $path = "date";
-        }else{
-            request()->session()->forget("date");
-        }
-        if(request()->exists('articles')){
-            $deliverys = $deliverys->orderBy('articles', $this->getOrder('articles'));
-            $path = "articles";
-        }else{
-            request()->session()->forget("articles");
-        }
-         $deliverys = $deliverys->paginate(20);
-        $deliverys->setPath("sort?$path");
-        return view('delivery_show', compact('deliverys'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$deliverys = Delivery::query();
+     if(request()->exists('identifiant')){
+    $deliverys = $deliverys->orderBy('identifiant', $this->getOrder('identifiant'));
+    $path = "identifiant";
     }else{
+    request()->session()->forget("identifiant");
+    }
+     if(request()->exists('date')){
+    $deliverys = $deliverys->orderBy('date', $this->getOrder('date'));
+    $path = "date";
+    }else{
+    request()->session()->forget("date");
+    }
+     if(request()->exists('articles')){
+    $deliverys = $deliverys->orderBy('articles', $this->getOrder('articles'));
+    $path = "articles";
+    }else{
+    request()->session()->forget("articles");
+    }
+ $deliverys = $deliverys->paginate(20);
+$deliverys->setPath("sort?$path");
+return view('delivery_show', compact('deliverys'));
 
-        return back();
-    }
-    }
+}else{
+
+return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -206,7 +203,7 @@ $delivery = Delivery::create([
         return back();
     }
 
-    
+      
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

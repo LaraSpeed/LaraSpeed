@@ -98,42 +98,41 @@ return view('customer_edit', compact('customer'));
     * @param    Mixed
     * @return  Response
     */
-    public function update(Customer $customer )
+    public function update( Customer $customer  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-              $updateFields["first_name"] = $data["first_name"];
-                  $updateFields["last_name"] = $data["last_name"];
-                  $updateFields["email"] = $data["email"];
-                   $updateFields["active"] = $data["active"] == "on"?1:0;
-              $updateFields["create_date"] = $data["create_date"];
-           
-    $customer->update($updateFields);
+$updateFields = array();
+      $updateFields["first_name"] = $data["first_name"];
+      $updateFields["last_name"] = $data["last_name"];
+      $updateFields["email"] = $data["email"];
+       $updateFields["active"] = $data["active"] == "on"?1:0;
+      $updateFields["create_date"] = $data["create_date"];
+   
+$customer->update($updateFields);
 
-             if(request()->exists('rental')){
+     if(request()->exists('rental')){
 
-            $newOnes = \App\Rental::find(request()->get('rental'));
+    $newOnes = \App\Rental::find(request()->get('rental'));
 
-            foreach ($newOnes as $newOne){
-                $customer->rental()->save($newOne);
-            }
+    foreach ($newOnes as $newOne){
+    $customer->rental()->save($newOne);
+    }
 
-        }
-             if(request()->exists('address')){
-            $address = \App\Address::find(request()->get('address'));
-            $customer->address()->associate($address)->save();
-        }
+    }
+     if(request()->exists('address')){
+    $address = \App\Address::find(request()->get('address'));
+    $customer->address()->associate($address)->save();
+    }
 
-             if(request()->exists('store')){
-            $store = \App\Store::find(request()->get('store'));
-            $customer->store()->associate($store)->save();
-        }
+     if(request()->exists('store')){
+    $store = \App\Store::find(request()->get('store'));
+    $customer->store()->associate($store)->save();
+    }
 
-      
+  
 
-
-
+ 
         return back();
     }
 
@@ -143,9 +142,9 @@ return view('customer_edit', compact('customer'));
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(Customer $customer )
+    public function destroy( Customer $customer )
     {
-        $customer->delete();         return back();
+         $customer->delete();         return back();
     }
 
     /**
@@ -153,7 +152,7 @@ return view('customer_edit', compact('customer'));
     * @param    Mixed
     * @return  Response
     */
-    public function related(Customer $customer ){
+    public function related( Customer $customer ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -167,9 +166,9 @@ return view('customer_edit', compact('customer'));
         }
 
         $table = request()->get('tab');
-        $customer->load(array("payment","rental","address","store",));
-        return view('customer_related', compact(['customer', 'table']));
-    }
+         $customer->load(array("payment","rental","address","store",));
+return view('customer_related', compact(['customer', 'table']));
+     }
 
     /**
     * Search Table element By keyword
@@ -187,30 +186,29 @@ return view('customer_edit', compact('customer'));
 
         $keyword = '%'.$keyword.'%';
 
-        $customers = Customer::where('customer_id', 'like', $keyword)
-         ->orWhere('customer_id', 'like', $keyword)
+         $customers = Customer::where('customer_id', 'like', $keyword)
+     ->orWhere('customer_id', 'like', $keyword)
 
-         ->orWhere('store_id', 'like', $keyword)
+     ->orWhere('store_id', 'like', $keyword)
 
-         ->orWhere('first_name', 'like', $keyword)
+     ->orWhere('first_name', 'like', $keyword)
 
-         ->orWhere('last_name', 'like', $keyword)
+     ->orWhere('last_name', 'like', $keyword)
 
-         ->orWhere('email', 'like', $keyword)
+     ->orWhere('email', 'like', $keyword)
 
-         ->orWhere('address_id', 'like', $keyword)
+     ->orWhere('address_id', 'like', $keyword)
 
-         ->orWhere('active', 'like', $keyword)
+     ->orWhere('active', 'like', $keyword)
 
-         ->orWhere('create_date', 'like', $keyword)
+     ->orWhere('create_date', 'like', $keyword)
 
-         ->orWhere('last_update', 'like', $keyword)
+     ->orWhere('last_update', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $customers->setPath("search?keyword=$keyword");
-        return view('customer_show', compact('customers'));
-    }
+$customers->setPath("search?keyword=$keyword");
+return view('customer_show', compact('customers'));     }
 
     /**
     * Sort Table element
@@ -219,128 +217,127 @@ return view('customer_edit', compact('customer'));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $customers = Customer::query();
-         if(request()->exists('first_name')){
-            $customers = $customers->orderBy('first_name', $this->getOrder('first_name'));
-            $path = "first_name";
-        }else{
-            request()->session()->forget("first_name");
-        }
-        if(request()->exists('last_name')){
-            $customers = $customers->orderBy('last_name', $this->getOrder('last_name'));
-            $path = "last_name";
-        }else{
-            request()->session()->forget("last_name");
-        }
-        if(request()->exists('email')){
-            $customers = $customers->orderBy('email', $this->getOrder('email'));
-            $path = "email";
-        }else{
-            request()->session()->forget("email");
-        }
-         if(request()->exists('active')){
-            $customers = $customers->orderBy('active', $this->getOrder('active'));
-            $path = "active";
-        }else{
-            request()->session()->forget("active");
-        }
-        if(request()->exists('create_date')){
-            $customers = $customers->orderBy('create_date', $this->getOrder('create_date'));
-            $path = "create_date";
-        }else{
-            request()->session()->forget("create_date");
-        }
-          $customers = $customers->paginate(20);
-        $customers->setPath("sort?$path");
-        return view('customer_show', compact('customers'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$customers = Customer::query();
+      if(request()->exists('first_name')){
+    $customers = $customers->orderBy('first_name', $this->getOrder('first_name'));
+    $path = "first_name";
     }else{
-
-      if(request()->exists('tab') == 'payment'){
-
-           if(request()->exists('amount')){
-             session(['sortOrder' => $this->getOrder('amount')]);
-             session(['sortKey' => 'amount']);
-        }else{
-            request()->session()->forget("amount");
-        }
-
-         if(request()->exists('payment_date')){
-             session(['sortOrder' => $this->getOrder('payment_date')]);
-             session(['sortKey' => 'payment_date']);
-        }else{
-            request()->session()->forget("payment_date");
-        }
-
-         
-      }
-      if(request()->exists('tab') == 'rental'){
-
-         if(request()->exists('rental_date')){
-             session(['sortOrder' => $this->getOrder('rental_date')]);
-             session(['sortKey' => 'rental_date']);
-        }else{
-            request()->session()->forget("rental_date");
-        }
-
-           if(request()->exists('return_date')){
-             session(['sortOrder' => $this->getOrder('return_date')]);
-             session(['sortKey' => 'return_date']);
-        }else{
-            request()->session()->forget("return_date");
-        }
-
-           
-      }
-      if(request()->exists('tab') == 'address'){
-
-         if(request()->exists('address')){
-             session(['sortOrder' => $this->getOrder('address')]);
-             session(['sortKey' => 'address']);
-        }else{
-            request()->session()->forget("address");
-        }
-
-         if(request()->exists('address2')){
-             session(['sortOrder' => $this->getOrder('address2')]);
-             session(['sortKey' => 'address2']);
-        }else{
-            request()->session()->forget("address2");
-        }
-
-         if(request()->exists('district')){
-             session(['sortOrder' => $this->getOrder('district')]);
-             session(['sortKey' => 'district']);
-        }else{
-            request()->session()->forget("district");
-        }
-
-          if(request()->exists('postal_code')){
-             session(['sortOrder' => $this->getOrder('postal_code')]);
-             session(['sortKey' => 'postal_code']);
-        }else{
-            request()->session()->forget("postal_code");
-        }
-
-         if(request()->exists('phone')){
-             session(['sortOrder' => $this->getOrder('phone')]);
-             session(['sortKey' => 'phone']);
-        }else{
-            request()->session()->forget("phone");
-        }
-
-          
-      }
-      if(request()->exists('tab') == 'store'){
-
-           
-      }
-         return back();
+    request()->session()->forget("first_name");
     }
+     if(request()->exists('last_name')){
+    $customers = $customers->orderBy('last_name', $this->getOrder('last_name'));
+    $path = "last_name";
+    }else{
+    request()->session()->forget("last_name");
     }
+     if(request()->exists('email')){
+    $customers = $customers->orderBy('email', $this->getOrder('email'));
+    $path = "email";
+    }else{
+    request()->session()->forget("email");
+    }
+      if(request()->exists('active')){
+    $customers = $customers->orderBy('active', $this->getOrder('active'));
+    $path = "active";
+    }else{
+    request()->session()->forget("active");
+    }
+     if(request()->exists('create_date')){
+    $customers = $customers->orderBy('create_date', $this->getOrder('create_date'));
+    $path = "create_date";
+    }else{
+    request()->session()->forget("create_date");
+    }
+  $customers = $customers->paginate(20);
+$customers->setPath("sort?$path");
+return view('customer_show', compact('customers'));
+
+}else{
+
+  if(request()->exists('tab') == 'payment'){
+
+       if(request()->exists('amount')){
+    session(['sortOrder' => $this->getOrder('amount')]);
+    session(['sortKey' => 'amount']);
+    }else{
+    request()->session()->forget("amount");
+    }
+
+     if(request()->exists('payment_date')){
+    session(['sortOrder' => $this->getOrder('payment_date')]);
+    session(['sortKey' => 'payment_date']);
+    }else{
+    request()->session()->forget("payment_date");
+    }
+
+ 
+}
+  if(request()->exists('tab') == 'rental'){
+
+     if(request()->exists('rental_date')){
+    session(['sortOrder' => $this->getOrder('rental_date')]);
+    session(['sortKey' => 'rental_date']);
+    }else{
+    request()->session()->forget("rental_date");
+    }
+
+       if(request()->exists('return_date')){
+    session(['sortOrder' => $this->getOrder('return_date')]);
+    session(['sortKey' => 'return_date']);
+    }else{
+    request()->session()->forget("return_date");
+    }
+
+   
+}
+  if(request()->exists('tab') == 'address'){
+
+     if(request()->exists('address')){
+    session(['sortOrder' => $this->getOrder('address')]);
+    session(['sortKey' => 'address']);
+    }else{
+    request()->session()->forget("address");
+    }
+
+     if(request()->exists('address2')){
+    session(['sortOrder' => $this->getOrder('address2')]);
+    session(['sortKey' => 'address2']);
+    }else{
+    request()->session()->forget("address2");
+    }
+
+     if(request()->exists('district')){
+    session(['sortOrder' => $this->getOrder('district')]);
+    session(['sortKey' => 'district']);
+    }else{
+    request()->session()->forget("district");
+    }
+
+      if(request()->exists('postal_code')){
+    session(['sortOrder' => $this->getOrder('postal_code')]);
+    session(['sortKey' => 'postal_code']);
+    }else{
+    request()->session()->forget("postal_code");
+    }
+
+     if(request()->exists('phone')){
+    session(['sortOrder' => $this->getOrder('phone')]);
+    session(['sortKey' => 'phone']);
+    }else{
+    request()->session()->forget("phone");
+    }
+
+  
+}
+  if(request()->exists('tab') == 'store'){
+
+   
+}
+ return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -351,8 +348,8 @@ return view('customer_edit', compact('customer'));
         return back();
     }
 
-    //Define the controller action logic
-function addRental(Customer $customer ){
+     //Define the controller action logic
+    function addRental(Customer $customer ){
         $newOnes = Rental::find(request()->get('film'));
 
         foreach ($newOnes as $newOne){
@@ -361,17 +358,17 @@ function addRental(Customer $customer ){
 
         return back();
     }
-function updateAddress(Customer $customer ){
+    function updateAddress(Customer $customer ){
         $address = \App\Address::find(request()->get('address'));
         $customer->address()->associate($address)->save();
         return back();
     }
-function updateStore(Customer $customer ){
+    function updateStore(Customer $customer ){
         $store = \App\Store::find(request()->get('store'));
         $customer->store()->associate($store)->save();
         return back();
     }
- 
+  
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

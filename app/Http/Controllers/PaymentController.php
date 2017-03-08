@@ -99,35 +99,34 @@ return view('payment_edit', compact('payment'));
     * @param    Mixed
     * @return  Response
     */
-    public function update(Payment $payment )
+    public function update( Payment $payment  )
     {
-            $data = request()->all();
+         $data = request()->all();
 
-    $updateFields = array();
-               $updateFields["amount"] = $data["amount"];
-                  $updateFields["payment_date"] = $data["payment_date"];
-          
-    $payment->update($updateFields);
+$updateFields = array();
+       $updateFields["amount"] = $data["amount"];
+      $updateFields["payment_date"] = $data["payment_date"];
+  
+$payment->update($updateFields);
 
-            if(request()->exists('rental')){
-            $rental = \App\Rental::find(request()->get('rental'));
-            $payment->rental()->associate($rental)->save();
-        }
+    if(request()->exists('rental')){
+    $rental = \App\Rental::find(request()->get('rental'));
+    $payment->rental()->associate($rental)->save();
+    }
 
-             if(request()->exists('customer')){
-            $customer = \App\Customer::find(request()->get('customer'));
-            $payment->customer()->associate($customer)->save();
-        }
+     if(request()->exists('customer')){
+    $customer = \App\Customer::find(request()->get('customer'));
+    $payment->customer()->associate($customer)->save();
+    }
 
-             if(request()->exists('staff')){
-            $staff = \App\Staff::find(request()->get('staff'));
-            $payment->staff()->associate($staff)->save();
-        }
+     if(request()->exists('staff')){
+    $staff = \App\Staff::find(request()->get('staff'));
+    $payment->staff()->associate($staff)->save();
+    }
 
-      
+  
 
-
-
+ 
         return back();
     }
 
@@ -137,9 +136,9 @@ return view('payment_edit', compact('payment'));
     * @param    Mixed
     * @return  Response
     */
-    public function destroy(Payment $payment )
+    public function destroy( Payment $payment )
     {
-        $payment->delete();         return back();
+         $payment->delete();         return back();
     }
 
     /**
@@ -147,7 +146,7 @@ return view('payment_edit', compact('payment'));
     * @param    Mixed
     * @return  Response
     */
-    public function related(Payment $payment ){
+    public function related( Payment $payment ){
 
         session(["mutate" => '1']);
         if(request()->exists('cs')){
@@ -161,9 +160,9 @@ return view('payment_edit', compact('payment'));
         }
 
         $table = request()->get('tab');
-        $payment->load(array("rental","customer","staff",));
-        return view('payment_related', compact(['payment', 'table']));
-    }
+         $payment->load(array("rental","customer","staff",));
+return view('payment_related', compact(['payment', 'table']));
+     }
 
     /**
     * Search Table element By keyword
@@ -181,22 +180,21 @@ return view('payment_edit', compact('payment'));
 
         $keyword = '%'.$keyword.'%';
 
-        $payments = Payment::where('payment_id', 'like', $keyword)
-         ->orWhere('payment_id', 'like', $keyword)
+         $payments = Payment::where('payment_id', 'like', $keyword)
+     ->orWhere('payment_id', 'like', $keyword)
 
-         ->orWhere('customer_id', 'like', $keyword)
+     ->orWhere('customer_id', 'like', $keyword)
 
-         ->orWhere('rental_id', 'like', $keyword)
+     ->orWhere('rental_id', 'like', $keyword)
 
-         ->orWhere('amount', 'like', $keyword)
+     ->orWhere('amount', 'like', $keyword)
 
-         ->orWhere('payment_date', 'like', $keyword)
+     ->orWhere('payment_date', 'like', $keyword)
 
-        ->paginate(20);
+->paginate(20);
 
-        $payments->setPath("search?keyword=$keyword");
-        return view('payment_show', compact('payments'));
-    }
+$payments->setPath("search?keyword=$keyword");
+return view('payment_show', compact('payments'));     }
 
     /**
     * Sort Table element
@@ -205,134 +203,133 @@ return view('payment_edit', compact('payment'));
     public function sort(){
         $path = "";
 
-        request()->session()->forget("sortKey");
-        request()->session()->forget("sortOrder");
-    if(!request()->exists('tab')){
-        $payments = Payment::query();
-          if(request()->exists('amount')){
-            $payments = $payments->orderBy('amount', $this->getOrder('amount'));
-            $path = "amount";
-        }else{
-            request()->session()->forget("amount");
-        }
-        if(request()->exists('payment_date')){
-            $payments = $payments->orderBy('payment_date', $this->getOrder('payment_date'));
-            $path = "payment_date";
-        }else{
-            request()->session()->forget("payment_date");
-        }
-         $payments = $payments->paginate(20);
-        $payments->setPath("sort?$path");
-        return view('payment_show', compact('payments'));
-
+         request()->session()->forget("sortKey");
+request()->session()->forget("sortOrder");
+if(!request()->exists('tab')){
+$payments = Payment::query();
+       if(request()->exists('amount')){
+    $payments = $payments->orderBy('amount', $this->getOrder('amount'));
+    $path = "amount";
     }else{
-
-      if(request()->exists('tab') == 'rental'){
-
-         if(request()->exists('rental_date')){
-             session(['sortOrder' => $this->getOrder('rental_date')]);
-             session(['sortKey' => 'rental_date']);
-        }else{
-            request()->session()->forget("rental_date");
-        }
-
-           if(request()->exists('return_date')){
-             session(['sortOrder' => $this->getOrder('return_date')]);
-             session(['sortKey' => 'return_date']);
-        }else{
-            request()->session()->forget("return_date");
-        }
-
-           
-      }
-      if(request()->exists('tab') == 'customer'){
-
-          if(request()->exists('first_name')){
-             session(['sortOrder' => $this->getOrder('first_name')]);
-             session(['sortKey' => 'first_name']);
-        }else{
-            request()->session()->forget("first_name");
-        }
-
-         if(request()->exists('last_name')){
-             session(['sortOrder' => $this->getOrder('last_name')]);
-             session(['sortKey' => 'last_name']);
-        }else{
-            request()->session()->forget("last_name");
-        }
-
-         if(request()->exists('email')){
-             session(['sortOrder' => $this->getOrder('email')]);
-             session(['sortKey' => 'email']);
-        }else{
-            request()->session()->forget("email");
-        }
-
-          if(request()->exists('active')){
-             session(['sortOrder' => $this->getOrder('active')]);
-             session(['sortKey' => 'active']);
-        }else{
-            request()->session()->forget("active");
-        }
-
-         if(request()->exists('create_date')){
-             session(['sortOrder' => $this->getOrder('create_date')]);
-             session(['sortKey' => 'create_date']);
-        }else{
-            request()->session()->forget("create_date");
-        }
-
-          
-      }
-      if(request()->exists('tab') == 'staff'){
-
-         if(request()->exists('first_name')){
-             session(['sortOrder' => $this->getOrder('first_name')]);
-             session(['sortKey' => 'first_name']);
-        }else{
-            request()->session()->forget("first_name");
-        }
-
-         if(request()->exists('last_name')){
-             session(['sortOrder' => $this->getOrder('last_name')]);
-             session(['sortKey' => 'last_name']);
-        }else{
-            request()->session()->forget("last_name");
-        }
-
-          if(request()->exists('email')){
-             session(['sortOrder' => $this->getOrder('email')]);
-             session(['sortKey' => 'email']);
-        }else{
-            request()->session()->forget("email");
-        }
-
-          if(request()->exists('active')){
-             session(['sortOrder' => $this->getOrder('active')]);
-             session(['sortKey' => 'active']);
-        }else{
-            request()->session()->forget("active");
-        }
-
-         if(request()->exists('username')){
-             session(['sortOrder' => $this->getOrder('username')]);
-             session(['sortKey' => 'username']);
-        }else{
-            request()->session()->forget("username");
-        }
-
-         if(request()->exists('password')){
-             session(['sortOrder' => $this->getOrder('password')]);
-             session(['sortKey' => 'password']);
-        }else{
-            request()->session()->forget("password");
-        }
-
-          
-      }
-         return back();
+    request()->session()->forget("amount");
     }
+     if(request()->exists('payment_date')){
+    $payments = $payments->orderBy('payment_date', $this->getOrder('payment_date'));
+    $path = "payment_date";
+    }else{
+    request()->session()->forget("payment_date");
     }
+ $payments = $payments->paginate(20);
+$payments->setPath("sort?$path");
+return view('payment_show', compact('payments'));
+
+}else{
+
+  if(request()->exists('tab') == 'rental'){
+
+     if(request()->exists('rental_date')){
+    session(['sortOrder' => $this->getOrder('rental_date')]);
+    session(['sortKey' => 'rental_date']);
+    }else{
+    request()->session()->forget("rental_date");
+    }
+
+       if(request()->exists('return_date')){
+    session(['sortOrder' => $this->getOrder('return_date')]);
+    session(['sortKey' => 'return_date']);
+    }else{
+    request()->session()->forget("return_date");
+    }
+
+   
+}
+  if(request()->exists('tab') == 'customer'){
+
+      if(request()->exists('first_name')){
+    session(['sortOrder' => $this->getOrder('first_name')]);
+    session(['sortKey' => 'first_name']);
+    }else{
+    request()->session()->forget("first_name");
+    }
+
+     if(request()->exists('last_name')){
+    session(['sortOrder' => $this->getOrder('last_name')]);
+    session(['sortKey' => 'last_name']);
+    }else{
+    request()->session()->forget("last_name");
+    }
+
+     if(request()->exists('email')){
+    session(['sortOrder' => $this->getOrder('email')]);
+    session(['sortKey' => 'email']);
+    }else{
+    request()->session()->forget("email");
+    }
+
+      if(request()->exists('active')){
+    session(['sortOrder' => $this->getOrder('active')]);
+    session(['sortKey' => 'active']);
+    }else{
+    request()->session()->forget("active");
+    }
+
+     if(request()->exists('create_date')){
+    session(['sortOrder' => $this->getOrder('create_date')]);
+    session(['sortKey' => 'create_date']);
+    }else{
+    request()->session()->forget("create_date");
+    }
+
+  
+}
+  if(request()->exists('tab') == 'staff'){
+
+     if(request()->exists('first_name')){
+    session(['sortOrder' => $this->getOrder('first_name')]);
+    session(['sortKey' => 'first_name']);
+    }else{
+    request()->session()->forget("first_name");
+    }
+
+     if(request()->exists('last_name')){
+    session(['sortOrder' => $this->getOrder('last_name')]);
+    session(['sortKey' => 'last_name']);
+    }else{
+    request()->session()->forget("last_name");
+    }
+
+      if(request()->exists('email')){
+    session(['sortOrder' => $this->getOrder('email')]);
+    session(['sortKey' => 'email']);
+    }else{
+    request()->session()->forget("email");
+    }
+
+      if(request()->exists('active')){
+    session(['sortOrder' => $this->getOrder('active')]);
+    session(['sortKey' => 'active']);
+    }else{
+    request()->session()->forget("active");
+    }
+
+     if(request()->exists('username')){
+    session(['sortOrder' => $this->getOrder('username')]);
+    session(['sortKey' => 'username']);
+    }else{
+    request()->session()->forget("username");
+    }
+
+     if(request()->exists('password')){
+    session(['sortOrder' => $this->getOrder('password')]);
+    session(['sortKey' => 'password']);
+    }else{
+    request()->session()->forget("password");
+    }
+
+  
+}
+ return back();
+}     }
 
     /**
     * Clear Search Pattern
@@ -343,22 +340,22 @@ return view('payment_edit', compact('payment'));
         return back();
     }
 
-    function updateRental(Payment $payment ){
+     function updateRental(Payment $payment ){
         $rental = \App\Rental::find(request()->get('rental'));
         $payment->rental()->associate($rental)->save();
         return back();
     }
-function updateCustomer(Payment $payment ){
+    function updateCustomer(Payment $payment ){
         $customer = \App\Customer::find(request()->get('customer'));
         $payment->customer()->associate($customer)->save();
         return back();
     }
-function updateStaff(Payment $payment ){
+    function updateStaff(Payment $payment ){
         $staff = \App\Staff::find(request()->get('staff'));
         $payment->staff()->associate($staff)->save();
         return back();
     }
- 
+  
     private function getOrder($param){
         if(session($param, "none") != "none"){
             session([$param => session($param, 'asc') == 'asc' ? 'desc':'asc']);

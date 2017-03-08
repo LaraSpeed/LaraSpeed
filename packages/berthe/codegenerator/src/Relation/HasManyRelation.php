@@ -36,7 +36,7 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
      *
      * @var string
      */
-    public $modelView = "singleArgModelRelation";
+    public $modelView = "doubleArgsModel"; //"singleArgModelRelation";
 
     /**
      * View name representing the code to add in table's Controller
@@ -66,14 +66,17 @@ class HasManyRelation extends BaseRelation implements FormRelationInterface, Mod
      */
     public $relationAccessor = "hasManyRelationAccessor";
 
+
     /**
      * HasManyRelation constructor.
      * @param string $table
      * @param string $other
+     * @param string $foreignKey
      */
-    public function __construct($table = "table", $other = "otherTable")
+    public function __construct($table = "table", $other = "otherTable", $foreignKey = "")
     {
         parent::__construct("hasMany", $table, $other);
+        $this->setForeignKey($foreignKey);
     }
 
     /**

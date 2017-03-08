@@ -1,37 +1,35 @@
 <?php 
-namespace App;
+namespace  App ;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class Store extends Model
+class  Store  extends Model
 {
     protected $primaryKey = "store_id";
 
     protected $table = "store";
 
-    protected $fillable = ["store_id", "manager_staff_id", "address_id",  ];
+    protected $fillable = [ "store_id", "manager_staff_id", "address_id",   ];
 
-        function address(){ 
-        return $this->belongsTo('App\Address');
-    }
+     function address(){ 
+    return $this->belongsTo('App\Address');
+}
 
     function staff(){ 
-        return $this->hasMany('App\Staff');
-    }
+    return $this->hasMany('App\Staff');
+}
 
     function film(){ 
         return $this->belongsToMany('App\Film');
     }
 
     function customer(){ 
-        return $this->hasMany('App\Customer');
-    }
+    return $this->hasMany('App\Customer');
+}
 
- 
-     
-    
-    function getStaffPaginatedAttribute(){
+  
+     function getStaffPaginatedAttribute(){
         $staff = $this->staff();
         if(session("keyword", "none") != "none"){
             $key = "%".session('keyword','')."%";
@@ -94,7 +92,7 @@ class Store extends Model
 
     }
 
- 
+  
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);

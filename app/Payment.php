@@ -1,30 +1,30 @@
 <?php 
-namespace App;
+namespace  App ;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
 
-class Payment extends Model
+class  Payment  extends Model
 {
     protected $primaryKey = "payment_id";
 
     protected $table = "payment";
 
-    protected $fillable = ["payment_id", "customer_id", "rental_id", "amount", "payment_date",  ];
+    protected $fillable = [ "payment_id", "customer_id", "rental_id", "amount", "payment_date",   ];
 
-        function rental(){ 
-        return $this->belongsTo('App\Rental');
-    }
+     function rental(){ 
+    return $this->belongsTo('App\Rental');
+}
 
     function customer(){ 
-        return $this->belongsTo('App\Customer');
-    }
+    return $this->belongsTo('App\Customer');
+}
 
     function staff(){ 
-        return $this->belongsTo('App\Staff');
-    }
+    return $this->belongsTo('App\Staff');
+}
 
- 
+  
      function setPaymentDateAttribute($value){
 
         $val = explode("-", $value);
@@ -45,7 +45,7 @@ class Payment extends Model
     
     
     
- 
+  
     public function hasAttribute($attr)
     {
         return array_key_exists($attr, $this->attributes);

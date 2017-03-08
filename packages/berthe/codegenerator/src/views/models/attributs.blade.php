@@ -1,0 +1,1 @@
+@if(array_key_exists('attributs', $table))@foreach($table['attributs'] as $attrName => $attrVal){!! "\"$attrName\", "!!}@endforeach @endif

@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use Berthe\Codegenerator\Core\ACL;
 use Berthe\Codegenerator\Core\CallGenerator;
 use Berthe\Codegenerator\Core\MCD;
 
@@ -236,6 +237,23 @@ class GeneratorCode  extends CallGenerator {
                 ->date("date", true)
                 ->longText("articles", false)
                 ->end();
+
+        //=========================== Define - ACL ==========================//
+        $acl = new ACL();
+        $acl->role("staff")
+                ->domain("D1")
+                    ->droit("CRUD")
+                ->domain("D2")
+                    ->droit("CR")
+                ->end()
+
+            ->role("user")
+                ->domain("D1")
+                    ->droit("CR")
+                ->domain("D2")
+                    ->droit("CRUD")
+                ->end();
+        //dd($acl);
 
         //Set Additional Information
         parent::setRoutes($mcd->getRoutes());

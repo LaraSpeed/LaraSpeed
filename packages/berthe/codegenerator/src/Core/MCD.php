@@ -34,7 +34,6 @@ use Berthe\Codegenerator\Relation\HasManyRelation;
 use Berthe\Codegenerator\Relation\HasManyThroughRelation;
 use Berthe\Codegenerator\Relation\HasOneRelation;
 
-
 class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
 {
     /**
@@ -122,6 +121,13 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     private $currentRelationTableName;
 
     /**
+     * Table Domaine name
+     *
+     * @var array
+     */
+    private $domaines;
+
+    /**
      * MCD constructor.
      */
     public function __construct()
@@ -131,6 +137,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
         $this->routes = array();
 
         $this->pivots = [];
+
+        $this->domaines = array();
 
         $this->hoversMessages = [];
 
@@ -648,9 +656,44 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
         return $this;
     }
 
+    /**
+     * Specify on hover message for relation
+     *
+     * @param string $doc
+     * @return $this
+     */
     public function doc($doc = "")
     {
         $this->hoversMessages[$this->currentTableName . $this->getCurrentRelationTableName()] = $doc;
         return $this;
     }
+
+    /**
+     * Set the domaine for current table
+     *
+     * @param string $domain
+     * @return $this
+     */
+    public function domain($domain = ""){
+
+        if(key_exists($domain, $this->domaines)){
+            $this->domaines[$domain][] = $this->currentTableName;
+            return $this;
+        }
+
+        $this->domaines[$domain] = array();
+        $this->domaines[$domain][] = $this->currentTableName;
+
+        return $this;
+    }
+
+    /**
+     * Get domaines
+     *
+     * @return array
+     */
+    public function getDomains(){
+        return $this->domaines;
+    }
+
 }

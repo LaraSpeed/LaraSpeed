@@ -61,6 +61,10 @@ class CodeGeneratorServiceProvider extends ServiceProvider
         //include __DIR__.'/routes.php';
         $this->app->make('Berthe\Codegenerator\Core\CallGenerator');
         $this->app->make('Berthe\Codegenerator\Core\MCD');
+        $this->app->make('Berthe\Codegenerator\Core\Droit');
+        $this->app->make('Berthe\Codegenerator\Core\Domaine');
+        $this->app->make('Berthe\Codegenerator\Core\Role');
+        $this->app->make('Berthe\Codegenerator\Core\ACL');
 	    $this->app->make('Berthe\Codegenerator\Core\FileGenerator');
         //$this->app->bind('Berthe\Codegenerator\ILaravelCodeGenerator');
         $this->app->make('Berthe\Codegenerator\Core\LaravelCodeGenerator');

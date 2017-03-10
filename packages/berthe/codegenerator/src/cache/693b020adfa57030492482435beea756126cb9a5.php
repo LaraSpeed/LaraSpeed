@@ -1,1 +1,0 @@
-$<?php echo $table['title']."->delete();"; ?>

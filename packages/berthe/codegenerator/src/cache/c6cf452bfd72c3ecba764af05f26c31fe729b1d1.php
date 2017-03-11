@@ -1,0 +1,4 @@
+<?php if(array_key_exists('relations', $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relationType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+    <?php echo $__env->make($relationType->getModelView(), ["type" => $relationType->getType(), "tab" => $relationType->getOtherTable(), "intermediate" => $relationType->getIntermediateTable(), "table" => $relationType->getTable(), "foreignKey" =>$relationType->getForeignKey(), "parentKey" => $relationType->getParentKey()], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>

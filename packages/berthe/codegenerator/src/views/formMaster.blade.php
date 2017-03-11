@@ -68,26 +68,52 @@
         <section class="body">
             <!-- start: header -->
             <header class="header">
-                <div class="logo-container">
-                    <a href="../" class="logo">
-                        <h4>LaraSpeed</h4>
-                    </a>
-                    <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
-                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
-                    </div>
-                </div>
-
-                <!-- start: search & user box -->
-                <div class="header-right">
-                    <!--<form action="" class="search nav-form">
-                        <div class="input-group input-search">
-                            <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-							</span>
+                <nav class="navbar navbar-default navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <!-- Branding Image -->
+                            <a class="navbar-brand" href="{{ url('/') }}">
+                                LaraSpeed
+                            </a>
                         </div>
-                    </form>-->
-                </div>
+
+                        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                            <!-- Left Side Of Navbar -->
+                            <ul class="nav navbar-nav">
+                                &nbsp;
+                            </ul>
+
+                            <!-- Right Side Of Navbar -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <!-- Authentication Links -->
+                                @if (Auth::guest())
+                                    <li><a href="{{ url('/login') }}">Login</a></li>
+                                    <li><a href="{{ url('/') }}">Register</a></li>
+                                @else
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
+
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ url('/logout') }}"
+                                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                                    Logout
+                                                </a>
+
+                                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
                 <!-- end: search & user box -->
             </header>
             <!-- end: header -->

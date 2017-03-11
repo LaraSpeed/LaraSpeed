@@ -13,6 +13,7 @@ namespace Berthe\Codegenerator\Core;
 
 use Berthe\Codegenerator\Contrats\ConfigInterface;
 use Berthe\Codegenerator\Utils\Variable;
+use League\Flysystem\Exception;
 
 class BasicConfig implements ConfigInterface
 {
@@ -112,6 +113,15 @@ class BasicConfig implements ConfigInterface
     function getHoverMessage($tableName = "", $relatedTableName = "")
     {
         return $this->proccess("hoverMessages", $tableName . $relatedTableName);
+    }
+
+    /**
+     * Get ACL config
+     *
+     * @return mixed|null
+     */
+    public function getACL(){
+        return array_key_exists("acl", $this->configs) ? $this->configs["acl"] : null;
     }
 
     /**

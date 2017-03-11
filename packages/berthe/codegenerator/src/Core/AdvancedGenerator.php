@@ -10,6 +10,7 @@
 
 namespace Berthe\Codegenerator\Core;
 use Berthe\Codegenerator\Contrats\IAdvancedLaravelGenerator;
+use Berthe\Codegenerator\Contrats\NormalizeInterface;
 use Berthe\Codegenerator\Templates\EditTemplate;
 use Berthe\Codegenerator\Templates\RelatedTemplate;
 use Berthe\Codegenerator\Templates\Templater;
@@ -64,6 +65,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 
         //VIEWS
         "formMaster.blade.php" => "resources/views/master.blade.php",
+        "simpleFormMaster.blade.php" => "resources/views/simpleMaster.blade.php",
         "modal.blade.php" => "resources/views/modal.blade.php",
 
         //CSS
@@ -272,12 +274,18 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
      * Generate one components based on the Templater Specified, his differ from "generateLaravel()" method which generate all components.
      *
      * @param Templater $templater
+     * @param NormalizeInterface $normalize
+     * @param string $toPrepends
      */
-    public function generateLaravelSimpleFile(Templater $templater)
+    public function generateLaravelSimpleFile(Templater $templater, $normalize = null, $toPrepends = "")
     {
         $tbs = $this->mda;
         $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["tbs" => $tbs, "config" => $this->config]);
         $fileGenerator->put($templater->getPath(""));
+
+        if($normalize != null)
+            FileUtils::normalizeSimpleFile($toPrepends, $templater->getPath(""), $normalize);
+
         chmod($templater->getPath(""), 0777);
         //FileUtils::prependString("<?php \n", $path);
     }

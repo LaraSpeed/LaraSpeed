@@ -27,6 +27,17 @@ class FileUtils
     }
 
     /**
+     * Helper function to normalize single file
+     *
+     * @param $toPrepends
+     * @param $path
+     * @param NormalizeInterface $normalize
+     */
+    public static function normalizeSimpleFile($toPrepends, $path, NormalizeInterface $normalize){
+        $normalize->normalize($toPrepends, $path);
+    }
+
+    /**
      * Prepends String to file.
      * @param $toPrepend
      * @param $path

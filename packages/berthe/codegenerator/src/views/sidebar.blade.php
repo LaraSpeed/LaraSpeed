@@ -1,6 +1,6 @@
 <ul class="nav nav-main">
     <li>
-        <a href="">
+        <a href="{!!"{"."{url(\"/home\")}"."}"!!}">
             <i class="fa fa-home" aria-hidden="true"></i>
             <span class="text-md">Dashboard</span>
         </a>

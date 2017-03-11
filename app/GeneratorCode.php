@@ -255,10 +255,16 @@ class GeneratorCode  extends CallGenerator {
                 ->end();
         //dd($acl);
 
+        //Set ACL Information
+        $acl->setMappedDomainTable($mcd->getDomains());
+
         //Set Additional Information
         parent::setRoutes($mcd->getRoutes());
         parent::setPivots($mcd->getPivots());
         parent::setHoverMessages($mcd->getHoversMessages());
+        parent::setACL($acl);
+
+
         
         return $mcd->getSite();
     }

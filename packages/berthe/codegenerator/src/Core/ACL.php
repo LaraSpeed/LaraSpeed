@@ -42,6 +42,12 @@ class ACL implements IACLDSL
      */
     private $currentDroit;
 
+    /**
+     *  Mapping between Domain & tables in the domain
+     * @var array
+     */
+    private $mappedDomainsTable;
+
 
     /**
      * ACL constructor.
@@ -129,5 +135,23 @@ class ACL implements IACLDSL
         return $this;
     }
 
+    /**
+     * Get Mapping Domains => tables
+     *
+     * @param array $mappedDomainTable
+     */
+    public function setMappedDomainTable($mappedDomainTable = array()){
+        $this->mappedDomainsTable = $mappedDomainTable;
+    }
+
+
+    /**
+     * Set the Mapping between Table 
+     *
+     * @return array
+     */
+    public function getMappedDomainTable(){
+        return $this->mappedDomainsTable;
+    }
 
 }

@@ -13,7 +13,12 @@
 
 namespace Berthe\Codegenerator\Core;
 use Berthe\Codegenerator\Core\AdvancedGenerator;
+use Berthe\Codegenerator\Normalizer\SimpleInheritMaster;
+use Berthe\Codegenerator\Templates\AuthenticateTemplate;
+use Berthe\Codegenerator\Templates\GenericFormTemplate;
 use Berthe\Codegenerator\Templates\SideBarTemplate;
+use Berthe\Codegenerator\Normalizer\InheritMaster;
+use Berthe\Codegenerator\Normalizer\BasicNormalization;
 
 class CallGenerator
 {
@@ -37,6 +42,13 @@ class CallGenerator
      * @var array
      */
     private $hoverMessages;
+
+    /**
+     * Currrent application ACL
+     *
+     * @var ACL
+     */
+    private $ACL;
 
     /**
      * Get the "Conceptual Data Model" as an array.
@@ -76,6 +88,24 @@ class CallGenerator
     }
 
     /**
+     * Get Application ACL
+     *
+     * @return ACL
+     */
+    public function getACL(){
+        return $this->ACL;
+    }
+
+    /**
+     * Set Application ACL
+     *
+     * @param ACL $ACL
+     */
+    public function setACL(ACL $ACL){
+        $this->ACL = $ACL;
+    }
+
+    /**
      * Generate different component (Controllers, Schemas, Models and forms).
      * It's fired when "php artisan code:generate" is called.
      *
@@ -86,6 +116,7 @@ class CallGenerator
         $mcd = $this->getSite();
         $this->configs["pivots"] = $this->pivots;
         $this->configs["hoverMessages"] = $this->hoverMessages;
+        $this->configs["acl"] = $this->getACL();
 
         $laravelGenerator = new AdvancedGenerator($mcd, $this->configs, $this->routes);
             //new LaravelCodeGenerator($this->getSite());
@@ -100,6 +131,11 @@ class CallGenerator
         $laravelGenerator->generate('Schema');
         $laravelGenerator->generateLaravelSchemaConstraint("constraint", 'database/migrations');
         $laravelGenerator->generateLaravelSimpleFile(new SideBarTemplate);
+
+        //Generate SignUp/In Form
+        $laravelGenerator->generateLaravelSimpleFile(new AuthenticateTemplate("login", "signin"), new SimpleInheritMaster(new BasicNormalization), "");
+        $laravelGenerator->generateLaravelSimpleFile(new AuthenticateTemplate("register", "signup"), new SimpleInheritMaster(new BasicNormalization), "");
+        $laravelGenerator->generateLaravelSimpleFile(new GenericFormTemplate("home", "home", "resources/views"), new SimpleInheritMaster(new BasicNormalization()), "");
 
         chmod("resources/views/master.blade.php", 0777);
     }

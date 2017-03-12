@@ -53,7 +53,7 @@ class GenericFormTemplate  extends Templater
     function getPath($tableName = "")
     {
 
-        return base_path($this->outDir).'/'.$this->viewName.'.blade.php';
+        return base_path($this->outDir).'/'.$this->viewName.'.php';
     }
 
 }

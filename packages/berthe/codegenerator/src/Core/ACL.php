@@ -32,7 +32,7 @@ class ACL implements IACLDSL
     private $currentRole;
 
     /**
-     * @var Domain
+     * @var Domaine
      */
     private $currentDomain;
 

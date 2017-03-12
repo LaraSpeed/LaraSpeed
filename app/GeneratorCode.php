@@ -27,6 +27,7 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
                     ->doc("Films where the Actor played")
+                ->domain($this->domaines["STOCK"])
                 ->end()
 
             ->table("film")
@@ -69,6 +70,7 @@ class GeneratorCode  extends CallGenerator {
                     ->doc("Actors that played in the Film")
                 ->belongsToMany("store")
                     ->doc("Stores where the Film is inventoried")
+                ->domain($this->domaines["STOCK"])
                 ->end()
 
             ->table("language")
@@ -78,6 +80,7 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->hasMany("film" ,"id_language")
                     ->doc("Films in the Language")
+                ->domain($this->domaines["STOCK"])
                 ->end()
 
             ->table("category")
@@ -87,6 +90,7 @@ class GeneratorCode  extends CallGenerator {
                 ->timeStamp("last_update")
                 ->belongsToMany("film")
                     ->doc("Films related to the Category")
+                ->domain($this->domaines["STOCK"])
                 ->end()
 
             ->table("customer")
@@ -112,6 +116,7 @@ class GeneratorCode  extends CallGenerator {
                     ->doc("Customer's Payments")
                 ->belongsTo("address")
                 ->belongsTo("store")
+                ->domain($this->domaines["CLIENT"])
                 ->end()
 
             ->table("rental")
@@ -130,6 +135,7 @@ class GeneratorCode  extends CallGenerator {
                     ->doc("Rental's Payments")
                 ->belongsTo("staff")
                 ->belongsTo("customer")
+                ->domain($this->domaines["CLIENT"])
                 ->end()
 
             ->table("payment")
@@ -144,6 +150,7 @@ class GeneratorCode  extends CallGenerator {
                 ->belongsTo("rental")
                 ->belongsTo("customer")
                 ->belongsTo("staff")
+                ->domain($this->domaines["FINANCIER"])
                 ->end()
 
             ->table("address")
@@ -166,6 +173,7 @@ class GeneratorCode  extends CallGenerator {
                 ->hasMany("store")
                     ->doc("Stores at the Address")
                 ->belongsTo("city")
+                ->domain($this->domaines["LOCATION"])
                 ->end()
 
             ->table("city")
@@ -177,6 +185,7 @@ class GeneratorCode  extends CallGenerator {
                 ->hasMany("address")
                     ->doc("Addresses in the city")
                 ->belongsTo("country")
+                ->domain($this->domaines["LOCATION"])
                 ->end()
 
             ->table("country")
@@ -188,6 +197,7 @@ class GeneratorCode  extends CallGenerator {
                     ->doc("Cities in the Country")
                 ->hasManyThrough("address", "city")
                     ->doc("Country's Address")
+                ->domain($this->domaines["LOCATION"])
                 ->end()
 
             ->table("store")
@@ -200,6 +210,7 @@ class GeneratorCode  extends CallGenerator {
                 ->belongsToMany("film")
                     ->doc("Films in the Store")
                 ->hasMany("customer")
+                ->domain($this->domaines["ADMIN"])
                 ->end()
 
             ->table("staff")
@@ -228,35 +239,48 @@ class GeneratorCode  extends CallGenerator {
                     ->doc("Payments received by the Staff")
                 ->belongsTo("address")
                 ->belongsTo("store")
+                ->domain($this->domaines["ADMIN"])
                 ->end()
 
-            ->table("delivery")
+            /**->table("delivery")
                 ->increments("id")
                 ->string("identifiant", 25)
                     ->mandatory()
                 ->date("date", true)
                 ->longText("articles", false)
-                ->end();
+                ->end()**/;
 
         //=========================== Define - ACL ==========================//
+
         $acl = new ACL();
-        $acl->role("staff")
-                ->domain("D1")
-                    ->droit("CRUD")
-                ->domain("D2")
-                    ->droit("CR")
+        $acl->role("USER")
+                ->domain("STOCK")
+                    ->droit("R")
                 ->end()
 
-            ->role("user")
-                ->domain("D1")
-                    ->droit("CR")
-                ->domain("D2")
+            ->role("COMPTABLE")
+                ->domain("FINANCIER")
+                    ->droit("CRU")
+                ->end()
+
+            ->role("MAGASINIER")
+                ->domain("STOCK")
+                    ->droit("CRUD")
+                ->domain("CLIENT")
+                    ->droit("CRU")
+                ->domain("LOCATION")
+                    ->droit("CRUD")
+                ->end()
+
+            ->role("GERANT")
+                ->domain("ADMIN")
                     ->droit("CRUD")
                 ->end();
-        //dd($acl);
 
         //Set ACL Information
         $acl->setMappedDomainTable($mcd->getDomains());
+
+        //dd($acl->getMappedDomainTable());
 
         //Set Additional Information
         parent::setRoutes($mcd->getRoutes());
@@ -327,6 +351,15 @@ class GeneratorCode  extends CallGenerator {
             "staff" => "fa fa-user",
             "store" => "fa fa-amazon"
         ),
+    );
+
+    public $domaines = array(
+        "PUBLIC" => "PUBLIC",
+        "FINANCIER"  => "FINANCIER",
+        "STOCK" => "STOCK",
+        "CLIENT" => "CLIENT",
+        "LOCATION" => "LOCATION",
+        "ADMIN" => "ADMIN"
     );
 
 }

@@ -130,12 +130,17 @@ class CallGenerator
         $laravelGenerator->generate('Controller');
         $laravelGenerator->generate('Schema');
         $laravelGenerator->generateLaravelSchemaConstraint("constraint", 'database/migrations');
-        $laravelGenerator->generateLaravelSimpleFile(new SideBarTemplate);
+
+        //Generate SideBar
+        $laravelGenerator->generateLaravelSimpleFile(new SideBarTemplate, new BasicNormalization, "");
 
         //Generate SignUp/In Form
         $laravelGenerator->generateLaravelSimpleFile(new AuthenticateTemplate("login", "signin"), new SimpleInheritMaster(new BasicNormalization), "");
         $laravelGenerator->generateLaravelSimpleFile(new AuthenticateTemplate("register", "signup"), new SimpleInheritMaster(new BasicNormalization), "");
-        $laravelGenerator->generateLaravelSimpleFile(new GenericFormTemplate("home", "home", "resources/views"), new SimpleInheritMaster(new BasicNormalization()), "");
+        $laravelGenerator->generateLaravelSimpleFile(new GenericFormTemplate("home.blade", "home", "resources/views"), new SimpleInheritMaster(new BasicNormalization()), "");
+
+        //Generate ACL Manager in App Side
+        $laravelGenerator->generateLaravelSimpleFile(new GenericFormTemplate("ACLFactory", "acl", "app"), new BasicNormalization(), "<?php\n");
 
         chmod("resources/views/master.blade.php", 0777);
     }

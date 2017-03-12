@@ -14,7 +14,8 @@
 
             <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
             @foreach($tbs as $tab => $table)@if(!$config->isPivot($tab))
-                <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                S3Bif(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "{!! $tab !!}"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{!!"{"."{url(\"/".$tab."\")}"."}"!!}">
@@ -28,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+                 S3Bendif
             @endif @endforeach
             </div>
 </section>

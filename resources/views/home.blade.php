@@ -15,7 +15,8 @@
             </div>
 
             <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
-                            <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                            @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "actor"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/actor")}}">
@@ -29,7 +30,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "film"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/film")}}">
@@ -43,7 +46,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "language"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/language")}}">
@@ -57,7 +62,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "category"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/category")}}">
@@ -71,7 +78,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "customer"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/customer")}}">
@@ -85,7 +94,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "rental"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/rental")}}">
@@ -99,7 +110,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "payment"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/payment")}}">
@@ -113,7 +126,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "address"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/address")}}">
@@ -127,7 +142,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "city"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/city")}}">
@@ -141,7 +158,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "country"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/country")}}">
@@ -155,7 +174,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "store"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/store")}}">
@@ -169,7 +190,9 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                 @endif
+                             @if(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "staff"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="{{url("/staff")}}">
@@ -183,20 +206,7 @@
                         </div>
                     </div>
                 </div>
-                             <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
-                    <div class="thumbnail">
-                        <div class="thumb-preview">
-                            <a class="thumb-image" href="{{url("/delivery")}}">
-                                <i class="fa fa-gift fa-5x" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                        <h5 class="mg-title text-weight-semibold">Deliveries</h5>
-                        <div class="mg-description">
-                            <!--<small class="pull-left text-muted">Design, Websites</small>
-                            <small class="pull-right text-muted">07/10/2016</small>-->
-                        </div>
-                    </div>
-                </div>
+                 @endif
                          </div>
 </section>
 <!-- end: page -->@endsection

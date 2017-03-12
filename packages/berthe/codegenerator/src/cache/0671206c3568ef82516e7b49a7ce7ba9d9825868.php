@@ -14,7 +14,8 @@
 
             <div class="row mg-files" data-sort-destination data-sort-id="media-gallery">
             <?php $__currentLoopData = $tbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tab => $table): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$config->isPivot($tab)): ?>
-                <div class="isotope-item document col-sm-6 col-md-4 col-lg-3">
+                S3Bif(\Berthe\Codegenerator\Core\ACLSpecificOperation::canAccessTable(\App\ACLFactory::getACL(), Auth::user()->role, "<?php echo $tab; ?>"))
+                <div class="isotope-item document col-sm-6 col-md-4 col-lg-4">
                     <div class="thumbnail">
                         <div class="thumb-preview">
                             <a class="thumb-image" href="<?php echo "{"."{url(\"/".$tab."\")}"."}"; ?>">
@@ -28,6 +29,7 @@
                         </div>
                     </div>
                 </div>
+                 S3Bendif
             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
             </div>
 </section>

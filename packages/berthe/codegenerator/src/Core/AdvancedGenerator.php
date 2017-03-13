@@ -12,6 +12,7 @@ namespace Berthe\Codegenerator\Core;
 use Berthe\Codegenerator\Contrats\IAdvancedLaravelGenerator;
 use Berthe\Codegenerator\Contrats\NormalizeInterface;
 use Berthe\Codegenerator\Templates\EditTemplate;
+use Berthe\Codegenerator\Templates\PolicyTemplate;
 use Berthe\Codegenerator\Templates\RelatedTemplate;
 use Berthe\Codegenerator\Templates\Templater;
 use Berthe\Codegenerator\Templates\ControllerTemplate;
@@ -67,6 +68,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         "formMaster.blade.php" => "resources/views/master.blade.php",
         "simpleFormMaster.blade.php" => "resources/views/simpleMaster.blade.php",
         "modal.blade.php" => "resources/views/modal.blade.php",
+        "user.blade.php" => "app/User.php",
 
         //CSS
         "bootstrap3.css" => "public/css/bootstrap3.css",
@@ -84,6 +86,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         "script.js" => "public/js/script.js",
         "jquery.bootstrap-duallistbox.js" => "public/js/jquery.bootstrap-duallistbox.js",
         "prettyfy.min.js" => "public/js/prettyfy.min.js",
+
 
         //Fonts
         "glyphicons-halflings-regular.eot" => "public/fonts/glyphicons-halflings-regular.eot",
@@ -141,7 +144,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
 
                 $table['title'] = $tableName; //var_dump($table['relations']);
 
-                $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, "tbs" => $this->mda, "config" => $this->config]);
+                $fileGenerator = new FileGenerator(TemplateProvider::getTemplate($templater->getName()), ["table" => $table, "tbs" => $this->mda, "config" => $this->config, "acl" => $this->config->getACL()]);
 
                 $path = $templater->getPath($tableName);
 
@@ -156,6 +159,16 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         }catch (\Exception $e){
             echo $e->getMessage();
         }
+    }
+
+    /**
+     *
+     * Generate Laravel Policy
+     *
+     * @return void
+     */
+    public function generateLaravelPolicy(){
+        FileUtils::normalizeFile("<?php \n", $this->generateLaravel(new PolicyTemplate), new BasicNormalization);
     }
 
     /**
@@ -269,6 +282,7 @@ class AdvancedGenerator implements IAdvancedLaravelGenerator
         chmod($path, 0777);
         FileUtils::prependString("<?php \n", $path);
     }
+
 
     /**
      * Generate one components based on the Templater Specified, his differ from "generateLaravel()" method which generate all components.

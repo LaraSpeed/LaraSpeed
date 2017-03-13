@@ -1,0 +1,1 @@
+@include("policy.policytemplate", ["table" => $table, "config" => $config, "acl" => $acl, "droit" => "R"])

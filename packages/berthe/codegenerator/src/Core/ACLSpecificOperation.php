@@ -24,4 +24,22 @@ class ACLSpecificOperation
         $tables = (new ACLBO($acl))->getAccessibleTables($role);
         return in_array($table, $tables);
     }
+
+    public static function getDroit(ACL $acl, $role = "", $table = ""){
+
+        $lvACLBo = new ACLBO($acl);
+
+        $domaines = $lvACLBo->getDomaines($role);
+
+        foreach ($domaines as $domaine){
+
+            $tables = $lvACLBo->getDomainTables($domaine->getName());
+
+            if(in_array($table, $tables)){
+                return $domaine->getDroit();
+            }
+        }
+
+        return "";
+    }
 }

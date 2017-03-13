@@ -129,6 +129,10 @@ class CallGenerator
         $laravelGenerator->generate('Model');
         $laravelGenerator->generate('Controller');
         $laravelGenerator->generate('Schema');
+
+        //Generate ACL DROIT
+        $laravelGenerator->generate("Policy");
+
         $laravelGenerator->generateLaravelSchemaConstraint("constraint", 'database/migrations');
 
         //Generate SideBar
@@ -141,6 +145,9 @@ class CallGenerator
 
         //Generate ACL Manager in App Side
         $laravelGenerator->generateLaravelSimpleFile(new GenericFormTemplate("ACLFactory", "acl", "app"), new BasicNormalization(), "<?php\n");
+
+        $laravelGenerator->generateLaravelSimpleFile(new GenericFormTemplate("AuthServiceProvider", "authservice", "app/Providers"), new BasicNormalization(), "<?php \n");
+
 
         chmod("resources/views/master.blade.php", 0777);
     }

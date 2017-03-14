@@ -28,78 +28,78 @@ class RentalPolicy
     /**
     * View Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function view(User $user, Rental $model){
+    public function view(User $user/*, Rental $model */){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental"), "R")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental")->getDroit(), "R")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
 
     /**
     * Create Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function create(User $user, Rental $model){
+    public function create(User $user/*, Rental $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental"), "C")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental")->getDroit(), "C")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
     /**
     * update Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function update(User $user, Rental $model){
+    public function update(User $user/*, Rental $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental"), "U")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental")->getDroit(), "U")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
     /**
     * Delete Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function delete(User $user, Rental $model){
+    public function delete(User $user/*, Rental $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "rental")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental"), "D")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "rental")->getDroit(), "D")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
 }

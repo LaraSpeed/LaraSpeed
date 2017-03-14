@@ -31,6 +31,8 @@ class StoreController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Store::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -45,6 +47,8 @@ class StoreController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Store::class);
+
         return view(' store ');
     }
 
@@ -55,6 +59,8 @@ class StoreController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Store::class);
+
          $data = request()->all();
 
 $store = Store::create([
@@ -79,6 +85,8 @@ $store = Store::create([
     */
     public function show( Store $store )
     {
+        $this->authorize("view", Store::class);
+
         request()->session()->forget("mutate");
          $store->load(array("address","staff","film","customer",));
 return view('store_display', compact('store')); 
@@ -92,6 +100,8 @@ return view('store_display', compact('store'));
     */
     public function edit( Store $store )
     {
+        $this->authorize("update", Store::class);
+
         request()->session()->forget("mutate");
          $store->load(array("address","staff","film","customer",));
 return view('store_edit', compact('store')); 
@@ -105,6 +115,8 @@ return view('store_edit', compact('store'));
     */
     public function update( Store $store  )
     {
+        $this->authorize("update", Store::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -152,6 +164,8 @@ $store->update($updateFields);
     */
     public function destroy( Store $store )
     {
+        $this->authorize("delete", Store::class);
+
          $store->delete();         return back();
     }
 

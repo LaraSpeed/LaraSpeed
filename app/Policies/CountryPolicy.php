@@ -28,78 +28,78 @@ class CountryPolicy
     /**
     * View Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function view(User $user, Country $model){
+    public function view(User $user/*, Country $model */){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country"), "R")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country")->getDroit(), "R")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
 
     /**
     * Create Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function create(User $user, Country $model){
+    public function create(User $user/*, Country $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country"), "C")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country")->getDroit(), "C")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
     /**
     * update Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function update(User $user, Country $model){
+    public function update(User $user/*, Country $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country"), "U")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country")->getDroit(), "U")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
     /**
     * Delete Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function delete(User $user, Country $model){
+    public function delete(User $user/*, Country $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "country")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country"), "D")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "country")->getDroit(), "D")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
 }

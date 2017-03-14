@@ -10,30 +10,48 @@
 
 @section('controllerName'){{ucfirst($table['title'])."Controller"}}@endsection
 
+@section("indexModel")@include("policyControllerModel", ["table" => $table])@endsection
+
 @section('viewName'){{$table['title']}}@endsection
 
 @section('varID'){{$table['title'].'s'}}@endsection
 
 @section('modelCall'){!!ucfirst($table['title']).'::paginate(20)'!!}@endsection
 
+@section("createModel")@include("policyControllerModel", ["table" => $table])@endsection
+
 @section('createView') @include("controllers.create.createAction", ["table" => $table]) @endsection
+
+@section("storeModel")@include("policyControllerModel", ["table" => $table])@endsection
 
 @section('storeContent') @include("controllers.store.storeActionContent", ["table" => $table]) @endsection
 
 @section('store') @include("controllers.store.storeActionReturnValue", ["table" => $table]) @endsection
 
 @section('object') @include("controllers.show.showActionParam", ["table" => $table]) @endsection
+
+@section("showModel")@include("policyControllerModel", ["table" => $table])@endsection
+
 <?php $tb = array(); ?>
 @section('show') @include("controllers.show.showActionContent", ["table" => $table]) @endsection
 
 @section('editParam') @include("controllers.edit.editActionParam", ["table" => $table]) @endsection
+
+@section("editModel")@include("policyControllerModel", ["table" => $table])@endsection
+
 <?php $tb = array(); ?>
 @section('edit') @include("controllers.edit.editActionContent", ["table" => $table]) @endsection
 
 @section('updateParam') @include("controllers.update.updateActionParam", ["table" => $table]) @endsection
+
+@section("updateModel")@include("policyControllerModel", ["table" => $table])@endsection
+
 @section('update') @include("controllers.update.updateActionContent", ["table" => $table]) @endsection
 
 @section('deleteParam') @include("controllers.delete.deleteActionParam", ["table" => $table]) @endsection
+
+@section("destroyModel")@include("policyControllerModel", ["table" => $table])@endsection
+
 @section('delete') @include("controllers.delete.deleteActionContent", ["table" => $table]) @endsection
 
 @section('relatedParam') @include("controllers.related.relatedActionParam", ["table" => $table]) @endsection

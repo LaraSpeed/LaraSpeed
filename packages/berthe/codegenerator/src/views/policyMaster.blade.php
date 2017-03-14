@@ -29,9 +29,9 @@ class @yield("model")Policy
     /**
     * View Resource Policy.
     *
-    * @return void
+    * @return bool
     */
-    public function view(User $user, @yield("viewModelParam")){
+    public function view(User $user/*, @yield("viewModelParam") */){
 
         @yield("viewContent")
     }
@@ -40,9 +40,9 @@ class @yield("model")Policy
     /**
     * Create Resource Policy.
     *
-    * @return void
+    * @return bool
     */
-    public function create(User $user, @yield("createModelParam")){
+    public function create(User $user/*, @yield("createModelParam")*/){
 
         @yield("createContent")
     }
@@ -50,9 +50,9 @@ class @yield("model")Policy
     /**
     * update Resource Policy.
     *
-    * @return void
+    * @return bool
     */
-    public function update(User $user, @yield("updateModelParam")){
+    public function update(User $user/*, @yield("updateModelParam")*/){
 
         @yield("updateContent")
     }
@@ -60,9 +60,9 @@ class @yield("model")Policy
     /**
     * Delete Resource Policy.
     *
-    * @return void
+    * @return bool
     */
-    public function delete(User $user, @yield("deleteModelParam")){
+    public function delete(User $user/*, @yield("deleteModelParam")*/){
 
         @yield("deleteContent")
     }

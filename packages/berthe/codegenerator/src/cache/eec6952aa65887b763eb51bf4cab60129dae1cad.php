@@ -29,9 +29,9 @@ class <?php echo $__env->yieldContent("model"); ?>Policy
     /**
     * View Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function view(User $user, <?php echo $__env->yieldContent("viewModelParam"); ?>){
+    public function view(User $user/*, <?php echo $__env->yieldContent("viewModelParam"); ?> */){
 
         <?php echo $__env->yieldContent("viewContent"); ?>
     }
@@ -40,9 +40,9 @@ class <?php echo $__env->yieldContent("model"); ?>Policy
     /**
     * Create Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function create(User $user, <?php echo $__env->yieldContent("createModelParam"); ?>){
+    public function create(User $user/*, <?php echo $__env->yieldContent("createModelParam"); ?>*/){
 
         <?php echo $__env->yieldContent("createContent"); ?>
     }
@@ -50,9 +50,9 @@ class <?php echo $__env->yieldContent("model"); ?>Policy
     /**
     * update Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function update(User $user, <?php echo $__env->yieldContent("updateModelParam"); ?>){
+    public function update(User $user/*, <?php echo $__env->yieldContent("updateModelParam"); ?>*/){
 
         <?php echo $__env->yieldContent("updateContent"); ?>
     }
@@ -60,9 +60,9 @@ class <?php echo $__env->yieldContent("model"); ?>Policy
     /**
     * Delete Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function delete(User $user, <?php echo $__env->yieldContent("deleteModelParam"); ?>){
+    public function delete(User $user/*, <?php echo $__env->yieldContent("deleteModelParam"); ?>*/){
 
         <?php echo $__env->yieldContent("deleteContent"); ?>
     }

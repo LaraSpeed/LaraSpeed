@@ -24,6 +24,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", <?php echo $__env->yieldContent("indexModel"); ?>);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -38,6 +40,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", <?php echo $__env->yieldContent("createModel"); ?>);
+
         return view('<?php echo $__env->yieldContent('createView'); ?>');
     }
 
@@ -48,6 +52,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", <?php echo $__env->yieldContent("storeModel"); ?>);
+
         <?php echo $__env->yieldContent('storeContent'); ?>
 
         return <?php echo $__env->yieldContent('store'); ?>
@@ -61,6 +67,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function show(<?php echo $__env->yieldContent('object'); ?>)
     {
+        $this->authorize("view", <?php echo $__env->yieldContent("showModel"); ?>);
+
         request()->session()->forget("mutate");
         <?php echo $__env->yieldContent('show'); ?>
 
@@ -74,6 +82,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function edit(<?php echo $__env->yieldContent('editParam'); ?>)
     {
+        $this->authorize("update", <?php echo $__env->yieldContent("editModel"); ?>);
+
         request()->session()->forget("mutate");
         <?php echo $__env->yieldContent('edit'); ?>
 
@@ -87,6 +97,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function update(<?php echo $__env->yieldContent('updateParam'); ?>)
     {
+        $this->authorize("update", <?php echo $__env->yieldContent("updateModel"); ?>);
+
         <?php echo $__env->yieldContent('update'); ?>
 
         return back();
@@ -100,6 +112,8 @@ class <?php echo $__env->yieldContent('controllerName'); ?> extends Controller {
     */
     public function destroy(<?php echo $__env->yieldContent('deleteParam'); ?>)
     {
+        $this->authorize("delete", <?php echo $__env->yieldContent("destroyModel"); ?>);
+
         <?php echo $__env->yieldContent('delete'); ?>
         return back();
     }

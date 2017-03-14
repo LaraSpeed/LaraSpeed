@@ -28,78 +28,78 @@ class CategoryPolicy
     /**
     * View Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function view(User $user, Category $model){
+    public function view(User $user/*, Category $model */){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category"), "R")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category")->getDroit(), "R")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
 
     /**
     * Create Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function create(User $user, Category $model){
+    public function create(User $user/*, Category $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category"), "C")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category")->getDroit(), "C")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
     /**
     * update Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function update(User $user, Category $model){
+    public function update(User $user/*, Category $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category"), "U")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category")->getDroit(), "U")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
     /**
     * Delete Resource Policy.
     *
-    * @return  void
+    * @return  bool
     */
-    public function delete(User $user, Category $model){
+    public function delete(User $user/*, Category $model*/){
 
         $lvRole = $user->role;
-$lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
+        $lvAccessibleTables = (new ACLBO(ACLFactory::getACL()))->getAccessibleTables($lvRole);
 
-if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
+        if(ACLSpecificOperation::canAccessTable(ACLFactory::getACL(), $lvRole, "category")){
 
-if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category"), "D")){
-return true;
-}
-}
+            if(str_contains(ACLSpecificOperation::getDroit(ACLFactory::getACL(), $lvRole, "category")->getDroit(), "D")){
+                return true;
+            }
+        }
 
-return false;    }
+        return false;    }
 
 }

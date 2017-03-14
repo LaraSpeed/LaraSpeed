@@ -31,6 +31,8 @@ class FilmController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Film::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -45,6 +47,8 @@ class FilmController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Film::class);
+
         return view(' film ');
     }
 
@@ -55,6 +59,8 @@ class FilmController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Film::class);
+
          $data = request()->all();
 
 $film = Film::create([
@@ -92,6 +98,8 @@ $film = Film::create([
     */
     public function show( Film $film )
     {
+        $this->authorize("view", Film::class);
+
         request()->session()->forget("mutate");
          $film->load(array("language","category","actor","store",));
 return view('film_display', compact('film')); 
@@ -105,6 +113,8 @@ return view('film_display', compact('film'));
     */
     public function edit( Film $film )
     {
+        $this->authorize("update", Film::class);
+
         request()->session()->forget("mutate");
          $film->load(array("language","category","actor","store",));
 return view('film_edit', compact('film')); 
@@ -118,6 +128,8 @@ return view('film_edit', compact('film'));
     */
     public function update( Film $film  )
     {
+        $this->authorize("update", Film::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -162,6 +174,8 @@ $film->update($updateFields);
     */
     public function destroy( Film $film )
     {
+        $this->authorize("delete", Film::class);
+
          $film->delete();         return back();
     }
 

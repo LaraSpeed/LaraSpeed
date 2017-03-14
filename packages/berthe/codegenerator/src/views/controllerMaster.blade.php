@@ -24,6 +24,8 @@ class @yield('controllerName') extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", @yield("indexModel"));
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -38,6 +40,8 @@ class @yield('controllerName') extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", @yield("createModel"));
+
         return view('@yield('createView')');
     }
 
@@ -48,6 +52,8 @@ class @yield('controllerName') extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", @yield("storeModel"));
+
         @yield('storeContent')
 
         return @yield('store')
@@ -61,6 +67,8 @@ class @yield('controllerName') extends Controller {
     */
     public function show(@yield('object'))
     {
+        $this->authorize("view", @yield("showModel"));
+
         request()->session()->forget("mutate");
         @yield('show')
 
@@ -74,6 +82,8 @@ class @yield('controllerName') extends Controller {
     */
     public function edit(@yield('editParam'))
     {
+        $this->authorize("update", @yield("editModel"));
+
         request()->session()->forget("mutate");
         @yield('edit')
 
@@ -87,6 +97,8 @@ class @yield('controllerName') extends Controller {
     */
     public function update(@yield('updateParam'))
     {
+        $this->authorize("update", @yield("updateModel"));
+
         @yield('update')
 
         return back();
@@ -100,6 +112,8 @@ class @yield('controllerName') extends Controller {
     */
     public function destroy(@yield('deleteParam'))
     {
+        $this->authorize("delete", @yield("destroyModel"));
+
         @yield('delete')
         return back();
     }

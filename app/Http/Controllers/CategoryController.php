@@ -25,6 +25,8 @@ class CategoryController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Category::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -39,6 +41,8 @@ class CategoryController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Category::class);
+
         return view(' category ');
     }
 
@@ -49,6 +53,8 @@ class CategoryController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Category::class);
+
          $data = request()->all();
 
 $category = Category::create([
@@ -69,6 +75,8 @@ $category = Category::create([
     */
     public function show( Category $category )
     {
+        $this->authorize("view", Category::class);
+
         request()->session()->forget("mutate");
          $category->load(array("film",));
 return view('category_display', compact('category')); 
@@ -82,6 +90,8 @@ return view('category_display', compact('category'));
     */
     public function edit( Category $category )
     {
+        $this->authorize("update", Category::class);
+
         request()->session()->forget("mutate");
          $category->load(array("film",));
 return view('category_edit', compact('category')); 
@@ -95,6 +105,8 @@ return view('category_edit', compact('category'));
     */
     public function update( Category $category  )
     {
+        $this->authorize("update", Category::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -120,6 +132,8 @@ $category->update($updateFields);
     */
     public function destroy( Category $category )
     {
+        $this->authorize("delete", Category::class);
+
          $category->delete();         return back();
     }
 

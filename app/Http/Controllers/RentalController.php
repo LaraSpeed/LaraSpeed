@@ -29,6 +29,8 @@ class RentalController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Rental::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -43,6 +45,8 @@ class RentalController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Rental::class);
+
         return view(' rental ');
     }
 
@@ -53,6 +57,8 @@ class RentalController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Rental::class);
+
          $data = request()->all();
 
 $rental = Rental::create([
@@ -81,6 +87,8 @@ $rental = Rental::create([
     */
     public function show( Rental $rental )
     {
+        $this->authorize("view", Rental::class);
+
         request()->session()->forget("mutate");
          $rental->load(array("payment","staff","customer",));
 return view('rental_display', compact('rental')); 
@@ -94,6 +102,8 @@ return view('rental_display', compact('rental'));
     */
     public function edit( Rental $rental )
     {
+        $this->authorize("update", Rental::class);
+
         request()->session()->forget("mutate");
          $rental->load(array("payment","staff","customer",));
 return view('rental_edit', compact('rental')); 
@@ -107,6 +117,8 @@ return view('rental_edit', compact('rental'));
     */
     public function update( Rental $rental  )
     {
+        $this->authorize("update", Rental::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -148,6 +160,8 @@ $rental->update($updateFields);
     */
     public function destroy( Rental $rental )
     {
+        $this->authorize("delete", Rental::class);
+
          $rental->delete();         return back();
     }
 

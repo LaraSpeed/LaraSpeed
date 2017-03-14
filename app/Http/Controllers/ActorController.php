@@ -25,6 +25,8 @@ class ActorController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Actor::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -39,6 +41,8 @@ class ActorController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Actor::class);
+
         return view(' actor ');
     }
 
@@ -49,6 +53,8 @@ class ActorController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Actor::class);
+
          $data = request()->all();
 
 $actor = Actor::create([
@@ -70,6 +76,8 @@ $actor = Actor::create([
     */
     public function show( Actor $actor )
     {
+        $this->authorize("view", Actor::class);
+
         request()->session()->forget("mutate");
          $actor->load(array("film",));
 return view('actor_display', compact('actor')); 
@@ -83,6 +91,8 @@ return view('actor_display', compact('actor'));
     */
     public function edit( Actor $actor )
     {
+        $this->authorize("update", Actor::class);
+
         request()->session()->forget("mutate");
          $actor->load(array("film",));
 return view('actor_edit', compact('actor')); 
@@ -96,6 +106,8 @@ return view('actor_edit', compact('actor'));
     */
     public function update( Actor $actor  )
     {
+        $this->authorize("update", Actor::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -122,6 +134,8 @@ $actor->update($updateFields);
     */
     public function destroy( Actor $actor )
     {
+        $this->authorize("delete", Actor::class);
+
          $actor->delete();         return back();
     }
 

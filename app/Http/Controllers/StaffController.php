@@ -31,6 +31,8 @@ class StaffController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Staff::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -45,6 +47,8 @@ class StaffController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Staff::class);
+
         return view(' staff ');
     }
 
@@ -55,6 +59,8 @@ class StaffController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Staff::class);
+
          $data = request()->all();
 
 $staff = Staff::create([
@@ -87,6 +93,8 @@ $staff = Staff::create([
     */
     public function show( Staff $staff )
     {
+        $this->authorize("view", Staff::class);
+
         request()->session()->forget("mutate");
          $staff->load(array("rental","payment","address","store",));
 return view('staff_display', compact('staff')); 
@@ -100,6 +108,8 @@ return view('staff_display', compact('staff'));
     */
     public function edit( Staff $staff )
     {
+        $this->authorize("update", Staff::class);
+
         request()->session()->forget("mutate");
          $staff->load(array("rental","payment","address","store",));
 return view('staff_edit', compact('staff')); 
@@ -113,6 +123,8 @@ return view('staff_edit', compact('staff'));
     */
     public function update( Staff $staff  )
     {
+        $this->authorize("update", Staff::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -167,6 +179,8 @@ $staff->update($updateFields);
     */
     public function destroy( Staff $staff )
     {
+        $this->authorize("delete", Staff::class);
+
          $staff->delete();         return back();
     }
 

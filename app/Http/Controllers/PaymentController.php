@@ -29,6 +29,8 @@ class PaymentController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Payment::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -43,6 +45,8 @@ class PaymentController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Payment::class);
+
         return view(' payment ');
     }
 
@@ -53,6 +57,8 @@ class PaymentController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Payment::class);
+
          $data = request()->all();
 
 $payment = Payment::create([
@@ -86,6 +92,8 @@ $payment = Payment::create([
     */
     public function show( Payment $payment )
     {
+        $this->authorize("view", Payment::class);
+
         request()->session()->forget("mutate");
          $payment->load(array("rental","customer","staff",));
 return view('payment_display', compact('payment')); 
@@ -99,6 +107,8 @@ return view('payment_display', compact('payment'));
     */
     public function edit( Payment $payment )
     {
+        $this->authorize("update", Payment::class);
+
         request()->session()->forget("mutate");
          $payment->load(array("rental","customer","staff",));
 return view('payment_edit', compact('payment')); 
@@ -112,6 +122,8 @@ return view('payment_edit', compact('payment'));
     */
     public function update( Payment $payment  )
     {
+        $this->authorize("update", Payment::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -149,6 +161,8 @@ $payment->update($updateFields);
     */
     public function destroy( Payment $payment )
     {
+        $this->authorize("delete", Payment::class);
+
          $payment->delete();         return back();
     }
 

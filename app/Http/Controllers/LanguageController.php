@@ -25,6 +25,8 @@ class LanguageController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Language::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -39,6 +41,8 @@ class LanguageController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Language::class);
+
         return view(' language ');
     }
 
@@ -49,6 +53,8 @@ class LanguageController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Language::class);
+
          $data = request()->all();
 
 $language = Language::create([
@@ -66,6 +72,8 @@ $language = Language::create([
     */
     public function show( Language $language )
     {
+        $this->authorize("view", Language::class);
+
         request()->session()->forget("mutate");
          $language->load(array("film",));
 return view('language_display', compact('language')); 
@@ -79,6 +87,8 @@ return view('language_display', compact('language'));
     */
     public function edit( Language $language )
     {
+        $this->authorize("update", Language::class);
+
         request()->session()->forget("mutate");
          $language->load(array("film",));
 return view('language_edit', compact('language')); 
@@ -92,6 +102,8 @@ return view('language_edit', compact('language'));
     */
     public function update( Language $language  )
     {
+        $this->authorize("update", Language::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -122,6 +134,8 @@ $language->update($updateFields);
     */
     public function destroy( Language $language )
     {
+        $this->authorize("delete", Language::class);
+
          $language->delete();         return back();
     }
 

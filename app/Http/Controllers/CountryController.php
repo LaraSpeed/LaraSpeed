@@ -27,6 +27,8 @@ class CountryController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Country::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -41,6 +43,8 @@ class CountryController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Country::class);
+
         return view(' country ');
     }
 
@@ -51,6 +55,8 @@ class CountryController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Country::class);
+
          $data = request()->all();
 
 $country = Country::create([
@@ -68,6 +74,8 @@ $country = Country::create([
     */
     public function show( Country $country )
     {
+        $this->authorize("view", Country::class);
+
         request()->session()->forget("mutate");
          $country->load(array("city","address",));
 return view('country_display', compact('country')); 
@@ -81,6 +89,8 @@ return view('country_display', compact('country'));
     */
     public function edit( Country $country )
     {
+        $this->authorize("update", Country::class);
+
         request()->session()->forget("mutate");
          $country->load(array("city","address",));
 return view('country_edit', compact('country')); 
@@ -94,6 +104,8 @@ return view('country_edit', compact('country'));
     */
     public function update( Country $country  )
     {
+        $this->authorize("update", Country::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -124,6 +136,8 @@ $country->update($updateFields);
     */
     public function destroy( Country $country )
     {
+        $this->authorize("delete", Country::class);
+
          $country->delete();         return back();
     }
 

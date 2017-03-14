@@ -31,6 +31,8 @@ class CustomerController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Customer::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -45,6 +47,8 @@ class CustomerController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Customer::class);
+
         return view(' customer ');
     }
 
@@ -55,6 +59,8 @@ class CustomerController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Customer::class);
+
          $data = request()->all();
 
 $customer = Customer::create([
@@ -85,6 +91,8 @@ $customer = Customer::create([
     */
     public function show( Customer $customer )
     {
+        $this->authorize("view", Customer::class);
+
         request()->session()->forget("mutate");
          $customer->load(array("payment","rental","address","store",));
 return view('customer_display', compact('customer')); 
@@ -98,6 +106,8 @@ return view('customer_display', compact('customer'));
     */
     public function edit( Customer $customer )
     {
+        $this->authorize("update", Customer::class);
+
         request()->session()->forget("mutate");
          $customer->load(array("payment","rental","address","store",));
 return view('customer_edit', compact('customer')); 
@@ -111,6 +121,8 @@ return view('customer_edit', compact('customer'));
     */
     public function update( Customer $customer  )
     {
+        $this->authorize("update", Customer::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -155,6 +167,8 @@ $customer->update($updateFields);
     */
     public function destroy( Customer $customer )
     {
+        $this->authorize("delete", Customer::class);
+
          $customer->delete();         return back();
     }
 

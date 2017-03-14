@@ -27,6 +27,8 @@ class CityController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", City::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -41,6 +43,8 @@ class CityController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", City::class);
+
         return view(' city ');
     }
 
@@ -51,6 +55,8 @@ class CityController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", City::class);
+
          $data = request()->all();
 
 $city = City::create([
@@ -73,6 +79,8 @@ $city = City::create([
     */
     public function show( City $city )
     {
+        $this->authorize("view", City::class);
+
         request()->session()->forget("mutate");
          $city->load(array("address","country",));
 return view('city_display', compact('city')); 
@@ -86,6 +94,8 @@ return view('city_display', compact('city'));
     */
     public function edit( City $city )
     {
+        $this->authorize("update", City::class);
+
         request()->session()->forget("mutate");
          $city->load(array("address","country",));
 return view('city_edit', compact('city')); 
@@ -99,6 +109,8 @@ return view('city_edit', compact('city'));
     */
     public function update( City $city  )
     {
+        $this->authorize("update", City::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -134,6 +146,8 @@ $city->update($updateFields);
     */
     public function destroy( City $city )
     {
+        $this->authorize("delete", City::class);
+
          $city->delete();         return back();
     }
 

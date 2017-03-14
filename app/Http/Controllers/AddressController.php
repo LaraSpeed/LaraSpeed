@@ -31,6 +31,8 @@ class AddressController extends Controller {
     */
     public function index()
     {
+        $this->authorize("view", Address::class);
+
         request()->session()->forget("keyword");
         request()->session()->forget("clear");
         request()->session()->forget("defaultSelect");
@@ -45,6 +47,8 @@ class AddressController extends Controller {
     */
     public function create()
     {
+        $this->authorize("create", Address::class);
+
         return view(' address ');
     }
 
@@ -55,6 +59,8 @@ class AddressController extends Controller {
     */
     public function store()
     {
+        $this->authorize("create", Address::class);
+
          $data = request()->all();
 
 $address = Address::create([
@@ -81,6 +87,8 @@ $address = Address::create([
     */
     public function show( Address $address )
     {
+        $this->authorize("view", Address::class);
+
         request()->session()->forget("mutate");
          $address->load(array("customer","staff","store","city",));
 return view('address_display', compact('address')); 
@@ -94,6 +102,8 @@ return view('address_display', compact('address'));
     */
     public function edit( Address $address )
     {
+        $this->authorize("update", Address::class);
+
         request()->session()->forget("mutate");
          $address->load(array("customer","staff","store","city",));
 return view('address_edit', compact('address')); 
@@ -107,6 +117,8 @@ return view('address_edit', compact('address'));
     */
     public function update( Address $address  )
     {
+        $this->authorize("update", Address::class);
+
          $data = request()->all();
 
 $updateFields = array();
@@ -164,6 +176,8 @@ $address->update($updateFields);
     */
     public function destroy( Address $address )
     {
+        $this->authorize("delete", Address::class);
+
          $address->delete();         return back();
     }
 

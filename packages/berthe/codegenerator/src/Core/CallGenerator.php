@@ -116,6 +116,17 @@ class CallGenerator
         $mcd = $this->getSite();
         $this->configs["pivots"] = $this->pivots;
         $this->configs["hoverMessages"] = $this->hoverMessages;
+
+        //SetUp SUPER_ADMIN ROLE
+        $this->ACL->role("SUPER_ADMIN");
+
+        foreach($this->ACL->getMappedDomainTable() as $domain => $tables){
+            $this->ACL->domain($domain)
+                        ->droit("CRUD");
+        }
+
+        $this->ACL->end();
+
         $this->configs["acl"] = $this->getACL();
 
         $laravelGenerator = new AdvancedGenerator($mcd, $this->configs, $this->routes);

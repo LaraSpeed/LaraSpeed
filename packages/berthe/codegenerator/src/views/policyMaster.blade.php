@@ -25,6 +25,17 @@ class @yield("model")Policy
         //
     }
 
+    /**
+    * Check Super Admin (This method is the first to be executed)
+    *
+    * @return bool
+    */
+    public function before($user, $ability)
+    {
+        if ($user->isSuperAdmin()) {
+            return true;
+        }
+    }
 
     /**
     * View Resource Policy.

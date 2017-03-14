@@ -45,6 +45,26 @@ class ACLFactory
 
                             ],
 
+        
+            "SUPER_ADMIN" => [
+
+                
+                    "STOCK" => "CRUD",
+
+                
+                    "CLIENT" => "CRUD",
+
+                
+                    "FINANCIER" => "CRUD",
+
+                
+                    "LOCATION" => "CRUD",
+
+                
+                    "ADMIN" => "CRUD",
+
+                            ],
+
             ];
 
     private static $mappedDomainTable = [

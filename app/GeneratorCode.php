@@ -280,8 +280,6 @@ class GeneratorCode  extends CallGenerator {
         //Set ACL Information
         $acl->setMappedDomainTable($mcd->getDomains());
 
-        //dd($acl->getMappedDomainTable());
-
         //Set Additional Information
         parent::setRoutes($mcd->getRoutes());
         parent::setPivots($mcd->getPivots());

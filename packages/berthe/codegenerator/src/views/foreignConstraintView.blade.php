@@ -1,2 +1,2 @@
-            {!!'$table->integer(\''.$tab.'_id\')->unsigned()->index()->nullable();'!!}
-            {!!'$table->foreign(\''.$tab.'_id\')->references(\'id\')->on(\''.$tab.'\')->onDelete(\'cascade\')->onUpdate(\'cascade\');'!!}
+            {!!'$table->integer(\''.$tbs[$tab]['id'].'\')->unsigned()->index()->nullable();'!!}
+            {!!'$table->foreign(\''.$tbs[$tab]['id'].'\')->references(\''.$tbs[$tab]['id'].'\')->on(\''.$tab.'\')->onDelete(\'cascade\')->onUpdate(\'cascade\');'!!}

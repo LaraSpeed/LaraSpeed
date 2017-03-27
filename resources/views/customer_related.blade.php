@@ -74,12 +74,12 @@
                               Amount
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
-                              Payment date
+                              Payement Date
                             </th>                                                      <th class="text-md text-primary">
-                                Rental
+                                Rentals
                             </th>
                                                         <th class="text-md text-primary">
-                                Staff
+                                Staffs
                             </th>
                           
                                    
@@ -206,16 +206,16 @@
                         <tr>
                                                    <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
-                              Rental date
+                              Rental Date
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
-                              Return date
+                              Return Date
                             </th>                                                            <th class="text-md text-primary">
-                                Staff
+                                Staffs
                             </th>
                             
                                                              <th class="text-md text-primary">
-                                    Payment
+                                    Payments
                                 </th>
                                   
                             <th class="text-md text-primary" nowrap>Actions</th>

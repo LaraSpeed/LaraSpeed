@@ -60,11 +60,11 @@
                                 City
                             </th>     
                                                                 <th class="text-md text-primary">
-                                   Country
+                                   Countries
                                 </th>
                               
                                                             <th class="text-md text-primary">
-                                    Address
+                                    Addresses
                                 </th>
                                
                             <th class="text-md text-primary">Actions</th>

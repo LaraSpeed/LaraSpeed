@@ -11,7 +11,7 @@
 			 <input type ="text" class="form-control" name="address" placeholder="Address"  required /> 		</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="address2"> Address2 : </label>
+			<label class="text-danger text-md" id="address2"> Address 2 : </label>
 			 <input type ="text" class="form-control" name="address2" placeholder="Address2"  required /> 		</div> <br/>
 		  
         <div class="form-group">
@@ -19,7 +19,7 @@
 			 <input type ="text" class="form-control" name="district" placeholder="District"  required /> 		</div> <br/>
 		    
         <div class="form-group">
-			<label class="text-danger text-md" id="postal_code">Postal code * : </label>
+			<label class="text-danger text-md" id="postal_code">Postal Code * : </label>
 			 <input type ="text" class="form-control" name="postal_code" placeholder="Postal code"  required /> 		</div> <br/>
 		  
         <div class="form-group">

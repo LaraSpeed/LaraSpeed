@@ -57,14 +57,14 @@
                         <tr>
                               
                                                               <th class="text-md text-primary">
-                                   Address
+                                   Addresses
                                 </th>
                                     
                                                              <th class="text-md text-primary">
-                                    Staff
+                                    Staffs
                                 </th>
                                                               <th class="text-md text-primary">
-                                    Customer
+                                    Customers
                                 </th>
                               
                             <th class="text-md text-primary">Actions</th>

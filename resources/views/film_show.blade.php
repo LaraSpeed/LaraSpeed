@@ -63,19 +63,19 @@
                                 Description
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                Release year
+                                Release Year
                             </th>                                <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Rental duration
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                Rental rate
+                                Rental Rate
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Length
                             </th>         
                                                               <th class="text-md text-primary">
-                                   Language
+                                   Languages
                                 </th>
                                     
                                  

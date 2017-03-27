@@ -60,16 +60,16 @@
                                 Amount
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                Payment date
+                                Payement Date
                             </th> 
                                                               <th class="text-md text-primary">
-                                   Rental
+                                   Rentals
                                 </th>
                                                               <th class="text-md text-primary">
-                                   Customer
+                                   Customers
                                 </th>
                                                               <th class="text-md text-primary">
-                                   Staff
+                                   Staffs
                                 </th>
                               
                                 

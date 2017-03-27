@@ -6,7 +6,7 @@
 		<?php if( array_key_exists('attributs', $table) ): ?><?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable()): ?>
 
         <div class="form-group">
-			<label class="text-danger text-md" id="<?php echo e($attrName); ?>"><?php if($attrType->isRequired()): ?><?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> * : <?php else: ?> <?php echo e(str_replace("_", " ", ucfirst($attrName))); ?> : <?php endif; ?></label>
+			<label class="text-danger text-md" id="<?php echo e($attrName); ?>"><?php if($attrType->isRequired()): ?><?php echo e(str_replace("_", " ", ucfirst($attrType->getColumnText()))); ?> * : <?php else: ?> <?php echo e(str_replace("_", " ", ucfirst($attrType->getColumnText()))); ?> : <?php endif; ?></label>
 			<?php if($attrType->hasUnit()): ?>
 				<div class="input-group mb-md">
 					<span class="input-group-addon"><?php echo e($attrType->getUnit()); ?></span>

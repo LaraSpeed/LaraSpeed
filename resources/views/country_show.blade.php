@@ -61,10 +61,10 @@
                             </th>   
                                   
                                                             <th class="text-md text-primary">
-                                    City
+                                    Cities
                                 </th>
                                                              <th class="text-md text-primary">
-                                    Address
+                                    Addresses
                                 </th>
                               
                             <th class="text-md text-primary">Actions</th>

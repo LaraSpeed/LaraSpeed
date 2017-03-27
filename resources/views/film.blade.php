@@ -15,7 +15,7 @@
 			 <textarea name="description" rows="4" cols="20" class="form-control"" required></textarea> 		</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="release_year">Release year * : </label>
+			<label class="text-danger text-md" id="release_year">Release Year * : </label>
 			 <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required /> 		</div> <br/>
 		    
         <div class="form-group">
@@ -27,7 +27,7 @@
 					</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="rental_rate">Rental rate * : </label>
+			<label class="text-danger text-md" id="rental_rate">Rental Rate * : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">$</span>
 					<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"placeholder="Rental rate"  required />
@@ -43,7 +43,7 @@
 					</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="replacement_cost"> Replacement cost : </label>
+			<label class="text-danger text-md" id="replacement_cost"> Replacement Cost : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">$</span>
 					<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />

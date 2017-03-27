@@ -56,20 +56,20 @@
                         <?php $__currentLoopData = $table['attributs']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $attrName => $attrType): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($attrType->isDisplayable() && $attrType->isDisplayed()): ?>
                             <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                <?php echo ucfirst(str_replace("_", " ", $attrName)); ?>
+                                <?php echo ucfirst(str_replace("_", " ", $attrType->getColumnText())); ?>
 
                             </th><?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 
                             <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?> <?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?> <?php if($relation->isBelongsTo()): ?>
                                 <th class="text-md text-primary">
-                                   <?php echo e(ucfirst($relation->getOtherTable())); ?>
+                                   <?php echo e(ucfirst($config->getPluralForm($relation->getOtherTable()))); ?>
 
                                 </th>
                             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>
 
                             <?php if(key_exists("relations", $table) && !empty($table["relations"])): ?><?php $__currentLoopData = $table['relations']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $relation): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php if(!$relation->isBelongsTo() && !$relation->isBelongsToMany()): ?>
                                 <th class="text-md text-primary">
-                                    <?php echo ucfirst($relation->getOtherTable()); ?>
+                                    <?php echo ucfirst($config->getPluralForm($relation->getOtherTable())); ?>
 
                                 </th>
                             <?php endif; ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?> <?php endif; ?>

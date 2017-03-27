@@ -74,25 +74,25 @@
                               Address
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
-                              Address2
+                              Address 2
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               District
                             </th>                            <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
-                              Postal code
+                              Postal Code
                             </th>                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
                               Phone
                             </th>                                    
                                                              <th class="text-md text-primary">
-                                    Customer
+                                    Customers
                                 </th>
                                                               <th class="text-md text-primary">
-                                    Staff
+                                    Staffs
                                 </th>
                                                               <th class="text-md text-primary">
-                                    Store
+                                    Stores
                                 </th>
                                 
                             <th class="text-md text-primary" nowrap>Actions</th>

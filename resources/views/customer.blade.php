@@ -7,11 +7,11 @@
 
 		     
         <div class="form-group">
-			<label class="text-danger text-md" id="first_name">First name * : </label>
+			<label class="text-danger text-md" id="first_name">First Name * : </label>
 			 <input type ="text" class="form-control" name="first_name" placeholder="First name"  required /> 		</div> <br/>
 		  
         <div class="form-group">
-			<label class="text-danger text-md" id="last_name">Last name * : </label>
+			<label class="text-danger text-md" id="last_name">Last Name * : </label>
 			 <input type ="text" class="form-control" name="last_name" placeholder="Last name"  required /> 		</div> <br/>
 		  
         <div class="form-group">

@@ -6,7 +6,7 @@
 		@if( array_key_exists('attributs', $table) )@foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
         <div class="form-group">
-			<label class="text-danger text-md" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrName))}} * : @else {{str_replace("_", " ", ucfirst($attrName))}} : @endif</label>
+			<label class="text-danger text-md" id="{{$attrName}}">@if($attrType->isRequired()){{str_replace("_", " ", ucfirst($attrType->getColumnText()))}} * : @else {{str_replace("_", " ", ucfirst($attrType->getColumnText()))}} : @endif</label>
 			@if($attrType->hasUnit())
 				<div class="input-group mb-md">
 					<span class="input-group-addon">{{$attrType->getUnit()}}</span>

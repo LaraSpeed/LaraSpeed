@@ -57,10 +57,10 @@
                         <tr>
                                                        <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                First name
+                                First Name
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                Last name
+                                Last Name
                             </th>   
                                 
                               

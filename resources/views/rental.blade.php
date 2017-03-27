@@ -7,11 +7,11 @@
 
 		   
         <div class="form-group">
-			<label class="text-danger text-md" id="rental_date">Rental date * : </label>
+			<label class="text-danger text-md" id="rental_date">Rental Date * : </label>
 			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="rental_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		      
         <div class="form-group">
-			<label class="text-danger text-md" id="return_date">Return date * : </label>
+			<label class="text-danger text-md" id="return_date">Return Date * : </label>
 			 <div class="input-group"><span class="input-group-addon"><i class="fa fa-calendar"></i></span><input class="form-control" id="date" data-plugin-datepicker="" name="return_date" placeholder="MM/DD/-YYYY" type="text"/></div> 		</div> <br/>
 		      
 	 		<div class="form-group">

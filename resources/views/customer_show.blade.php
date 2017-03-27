@@ -57,10 +57,10 @@
                         <tr>
                                                          <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                First name
+                                First Name
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                Last name
+                                Last Name
                             </th>                              <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
                                 Email
@@ -69,17 +69,17 @@
                                 Create date
                             </th>   
                                                                   <th class="text-md text-primary">
-                                   Address
+                                   Addresses
                                 </th>
                                                               <th class="text-md text-primary">
-                                   Store
+                                   Stores
                                 </th>
                               
                                                             <th class="text-md text-primary">
-                                    Payment
+                                    Payments
                                 </th>
                                                              <th class="text-md text-primary">
-                                    Rental
+                                    Rentals
                                 </th>
                                 
                             <th class="text-md text-primary">Actions</th>

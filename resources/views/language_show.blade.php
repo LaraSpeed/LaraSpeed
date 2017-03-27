@@ -61,7 +61,7 @@
                             </th>   
                                 
                                                             <th class="text-md text-primary">
-                                    Film
+                                    Films
                                 </th>
                               
                             <th class="text-md text-primary">Actions</th>

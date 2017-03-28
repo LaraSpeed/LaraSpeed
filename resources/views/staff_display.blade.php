@@ -22,7 +22,7 @@
         
         <div class="form-group">
             <label class="text-danger text-md">Active : </label>
-             <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"value = "{{$staff->active}}"placeholder="Active" readonly required />         </div>
+             <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$staff->active}}"placeholder="Active" readonly required />         </div>
       
         <div class="form-group">
             <label class="text-danger text-md">Username : </label>

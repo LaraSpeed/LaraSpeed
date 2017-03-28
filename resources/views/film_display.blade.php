@@ -18,13 +18,13 @@
       
         <div class="form-group">
             <label class="text-danger text-md">Release year : </label>
-             <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"value = "{{$film->release_year}}"placeholder="Release year" readonly required />         </div>
+             <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$film->release_year}}"placeholder="Release year" readonly required />         </div>
         
         <div class="form-group">
             <label class="text-danger text-md">Rental duration : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">days</span>
-                    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration" readonly required />
+                    <input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$film->rental_duration}}"placeholder="Rental duration" readonly required />
                 </div>
                     </div>
       
@@ -32,7 +32,7 @@
             <label class="text-danger text-md">Rental rate : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">$</span>
-                    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate" readonly required />
+                    <input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$film->rental_rate}}"placeholder="Rental rate" readonly required />
                 </div>
                     </div>
       
@@ -40,7 +40,7 @@
             <label class="text-danger text-md">Length : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">minutes</span>
-                    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"value = "{{$film->length}}"placeholder="Length" readonly required />
+                    <input type ="number" class="form-control" name="length"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$film->length}}"placeholder="Length" readonly required />
                 </div>
                     </div>
       
@@ -48,7 +48,7 @@
             <label class="text-danger text-md">Replacement cost : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">$</span>
-                    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost" readonly required />
+                    <input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$film->replacement_cost}}"placeholder="Replacement cost" readonly required />
                 </div>
                     </div>
            

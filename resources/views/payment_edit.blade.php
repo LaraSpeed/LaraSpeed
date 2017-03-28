@@ -9,7 +9,7 @@
             <label class="text-danger text-md">Amount : </label>
                             <div class="input-group mb-md">
                     <span class="input-group-addon">$</span>
-                    <input type ="number" class="form-control" name="amount"  data-plugin-maxlength="" maxlength="10"value = "{{$payment->amount}}"placeholder="Amount"  required />
+                    <input type ="number" class="form-control" name="amount"  data-plugin-maxlength="" step="any" maxlength="10"value = "{{$payment->amount}}"placeholder="Amount"  required />
                 </div>
                     </div>
           

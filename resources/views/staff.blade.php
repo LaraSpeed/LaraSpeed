@@ -20,7 +20,7 @@
 		    
         <div class="form-group">
 			<label class="text-danger text-md" id="active">Active * : </label>
-			 <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" maxlength="10"placeholder="Active"  required /> 		</div> <br/>
+			 <input type ="number" class="form-control" name="active"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Active"  required /> 		</div> <br/>
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="username">Username * : </label>

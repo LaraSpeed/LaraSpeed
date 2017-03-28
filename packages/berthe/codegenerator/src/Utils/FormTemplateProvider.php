@@ -29,7 +29,7 @@ class FormTemplateProvider
         $form =  '<input type ="'.$type.'" class="'.$class.'" name="'.$name.'" ';
 
         if($type == "number")
-            $form .= ' data-plugin-maxlength="" maxlength="10"';
+            $form .= ' data-plugin-maxlength="" step="any" maxlength="10"';
 
         if($value != "") {
             if ($type == "checkbox")

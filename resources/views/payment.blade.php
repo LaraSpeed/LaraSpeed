@@ -10,7 +10,7 @@
 			<label class="text-danger text-md" id="amount">Amount * : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">$</span>
-					<input type ="number" class="form-control" name="amount"  data-plugin-maxlength="" maxlength="10"placeholder="Amount"  required />
+					<input type ="number" class="form-control" name="amount"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Amount"  required />
 				</div>
 					</div> <br/>
 		  

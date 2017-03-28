@@ -16,13 +16,13 @@
 		  
         <div class="form-group">
 			<label class="text-danger text-md" id="release_year">Release year * : </label>
-			 <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" maxlength="10"placeholder="Release year"  required /> 		</div> <br/>
+			 <input type ="number" class="form-control" name="release_year"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Release year"  required /> 		</div> <br/>
 		    
         <div class="form-group">
 			<label class="text-danger text-md" id="rental_duration">Rental duration * : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">days</span>
-					<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" maxlength="10"placeholder="Rental duration"  required />
+					<input type ="number" class="form-control" name="rental_duration"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Rental duration"  required />
 				</div>
 					</div> <br/>
 		  
@@ -30,7 +30,7 @@
 			<label class="text-danger text-md" id="rental_rate">Rental rate * : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">$</span>
-					<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" maxlength="10"placeholder="Rental rate"  required />
+					<input type ="number" class="form-control" name="rental_rate"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Rental rate"  required />
 				</div>
 					</div> <br/>
 		  
@@ -38,7 +38,7 @@
 			<label class="text-danger text-md" id="length">Length * : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">minutes</span>
-					<input type ="number" class="form-control" name="length"  data-plugin-maxlength="" maxlength="10"placeholder="Length"  required />
+					<input type ="number" class="form-control" name="length"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Length"  required />
 				</div>
 					</div> <br/>
 		  
@@ -46,7 +46,7 @@
 			<label class="text-danger text-md" id="replacement_cost"> Replacement cost : </label>
 							<div class="input-group mb-md">
 					<span class="input-group-addon">$</span>
-					<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" maxlength="10"placeholder="Replacement cost"  required />
+					<input type ="number" class="form-control" name="replacement_cost"  data-plugin-maxlength="" step="any" maxlength="10"placeholder="Replacement cost"  required />
 				</div>
 					</div> <br/>
 		        

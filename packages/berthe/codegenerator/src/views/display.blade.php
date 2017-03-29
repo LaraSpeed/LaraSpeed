@@ -8,7 +8,7 @@
     @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable())
 
         <div class="form-group">
-            <label class="text-danger text-md">{{ucfirst(str_replace("_", " ", $attrName))}} : </label>
+            <label class="text-danger text-md">{{ucfirst($attrType->getColumnText())}} : </label>
             @if($attrType->hasUnit())
                 <div class="input-group mb-md">
                     <span class="input-group-addon">{{$attrType->getUnit()}}</span>

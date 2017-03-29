@@ -19,6 +19,8 @@ class TypeBaseClass
 
     public $unit;
 
+    public $columnText;
+
     /**
      * Allow the type to be list when display the table
      *
@@ -44,6 +46,26 @@ class TypeBaseClass
      */
     public function mandatory($mandatory = true){
         $this->required = $mandatory;
+    }
+
+    /**
+     *
+     * Set Column Text
+     *
+     * @param string $columnText
+     */
+    public function setColumnText($columnText = ""){
+        $this->columnText = $columnText;
+    }
+
+    /**
+     *
+     * Get Column Text
+     *
+     * @return mixed
+     */
+    public function getColumnText(){
+        return $this->columnText;
     }
 
     function getDBFunction()

@@ -211,6 +211,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function string($attrName = "string", $nb_characters = 0, $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new StringType($attrName, $required, $nb_characters, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -225,6 +228,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function integer($attrName="integer", $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new IntegerType($attrName, $required, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -239,6 +245,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
         //Create an ID for the current Table if not exist
         $this->setTableID($attrName);
 
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -252,6 +260,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function bigInteger($attrName = "bigint", $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new BigIntegerType($attrName, $required, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -265,6 +276,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function boolean($attrName = "bool", $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new BooleanType($attrName, $required, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -279,6 +293,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function char($attrName= "char", $nb_character = 0, $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new CharType($attrName, $required, $nb_character, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -294,6 +311,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function decimal($attrName = "decimal", $precision = 0, $scale = 0, $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new DecimalType($attrName, $required, $precision, $scale, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -309,6 +329,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function double($attrName = "double", $digit = 0, $after = 0, $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new DoubleType($attrName, $required, $digit, $after, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -335,6 +358,9 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function float($attrName = "float", $precision, $scale, $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new FloatType($attrName, $required, $precision, $scale, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -349,6 +375,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
         //Create an ID for the current Table if not exist
         $this->setTableID($attrName);
 
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -362,6 +390,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function longText($attrName = "longtext", $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new LongTextType($attrName, $required, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
         return $this;
     }
 
@@ -378,6 +408,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
         //Create an ID for the current Table if not exist
         $this->setTableID($attrName);
 
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -391,6 +423,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function text($attrName = "text", $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new TextType($attrName, $required, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
         return $this;
     }
 
@@ -401,6 +435,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function timeStamp($attrName = "timestamps"){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new TimeStampType($attrName);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
         return $this;
     }
 
@@ -418,6 +454,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
         //Create an ID for the current Table if not exist
         $this->setTableID($attrName);
 
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
+
         return $this;
     }
 
@@ -429,6 +467,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function set($attrName = "set", $allowed = array()){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new SetType($attrName, $allowed);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
         return $this;
     }
 
@@ -442,6 +482,8 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
     public function date($attrName = "date", $required = false, $displayed = true, $unit = ""){
         $this->currentAttributeName = $attrName;
         $this->currentAttributes[$attrName] = new DateType($attrName, $required, $displayed, $unit);
+
+        $this->currentAttributes[$attrName]->setColumnText($attrName);
         return $this;
     }
 
@@ -686,6 +728,20 @@ class MCD implements MCDConstraintInterface, MCDRelationConstraintInterface
 
         return $this;
     }
+
+    /**
+     *
+     * Set Column Text for the actual Attribute
+     *
+     * @param string $columnText
+     * @return $this
+     */
+    function columnText($columnText = "TextUnknow")
+    {
+        $this->currentAttributes[$this->currentAttributeName]->setColumnText($columnText);
+        return $this;
+    }
+
 
     /**
      * Get domaines

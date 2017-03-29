@@ -69,7 +69,7 @@
                         @foreach($tbs[$otherTable]["attributs"] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isDisplayed())
                         <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap>
-                              {!! ucfirst(str_replace("_", " ", $attrName))!!}
+                              {!! ucfirst(str_replace("_", " ", $attrType->getColumnText()))!!}
                             </th>@endif @endforeach
                         @if(key_exists("relations", $tbs[$otherTable]) && !empty($tbs[$otherTable]["relations"]))@foreach($tbs[$otherTable]['relations'] as $relation) @if($relation->getOtherTable() != $tab && $relation->isBelongsTo())
                             <th class="text-md text-primary">

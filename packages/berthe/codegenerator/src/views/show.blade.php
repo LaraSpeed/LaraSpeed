@@ -56,7 +56,7 @@
                         @foreach($table['attributs'] as $attrName => $attrType) @if($attrType->isDisplayable() && $attrType->isDisplayed())
                             <!--class="{$attrType->formClass("table")}}"-->
                             <th class="text-md text-primary" nowrap> <!-- -->
-                                {!! ucfirst(str_replace("_", " ", $attrName))!!}
+                                {!! ucfirst(str_replace("_", " ", $attrType->getColumnText()))!!}
                             </th>@endif @endforeach
 
                             @if(key_exists("relations", $table) && !empty($table["relations"])) @foreach($table['relations'] as $relation) @if($relation->isBelongsTo())

@@ -15,5 +15,6 @@ interface MCDConstraintInterface
     function mandatory($mandatory = true);
     function unit($unit = "");
     function pivot();
+    function columnText($columnText = "TextUnknow");
 
 }
